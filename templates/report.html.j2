@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MitScope Reports</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #F26522;
+    --orange-light: #FFF3EC;
+    --orange-hover: #D4551A;
+    --blue: #4A90D9;
+    --green: #27AE60;
+    --purple: #8E44AD;
+    --gray-accent: #95A5A6;
+    --bg: #F5F6F8;
+    --card-bg: #FFFFFF;
+    --text-dark: #2D3436;
+    --text-medium: #636E72;
+    --text-light: #B2BEC3;
+    --border: #E8EAED;
+    --badge-bg: #2D3436;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .production-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--orange);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .production-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  .meta-line {
+    font-size: 14px;
+    color: var(--text-medium);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--orange);
+  }
+  .meta-line .label { color: var(--orange); font-weight: 600; }
+  .meta-line .generated-label { color: var(--blue); font-weight: 600; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .tab-input { display: none; }
+  .tab-label {
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .tab-label:hover { color: var(--text-dark); }
+  .tab-input:checked + .tab-label {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+    font-weight: 600;
+  }
+  .tab-content { display: none; }
+  #tab-usage:checked ~ .tab-panels .panel-usage,
+  #tab-errors:checked ~ .tab-panels .panel-errors,
+  #tab-costs:checked ~ .tab-panels .panel-costs { display: block; }
+
+  /* Summary Cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--orange);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card:nth-child(2) { border-top-color: var(--blue); }
+  .card:nth-child(3) { border-top-color: var(--green); }
+  .card:nth-child(4) { border-top-color: var(--purple); }
+  .card:nth-child(5) { border-top-color: var(--gray-accent); }
+  .card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-medium);
+    margin-bottom: 8px;
+  }
+  .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1.1;
+  }
+  .card:nth-child(2) .card-value { color: var(--blue); }
+  .card:nth-child(3) .card-value { color: var(--green); }
+  .card:nth-child(4) .card-value { color: var(--purple); }
+  .card:nth-child(5) .card-value { color: var(--text-dark); }
+  .card-subtitle {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* Section Headers */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    font-weight: 700;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--badge-bg);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Charts */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .chart-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .chart-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .chart-card .peak-note {
+    font-size: 13px;
+    color: var(--text-medium);
+    margin-top: 12px;
+  }
+  .chart-card .peak-note .label { color: var(--orange); font-weight: 600; }
+
+  /* Tables */
+  .table-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--bg);
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--text-medium);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  thead th:hover { background: #E8EAED; }
+  thead th.sort-asc::after { content: ' \u25B2'; font-size: 10px; }
+  thead th.sort-desc::after { content: ' \u25BC'; font-size: 10px; }
+  tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dark);
+  }
+  tbody tr:hover { background: var(--orange-light); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.total-row td { font-weight: 700; background: var(--bg); }
+  td.number { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Collapsible sections */
+  details {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  details summary {
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-medium);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details summary::before {
+    content: '\u25B8';
+    font-size: 14px;
+    transition: transform 0.2s;
+  }
+  details[open] summary::before { transform: rotate(90deg); }
+  details summary::-webkit-details-marker { display: none; }
+
+  /* Error-specific */
+  .error-section { margin-bottom: 24px; padding: 20px; }
+  .error-section h3 { font-size: 16px; margin-bottom: 8px; }
+  .error-meta { font-size: 13px; color: var(--text-medium); margin-bottom: 8px; }
+  .error-meta strong { color: var(--text-dark); }
+
+  /* Stats table (key-value) */
+  .stats-table {
+    width: auto;
+    min-width: 300px;
+  }
+  .stats-table td:first-child {
+    font-weight: 600;
+    color: var(--text-medium);
+    padding-right: 32px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .charts-grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; gap: 12px; }
+    .container { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <h1>MitScope Reports</h1>
+    <span class="production-badge">Production</span>
+  </div>
+  <div class="meta-line">
+    <span class="label">Period:</span> {{ usage.period_start.strftime('%b %d') }} &ndash; {{ usage.period_end.strftime('%b %d, %Y') }} (7d)
+    &nbsp;&nbsp;&nbsp;
+    <span class="generated-label">Generated:</span> {{ generated_at.strftime('%Y-%m-%d %H:%M') }} UTC
+  </div>
+
+  <!-- Tab Navigation -->
+  <input type="radio" name="tabs" id="tab-usage" class="tab-input" checked>
+  <label for="tab-usage" class="tab-label">Usage Report</label>
+  <input type="radio" name="tabs" id="tab-errors" class="tab-input">
+  <label for="tab-errors" class="tab-label">Error Report</label>
+  <input type="radio" name="tabs" id="tab-costs" class="tab-input">
+  <label for="tab-costs" class="tab-label">Cost &amp; Latency</label>
+
+  <div class="tab-panels">
+
+    <!-- ======================== USAGE TAB ======================== -->
+    <div class="tab-content panel-usage">
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Total Scopes</div>
+          <div class="card-value">{{ "{:,}".format(usage.total_scopes) }}</div>
+          <div class="card-subtitle">production scopes</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Organizations</div>
+          <div class="card-value">{{ usage.unique_orgs }}</div>
+          <div class="card-subtitle">unique orgs</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Unique Users</div>
+          <div class="card-value">{{ usage.unique_users }}</div>
+          <div class="card-subtitle">active in period</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Total Cost</div>
+          <div class="card-value">${{ "{:,.0f}".format(usage.total_cost) }}</div>
+          <div class="card-subtitle">7-day period</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Avg Cost / Scope</div>
+          <div class="card-value">${{ "%.2f"|format(usage.avg_cost) }}</div>
+          <div class="card-subtitle">across {{ "{:,}".format(usage.total_scopes) }} scopes</div>
+        </div>
+      </div>
+
+      <!-- Activity Patterns -->
+      <div class="section-header">
+        <h2><span class="section-icon">=</span> Activity Patterns</h2>
+        <span class="badge">7-day period</span>
+      </div>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>By Day of Week</h3>
+          <canvas id="chartDayOfWeek" height="200"></canvas>
+          <div class="peak-note"><span class="label">Peak:</span> {{ usage.peak_day }}</div>
+        </div>
+        <div class="chart-card">
+          <h3>By Hour (UTC)</h3>
+          <canvas id="chartHourly" height="200"></canvas>
+          <div class="peak-note"><span class="label">Peak:</span> {{ usage.peak_hours }}</div>
+        </div>
+      </div>
+
+      <!-- Top Users by Volume -->
+      <div class="section-header">
+        <h2><span class="section-icon">&#9650;</span> Top Users by Volume</h2>
+        <span class="badge">Top 5</span>
+      </div>
+      <details>
+        <summary>Expand top users</summary>
+        <div class="table-card" style="box-shadow:none;">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Scopes</th>
+                <th>Avg Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for u in usage.top_users_by_volume %}
+              <tr>
+                <td>{{ u.email }}</td>
+                <td class="number">{{ u.scopes }}</td>
+                <td class="number">${{ "%.2f"|format(u.avg_cost) }}</td>
+                <td class="number">${{ "%.2f"|format(u.total_cost) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Cost Outliers -->
+      <div class="section-header">
+        <h2><span class="section-icon">&#9650;</span> Cost Outliers</h2>
+        <span class="badge">Avg &gt; $1.00/scope</span>
+      </div>
+      {% if usage.cost_outliers %}
+      <details>
+        <summary>Expand outliers ({{ usage.cost_outliers|length }} users)</summary>
+        <div class="table-card" style="box-shadow:none;">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Scopes</th>
+                <th>Avg Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for u in usage.cost_outliers %}
+              <tr>
+                <td>{{ u.email }}</td>
+                <td class="number">{{ u.scopes }}</td>
+                <td class="number">${{ "%.2f"|format(u.avg_cost) }}</td>
+                <td class="number">${{ "%.2f"|format(u.total_cost) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      {% else %}
+      <div class="table-card" style="padding: 20px; color: var(--text-medium);">No cost outliers this period.</div>
+      {% endif %}
+
+      <!-- By Organization -->
+      <div class="section-header">
+        <h2><span class="section-icon">=</span> By Organization</h2>
+        <span class="badge">{{ usage.unique_orgs }} orgs</span>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Scopes</th>
+              <th>Employees</th>
+              <th>Avg Cost</th>
+              <th>Total Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in usage.orgs %}
+            <tr>
+              <td>{{ o.name }}</td>
+              <td class="number">{{ o.scopes }}</td>
+              <td class="number">{{ o.employees }}</td>
+              <td class="number">${{ "%.2f"|format(o.avg_cost) }}</td>
+              <td class="number">${{ "%.2f"|format(o.total_cost) }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="total-row">
+              <td>TOTAL</td>
+              <td class="number">{{ usage.total_scopes }}</td>
+              <td class="number">{{ usage.unique_users }}</td>
+              <td class="number">${{ "%.2f"|format(usage.avg_cost) }}</td>
+              <td class="number">${{ "%.2f"|format(usage.total_cost) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- By User -->
+      <div class="section-header">
+        <h2><span class="section-icon">=</span> By User</h2>
+        <span class="badge">{{ usage.unique_users }} users</span>
+      </div>
+      <details>
+        <summary>Expand full user table</summary>
+        <div class="table-card" style="box-shadow:none;">
+          <table class="sortable">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Scopes</th>
+                <th>Avg Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for u in usage.users %}
+              <tr>
+                <td>{{ u.email }}</td>
+                <td class="number">{{ u.scopes }}</td>
+                <td class="number">${{ "%.2f"|format(u.avg_cost) }}</td>
+                <td class="number">${{ "%.2f"|format(u.total_cost) }}</td>
+              </tr>
+              {% endfor %}
+              <tr class="total-row">
+                <td>TOTAL</td>
+                <td class="number">{{ usage.total_scopes }}</td>
+                <td class="number">${{ "%.2f"|format(usage.avg_cost) }}</td>
+                <td class="number">${{ "%.2f"|format(usage.total_cost) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- ======================== ERROR TAB ======================== -->
+    <div class="tab-content panel-errors">
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Total Scopes</div>
+          <div class="card-value">{{ "{:,}".format(errors.total_production) }}</div>
+          <div class="card-subtitle">production scopes</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Error Traces</div>
+          <div class="card-value">{{ errors.total_errors }}</div>
+          <div class="card-subtitle">failed scopes</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Error Rate</div>
+          <div class="card-value">{{ "%.1f"|format(errors.error_rate) }}%</div>
+          <div class="card-subtitle">of production scopes</div>
+        </div>
+      </div>
+
+      <!-- Errors by Type -->
+      {% if errors.error_groups %}
+      <div class="section-header">
+        <h2><span class="section-icon">!</span> Errors by Type</h2>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Error Type</th>
+              <th>Node</th>
+              <th>Traces</th>
+              <th>Filter</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for g in errors.error_groups %}
+            <tr>
+              <td>{{ g.error_type }}</td>
+              <td>{{ g.node }}</td>
+              <td class="number">{{ g.count }}</td>
+              <td>{{ g.filter_type or '\u2014' }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="total-row">
+              <td>Total</td>
+              <td></td>
+              <td class="number">{{ errors.total_errors }}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Error Details (collapsible per group) -->
+      <div class="section-header">
+        <h2><span class="section-icon">!</span> Error Details</h2>
+      </div>
+      {% for g in errors.error_groups %}
+      <details>
+        <summary>{{ g.error_type }}{% if g.filter_type %} ({{ g.filter_type }}){% endif %} &#8212; {{ g.count }} trace{{ 's' if g.count != 1 else '' }} in {{ g.node }}</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  {% if g.error_type == 'ContentFilterCompletion' %}<th>Filter Type</th>{% endif %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for et in g.traces %}
+                <tr>
+                  <td><code>{{ et.trace_id[:12] }}...</code></td>
+                  <td>{{ et.timestamp.strftime('%Y-%m-%d') }}</td>
+                  <td>{{ et.user_id or 'unknown' }}</td>
+                  {% if g.error_type == 'ContentFilterCompletion' %}<td>{{ et.filter_type or 'Unknown' }}</td>{% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      {% endfor %}
+      {% endif %}
+
+      <!-- Affected Users -->
+      {% if errors.affected_users %}
+      <div class="section-header">
+        <h2><span class="section-icon">!</span> Affected Users</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Error Count</th>
+              <th>Error Types</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for u in errors.affected_users %}
+            <tr>
+              <td>{{ u.email }}</td>
+              <td class="number">{{ u.error_count }}</td>
+              <td>{{ u.error_types }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+
+      {% if not errors.error_groups %}
+      <div class="table-card" style="padding: 40px; text-align: center; color: var(--text-medium);">
+        No errors detected this period.
+      </div>
+      {% endif %}
+
+    </div>
+
+    <!-- ======================== COST & LATENCY TAB ======================== -->
+    <div class="tab-content panel-costs">
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Avg Cost</div>
+          <div class="card-value">${{ "%.2f"|format(costs.cost_stats.average) }}</div>
+          <div class="card-subtitle">per scope</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Median Cost</div>
+          <div class="card-value">${{ "%.2f"|format(costs.cost_stats.median) }}</div>
+          <div class="card-subtitle">50th percentile</div>
+        </div>
+        <div class="card">
+          <div class="card-label">P95 Cost</div>
+          <div class="card-value">${{ "%.2f"|format(costs.cost_stats.p95) }}</div>
+          <div class="card-subtitle">95th percentile</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Avg Latency</div>
+          <div class="card-value">{{ "%.0f"|format(costs.latency_stats.average) }}s</div>
+          <div class="card-subtitle">per scope</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Traces</div>
+          <div class="card-value">{{ "{:,}".format(costs.total_traces) }}</div>
+          <div class="card-subtitle">in period</div>
+        </div>
+      </div>
+
+      <!-- Cost Summary -->
+      <div class="section-header">
+        <h2><span class="section-icon">$</span> Cost Summary</h2>
+      </div>
+      <div class="table-card">
+        <table class="stats-table">
+          <tbody>
+            <tr><td>Average</td><td class="number">${{ "%.2f"|format(costs.cost_stats.average) }}</td></tr>
+            <tr><td>Median</td><td class="number">${{ "%.2f"|format(costs.cost_stats.median) }}</td></tr>
+            <tr><td>Min / Max</td><td class="number">${{ "%.2f"|format(costs.cost_stats.min) }} / ${{ "%.2f"|format(costs.cost_stats.max) }}</td></tr>
+            <tr><td>P75</td><td class="number">${{ "%.2f"|format(costs.cost_stats.p75) }}</td></tr>
+            <tr><td>P95</td><td class="number">${{ "%.2f"|format(costs.cost_stats.p95) }}</td></tr>
+            <tr><td>Std Dev</td><td class="number">${{ "%.2f"|format(costs.cost_stats.std_dev) }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Latency Summary -->
+      <div class="section-header">
+        <h2><span class="section-icon">&curren;</span> Latency Summary</h2>
+      </div>
+      <div class="table-card">
+        <table class="stats-table">
+          <tbody>
+            <tr><td>Average</td><td class="number">{{ "%.1f"|format(costs.latency_stats.average) }}s</td></tr>
+            <tr><td>Median</td><td class="number">{{ "%.1f"|format(costs.latency_stats.median) }}s</td></tr>
+            <tr><td>P75</td><td class="number">{{ "%.1f"|format(costs.latency_stats.p75) }}s</td></tr>
+            <tr><td>P95</td><td class="number">{{ "%.1f"|format(costs.latency_stats.p95) }}s</td></tr>
+            <tr><td>Min / Max</td><td class="number">{{ "%.1f"|format(costs.latency_stats.min) }}s / {{ "%.1f"|format(costs.latency_stats.max) }}s</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Users by Avg Cost -->
+      <div class="section-header">
+        <h2><span class="section-icon">$</span> Top 10 Users by Avg Cost</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Scopes</th>
+              <th>Avg Cost</th>
+              <th>Total Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for u in costs.top_users_by_cost %}
+            <tr>
+              <td>{{ u.email }}</td>
+              <td class="number">{{ u.scopes }}</td>
+              <td class="number">${{ "%.2f"|format(u.avg_cost) }}</td>
+              <td class="number">${{ "%.2f"|format(u.total_cost) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Users by Avg Latency -->
+      <div class="section-header">
+        <h2><span class="section-icon">&curren;</span> Top 10 Users by Avg Latency</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Scopes</th>
+              <th>Avg Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for u in costs.top_users_by_latency %}
+            <tr>
+              <td>{{ u.email }}</td>
+              <td class="number">{{ u.scopes }}</td>
+              <td class="number">{{ "%.1f"|format(u.avg_latency) }}s</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Orgs by Avg Cost -->
+      <div class="section-header">
+        <h2><span class="section-icon">$</span> Top 10 Organizations by Avg Cost</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Scopes</th>
+              <th>Avg Cost</th>
+              <th>Total Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in costs.top_orgs_by_cost %}
+            <tr>
+              <td>{{ o.name }}</td>
+              <td class="number">{{ o.scopes }}</td>
+              <td class="number">${{ "%.2f"|format(o.avg_cost) }}</td>
+              <td class="number">${{ "%.2f"|format(o.total_cost) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Orgs by Avg Latency -->
+      <div class="section-header">
+        <h2><span class="section-icon">&curren;</span> Top 10 Organizations by Avg Latency</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Scopes</th>
+              <th>Avg Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in costs.top_orgs_by_latency %}
+            <tr>
+              <td>{{ o.name }}</td>
+              <td class="number">{{ o.scopes }}</td>
+              <td class="number">{{ "%.1f"|format(o.avg_latency) }}s</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div><!-- /tab-panels -->
+</div><!-- /container -->
+
+<script>
+// Chart.js: Day of Week horizontal bar chart
+const dayCtx = document.getElementById('chartDayOfWeek');
+if (dayCtx) {
+  new Chart(dayCtx, {
+    type: 'bar',
+    data: {
+      labels: [{% for d in usage.activity_by_day %}'{{ d.label }}'{{ ', ' if not loop.last }}{% endfor %}],
+      datasets: [{
+        data: [{% for d in usage.activity_by_day %}{{ d.count }}{{ ', ' if not loop.last }}{% endfor %}],
+        backgroundColor: '#F26522',
+        borderRadius: 4,
+        barPercentage: 0.7,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { display: false } },
+        y: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+// Chart.js: Hourly vertical bar chart
+const hourCtx = document.getElementById('chartHourly');
+if (hourCtx) {
+  const hourData = [{% for h in usage.activity_by_hour %}{{ h.count }}{{ ', ' if not loop.last }}{% endfor %}];
+  const maxHour = Math.max(...hourData);
+  new Chart(hourCtx, {
+    type: 'bar',
+    data: {
+      labels: [{% for h in usage.activity_by_hour %}'{{ h.label[:2] }}'{{ ', ' if not loop.last }}{% endfor %}],
+      datasets: [{
+        data: hourData,
+        backgroundColor: hourData.map(v => v >= maxHour * 0.6 ? '#F26522' : '#F2652266'),
+        borderRadius: 3,
+        barPercentage: 0.8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false } },
+        y: { display: false }
+      }
+    }
+  });
+}
+
+// Sortable tables
+document.querySelectorAll('table.sortable thead th').forEach(th => {
+  th.addEventListener('click', () => {
+    const table = th.closest('table');
+    const tbody = table.querySelector('tbody');
+    const idx = Array.from(th.parentNode.children).indexOf(th);
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.total-row)'));
+    const totalRow = tbody.querySelector('tr.total-row');
+
+    const dir = th.classList.contains('sort-asc') ? 'desc' : 'asc';
+    th.parentNode.querySelectorAll('th').forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+    th.classList.add('sort-' + dir);
+
+    rows.sort((a, b) => {
+      let aVal = a.children[idx]?.textContent.trim().replace(/[$,s%]/g, '') || '';
+      let bVal = b.children[idx]?.textContent.trim().replace(/[$,s%]/g, '') || '';
+      const aNum = parseFloat(aVal);
+      const bNum = parseFloat(bVal);
+      if (!isNaN(aNum) && !isNaN(bNum)) {
+        return dir === 'asc' ? aNum - bNum : bNum - aNum;
+      }
+      return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+    if (totalRow) tbody.appendChild(totalRow);
+  });
+});
+</script>
+
+</body>
+</html>
