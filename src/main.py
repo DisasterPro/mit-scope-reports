@@ -33,7 +33,7 @@ def main() -> None:
     secret_key = os.environ.get("LANGFUSE_SECRET_KEY")
     slack_webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
     report_base_url = os.environ.get(
-        "REPORT_BASE_URL", "https://encircle.github.io/mit-scope-reports"
+        "REPORT_BASE_URL", "https://disasterpro.github.io/mit-scope-reports"
     )
 
     if not public_key or not secret_key:

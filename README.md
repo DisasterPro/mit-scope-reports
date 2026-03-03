@@ -10,7 +10,7 @@ Every Sunday at midnight ET, a GitHub Actions workflow:
 
 ## View the Report
 
-**Latest:** https://encircle.github.io/mit-scope-reports/
+**Latest:** https://disasterpro.github.io/mit-scope-reports/
 
 Historical reports are archived at `/archive/YYYY-MM-DD.html`.
 
