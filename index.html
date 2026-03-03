@@ -1,0 +1,3768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MitScope Reports</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #F26522;
+    --orange-light: #FFF3EC;
+    --orange-hover: #D4551A;
+    --blue: #4A90D9;
+    --green: #27AE60;
+    --purple: #8E44AD;
+    --gray-accent: #95A5A6;
+    --bg: #F5F6F8;
+    --card-bg: #FFFFFF;
+    --text-dark: #2D3436;
+    --text-medium: #636E72;
+    --text-light: #B2BEC3;
+    --border: #E8EAED;
+    --badge-bg: #2D3436;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .production-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--orange);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .production-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  .meta-line {
+    font-size: 14px;
+    color: var(--text-medium);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--orange);
+  }
+  .meta-line .label { color: var(--orange); font-weight: 600; }
+  .meta-line .generated-label { color: var(--blue); font-weight: 600; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .tab-input { display: none; }
+  .tab-label {
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .tab-label:hover { color: var(--text-dark); }
+  .tab-input:checked + .tab-label {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+    font-weight: 600;
+  }
+  .tab-content { display: none; }
+  #tab-usage:checked ~ .tab-panels .panel-usage,
+  #tab-errors:checked ~ .tab-panels .panel-errors,
+  #tab-costs:checked ~ .tab-panels .panel-costs { display: block; }
+
+  /* Summary Cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--orange);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card:nth-child(2) { border-top-color: var(--blue); }
+  .card:nth-child(3) { border-top-color: var(--green); }
+  .card:nth-child(4) { border-top-color: var(--purple); }
+  .card:nth-child(5) { border-top-color: var(--gray-accent); }
+  .card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-medium);
+    margin-bottom: 8px;
+  }
+  .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1.1;
+  }
+  .card:nth-child(2) .card-value { color: var(--blue); }
+  .card:nth-child(3) .card-value { color: var(--green); }
+  .card:nth-child(4) .card-value { color: var(--purple); }
+  .card:nth-child(5) .card-value { color: var(--text-dark); }
+  .card-subtitle {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* Section Headers */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    font-weight: 700;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--badge-bg);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Charts */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .chart-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .chart-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .chart-card .peak-note {
+    font-size: 13px;
+    color: var(--text-medium);
+    margin-top: 12px;
+  }
+  .chart-card .peak-note .label { color: var(--orange); font-weight: 600; }
+
+  /* Tables */
+  .table-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--bg);
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--text-medium);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  thead th:hover { background: #E8EAED; }
+  thead th.sort-asc::after { content: ' \u25B2'; font-size: 10px; }
+  thead th.sort-desc::after { content: ' \u25BC'; font-size: 10px; }
+  tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dark);
+  }
+  tbody tr:hover { background: var(--orange-light); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.total-row td { font-weight: 700; background: var(--bg); }
+  td.number { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Collapsible sections */
+  details {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  details summary {
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-medium);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details summary::before {
+    content: '\u25B8';
+    font-size: 14px;
+    transition: transform 0.2s;
+  }
+  details[open] summary::before { transform: rotate(90deg); }
+  details summary::-webkit-details-marker { display: none; }
+
+  /* Error-specific */
+  .error-section { margin-bottom: 24px; padding: 20px; }
+  .error-section h3 { font-size: 16px; margin-bottom: 8px; }
+  .error-meta { font-size: 13px; color: var(--text-medium); margin-bottom: 8px; }
+  .error-meta strong { color: var(--text-dark); }
+
+  /* Stats table (key-value) */
+  .stats-table {
+    width: auto;
+    min-width: 300px;
+  }
+  .stats-table td:first-child {
+    font-weight: 600;
+    color: var(--text-medium);
+    padding-right: 32px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .charts-grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; gap: 12px; }
+    .container { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <h1>MitScope Reports</h1>
+    <span class="production-badge">Production</span>
+  </div>
+  <div class="meta-line">
+    <span class="label">Period:</span> Feb 24 &ndash; Mar 03, 2026 (7d)
+    &nbsp;&nbsp;&nbsp;
+    <span class="generated-label">Generated:</span> 2026-03-03 23:36 UTC
+  </div>
+
+  <!-- Tab Navigation -->
+  <input type="radio" name="tabs" id="tab-usage" class="tab-input" checked>
+  <label for="tab-usage" class="tab-label">Usage Report</label>
+  <input type="radio" name="tabs" id="tab-errors" class="tab-input">
+  <label for="tab-errors" class="tab-label">Error Report</label>
+  <input type="radio" name="tabs" id="tab-costs" class="tab-input">
+  <label for="tab-costs" class="tab-label">Cost &amp; Latency</label>
+
+  <div class="tab-panels">
+
+    <!-- ======================== USAGE TAB ======================== -->
+    <div class="tab-content panel-usage">
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Total Scopes</div>
+          <div class="card-value">539</div>
+          <div class="card-subtitle">production scopes</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Organizations</div>
+          <div class="card-value">70</div>
+          <div class="card-subtitle">unique orgs</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Unique Users</div>
+          <div class="card-value">196</div>
+          <div class="card-subtitle">active in period</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Total Cost</div>
+          <div class="card-value">$249</div>
+          <div class="card-subtitle">7-day period</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Avg Cost / Scope</div>
+          <div class="card-value">$0.46</div>
+          <div class="card-subtitle">across 539 scopes</div>
+        </div>
+      </div>
+
+      <!-- Activity Patterns -->
+      <div class="section-header">
+        <h2><span class="section-icon">=</span> Activity Patterns</h2>
+        <span class="badge">7-day period</span>
+      </div>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>By Day of Week</h3>
+          <canvas id="chartDayOfWeek" height="200"></canvas>
+          <div class="peak-note"><span class="label">Peak:</span> Wed (132 scopes, 24.5%)</div>
+        </div>
+        <div class="chart-card">
+          <h3>By Hour (UTC)</h3>
+          <canvas id="chartHourly" height="200"></canvas>
+          <div class="peak-note"><span class="label">Peak:</span> 16:00-19:00 UTC (200 scopes)</div>
+        </div>
+      </div>
+
+      <!-- Top Users by Volume -->
+      <div class="section-header">
+        <h2><span class="section-icon">&#9650;</span> Top Users by Volume</h2>
+        <span class="badge">Top 5</span>
+      </div>
+      <details>
+        <summary>Expand top users</summary>
+        <div class="table-card" style="box-shadow:none;">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Scopes</th>
+                <th>Avg Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>tracey.paris@ca.belfor.com</td>
+                <td class="number">21</td>
+                <td class="number">$0.40</td>
+                <td class="number">$8.43</td>
+              </tr>
+              
+              <tr>
+                <td>jonathan.goodyear@ca.belfor.com</td>
+                <td class="number">17</td>
+                <td class="number">$0.29</td>
+                <td class="number">$4.86</td>
+              </tr>
+              
+              <tr>
+                <td>dylanclimie@live.com</td>
+                <td class="number">14</td>
+                <td class="number">$0.58</td>
+                <td class="number">$8.10</td>
+              </tr>
+              
+              <tr>
+                <td>brendan.macdonald@ca.belfor.com</td>
+                <td class="number">11</td>
+                <td class="number">$0.32</td>
+                <td class="number">$3.57</td>
+              </tr>
+              
+              <tr>
+                <td>jim.beveridge@ca.belfor.com</td>
+                <td class="number">11</td>
+                <td class="number">$0.29</td>
+                <td class="number">$3.14</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Cost Outliers -->
+      <div class="section-header">
+        <h2><span class="section-icon">&#9650;</span> Cost Outliers</h2>
+        <span class="badge">Avg &gt; $1.00/scope</span>
+      </div>
+      
+      <details>
+        <summary>Expand outliers (16 users)</summary>
+        <div class="table-card" style="box-shadow:none;">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Scopes</th>
+                <th>Avg Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>kevin.ferrara@advantaclean.com</td>
+                <td class="number">1</td>
+                <td class="number">$3.97</td>
+                <td class="number">$3.97</td>
+              </tr>
+              
+              <tr>
+                <td>pwelty@capdsus.com</td>
+                <td class="number">1</td>
+                <td class="number">$3.75</td>
+                <td class="number">$3.75</td>
+              </tr>
+              
+              <tr>
+                <td>fnolan@rrtfl.com</td>
+                <td class="number">2</td>
+                <td class="number">$2.89</td>
+                <td class="number">$5.78</td>
+              </tr>
+              
+              <tr>
+                <td>shane@highlandrestoration.ca</td>
+                <td class="number">1</td>
+                <td class="number">$2.81</td>
+                <td class="number">$2.81</td>
+              </tr>
+              
+              <tr>
+                <td>jsymes@servicemaster.bc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$1.54</td>
+                <td class="number">$1.54</td>
+              </tr>
+              
+              <tr>
+                <td>jfountain@southeastrestoration.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.44</td>
+                <td class="number">$1.44</td>
+              </tr>
+              
+              <tr>
+                <td>jm@apolloconstructioncorp.com</td>
+                <td class="number">2</td>
+                <td class="number">$1.31</td>
+                <td class="number">$2.63</td>
+              </tr>
+              
+              <tr>
+                <td>bgabris@abff.ca</td>
+                <td class="number">1</td>
+                <td class="number">$1.21</td>
+                <td class="number">$1.21</td>
+              </tr>
+              
+              <tr>
+                <td>mbush@dryunow.pro</td>
+                <td class="number">2</td>
+                <td class="number">$1.18</td>
+                <td class="number">$2.36</td>
+              </tr>
+              
+              <tr>
+                <td>cmaggio@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.17</td>
+                <td class="number">$1.17</td>
+              </tr>
+              
+              <tr>
+                <td>1800floodrestore@gmail.com</td>
+                <td class="number">7</td>
+                <td class="number">$1.09</td>
+                <td class="number">$7.64</td>
+              </tr>
+              
+              <tr>
+                <td>tyson.burleson@restoration1.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.05</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>steve.piercey@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.05</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>jetambe23@gmail.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.05</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>crivas2@rrtfl.com</td>
+                <td class="number">2</td>
+                <td class="number">$1.04</td>
+                <td class="number">$2.08</td>
+              </tr>
+              
+              <tr>
+                <td>jonathan.watson@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$1.01</td>
+                <td class="number">$4.03</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </details>
+      
+
+      <!-- By Organization -->
+      <div class="section-header">
+        <h2><span class="section-icon">=</span> By Organization</h2>
+        <span class="badge">70 orgs</span>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Scopes</th>
+              <th>Employees</th>
+              <th>Avg Cost</th>
+              <th>Total Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>BELFOR Canada</td>
+              <td class="number">283</td>
+              <td class="number">74</td>
+              <td class="number">$0.37</td>
+              <td class="number">$105.94</td>
+            </tr>
+            
+            <tr>
+              <td>Encircle (internal)</td>
+              <td class="number">15</td>
+              <td class="number">8</td>
+              <td class="number">$0.53</td>
+              <td class="number">$7.88</td>
+            </tr>
+            
+            <tr>
+              <td>dylanclimie@live.com</td>
+              <td class="number">14</td>
+              <td class="number">1</td>
+              <td class="number">$0.58</td>
+              <td class="number">$8.10</td>
+            </tr>
+            
+            <tr>
+              <td>ServiceMaster Calgary</td>
+              <td class="number">10</td>
+              <td class="number">3</td>
+              <td class="number">$0.72</td>
+              <td class="number">$7.19</td>
+            </tr>
+            
+            <tr>
+              <td>Prp247</td>
+              <td class="number">10</td>
+              <td class="number">2</td>
+              <td class="number">$0.39</td>
+              <td class="number">$3.92</td>
+            </tr>
+            
+            <tr>
+              <td>Restoprosaustin</td>
+              <td class="number">10</td>
+              <td class="number">2</td>
+              <td class="number">$0.51</td>
+              <td class="number">$5.12</td>
+            </tr>
+            
+            <tr>
+              <td>Decconstruction</td>
+              <td class="number">10</td>
+              <td class="number">9</td>
+              <td class="number">$0.44</td>
+              <td class="number">$4.40</td>
+            </tr>
+            
+            <tr>
+              <td>Zeusrestoration</td>
+              <td class="number">7</td>
+              <td class="number">2</td>
+              <td class="number">$0.59</td>
+              <td class="number">$4.12</td>
+            </tr>
+            
+            <tr>
+              <td>webbryan1329@yahoo.com</td>
+              <td class="number">7</td>
+              <td class="number">1</td>
+              <td class="number">$0.37</td>
+              <td class="number">$2.60</td>
+            </tr>
+            
+            <tr>
+              <td>baney.parker@gmail.com</td>
+              <td class="number">7</td>
+              <td class="number">1</td>
+              <td class="number">$0.83</td>
+              <td class="number">$5.83</td>
+            </tr>
+            
+            <tr>
+              <td>1800floodrestore@gmail.com</td>
+              <td class="number">7</td>
+              <td class="number">1</td>
+              <td class="number">$1.09</td>
+              <td class="number">$7.64</td>
+            </tr>
+            
+            <tr>
+              <td>Servicemastertbay</td>
+              <td class="number">7</td>
+              <td class="number">3</td>
+              <td class="number">$0.30</td>
+              <td class="number">$2.08</td>
+            </tr>
+            
+            <tr>
+              <td>Goblusky</td>
+              <td class="number">7</td>
+              <td class="number">1</td>
+              <td class="number">$0.24</td>
+              <td class="number">$1.70</td>
+            </tr>
+            
+            <tr>
+              <td>Servicemasterbc</td>
+              <td class="number">6</td>
+              <td class="number">5</td>
+              <td class="number">$0.42</td>
+              <td class="number">$2.52</td>
+            </tr>
+            
+            <tr>
+              <td>o.maldonado3823@gmail.com</td>
+              <td class="number">6</td>
+              <td class="number">1</td>
+              <td class="number">$0.29</td>
+              <td class="number">$1.75</td>
+            </tr>
+            
+            <tr>
+              <td>Restoration 1</td>
+              <td class="number">6</td>
+              <td class="number">4</td>
+              <td class="number">$0.59</td>
+              <td class="number">$3.54</td>
+            </tr>
+            
+            <tr>
+              <td>First General Edmonton</td>
+              <td class="number">6</td>
+              <td class="number">4</td>
+              <td class="number">$0.40</td>
+              <td class="number">$2.42</td>
+            </tr>
+            
+            <tr>
+              <td>Rrtfl</td>
+              <td class="number">6</td>
+              <td class="number">4</td>
+              <td class="number">$1.49</td>
+              <td class="number">$8.94</td>
+            </tr>
+            
+            <tr>
+              <td>Southeastrestoration</td>
+              <td class="number">5</td>
+              <td class="number">4</td>
+              <td class="number">$0.62</td>
+              <td class="number">$3.12</td>
+            </tr>
+            
+            <tr>
+              <td>Patriotremediation</td>
+              <td class="number">5</td>
+              <td class="number">1</td>
+              <td class="number">$0.48</td>
+              <td class="number">$2.38</td>
+            </tr>
+            
+            <tr>
+              <td>Apolloconstructioncorp</td>
+              <td class="number">5</td>
+              <td class="number">3</td>
+              <td class="number">$0.95</td>
+              <td class="number">$4.75</td>
+            </tr>
+            
+            <tr>
+              <td>Purofirst</td>
+              <td class="number">5</td>
+              <td class="number">2</td>
+              <td class="number">$0.48</td>
+              <td class="number">$2.39</td>
+            </tr>
+            
+            <tr>
+              <td>Bluelinesolutions</td>
+              <td class="number">5</td>
+              <td class="number">1</td>
+              <td class="number">$0.33</td>
+              <td class="number">$1.67</td>
+            </tr>
+            
+            <tr>
+              <td>Peerlessrestoration</td>
+              <td class="number">5</td>
+              <td class="number">1</td>
+              <td class="number">$0.38</td>
+              <td class="number">$1.91</td>
+            </tr>
+            
+            <tr>
+              <td>Rockemergency</td>
+              <td class="number">5</td>
+              <td class="number">1</td>
+              <td class="number">$0.51</td>
+              <td class="number">$2.55</td>
+            </tr>
+            
+            <tr>
+              <td>Capdsus</td>
+              <td class="number">4</td>
+              <td class="number">3</td>
+              <td class="number">$1.42</td>
+              <td class="number">$5.69</td>
+            </tr>
+            
+            <tr>
+              <td>Steprises</td>
+              <td class="number">4</td>
+              <td class="number">2</td>
+              <td class="number">$0.60</td>
+              <td class="number">$2.40</td>
+            </tr>
+            
+            <tr>
+              <td>Firstgeneral</td>
+              <td class="number">4</td>
+              <td class="number">2</td>
+              <td class="number">$0.30</td>
+              <td class="number">$1.19</td>
+            </tr>
+            
+            <tr>
+              <td>Dryunow</td>
+              <td class="number">3</td>
+              <td class="number">2</td>
+              <td class="number">$0.82</td>
+              <td class="number">$2.45</td>
+            </tr>
+            
+            <tr>
+              <td>kylealexherschend@gmail.com</td>
+              <td class="number">3</td>
+              <td class="number">1</td>
+              <td class="number">$0.39</td>
+              <td class="number">$1.18</td>
+            </tr>
+            
+            <tr>
+              <td>Puroclean</td>
+              <td class="number">3</td>
+              <td class="number">2</td>
+              <td class="number">$0.29</td>
+              <td class="number">$0.87</td>
+            </tr>
+            
+            <tr>
+              <td>Rotorooterindiana</td>
+              <td class="number">3</td>
+              <td class="number">1</td>
+              <td class="number">$0.61</td>
+              <td class="number">$1.82</td>
+            </tr>
+            
+            <tr>
+              <td>AdvantaClean</td>
+              <td class="number">3</td>
+              <td class="number">2</td>
+              <td class="number">$1.71</td>
+              <td class="number">$5.14</td>
+            </tr>
+            
+            <tr>
+              <td>Pennroto</td>
+              <td class="number">3</td>
+              <td class="number">1</td>
+              <td class="number">$0.20</td>
+              <td class="number">$0.61</td>
+            </tr>
+            
+            <tr>
+              <td>Emergencyfloodteam</td>
+              <td class="number">3</td>
+              <td class="number">2</td>
+              <td class="number">$0.25</td>
+              <td class="number">$0.74</td>
+            </tr>
+            
+            <tr>
+              <td>Heatrestoration</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.28</td>
+              <td class="number">$0.56</td>
+            </tr>
+            
+            <tr>
+              <td>Highland Restoration</td>
+              <td class="number">2</td>
+              <td class="number">2</td>
+              <td class="number">$1.53</td>
+              <td class="number">$3.06</td>
+            </tr>
+            
+            <tr>
+              <td>Lightspeedrestoration</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.96</td>
+              <td class="number">$1.92</td>
+            </tr>
+            
+            <tr>
+              <td>Pro4mance</td>
+              <td class="number">2</td>
+              <td class="number">2</td>
+              <td class="number">$0.54</td>
+              <td class="number">$1.07</td>
+            </tr>
+            
+            <tr>
+              <td>ServiceMaster BC</td>
+              <td class="number">2</td>
+              <td class="number">2</td>
+              <td class="number">$1.06</td>
+              <td class="number">$2.11</td>
+            </tr>
+            
+            <tr>
+              <td>jaimin.carter17@gmail.com</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.10</td>
+              <td class="number">$0.20</td>
+            </tr>
+            
+            <tr>
+              <td>911 Restoration</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.19</td>
+              <td class="number">$0.37</td>
+            </tr>
+            
+            <tr>
+              <td>Yourthingsmatter</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.27</td>
+              <td class="number">$0.55</td>
+            </tr>
+            
+            <tr>
+              <td>admcdonald01@gmail.com</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.40</td>
+              <td class="number">$0.80</td>
+            </tr>
+            
+            <tr>
+              <td>Hughescustomperformance</td>
+              <td class="number">2</td>
+              <td class="number">2</td>
+              <td class="number">$0.37</td>
+              <td class="number">$0.73</td>
+            </tr>
+            
+            <tr>
+              <td>Justcallrapid</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.21</td>
+              <td class="number">$0.43</td>
+            </tr>
+            
+            <tr>
+              <td>Quickrestore</td>
+              <td class="number">2</td>
+              <td class="number">1</td>
+              <td class="number">$0.17</td>
+              <td class="number">$0.34</td>
+            </tr>
+            
+            <tr>
+              <td>Cancaderestoration</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.42</td>
+              <td class="number">$0.42</td>
+            </tr>
+            
+            <tr>
+              <td>Servicemasterofbrantford</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.66</td>
+              <td class="number">$0.66</td>
+            </tr>
+            
+            <tr>
+              <td>Coreteaminc</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.24</td>
+              <td class="number">$0.24</td>
+            </tr>
+            
+            <tr>
+              <td>headyada000@gmail.com</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.58</td>
+              <td class="number">$0.58</td>
+            </tr>
+            
+            <tr>
+              <td>Bestdrynow</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.15</td>
+              <td class="number">$0.15</td>
+            </tr>
+            
+            <tr>
+              <td>jetambe23@gmail.com</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$1.05</td>
+              <td class="number">$1.05</td>
+            </tr>
+            
+            <tr>
+              <td>Steamatic</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.35</td>
+              <td class="number">$0.35</td>
+            </tr>
+            
+            <tr>
+              <td>Restopros</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.39</td>
+              <td class="number">$0.39</td>
+            </tr>
+            
+            <tr>
+              <td>fusionxp2@gmail.com</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.22</td>
+              <td class="number">$0.22</td>
+            </tr>
+            
+            <tr>
+              <td>Frontlinerestores</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.60</td>
+              <td class="number">$0.60</td>
+            </tr>
+            
+            <tr>
+              <td>Rfconstruction DKI</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.24</td>
+              <td class="number">$0.24</td>
+            </tr>
+            
+            <tr>
+              <td>jrod.swan@gmail.com</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.19</td>
+              <td class="number">$0.19</td>
+            </tr>
+            
+            <tr>
+              <td>Cleanresponse</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.21</td>
+              <td class="number">$0.21</td>
+            </tr>
+            
+            <tr>
+              <td>luiscastillo901@hotmail.com</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.31</td>
+              <td class="number">$0.31</td>
+            </tr>
+            
+            <tr>
+              <td>Rainbownova</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.69</td>
+              <td class="number">$0.69</td>
+            </tr>
+            
+            <tr>
+              <td>Ungerman</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.47</td>
+              <td class="number">$0.47</td>
+            </tr>
+            
+            <tr>
+              <td>Northbay DKI</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.35</td>
+              <td class="number">$0.35</td>
+            </tr>
+            
+            <tr>
+              <td>Recoveryrestoration</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.31</td>
+              <td class="number">$0.31</td>
+            </tr>
+            
+            <tr>
+              <td>Team5starrestore</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.35</td>
+              <td class="number">$0.35</td>
+            </tr>
+            
+            <tr>
+              <td>Randrpros</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.11</td>
+              <td class="number">$0.11</td>
+            </tr>
+            
+            <tr>
+              <td>Thedryguy</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.95</td>
+              <td class="number">$0.95</td>
+            </tr>
+            
+            <tr>
+              <td>Servicemaster-sarnia</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$0.68</td>
+              <td class="number">$0.68</td>
+            </tr>
+            
+            <tr>
+              <td>ABFF</td>
+              <td class="number">1</td>
+              <td class="number">1</td>
+              <td class="number">$1.21</td>
+              <td class="number">$1.21</td>
+            </tr>
+            
+            <tr class="total-row">
+              <td>TOTAL</td>
+              <td class="number">539</td>
+              <td class="number">196</td>
+              <td class="number">$0.46</td>
+              <td class="number">$249.45</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- By User -->
+      <div class="section-header">
+        <h2><span class="section-icon">=</span> By User</h2>
+        <span class="badge">196 users</span>
+      </div>
+      <details>
+        <summary>Expand full user table</summary>
+        <div class="table-card" style="box-shadow:none;">
+          <table class="sortable">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Scopes</th>
+                <th>Avg Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>tracey.paris@ca.belfor.com</td>
+                <td class="number">21</td>
+                <td class="number">$0.40</td>
+                <td class="number">$8.43</td>
+              </tr>
+              
+              <tr>
+                <td>jonathan.goodyear@ca.belfor.com</td>
+                <td class="number">17</td>
+                <td class="number">$0.29</td>
+                <td class="number">$4.86</td>
+              </tr>
+              
+              <tr>
+                <td>dylanclimie@live.com</td>
+                <td class="number">14</td>
+                <td class="number">$0.58</td>
+                <td class="number">$8.10</td>
+              </tr>
+              
+              <tr>
+                <td>brendan.macdonald@ca.belfor.com</td>
+                <td class="number">11</td>
+                <td class="number">$0.32</td>
+                <td class="number">$3.57</td>
+              </tr>
+              
+              <tr>
+                <td>jim.beveridge@ca.belfor.com</td>
+                <td class="number">11</td>
+                <td class="number">$0.29</td>
+                <td class="number">$3.14</td>
+              </tr>
+              
+              <tr>
+                <td>nick.gorecki@ca.belfor.com</td>
+                <td class="number">10</td>
+                <td class="number">$0.32</td>
+                <td class="number">$3.25</td>
+              </tr>
+              
+              <tr>
+                <td>info@restoprosaustin.com</td>
+                <td class="number">9</td>
+                <td class="number">$0.52</td>
+                <td class="number">$4.68</td>
+              </tr>
+              
+              <tr>
+                <td>andrew@prp247.com</td>
+                <td class="number">9</td>
+                <td class="number">$0.39</td>
+                <td class="number">$3.47</td>
+              </tr>
+              
+              <tr>
+                <td>tanya.leite@ca.belfor.com</td>
+                <td class="number">8</td>
+                <td class="number">$0.42</td>
+                <td class="number">$3.38</td>
+              </tr>
+              
+              <tr>
+                <td>matthew.bishop@ca.belfor.com</td>
+                <td class="number">8</td>
+                <td class="number">$0.25</td>
+                <td class="number">$1.97</td>
+              </tr>
+              
+              <tr>
+                <td>webbryan1329@yahoo.com</td>
+                <td class="number">7</td>
+                <td class="number">$0.37</td>
+                <td class="number">$2.60</td>
+              </tr>
+              
+              <tr>
+                <td>baney.parker@gmail.com</td>
+                <td class="number">7</td>
+                <td class="number">$0.83</td>
+                <td class="number">$5.83</td>
+              </tr>
+              
+              <tr>
+                <td>andrew.santos@ca.belfor.com</td>
+                <td class="number">7</td>
+                <td class="number">$0.41</td>
+                <td class="number">$2.86</td>
+              </tr>
+              
+              <tr>
+                <td>kristy.persson+hub@ca.belfor.com</td>
+                <td class="number">7</td>
+                <td class="number">$0.37</td>
+                <td class="number">$2.62</td>
+              </tr>
+              
+              <tr>
+                <td>rick.higgins@ca.belfor.com</td>
+                <td class="number">7</td>
+                <td class="number">$0.28</td>
+                <td class="number">$1.96</td>
+              </tr>
+              
+              <tr>
+                <td>1800floodrestore@gmail.com</td>
+                <td class="number">7</td>
+                <td class="number">$1.09</td>
+                <td class="number">$7.64</td>
+              </tr>
+              
+              <tr>
+                <td>will.hamm@goblusky.com</td>
+                <td class="number">7</td>
+                <td class="number">$0.24</td>
+                <td class="number">$1.70</td>
+              </tr>
+              
+              <tr>
+                <td>peter.lindkvist@ca.belfor.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.31</td>
+                <td class="number">$1.87</td>
+              </tr>
+              
+              <tr>
+                <td>jason.odell@smcalgary.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.88</td>
+                <td class="number">$5.28</td>
+              </tr>
+              
+              <tr>
+                <td>patrick.madden@ca.belfor.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.34</td>
+                <td class="number">$2.01</td>
+              </tr>
+              
+              <tr>
+                <td>o.maldonado3823@gmail.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.29</td>
+                <td class="number">$1.75</td>
+              </tr>
+              
+              <tr>
+                <td>steve.poll@ca.belfor.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.33</td>
+                <td class="number">$1.96</td>
+              </tr>
+              
+              <tr>
+                <td>scott.mcpherson@ca.belfor.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.17</td>
+                <td class="number">$0.99</td>
+              </tr>
+              
+              <tr>
+                <td>todd.morgan@ca.belfor.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.40</td>
+                <td class="number">$2.41</td>
+              </tr>
+              
+              <tr>
+                <td>daniel.lockhart@ca.belfor.com</td>
+                <td class="number">6</td>
+                <td class="number">$0.53</td>
+                <td class="number">$3.20</td>
+              </tr>
+              
+              <tr>
+                <td>nick.wood@ca.belfor.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.27</td>
+                <td class="number">$1.33</td>
+              </tr>
+              
+              <tr>
+                <td>cole@patriotremediation.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.48</td>
+                <td class="number">$2.38</td>
+              </tr>
+              
+              <tr>
+                <td>roger.lough@ca.belfor.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.37</td>
+                <td class="number">$1.86</td>
+              </tr>
+              
+              <tr>
+                <td>akunze@zeusrestoration.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.75</td>
+                <td class="number">$3.76</td>
+              </tr>
+              
+              <tr>
+                <td>mary.hernandez@ca.belfor.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.67</td>
+                <td class="number">$3.34</td>
+              </tr>
+              
+              <tr>
+                <td>tonyl@bluelinesolutions.net</td>
+                <td class="number">5</td>
+                <td class="number">$0.33</td>
+                <td class="number">$1.67</td>
+              </tr>
+              
+              <tr>
+                <td>matt@peerlessrestoration.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.38</td>
+                <td class="number">$1.91</td>
+              </tr>
+              
+              <tr>
+                <td>corey.benjamin@ca.belfor.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.30</td>
+                <td class="number">$1.48</td>
+              </tr>
+              
+              <tr>
+                <td>lesley.mele@ca.belfor.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.45</td>
+                <td class="number">$2.26</td>
+              </tr>
+              
+              <tr>
+                <td>paul@rockemergency.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.51</td>
+                <td class="number">$2.55</td>
+              </tr>
+              
+              <tr>
+                <td>dmanseau@servicemastertbay.com</td>
+                <td class="number">5</td>
+                <td class="number">$0.36</td>
+                <td class="number">$1.80</td>
+              </tr>
+              
+              <tr>
+                <td>andy.whitehead+vancouver@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.44</td>
+                <td class="number">$1.74</td>
+              </tr>
+              
+              <tr>
+                <td>chunter@purofirst.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.54</td>
+                <td class="number">$2.14</td>
+              </tr>
+              
+              <tr>
+                <td>joe.zitzelberger+hub@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.34</td>
+                <td class="number">$1.38</td>
+              </tr>
+              
+              <tr>
+                <td>jonathan.watson@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$1.01</td>
+                <td class="number">$4.03</td>
+              </tr>
+              
+              <tr>
+                <td>robert.jesso@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.25</td>
+                <td class="number">$1.00</td>
+              </tr>
+              
+              <tr>
+                <td>scott.honke@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.37</td>
+                <td class="number">$1.47</td>
+              </tr>
+              
+              <tr>
+                <td>chad.gerber@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.30</td>
+                <td class="number">$1.21</td>
+              </tr>
+              
+              <tr>
+                <td>jledbetter@encircleapp.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.51</td>
+                <td class="number">$2.03</td>
+              </tr>
+              
+              <tr>
+                <td>adonahoo+rescuepro@encircleapp.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.54</td>
+                <td class="number">$2.17</td>
+              </tr>
+              
+              <tr>
+                <td>tammy.gemmill@ca.belfor.com</td>
+                <td class="number">4</td>
+                <td class="number">$0.43</td>
+                <td class="number">$1.72</td>
+              </tr>
+              
+              <tr>
+                <td>harleen.harleen+hamilton@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.54</td>
+                <td class="number">$1.63</td>
+              </tr>
+              
+              <tr>
+                <td>mike.day@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.36</td>
+                <td class="number">$1.09</td>
+              </tr>
+              
+              <tr>
+                <td>kylealexherschend@gmail.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.39</td>
+                <td class="number">$1.18</td>
+              </tr>
+              
+              <tr>
+                <td>fernando.alvarez@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.46</td>
+                <td class="number">$1.37</td>
+              </tr>
+              
+              <tr>
+                <td>nadiia.kaverina@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.43</td>
+                <td class="number">$1.28</td>
+              </tr>
+              
+              <tr>
+                <td>john.gilbraitti+vancouver@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.33</td>
+                <td class="number">$0.99</td>
+              </tr>
+              
+              <tr>
+                <td>nathan.ramsey@rotorooterindiana.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.61</td>
+                <td class="number">$1.82</td>
+              </tr>
+              
+              <tr>
+                <td>claudette.ryan@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.40</td>
+                <td class="number">$1.19</td>
+              </tr>
+              
+              <tr>
+                <td>marek.chabrowski@firstgeneraledm.ca</td>
+                <td class="number">3</td>
+                <td class="number">$0.42</td>
+                <td class="number">$1.26</td>
+              </tr>
+              
+              <tr>
+                <td>andrew.quick@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.43</td>
+                <td class="number">$1.29</td>
+              </tr>
+              
+              <tr>
+                <td>jelmin.lopez@pennroto.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.20</td>
+                <td class="number">$0.61</td>
+              </tr>
+              
+              <tr>
+                <td>jamie.traverse@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.38</td>
+                <td class="number">$1.15</td>
+              </tr>
+              
+              <tr>
+                <td>melissa.cove@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.16</td>
+                <td class="number">$0.49</td>
+              </tr>
+              
+              <tr>
+                <td>nate.r@restoration1.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.59</td>
+                <td class="number">$1.76</td>
+              </tr>
+              
+              <tr>
+                <td>brittany.martin@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.85</td>
+              </tr>
+              
+              <tr>
+                <td>ben.coates@ca.belfor.com</td>
+                <td class="number">3</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.83</td>
+              </tr>
+              
+              <tr>
+                <td>matthew.griffiths@smcalgary.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.67</td>
+                <td class="number">$1.34</td>
+              </tr>
+              
+              <tr>
+                <td>dramsey@southeastrestoration.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.45</td>
+                <td class="number">$0.91</td>
+              </tr>
+              
+              <tr>
+                <td>reece@heatrestoration.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.56</td>
+              </tr>
+              
+              <tr>
+                <td>jm@apolloconstructioncorp.com</td>
+                <td class="number">2</td>
+                <td class="number">$1.31</td>
+                <td class="number">$2.63</td>
+              </tr>
+              
+              <tr>
+                <td>tiffany.mckinnon@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.57</td>
+                <td class="number">$1.14</td>
+              </tr>
+              
+              <tr>
+                <td>simon@servicemasterbc.ca</td>
+                <td class="number">2</td>
+                <td class="number">$0.38</td>
+                <td class="number">$0.75</td>
+              </tr>
+              
+              <tr>
+                <td>jay.wilson@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.45</td>
+                <td class="number">$0.90</td>
+              </tr>
+              
+              <tr>
+                <td>shiloe.hansel@puroclean.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.14</td>
+                <td class="number">$0.29</td>
+              </tr>
+              
+              <tr>
+                <td>mbush@dryunow.pro</td>
+                <td class="number">2</td>
+                <td class="number">$1.18</td>
+                <td class="number">$2.36</td>
+              </tr>
+              
+              <tr>
+                <td>jennifer.green@lightspeedrestoration.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.96</td>
+                <td class="number">$1.92</td>
+              </tr>
+              
+              <tr>
+                <td>anelise.atkinson@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.25</td>
+                <td class="number">$0.50</td>
+              </tr>
+              
+              <tr>
+                <td>morris.nickerson@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.49</td>
+                <td class="number">$0.97</td>
+              </tr>
+              
+              <tr>
+                <td>bchristie+scopeai@encircleapp.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.88</td>
+                <td class="number">$1.76</td>
+              </tr>
+              
+              <tr>
+                <td>kay.cayuga+owensound@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.22</td>
+                <td class="number">$0.43</td>
+              </tr>
+              
+              <tr>
+                <td>mike.goudreau@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.66</td>
+                <td class="number">$1.32</td>
+              </tr>
+              
+              <tr>
+                <td>austin.kelley@steprises.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.32</td>
+                <td class="number">$0.64</td>
+              </tr>
+              
+              <tr>
+                <td>mason.glunt@steprises.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.88</td>
+                <td class="number">$1.76</td>
+              </tr>
+              
+              <tr>
+                <td>troy.nicholson+collingwood@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.36</td>
+                <td class="number">$0.72</td>
+              </tr>
+              
+              <tr>
+                <td>thovis@capdsus.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.93</td>
+                <td class="number">$1.85</td>
+              </tr>
+              
+              <tr>
+                <td>mario.paz@firstgeneral.ca</td>
+                <td class="number">2</td>
+                <td class="number">$0.23</td>
+                <td class="number">$0.46</td>
+              </tr>
+              
+              <tr>
+                <td>andrew.jeoung@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.27</td>
+                <td class="number">$0.55</td>
+              </tr>
+              
+              <tr>
+                <td>jocelyn.mueller@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.50</td>
+                <td class="number">$0.99</td>
+              </tr>
+              
+              <tr>
+                <td>jaimin.carter17@gmail.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.10</td>
+                <td class="number">$0.20</td>
+              </tr>
+              
+              <tr>
+                <td>su.sahin+toronto@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.30</td>
+                <td class="number">$0.60</td>
+              </tr>
+              
+              <tr>
+                <td>kurt.guard@advantaclean.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.59</td>
+                <td class="number">$1.17</td>
+              </tr>
+              
+              <tr>
+                <td>fnolan@rrtfl.com</td>
+                <td class="number">2</td>
+                <td class="number">$2.89</td>
+                <td class="number">$5.78</td>
+              </tr>
+              
+              <tr>
+                <td>jordan.shea@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.48</td>
+              </tr>
+              
+              <tr>
+                <td>crivas2@rrtfl.com</td>
+                <td class="number">2</td>
+                <td class="number">$1.04</td>
+                <td class="number">$2.08</td>
+              </tr>
+              
+              <tr>
+                <td>rjohnson@zeusrestoration.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.18</td>
+                <td class="number">$0.36</td>
+              </tr>
+              
+              <tr>
+                <td>chris.grimmer+saintjohn@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.90</td>
+                <td class="number">$1.80</td>
+              </tr>
+              
+              <tr>
+                <td>myles.kirkhammer@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.22</td>
+                <td class="number">$0.44</td>
+              </tr>
+              
+              <tr>
+                <td>justin.mcnaney@firstgeneral.ca</td>
+                <td class="number">2</td>
+                <td class="number">$0.36</td>
+                <td class="number">$0.73</td>
+              </tr>
+              
+              <tr>
+                <td>scott.maysura@911restoration.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.19</td>
+                <td class="number">$0.37</td>
+              </tr>
+              
+              <tr>
+                <td>ahmad.darwech@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.56</td>
+              </tr>
+              
+              <tr>
+                <td>mike.lepera@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.53</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>snutter@decconstruction.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.38</td>
+                <td class="number">$0.76</td>
+              </tr>
+              
+              <tr>
+                <td>kurtis.greulich@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.27</td>
+                <td class="number">$0.54</td>
+              </tr>
+              
+              <tr>
+                <td>joel@yourthingsmatter.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.27</td>
+                <td class="number">$0.55</td>
+              </tr>
+              
+              <tr>
+                <td>oalarcon@apolloconstructioncorp.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.84</td>
+                <td class="number">$1.69</td>
+              </tr>
+              
+              <tr>
+                <td>jenn.kirk@smcalgary.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.57</td>
+              </tr>
+              
+              <tr>
+                <td>darren.ball+chatham@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.84</td>
+                <td class="number">$1.68</td>
+              </tr>
+              
+              <tr>
+                <td>admcdonald01@gmail.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.40</td>
+                <td class="number">$0.80</td>
+              </tr>
+              
+              <tr>
+                <td>arrianna@emergencyfloodteam.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.17</td>
+                <td class="number">$0.33</td>
+              </tr>
+              
+              <tr>
+                <td>adam.bishop+gander@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.37</td>
+                <td class="number">$0.74</td>
+              </tr>
+              
+              <tr>
+                <td>kahlil@justcallrapid.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.21</td>
+                <td class="number">$0.43</td>
+              </tr>
+              
+              <tr>
+                <td>lcampos@quickrestore.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.17</td>
+                <td class="number">$0.34</td>
+              </tr>
+              
+              <tr>
+                <td>dave.distasi@ca.belfor.com</td>
+                <td class="number">2</td>
+                <td class="number">$0.95</td>
+                <td class="number">$1.90</td>
+              </tr>
+              
+              <tr>
+                <td>dcomer@southeastrestoration.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.61</td>
+                <td class="number">$0.61</td>
+              </tr>
+              
+              <tr>
+                <td>bchrismas@servicemasterbc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.19</td>
+                <td class="number">$0.19</td>
+              </tr>
+              
+              <tr>
+                <td>darren@cancaderestoration.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.42</td>
+                <td class="number">$0.42</td>
+              </tr>
+              
+              <tr>
+                <td>adam.tuk@servicemasterofbrantford.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.66</td>
+                <td class="number">$0.66</td>
+              </tr>
+              
+              <tr>
+                <td>pwelty@capdsus.com</td>
+                <td class="number">1</td>
+                <td class="number">$3.75</td>
+                <td class="number">$3.75</td>
+              </tr>
+              
+              <tr>
+                <td>shelia@prp247.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.45</td>
+                <td class="number">$0.45</td>
+              </tr>
+              
+              <tr>
+                <td>jim@coreteaminc.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.24</td>
+              </tr>
+              
+              <tr>
+                <td>scoghlan@encircleapp.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.60</td>
+                <td class="number">$0.60</td>
+              </tr>
+              
+              <tr>
+                <td>ssmyrski@servicemasterbc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.39</td>
+                <td class="number">$0.39</td>
+              </tr>
+              
+              <tr>
+                <td>pbola@servicemasterbc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.37</td>
+                <td class="number">$0.37</td>
+              </tr>
+              
+              <tr>
+                <td>greg.janse@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.15</td>
+                <td class="number">$0.15</td>
+              </tr>
+              
+              <tr>
+                <td>tom@servicemasterbc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.82</td>
+                <td class="number">$0.82</td>
+              </tr>
+              
+              <tr>
+                <td>richard.thompson@restoration1.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.35</td>
+                <td class="number">$0.35</td>
+              </tr>
+              
+              <tr>
+                <td>headyada000@gmail.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.58</td>
+                <td class="number">$0.58</td>
+              </tr>
+              
+              <tr>
+                <td>nfreeman@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.30</td>
+                <td class="number">$0.30</td>
+              </tr>
+              
+              <tr>
+                <td>ccollins@dryunow.pro</td>
+                <td class="number">1</td>
+                <td class="number">$0.09</td>
+                <td class="number">$0.09</td>
+              </tr>
+              
+              <tr>
+                <td>bjones@purofirst.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.25</td>
+                <td class="number">$0.25</td>
+              </tr>
+              
+              <tr>
+                <td>ebonilla@apolloconstructioncorp.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.44</td>
+                <td class="number">$0.44</td>
+              </tr>
+              
+              <tr>
+                <td>brett.mackenzie@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.24</td>
+              </tr>
+              
+              <tr>
+                <td>matthew.palmquist@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.23</td>
+                <td class="number">$0.23</td>
+              </tr>
+              
+              <tr>
+                <td>charles.sabourin@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.21</td>
+                <td class="number">$0.21</td>
+              </tr>
+              
+              <tr>
+                <td>kyle@highlandrestoration.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.24</td>
+              </tr>
+              
+              <tr>
+                <td>mason@bestdrynow.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.15</td>
+                <td class="number">$0.15</td>
+              </tr>
+              
+              <tr>
+                <td>zeke.rossi@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.25</td>
+                <td class="number">$0.25</td>
+              </tr>
+              
+              <tr>
+                <td>nekosinelson@restoprosaustin.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.44</td>
+                <td class="number">$0.44</td>
+              </tr>
+              
+              <tr>
+                <td>tyson.burleson@restoration1.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.05</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>allen@pro4mance.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.50</td>
+                <td class="number">$0.50</td>
+              </tr>
+              
+              <tr>
+                <td>tammy@pro4mance.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.57</td>
+                <td class="number">$0.57</td>
+              </tr>
+              
+              <tr>
+                <td>jsymes@servicemaster.bc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$1.54</td>
+                <td class="number">$1.54</td>
+              </tr>
+              
+              <tr>
+                <td>jetambe23@gmail.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.05</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>jf.raymond@steamatic.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.35</td>
+                <td class="number">$0.35</td>
+              </tr>
+              
+              <tr>
+                <td>shane@highlandrestoration.ca</td>
+                <td class="number">1</td>
+                <td class="number">$2.81</td>
+                <td class="number">$2.81</td>
+              </tr>
+              
+              <tr>
+                <td>skeane@restopros.co</td>
+                <td class="number">1</td>
+                <td class="number">$0.39</td>
+                <td class="number">$0.39</td>
+              </tr>
+              
+              <tr>
+                <td>joel.currington@firstgeneraledm.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.10</td>
+                <td class="number">$0.10</td>
+              </tr>
+              
+              <tr>
+                <td>fusionxp2@gmail.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.22</td>
+                <td class="number">$0.22</td>
+              </tr>
+              
+              <tr>
+                <td>kevin.ferrara@advantaclean.com</td>
+                <td class="number">1</td>
+                <td class="number">$3.97</td>
+                <td class="number">$3.97</td>
+              </tr>
+              
+              <tr>
+                <td>cmaggio@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.17</td>
+                <td class="number">$1.17</td>
+              </tr>
+              
+              <tr>
+                <td>nondrejka@puroclean.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.59</td>
+                <td class="number">$0.59</td>
+              </tr>
+              
+              <tr>
+                <td>peter.tabares@restoration1.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.38</td>
+                <td class="number">$0.38</td>
+              </tr>
+              
+              <tr>
+                <td>zach@frontlinerestores.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.60</td>
+                <td class="number">$0.60</td>
+              </tr>
+              
+              <tr>
+                <td>bruff@southeastrestoration.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.17</td>
+                <td class="number">$0.17</td>
+              </tr>
+              
+              <tr>
+                <td>paul.paxton@rfconstruction.dki.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.24</td>
+              </tr>
+              
+              <tr>
+                <td>mark.kubas@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.17</td>
+                <td class="number">$0.17</td>
+              </tr>
+              
+              <tr>
+                <td>aroca@servicemaster.bc.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.58</td>
+                <td class="number">$0.58</td>
+              </tr>
+              
+              <tr>
+                <td>bmccusker@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.50</td>
+                <td class="number">$0.50</td>
+              </tr>
+              
+              <tr>
+                <td>jrod.swan@gmail.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.19</td>
+                <td class="number">$0.19</td>
+              </tr>
+              
+              <tr>
+                <td>baldeep.dhillon@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.28</td>
+              </tr>
+              
+              <tr>
+                <td>dirvin@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.51</td>
+                <td class="number">$0.51</td>
+              </tr>
+              
+              <tr>
+                <td>p.morgart@cleanresponse.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.21</td>
+                <td class="number">$0.21</td>
+              </tr>
+              
+              <tr>
+                <td>steve.piercey@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.05</td>
+                <td class="number">$1.05</td>
+              </tr>
+              
+              <tr>
+                <td>sunny.sidhu@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.24</td>
+              </tr>
+              
+              <tr>
+                <td>csuarez@servicemastertbay.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.09</td>
+                <td class="number">$0.09</td>
+              </tr>
+              
+              <tr>
+                <td>lcrescenti@rrtfl.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.28</td>
+                <td class="number">$0.28</td>
+              </tr>
+              
+              <tr>
+                <td>luiscastillo901@hotmail.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.31</td>
+                <td class="number">$0.31</td>
+              </tr>
+              
+              <tr>
+                <td>ion.spac@rainbownova.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.69</td>
+                <td class="number">$0.69</td>
+              </tr>
+              
+              <tr>
+                <td>rick.valerio@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.27</td>
+                <td class="number">$0.27</td>
+              </tr>
+              
+              <tr>
+                <td>rbyrd@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.32</td>
+                <td class="number">$0.32</td>
+              </tr>
+              
+              <tr>
+                <td>darrell.thompson@ungerman.net</td>
+                <td class="number">1</td>
+                <td class="number">$0.47</td>
+                <td class="number">$0.47</td>
+              </tr>
+              
+              <tr>
+                <td>adonahoo+training@encircleapp.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.17</td>
+                <td class="number">$0.17</td>
+              </tr>
+              
+              <tr>
+                <td>jfountain@southeastrestoration.com</td>
+                <td class="number">1</td>
+                <td class="number">$1.44</td>
+                <td class="number">$1.44</td>
+              </tr>
+              
+              <tr>
+                <td>darwin.neault@northbay.dki.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.35</td>
+                <td class="number">$0.35</td>
+              </tr>
+              
+              <tr>
+                <td>stephen.gittens@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.29</td>
+                <td class="number">$0.29</td>
+              </tr>
+              
+              <tr>
+                <td>blair.anthony@firstgeneraledm.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.19</td>
+                <td class="number">$0.19</td>
+              </tr>
+              
+              <tr>
+                <td>arhymer@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.36</td>
+                <td class="number">$0.36</td>
+              </tr>
+              
+              <tr>
+                <td>trey@recoveryrestoration.net</td>
+                <td class="number">1</td>
+                <td class="number">$0.31</td>
+                <td class="number">$0.31</td>
+              </tr>
+              
+              <tr>
+                <td>contents@servicemastertbay.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.19</td>
+                <td class="number">$0.19</td>
+              </tr>
+              
+              <tr>
+                <td>bchristie+floater@encircleapp.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.36</td>
+                <td class="number">$0.36</td>
+              </tr>
+              
+              <tr>
+                <td>bcottrell@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.41</td>
+                <td class="number">$0.41</td>
+              </tr>
+              
+              <tr>
+                <td>fouad.damerji@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.24</td>
+                <td class="number">$0.24</td>
+              </tr>
+              
+              <tr>
+                <td>josh.curtis@firstgeneraledm.ca</td>
+                <td class="number">1</td>
+                <td class="number">$0.88</td>
+                <td class="number">$0.88</td>
+              </tr>
+              
+              <tr>
+                <td>rbalcerzak+newwebapp@encircleapp.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.50</td>
+                <td class="number">$0.50</td>
+              </tr>
+              
+              <tr>
+                <td>jaugustine@rrtfl.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.80</td>
+                <td class="number">$0.80</td>
+              </tr>
+              
+              <tr>
+                <td>danny@emergencyfloodteam.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.41</td>
+                <td class="number">$0.41</td>
+              </tr>
+              
+              <tr>
+                <td>drake@hughescustomperformance.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.48</td>
+                <td class="number">$0.48</td>
+              </tr>
+              
+              <tr>
+                <td>daniel@team5starrestore.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.35</td>
+                <td class="number">$0.35</td>
+              </tr>
+              
+              <tr>
+                <td>justin.anderson@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.26</td>
+                <td class="number">$0.26</td>
+              </tr>
+              
+              <tr>
+                <td>dbailey@randrpros.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.11</td>
+                <td class="number">$0.11</td>
+              </tr>
+              
+              <tr>
+                <td>lvining@capdsus.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.09</td>
+                <td class="number">$0.09</td>
+              </tr>
+              
+              <tr>
+                <td>caleb@thedryguy.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.95</td>
+                <td class="number">$0.95</td>
+              </tr>
+              
+              <tr>
+                <td>tristan@hughescustomperformance.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.25</td>
+                <td class="number">$0.25</td>
+              </tr>
+              
+              <tr>
+                <td>jmccroy@decconstruction.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.08</td>
+                <td class="number">$0.08</td>
+              </tr>
+              
+              <tr>
+                <td>darren.neary@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.08</td>
+                <td class="number">$0.08</td>
+              </tr>
+              
+              <tr>
+                <td>pdepooter@servicemaster-sarnia.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.68</td>
+                <td class="number">$0.68</td>
+              </tr>
+              
+              <tr>
+                <td>ldelahunty@encircleapp.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.29</td>
+                <td class="number">$0.29</td>
+              </tr>
+              
+              <tr>
+                <td>guy.tiomkin@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.57</td>
+                <td class="number">$0.57</td>
+              </tr>
+              
+              <tr>
+                <td>blake.johnson@ca.belfor.com</td>
+                <td class="number">1</td>
+                <td class="number">$0.63</td>
+                <td class="number">$0.63</td>
+              </tr>
+              
+              <tr>
+                <td>bgabris@abff.ca</td>
+                <td class="number">1</td>
+                <td class="number">$1.21</td>
+                <td class="number">$1.21</td>
+              </tr>
+              
+              <tr class="total-row">
+                <td>TOTAL</td>
+                <td class="number">539</td>
+                <td class="number">$0.46</td>
+                <td class="number">$249.45</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- ======================== ERROR TAB ======================== -->
+    <div class="tab-content panel-errors">
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Total Scopes</div>
+          <div class="card-value">539</div>
+          <div class="card-subtitle">production scopes</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Error Traces</div>
+          <div class="card-value">25</div>
+          <div class="card-subtitle">failed scopes</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Error Rate</div>
+          <div class="card-value">4.6%</div>
+          <div class="card-subtitle">of production scopes</div>
+        </div>
+      </div>
+
+      <!-- Errors by Type -->
+      
+      <div class="section-header">
+        <h2><span class="section-icon">!</span> Errors by Type</h2>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Error Type</th>
+              <th>Node</th>
+              <th>Traces</th>
+              <th>Filter</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>Unknown</td>
+              <td>Unknown</td>
+              <td class="number">8</td>
+              <td>—</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Merge</td>
+              <td class="number">6</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Description</td>
+              <td class="number">3</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>MeasurementImages</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Description</td>
+              <td class="number">1</td>
+              <td>Sexual</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Drying</td>
+              <td class="number">1</td>
+              <td>Prompt Rejected</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Merge</td>
+              <td class="number">1</td>
+              <td>Sexual</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Drying</td>
+              <td class="number">1</td>
+              <td>Sexual</td>
+            </tr>
+            
+            <tr>
+              <td>ValueError</td>
+              <td>Equipment</td>
+              <td class="number">1</td>
+              <td>—</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Merge</td>
+              <td class="number">1</td>
+              <td>Self-Harm</td>
+            </tr>
+            
+            <tr>
+              <td>ContentFilterCompletion</td>
+              <td>Description</td>
+              <td class="number">1</td>
+              <td>Self-Harm</td>
+            </tr>
+            
+            <tr class="total-row">
+              <td>Total</td>
+              <td></td>
+              <td class="number">25</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Error Details (collapsible per group) -->
+      <div class="section-header">
+        <h2><span class="section-icon">!</span> Error Details</h2>
+      </div>
+      
+      <details>
+        <summary>Unknown &#8212; 8 traces in Unknown</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>f29690bb4001...</code></td>
+                  <td>2026-03-02</td>
+                  <td>fernando.alvarez@ca.belfor.com</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>39a1a497fb60...</code></td>
+                  <td>2026-02-26</td>
+                  <td>trey@recoveryrestoration.net</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>b594d47bc3c3...</code></td>
+                  <td>2026-02-26</td>
+                  <td>oalarcon@apolloconstructioncorp.com</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>eaeec7670aac...</code></td>
+                  <td>2026-02-26</td>
+                  <td>jm@apolloconstructioncorp.com</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>b97701cfdd24...</code></td>
+                  <td>2026-02-26</td>
+                  <td>bchristie+floater@encircleapp.com</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>f100d15c0e11...</code></td>
+                  <td>2026-02-25</td>
+                  <td>ldelahunty@encircleapp.com</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>9a57c5a5657c...</code></td>
+                  <td>2026-02-25</td>
+                  <td>will.hamm@goblusky.com</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><code>0cbbb7605c24...</code></td>
+                  <td>2026-02-25</td>
+                  <td>oalarcon@apolloconstructioncorp.com</td>
+                  
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Unknown) &#8212; 6 traces in Merge</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>900788ff18b6...</code></td>
+                  <td>2026-03-03</td>
+                  <td>baney.parker@gmail.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>06fa913a4aa6...</code></td>
+                  <td>2026-03-03</td>
+                  <td>jay.wilson@ca.belfor.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>618898ade3cd...</code></td>
+                  <td>2026-03-03</td>
+                  <td>mary.hernandez@ca.belfor.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>3526eb64b244...</code></td>
+                  <td>2026-03-02</td>
+                  <td>matt@peerlessrestoration.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>e56456763fd8...</code></td>
+                  <td>2026-03-02</td>
+                  <td>kylealexherschend@gmail.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>ee05f4ca8be6...</code></td>
+                  <td>2026-03-02</td>
+                  <td>kristy.persson+hub@ca.belfor.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Unknown) &#8212; 3 traces in Description</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>e0a2bed9444b...</code></td>
+                  <td>2026-03-03</td>
+                  <td>greg.janse@ca.belfor.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>03c5f6a0461a...</code></td>
+                  <td>2026-03-03</td>
+                  <td>roger.lough@ca.belfor.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+                <tr>
+                  <td><code>dac9b746370e...</code></td>
+                  <td>2026-03-03</td>
+                  <td>ccollins@dryunow.pro</td>
+                  <td>Unknown</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Unknown) &#8212; 1 trace in MeasurementImages</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>8d5a48c441c7...</code></td>
+                  <td>2026-03-02</td>
+                  <td>nadiia.kaverina@ca.belfor.com</td>
+                  <td>Unknown</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Sexual) &#8212; 1 trace in Description</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>6416b5855c85...</code></td>
+                  <td>2026-03-02</td>
+                  <td>shiloe.hansel@puroclean.com</td>
+                  <td>Sexual</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Prompt Rejected) &#8212; 1 trace in Drying</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>212cf9afc595...</code></td>
+                  <td>2026-03-01</td>
+                  <td>patrick.madden@ca.belfor.com</td>
+                  <td>Prompt Rejected</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Sexual) &#8212; 1 trace in Merge</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>9f7747d2fd54...</code></td>
+                  <td>2026-02-27</td>
+                  <td>jordan.shea@ca.belfor.com</td>
+                  <td>Sexual</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Sexual) &#8212; 1 trace in Drying</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>fedebd3f5bb2...</code></td>
+                  <td>2026-02-26</td>
+                  <td>snutter@decconstruction.com</td>
+                  <td>Sexual</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ValueError &#8212; 1 trace in Equipment</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>219def2ce966...</code></td>
+                  <td>2026-02-25</td>
+                  <td>jim.beveridge@ca.belfor.com</td>
+                  
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Self-Harm) &#8212; 1 trace in Merge</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>0de4dab67aab...</code></td>
+                  <td>2026-02-25</td>
+                  <td>daniel.lockhart@ca.belfor.com</td>
+                  <td>Self-Harm</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      <details>
+        <summary>ContentFilterCompletion (Self-Harm) &#8212; 1 trace in Description</summary>
+        <div class="error-section">
+          <div class="table-card" style="box-shadow:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Trace ID</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Filter Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td><code>62d3a42e2d85...</code></td>
+                  <td>2026-02-25</td>
+                  <td>tracey.paris@ca.belfor.com</td>
+                  <td>Self-Harm</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      
+      
+
+      <!-- Affected Users -->
+      
+      <div class="section-header">
+        <h2><span class="section-icon">!</span> Affected Users</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Error Count</th>
+              <th>Error Types</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>oalarcon@apolloconstructioncorp.com</td>
+              <td class="number">2</td>
+              <td>Unknown (2)</td>
+            </tr>
+            
+            <tr>
+              <td>greg.janse@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>roger.lough@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>baney.parker@gmail.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>jay.wilson@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>ccollins@dryunow.pro</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>mary.hernandez@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>fernando.alvarez@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>matt@peerlessrestoration.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>kylealexherschend@gmail.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>kristy.persson+hub@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>nadiia.kaverina@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>shiloe.hansel@puroclean.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>patrick.madden@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>jordan.shea@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>snutter@decconstruction.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>trey@recoveryrestoration.net</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>jm@apolloconstructioncorp.com</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>bchristie+floater@encircleapp.com</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>jim.beveridge@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ValueError</td>
+            </tr>
+            
+            <tr>
+              <td>daniel.lockhart@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>tracey.paris@ca.belfor.com</td>
+              <td class="number">1</td>
+              <td>ContentFilterCompletion</td>
+            </tr>
+            
+            <tr>
+              <td>ldelahunty@encircleapp.com</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+            <tr>
+              <td>will.hamm@goblusky.com</td>
+              <td class="number">1</td>
+              <td>Unknown</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+
+      
+
+    </div>
+
+    <!-- ======================== COST & LATENCY TAB ======================== -->
+    <div class="tab-content panel-costs">
+
+      <!-- Summary Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">Avg Cost</div>
+          <div class="card-value">$0.46</div>
+          <div class="card-subtitle">per scope</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Median Cost</div>
+          <div class="card-value">$0.36</div>
+          <div class="card-subtitle">50th percentile</div>
+        </div>
+        <div class="card">
+          <div class="card-label">P95 Cost</div>
+          <div class="card-value">$1.09</div>
+          <div class="card-subtitle">95th percentile</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Avg Latency</div>
+          <div class="card-value">109s</div>
+          <div class="card-subtitle">per scope</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Traces</div>
+          <div class="card-value">539</div>
+          <div class="card-subtitle">in period</div>
+        </div>
+      </div>
+
+      <!-- Cost Summary -->
+      <div class="section-header">
+        <h2><span class="section-icon">$</span> Cost Summary</h2>
+      </div>
+      <div class="table-card">
+        <table class="stats-table">
+          <tbody>
+            <tr><td>Average</td><td class="number">$0.46</td></tr>
+            <tr><td>Median</td><td class="number">$0.36</td></tr>
+            <tr><td>Min / Max</td><td class="number">$0.04 / $3.97</td></tr>
+            <tr><td>P75</td><td class="number">$0.54</td></tr>
+            <tr><td>P95</td><td class="number">$1.09</td></tr>
+            <tr><td>Std Dev</td><td class="number">$0.42</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Latency Summary -->
+      <div class="section-header">
+        <h2><span class="section-icon">&curren;</span> Latency Summary</h2>
+      </div>
+      <div class="table-card">
+        <table class="stats-table">
+          <tbody>
+            <tr><td>Average</td><td class="number">108.7s</td></tr>
+            <tr><td>Median</td><td class="number">83.7s</td></tr>
+            <tr><td>P75</td><td class="number">119.3s</td></tr>
+            <tr><td>P95</td><td class="number">256.7s</td></tr>
+            <tr><td>Min / Max</td><td class="number">12.2s / 899.6s</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Users by Avg Cost -->
+      <div class="section-header">
+        <h2><span class="section-icon">$</span> Top 10 Users by Avg Cost</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Scopes</th>
+              <th>Avg Cost</th>
+              <th>Total Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>kevin.ferrara@advantaclean.com</td>
+              <td class="number">1</td>
+              <td class="number">$3.97</td>
+              <td class="number">$3.97</td>
+            </tr>
+            
+            <tr>
+              <td>pwelty@capdsus.com</td>
+              <td class="number">1</td>
+              <td class="number">$3.75</td>
+              <td class="number">$3.75</td>
+            </tr>
+            
+            <tr>
+              <td>fnolan@rrtfl.com</td>
+              <td class="number">2</td>
+              <td class="number">$2.89</td>
+              <td class="number">$5.78</td>
+            </tr>
+            
+            <tr>
+              <td>shane@highlandrestoration.ca</td>
+              <td class="number">1</td>
+              <td class="number">$2.81</td>
+              <td class="number">$2.81</td>
+            </tr>
+            
+            <tr>
+              <td>jsymes@servicemaster.bc.ca</td>
+              <td class="number">1</td>
+              <td class="number">$1.54</td>
+              <td class="number">$1.54</td>
+            </tr>
+            
+            <tr>
+              <td>jfountain@southeastrestoration.com</td>
+              <td class="number">1</td>
+              <td class="number">$1.44</td>
+              <td class="number">$1.44</td>
+            </tr>
+            
+            <tr>
+              <td>jm@apolloconstructioncorp.com</td>
+              <td class="number">2</td>
+              <td class="number">$1.31</td>
+              <td class="number">$2.63</td>
+            </tr>
+            
+            <tr>
+              <td>bgabris@abff.ca</td>
+              <td class="number">1</td>
+              <td class="number">$1.21</td>
+              <td class="number">$1.21</td>
+            </tr>
+            
+            <tr>
+              <td>mbush@dryunow.pro</td>
+              <td class="number">2</td>
+              <td class="number">$1.18</td>
+              <td class="number">$2.36</td>
+            </tr>
+            
+            <tr>
+              <td>cmaggio@decconstruction.com</td>
+              <td class="number">1</td>
+              <td class="number">$1.17</td>
+              <td class="number">$1.17</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Users by Avg Latency -->
+      <div class="section-header">
+        <h2><span class="section-icon">&curren;</span> Top 10 Users by Avg Latency</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Scopes</th>
+              <th>Avg Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>fnolan@rrtfl.com</td>
+              <td class="number">2</td>
+              <td class="number">650.2s</td>
+            </tr>
+            
+            <tr>
+              <td>dave.distasi@ca.belfor.com</td>
+              <td class="number">2</td>
+              <td class="number">463.8s</td>
+            </tr>
+            
+            <tr>
+              <td>adonahoo+rescuepro@encircleapp.com</td>
+              <td class="number">4</td>
+              <td class="number">438.6s</td>
+            </tr>
+            
+            <tr>
+              <td>pwelty@capdsus.com</td>
+              <td class="number">1</td>
+              <td class="number">429.8s</td>
+            </tr>
+            
+            <tr>
+              <td>tiffany.mckinnon@ca.belfor.com</td>
+              <td class="number">2</td>
+              <td class="number">398.5s</td>
+            </tr>
+            
+            <tr>
+              <td>cmaggio@decconstruction.com</td>
+              <td class="number">1</td>
+              <td class="number">335.9s</td>
+            </tr>
+            
+            <tr>
+              <td>matthew.griffiths@smcalgary.com</td>
+              <td class="number">2</td>
+              <td class="number">318.9s</td>
+            </tr>
+            
+            <tr>
+              <td>tyson.burleson@restoration1.com</td>
+              <td class="number">1</td>
+              <td class="number">302.9s</td>
+            </tr>
+            
+            <tr>
+              <td>jfountain@southeastrestoration.com</td>
+              <td class="number">1</td>
+              <td class="number">287.4s</td>
+            </tr>
+            
+            <tr>
+              <td>kevin.ferrara@advantaclean.com</td>
+              <td class="number">1</td>
+              <td class="number">274.9s</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Orgs by Avg Cost -->
+      <div class="section-header">
+        <h2><span class="section-icon">$</span> Top 10 Organizations by Avg Cost</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Scopes</th>
+              <th>Avg Cost</th>
+              <th>Total Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>AdvantaClean</td>
+              <td class="number">3</td>
+              <td class="number">$1.71</td>
+              <td class="number">$5.14</td>
+            </tr>
+            
+            <tr>
+              <td>Highland Restoration</td>
+              <td class="number">2</td>
+              <td class="number">$1.53</td>
+              <td class="number">$3.06</td>
+            </tr>
+            
+            <tr>
+              <td>Rrtfl</td>
+              <td class="number">6</td>
+              <td class="number">$1.49</td>
+              <td class="number">$8.94</td>
+            </tr>
+            
+            <tr>
+              <td>Capdsus</td>
+              <td class="number">4</td>
+              <td class="number">$1.42</td>
+              <td class="number">$5.69</td>
+            </tr>
+            
+            <tr>
+              <td>ABFF</td>
+              <td class="number">1</td>
+              <td class="number">$1.21</td>
+              <td class="number">$1.21</td>
+            </tr>
+            
+            <tr>
+              <td>1800floodrestore@gmail.com</td>
+              <td class="number">7</td>
+              <td class="number">$1.09</td>
+              <td class="number">$7.64</td>
+            </tr>
+            
+            <tr>
+              <td>ServiceMaster BC</td>
+              <td class="number">2</td>
+              <td class="number">$1.06</td>
+              <td class="number">$2.11</td>
+            </tr>
+            
+            <tr>
+              <td>jetambe23@gmail.com</td>
+              <td class="number">1</td>
+              <td class="number">$1.05</td>
+              <td class="number">$1.05</td>
+            </tr>
+            
+            <tr>
+              <td>Lightspeedrestoration</td>
+              <td class="number">2</td>
+              <td class="number">$0.96</td>
+              <td class="number">$1.92</td>
+            </tr>
+            
+            <tr>
+              <td>Thedryguy</td>
+              <td class="number">1</td>
+              <td class="number">$0.95</td>
+              <td class="number">$0.95</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top 10 Orgs by Avg Latency -->
+      <div class="section-header">
+        <h2><span class="section-icon">&curren;</span> Top 10 Organizations by Avg Latency</h2>
+      </div>
+      <div class="table-card">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Scopes</th>
+              <th>Avg Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>Rrtfl</td>
+              <td class="number">6</td>
+              <td class="number">295.7s</td>
+            </tr>
+            
+            <tr>
+              <td>Thedryguy</td>
+              <td class="number">1</td>
+              <td class="number">254.9s</td>
+            </tr>
+            
+            <tr>
+              <td>dylanclimie@live.com</td>
+              <td class="number">14</td>
+              <td class="number">222.7s</td>
+            </tr>
+            
+            <tr>
+              <td>ABFF</td>
+              <td class="number">1</td>
+              <td class="number">212.5s</td>
+            </tr>
+            
+            <tr>
+              <td>Encircle (internal)</td>
+              <td class="number">15</td>
+              <td class="number">193.7s</td>
+            </tr>
+            
+            <tr>
+              <td>1800floodrestore@gmail.com</td>
+              <td class="number">7</td>
+              <td class="number">190.5s</td>
+            </tr>
+            
+            <tr>
+              <td>AdvantaClean</td>
+              <td class="number">3</td>
+              <td class="number">190.3s</td>
+            </tr>
+            
+            <tr>
+              <td>Capdsus</td>
+              <td class="number">4</td>
+              <td class="number">181.8s</td>
+            </tr>
+            
+            <tr>
+              <td>Emergencyfloodteam</td>
+              <td class="number">3</td>
+              <td class="number">179.1s</td>
+            </tr>
+            
+            <tr>
+              <td>Servicemaster-sarnia</td>
+              <td class="number">1</td>
+              <td class="number">176.6s</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div><!-- /tab-panels -->
+</div><!-- /container -->
+
+<script>
+// Chart.js: Day of Week horizontal bar chart
+const dayCtx = document.getElementById('chartDayOfWeek');
+if (dayCtx) {
+  new Chart(dayCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        data: [99, 76, 132, 108, 96, 20, 8],
+        backgroundColor: '#F26522',
+        borderRadius: 4,
+        barPercentage: 0.7,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { display: false } },
+        y: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+// Chart.js: Hourly vertical bar chart
+const hourCtx = document.getElementById('chartHourly');
+if (hourCtx) {
+  const hourData = [16, 22, 1, 1, 2, 1, 2, 0, 2, 0, 1, 3, 13, 12, 38, 55, 62, 75, 63, 47, 36, 43, 26, 18];
+  const maxHour = Math.max(...hourData);
+  new Chart(hourCtx, {
+    type: 'bar',
+    data: {
+      labels: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      datasets: [{
+        data: hourData,
+        backgroundColor: hourData.map(v => v >= maxHour * 0.6 ? '#F26522' : '#F2652266'),
+        borderRadius: 3,
+        barPercentage: 0.8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false } },
+        y: { display: false }
+      }
+    }
+  });
+}
+
+// Sortable tables
+document.querySelectorAll('table.sortable thead th').forEach(th => {
+  th.addEventListener('click', () => {
+    const table = th.closest('table');
+    const tbody = table.querySelector('tbody');
+    const idx = Array.from(th.parentNode.children).indexOf(th);
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.total-row)'));
+    const totalRow = tbody.querySelector('tr.total-row');
+
+    const dir = th.classList.contains('sort-asc') ? 'desc' : 'asc';
+    th.parentNode.querySelectorAll('th').forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+    th.classList.add('sort-' + dir);
+
+    rows.sort((a, b) => {
+      let aVal = a.children[idx]?.textContent.trim().replace(/[$,s%]/g, '') || '';
+      let bVal = b.children[idx]?.textContent.trim().replace(/[$,s%]/g, '') || '';
+      const aNum = parseFloat(aVal);
+      const bNum = parseFloat(bVal);
+      if (!isNaN(aNum) && !isNaN(bNum)) {
+        return dir === 'asc' ? aNum - bNum : bNum - aNum;
+      }
+      return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+    if (totalRow) tbody.appendChild(totalRow);
+  });
+});
+</script>
+
+</body>
+</html>
