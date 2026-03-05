@@ -58,6 +58,14 @@ jobs:
           REPORT_PERIOD: ${{ steps.period.outputs.period }}
         run: python -m src
 
+      - name: Commit markdown docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet || git commit -m "Update ${{ steps.period.outputs.period }} report docs [skip ci]"
+          git push
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

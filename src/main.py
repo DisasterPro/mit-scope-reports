@@ -16,6 +16,7 @@ from pathlib import Path
 from .analyzers import analyze_costs, analyze_errors, analyze_usage
 from .index_builder import build_index_page
 from .langfuse_client import LangfuseDataFetcher
+from .markdown_writer import write_markdown_reports
 from .renderer import render_report
 from .slack import post_to_slack
 
@@ -107,7 +108,12 @@ def main() -> None:
     # Build the archive index page (lists all reports chronologically)
     build_index_page(archive_dir, reports_dir / "history.html")
 
-    # 7. Post to Slack (if configured)
+    # 7. Update markdown report docs
+    logger.info("Updating markdown reports...")
+    docs_dir = project_root / "docs"
+    write_markdown_reports(docs_dir, usage, costs, errors, now, period)
+
+    # 8. Post to Slack (if configured)
     if slack_webhook_url:
         logger.info("Posting to Slack...")
         post_to_slack(
