@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MitScope Report History</title>
+<style>
+:root{--enc:#f26522;--txt:#1e293b;--txt2:#475569;--bg:#f4f5f7;--card:#fff;--bdr:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5}
+.hdr{background:linear-gradient(135deg,#1e293b,#334155);color:#fff;padding:1.25rem 2rem;display:flex;align-items:center;gap:1rem}
+.hdr h1{font-size:1.3rem;font-weight:700}
+.hdr .pill{background:var(--enc);padding:.2rem .7rem;border-radius:20px;font-size:.75rem;font-weight:600}
+.container{max-width:800px;margin:2rem auto;padding:0 1rem}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+th{background:#f8fafc;padding:.6rem 1rem;text-align:left;font-size:.8rem;font-weight:600;color:var(--txt2);border-bottom:2px solid var(--bdr)}
+td{padding:.5rem 1rem;border-bottom:1px solid var(--bdr);font-size:.85rem}
+tr:hover td{background:#fafbfc}
+a{color:var(--enc);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:12px;font-size:.7rem;font-weight:600}
+.badge-weekly{background:#eff6ff;color:#2563eb}
+.badge-daily{background:#f0fdf4;color:#16a34a}
+.row-weekly td{background:#f8fafc}
+.back{display:inline-block;margin-bottom:1rem;color:var(--enc);font-weight:600;text-decoration:none;font-size:.85rem}
+.back:hover{text-decoration:underline}
+.ft{text-align:center;padding:1.5rem;font-size:.72rem;color:var(--txt2)}
+</style>
+</head>
+<body>
+<div class="hdr">
+<h1>MitScope Report History</h1>
+<span class="pill">ARCHIVE</span>
+</div>
+<div class="container">
+<a class="back" href="index.html">&larr; Latest Report</a>
+<table>
+<thead><tr><th>Type</th><th>Date</th><th>Report</th></tr></thead>
+<tbody>
+<tr class="row-daily"><td><span class="badge badge-daily">Daily</span></td><td>2026-03-04</td><td><a href="archive/2026-03-04-daily.html">View Report</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="ft">MitScope Production Report &mdash; Encircle</div>
+</body>
+</html>
