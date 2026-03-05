@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MitScope Production Report — {{ usage.period_start.strftime('%b %d') }} – {{ usage.period_end.strftime('%b %d, %Y') }}</title>
+<title>MitScope {{ 'Weekly' if period == 'weekly' else 'Daily' }} Report — {{ usage.period_start.strftime('%b %d') }} – {{ usage.period_end.strftime('%b %d, %Y') }}</title>
 <style>
 :root{--enc:#f26522;--enc-dk:#d9551a;--bg:#f4f5f7;--card:#fff;--txt:#1e293b;--txt2:#475569;--txt3:#94a3b8;--bdr:#e2e8f0;--r:10px}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -61,8 +61,8 @@ tr:hover td{background:#fafbfc}
 
 <div class="hdr">
 <h1>MitScope Production Report</h1>
-<span class="pill">LIVE</span>
-<span class="period">{{ usage.period_start.strftime('%b %d') }} – {{ usage.period_end.strftime('%b %d, %Y') }} &nbsp;|&nbsp; Generated {{ generated_at.strftime('%b %d, %Y') }}</span>
+<span class="pill">{{ 'WEEKLY' if period == 'weekly' else 'DAILY' }}</span>
+<span class="period">{{ usage.period_start.strftime('%b %d') }} – {{ usage.period_end.strftime('%b %d, %Y') }} ({{ '7d' if period == 'weekly' else '1d' }}) &nbsp;|&nbsp; Generated {{ generated_at.strftime('%b %d, %Y') }}</span>
 </div>
 
 <div class="tabs">

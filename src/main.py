@@ -1,4 +1,4 @@
-"""Entry point for weekly MitScope report generation.
+"""Entry point for MitScope report generation (daily and weekly).
 
 Fetches production trace data from Langfuse, runs usage/cost/error
 analytics, renders an interactive HTML report, and optionally posts
@@ -14,6 +14,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .analyzers import analyze_costs, analyze_errors, analyze_usage
+from .index_builder import build_index_page
 from .langfuse_client import LangfuseDataFetcher
 from .renderer import render_report
 from .slack import post_to_slack
@@ -26,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 
 def main() -> None:
-    """Generate the weekly report."""
+    """Generate a daily or weekly report based on REPORT_PERIOD env var."""
     # 1. Configuration from environment
     host = os.environ.get("LANGFUSE_HOST", "https://us.cloud.langfuse.com")
     public_key = os.environ.get("LANGFUSE_PUBLIC_KEY")
@@ -35,17 +36,30 @@ def main() -> None:
     report_base_url = os.environ.get(
         "REPORT_BASE_URL", "https://disasterpro.github.io/mit-scope-reports"
     )
+    period = os.environ.get("REPORT_PERIOD", "daily").lower()
+
+    if period not in ("daily", "weekly"):
+        logger.error("REPORT_PERIOD must be 'daily' or 'weekly', got '%s'", period)
+        sys.exit(1)
 
     if not public_key or not secret_key:
         logger.error("LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY must be set")
         sys.exit(1)
 
-    # 2. Calculate 7-day window
+    is_weekly = period == "weekly"
+    days = 7 if is_weekly else 1
+
+    # 2. Calculate time window
     now = datetime.now(timezone.utc)
     to_ts = now
-    from_ts = to_ts - timedelta(days=7)
+    from_ts = to_ts - timedelta(days=days)
 
-    logger.info("Report period: %s to %s", from_ts.isoformat(), to_ts.isoformat())
+    logger.info(
+        "%s report period: %s to %s",
+        period.capitalize(),
+        from_ts.isoformat(),
+        to_ts.isoformat(),
+    )
 
     # 3. Fetch traces
     fetcher = LangfuseDataFetcher(host, public_key, secret_key)
@@ -53,8 +67,6 @@ def main() -> None:
 
     if not traces:
         logger.warning("No production traces found for the period")
-        # Still generate a report with zeros
-        pass
 
     logger.info("Fetched %d production traces", len(traces))
 
@@ -70,27 +82,30 @@ def main() -> None:
 
     # 5. Render HTML
     logger.info("Rendering HTML report...")
-    # Resolve template directory relative to the project root
     project_root = Path(__file__).resolve().parent.parent
     template_dir = project_root / "templates"
-    html = render_report(usage, costs, errors, now, template_dir)
+    html = render_report(usage, costs, errors, now, template_dir, period=period)
 
     # 6. Write output files
     reports_dir = project_root / "reports"
     reports_dir.mkdir(exist_ok=True)
 
-    # Latest report (overwrites)
+    # Latest report (overwrites index.html — always the most recent run)
     index_path = reports_dir / "index.html"
     index_path.write_text(html, encoding="utf-8")
     logger.info("Wrote %s", index_path)
 
-    # Archive with date
+    # Archive with date and period type
     archive_dir = reports_dir / "archive"
     archive_dir.mkdir(exist_ok=True)
-    archive_name = from_ts.strftime("%Y-%m-%d") + ".html"
+    date_str = from_ts.strftime("%Y-%m-%d")
+    archive_name = f"{date_str}-{period}.html"
     archive_path = archive_dir / archive_name
     archive_path.write_text(html, encoding="utf-8")
     logger.info("Wrote %s", archive_path)
+
+    # Build the archive index page (lists all reports chronologically)
+    build_index_page(archive_dir, reports_dir / "history.html")
 
     # 7. Post to Slack (if configured)
     if slack_webhook_url:
@@ -102,11 +117,14 @@ def main() -> None:
             period_end=to_ts,
             usage=usage,
             errors=errors,
+            period=period,
         )
     else:
         logger.info("SLACK_WEBHOOK_URL not set, skipping notification")
 
-    logger.info("Done! Report covers %d scopes.", usage.total_scopes)
+    logger.info(
+        "Done! %s report covers %d scopes.", period.capitalize(), usage.total_scopes
+    )
 
 
 if __name__ == "__main__":

@@ -16,6 +16,7 @@ def render_report(
     errors: ErrorReport,
     generated_at: datetime,
     template_dir: str | Path = "templates",
+    period: str = "weekly",
 ) -> str:
     """Render the combined report as interactive HTML."""
     env = Environment(
@@ -28,4 +29,5 @@ def render_report(
         costs=costs,
         errors=errors,
         generated_at=generated_at,
+        period=period,
     )

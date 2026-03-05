@@ -1,10 +1,19 @@
-name: Weekly Report
+name: MitScope Report
 
 on:
   schedule:
-    # Sunday midnight Eastern Time (05:00 UTC)
-    - cron: '0 5 * * 0'
-  workflow_dispatch: {}  # Manual trigger for testing
+    # Daily at midnight Eastern Time (05:00 UTC)
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      period:
+        description: 'Report period'
+        required: false
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - weekly
 
 permissions:
   contents: write
@@ -24,6 +33,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Determine report period
+        id: period
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "period=${{ github.event.inputs.period }}" >> "$GITHUB_OUTPUT"
+          else
+            # Cron: Sunday = weekly, all other days = daily
+            DOW=$(date -u +%u)
+            if [ "$DOW" = "7" ]; then
+              echo "period=weekly" >> "$GITHUB_OUTPUT"
+            else
+              echo "period=daily" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
       - name: Generate report
         env:
           LANGFUSE_HOST: https://us.cloud.langfuse.com
@@ -31,6 +55,7 @@ jobs:
           LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPORT_BASE_URL: https://disasterpro.github.io/mit-scope-reports
+          REPORT_PERIOD: ${{ steps.period.outputs.period }}
         run: python -m src
 
       - name: Deploy to GitHub Pages

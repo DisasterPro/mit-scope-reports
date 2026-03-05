@@ -19,18 +19,20 @@ def post_to_slack(
     period_end: datetime,
     usage: UsageReport,
     errors: ErrorReport,
+    period: str = "weekly",
 ) -> None:
     """Post a summary notification to Slack with a link to the full report."""
     period_str = f"{period_start:%Y-%m-%d} to {period_end:%Y-%m-%d}"
+    label = "Weekly" if period == "weekly" else "Daily"
 
     payload = {
-        "text": f"Weekly Mitigation Scope Report ({period_str})",
+        "text": f"{label} Mitigation Scope Report ({period_str})",
         "blocks": [
             {
                 "type": "header",
                 "text": {
                     "type": "plain_text",
-                    "text": "Weekly Mitigation Scope Report",
+                    "text": f"{label} Mitigation Scope Report",
                 },
             },
             {
