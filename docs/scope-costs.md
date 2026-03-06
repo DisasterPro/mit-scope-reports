@@ -2,6 +2,24 @@
 
 ## Daily Reports
 
+### 2026-03-05 (Daily)
+**Generated:** 2026-03-06 05:25 UTC | **Period:** 1d (2026-03-05 to 2026-03-06) | **Traces:** 86
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.69 | 156.7s |
+| Median | $0.54 | 113.1s |
+| P75 | $0.81 | 192.2s |
+| P95 | $2.14 | 335.4s |
+| Min | $0.11 | 19.9s |
+| Max | $2.56 | 983.3s |
+
+**Top Cost Users:** andrew.quick@ca.belfor.com ($2.55), ben.dunn@ca.belfor.com ($2.17), nva@rainbownova.com ($2.15)
+
+**Top Latency Users:** lincoln.lam@ca.belfor.com (545s), tom@reddogrestoration.com (403s), tyler@concraft.com (324s)
+
+---
+
 ### 2026-03-04 (Daily)
 **Generated:** 2026-03-05 05:26 UTC | **Period:** 1d (2026-03-04 to 2026-03-05) | **Traces:** 112
 

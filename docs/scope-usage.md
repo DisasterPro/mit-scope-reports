@@ -2,6 +2,25 @@
 
 ## Daily Reports
 
+### 2026-03-05 (Daily)
+**Generated:** 2026-03-06 05:25 UTC | **Period:** 1d (2026-03-05 to 2026-03-06)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 86 |
+| Unique Organizations | 30 |
+| Unique Users | 57 |
+| Total Cost | $59.05 |
+| Average Cost / Scope | $0.69 |
+
+**Top Users:** tracey.paris@ca.belfor.com (6), mary.hernandez@ca.belfor.com (5), absolutecleanpres@gmail.com (3), rcv1988@gmail.com (3), ryan.weitzman@us.belfor.com (3)
+
+**Top Orgs:** BELFOR Canada (34), BELFOR US (8), Zeusrestoration (4), Rainbownova (4), absolutecleanpres@gmail.com (3)
+
+**Cost Outliers:** 9 users with avg > $1.00/scope
+
+---
+
 ### 2026-03-04 (Daily)
 **Generated:** 2026-03-05 05:26 UTC | **Period:** 1d (2026-03-04 to 2026-03-05)
 
