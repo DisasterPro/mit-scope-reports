@@ -529,14 +529,14 @@ def _generate_narrative(
         ),
     )
 
-    response = llm_client.chat.completions.create(
-        model=os.environ.get("EVAL_LLM_MODEL", "gpt-4o-mini"),
+    response = llm_client.messages.create(
+        model=os.environ.get("EVAL_MODEL", "claude-haiku-4-5-20251001"),
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_tokens=1000,
     )
 
-    text = response.choices[0].message.content or ""
+    text = response.content[0].text if response.content else ""
 
     # Parse the two sections
     input_match = re.search(

@@ -33,10 +33,10 @@ jobs:
             exit 1
           fi
           echo "Langfuse secrets configured"
-          if [ -n "${{ secrets.EVAL_LLM_API_KEY }}" ]; then
-            echo "LLM API key configured (Haiku narrative enabled)"
+          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            echo "Anthropic API key configured (Claude Haiku narrative enabled)"
           else
-            echo "::warning::EVAL_LLM_API_KEY not set -- using template fallback for narratives"
+            echo "::warning::ANTHROPIC_API_KEY not set -- using template fallback for narratives"
           fi
 
       - name: Set up Python
@@ -53,7 +53,7 @@ jobs:
           LANGFUSE_HOST: https://us.cloud.langfuse.com
           LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
           LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
-          EVAL_LLM_API_KEY: ${{ secrets.EVAL_LLM_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m src.trace_eval_runner
 
       - name: Commit results

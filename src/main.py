@@ -85,15 +85,15 @@ def main() -> None:
     # 4b. Run trace evaluations (lightweight per-trace evals)
     logger.info("Running trace evaluations...")
     llm_client = None
-    eval_api_key = os.environ.get("EVAL_LLM_API_KEY")
-    if eval_api_key:
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    if anthropic_key:
         try:
-            from openai import OpenAI
-            llm_client = OpenAI(api_key=eval_api_key)
+            import anthropic
+            llm_client = anthropic.Anthropic(api_key=anthropic_key)
         except ImportError:
-            logger.warning("openai package not installed, skipping LLM narratives")
+            logger.warning("anthropic package not installed, skipping LLM narratives")
     else:
-        logger.info("EVAL_LLM_API_KEY not set, using template-based narratives")
+        logger.info("ANTHROPIC_API_KEY not set, using template-based narratives")
 
     trace_evals = analyze_trace_evals(traces, fetcher, llm_client)
     logger.info("Evaluated %d traces", len(trace_evals))

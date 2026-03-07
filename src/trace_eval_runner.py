@@ -30,11 +30,14 @@ _BACKFILL_LOOKBACK_MINUTES = 1440  # 24 hours
 
 
 def _get_existing_trace_ids(output_path: Path) -> set[str]:
-    """Read already-evaluated trace IDs (first 8 chars) from the output file."""
+    """Read already-evaluated trace IDs from the output file."""
     if not output_path.exists():
         return set()
     text = output_path.read_text(encoding="utf-8")
-    return set(re.findall(r"^## ([a-f0-9]{8}) --", text, re.MULTILINE))
+    # Match full 32-char IDs and legacy 8-char IDs
+    full_ids = set(re.findall(r"^## ([a-f0-9]{32}) --", text, re.MULTILINE))
+    short_ids = set(re.findall(r"^## ([a-f0-9]{8}) --", text, re.MULTILINE))
+    return full_ids | short_ids
 
 
 def main() -> None:
@@ -42,7 +45,7 @@ def main() -> None:
     host = os.environ.get("LANGFUSE_HOST", "https://us.cloud.langfuse.com")
     public_key = os.environ.get("LANGFUSE_PUBLIC_KEY")
     secret_key = os.environ.get("LANGFUSE_SECRET_KEY")
-    eval_llm_key = os.environ.get("EVAL_LLM_API_KEY")
+    eval_llm_key = os.environ.get("ANTHROPIC_API_KEY")
 
     if not public_key or not secret_key:
         logger.error("LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY must be set")
@@ -79,8 +82,11 @@ def main() -> None:
         logger.info("No traces found in window, nothing to do")
         return
 
-    # Filter out already-evaluated traces
-    new_traces = [t for t in traces if t.id[:8] not in existing_ids]
+    # Filter out already-evaluated traces (check full ID and 8-char prefix)
+    new_traces = [
+        t for t in traces
+        if t.id not in existing_ids and t.id[:8] not in existing_ids
+    ]
     logger.info(
         "Found %d traces in window, %d already evaluated, %d new",
         len(traces), len(traces) - len(new_traces), len(new_traces),
@@ -92,28 +98,18 @@ def main() -> None:
 
     traces = new_traces
 
-    # Set up LLM client if key is available
+    # Set up Anthropic client for Haiku narrative generation
     llm_client = None
     if eval_llm_key:
         try:
-            from openai import AzureOpenAI, OpenAI
+            import anthropic
 
-            azure_endpoint = os.environ.get("EVAL_LLM_AZURE_ENDPOINT")
-            if azure_endpoint:
-                llm_client = AzureOpenAI(
-                    api_key=eval_llm_key,
-                    azure_endpoint=azure_endpoint,
-                    api_version=os.environ.get(
-                        "EVAL_LLM_API_VERSION", "2024-02-15-preview"
-                    ),
-                )
-            else:
-                llm_client = OpenAI(api_key=eval_llm_key)
-            logger.info("LLM client initialized for narrative generation")
+            llm_client = anthropic.Anthropic(api_key=eval_llm_key)
+            logger.info("Anthropic client initialized (Claude Haiku for narratives)")
         except ImportError:
-            logger.warning("openai package not installed, using template fallback")
+            logger.warning("anthropic package not installed, using template fallback")
     else:
-        logger.info("EVAL_LLM_API_KEY not set, using template fallback for narrative")
+        logger.info("ANTHROPIC_API_KEY not set, using template fallback for narrative")
 
     # Run evaluations
     reports = analyze_trace_evals(traces, fetcher, llm_client)

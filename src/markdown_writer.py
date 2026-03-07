@@ -268,10 +268,15 @@ def write_trace_eval_report(
     else:
         doc = _EVAL_SKELETON
 
-    # Find existing trace IDs to skip duplicates
-    existing_ids = set(re.findall(r"^## ([a-f0-9]{8}) --", doc, re.MULTILINE))
+    # Find existing trace IDs to skip duplicates (full 32-char IDs)
+    existing_ids = set(re.findall(r"^## ([a-f0-9]{32}) --", doc, re.MULTILINE))
+    # Also match legacy 8-char IDs for backwards compat
+    existing_short = set(re.findall(r"^## ([a-f0-9]{8}) --", doc, re.MULTILINE))
 
-    new_evals = [e for e in evals if e.trace_id[:8] not in existing_ids]
+    new_evals = [
+        e for e in evals
+        if e.trace_id not in existing_ids and e.trace_id[:8] not in existing_short
+    ]
     if not new_evals:
         logger.info("No new trace evals to write (all already present)")
         return
@@ -289,7 +294,7 @@ def write_trace_eval_report(
         time_str = f"{minutes}m {seconds}s"
         user = e.user_id or "unknown"
         date_str = e.timestamp.strftime("%Y-%m-%d")
-        tid = e.trace_id[:8]
+        tid = e.trace_id
 
         row = (
             f"| {tid} | {date_str} | {user} | {time_str} "
@@ -432,9 +437,9 @@ def _render_trace_eval_section(
 
 def _recompute_eval_stats(doc: str) -> str:
     """Recompute the summary stats line at the top of the eval doc."""
-    # Extract all index rows (skip header and separator)
+    # Extract all index rows (skip header and separator) -- match both full and short trace IDs
     rows = re.findall(
-        r"^\| [a-f0-9]{8} \|.*$", doc, re.MULTILINE,
+        r"^\| [a-f0-9]{8,32} \|.*$", doc, re.MULTILINE,
     )
 
     total = len(rows)
@@ -488,9 +493,9 @@ def _trim_old_eval_sections(doc: str, days: int = 90) -> str:
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     cutoff_str = cutoff.strftime("%Y-%m-%d")
 
-    # Find all section headers like "## abc12345 -- 2026-01-01"
+    # Find all section headers like "## <trace_id> -- 2026-01-01"
     sections = list(re.finditer(
-        r"^## [a-f0-9]{8} -- (\d{4}-\d{2}-\d{2})\n",
+        r"^## [a-f0-9]{8,32} -- (\d{4}-\d{2}-\d{2})\n",
         doc, re.MULTILINE,
     ))
 

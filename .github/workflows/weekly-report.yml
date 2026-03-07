@@ -54,7 +54,7 @@ jobs:
           LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
           LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          EVAL_LLM_API_KEY: ${{ secrets.EVAL_LLM_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           REPORT_BASE_URL: https://disasterpro.github.io/mit-scope-reports
           REPORT_PERIOD: ${{ steps.period.outputs.period }}
         run: python -m src
