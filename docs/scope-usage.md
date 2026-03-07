@@ -2,6 +2,25 @@
 
 ## Daily Reports
 
+### 2026-03-06 (Daily)
+**Generated:** 2026-03-07 05:20 UTC | **Period:** 1d (2026-03-06 to 2026-03-07)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 69 |
+| Unique Organizations | 24 |
+| Unique Users | 48 |
+| Total Cost | $48.63 |
+| Average Cost / Scope | $0.70 |
+
+**Top Users:** bgabris@abff.ca (4), bchristie+scopeai@encircleapp.com (4), guy.tiomkin@ca.belfor.com (4), gabriel.hodges@rs1967.com (3), ascott1424@gmail.com (3)
+
+**Top Orgs:** BELFOR Canada (26), Restoration 1 (5), ABFF (5), Encircle (internal) (4), Rs1967 (3)
+
+**Cost Outliers:** 8 users with avg > $1.00/scope
+
+---
+
 ### 2026-03-05 (Daily)
 **Generated:** 2026-03-06 05:25 UTC | **Period:** 1d (2026-03-05 to 2026-03-06)
 

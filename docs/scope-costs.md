@@ -2,6 +2,24 @@
 
 ## Daily Reports
 
+### 2026-03-06 (Daily)
+**Generated:** 2026-03-07 05:20 UTC | **Period:** 1d (2026-03-06 to 2026-03-07) | **Traces:** 69
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.70 | 147.6s |
+| Median | $0.44 | 100.5s |
+| P75 | $0.82 | 163.5s |
+| P95 | $2.25 | 357.6s |
+| Min | $0.09 | 16.6s |
+| Max | $3.55 | 989.8s |
+
+**Top Cost Users:** dylanknause@yahoo.com ($2.62), paul@structuredrestoration.com ($2.38), nate.r@restoration1.com ($2.04)
+
+**Top Latency Users:** dylanknause@yahoo.com (420s), ascott1424@gmail.com (385s), nate.r@restoration1.com (366s)
+
+---
+
 ### 2026-03-05 (Daily)
 **Generated:** 2026-03-06 05:25 UTC | **Period:** 1d (2026-03-05 to 2026-03-06) | **Traces:** 86
 
