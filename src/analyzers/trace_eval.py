@@ -206,6 +206,7 @@ def _evaluate_single_trace(
         pipeline_label=pipeline_label,
         issue_score=issue_score,
         issue_label=issue_label,
+        issue_details=issue_data,
     )
 
     # --- Generate narrative via LLM ---

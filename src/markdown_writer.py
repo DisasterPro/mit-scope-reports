@@ -560,3 +560,212 @@ def _trim_old_eval_sections(doc: str, days: int = 90) -> str:
             doc = doc[:start] + doc[end:]
 
     return doc
+
+
+# ── Bug Tracking ─────────────────────────────────────────────────
+
+_BUGS_SKELETON = """\
+# Automated Eval -- Issues Found
+
+Bugs and data quality issues discovered by the automated trace evaluation.
+Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
+
+**Last Updated:** -- | **Traces with Issues:** 0 | **Total Issues:** 0
+
+## Index
+
+| Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
+|------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+
+---
+"""
+
+_BUGS_INDEX_SEP = "|------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|"
+
+_ISSUE_TYPE_LABELS = {
+    "iicrc_conflicts": "IICRC Standard Deviation",
+    "scope_conflicts": "Scope Conflict",
+    "material_conflicts": "Material Discrepancy",
+    "material_mismatches": "Material Mismatch",
+    "factor_conflicts": "Equipment Sizing Conflict",
+    "measurement_warnings": "Measurement Warning",
+    "rooms_with_missing_measurements": "Missing Measurements",
+    "affected_rooms_without_photos": "Affected Room Without Photos",
+}
+
+
+def write_trace_eval_bugs(
+    path: Path, evals: list[TraceEvalReport],
+) -> None:
+    """Write/update scope-eval-bugs.md with issues found during eval."""
+    # Filter to traces that have issues (score < 5)
+    with_issues = [e for e in evals if e.issue_score < 5 and e.issue_details]
+    if not with_issues:
+        logger.info("No traces with issues to log")
+        return
+
+    path.parent.mkdir(exist_ok=True)
+
+    if path.exists():
+        doc = path.read_text(encoding="utf-8")
+    else:
+        doc = _BUGS_SKELETON
+
+    # Find existing trace IDs to skip duplicates
+    existing_ids = set(re.findall(r"^## ([a-f0-9]{8,32}) --", doc, re.MULTILINE))
+
+    new_evals = [
+        e for e in with_issues
+        if e.trace_id not in existing_ids
+    ]
+    if not new_evals:
+        logger.info("No new bug traces to log (all already present)")
+        return
+
+    new_evals.sort(key=lambda e: e.timestamp, reverse=True)
+
+    new_rows = []
+    new_sections = []
+
+    for e in new_evals:
+        minutes = int(e.latency // 60)
+        seconds = int(e.latency % 60)
+        time_str = f"{minutes}m {seconds}s"
+        user = e.user_id or "unknown"
+        date_str = e.timestamp.strftime("%Y-%m-%d")
+        tid = e.trace_id
+
+        # Count total issues
+        total_issues = sum(len(v) for v in e.issue_details.values())
+
+        row = (
+            f"| {date_str} | {tid} | {user} | {total_issues} "
+            f"| {e.input_score}/5 {e.input_label} "
+            f"| {e.pipeline_score}/5 {e.pipeline_label} "
+            f"| {e.issue_score}/5 {e.issue_label} "
+            f"| {e.total_rooms} ({e.affected_rooms}/{e.unaffected_rooms}) "
+            f"| {e.photo_count} | {e.note_count} | {e.floor_plan_count} |"
+        )
+        new_rows.append(row)
+
+        section = _render_bug_section(e, tid, date_str, time_str, user)
+        new_sections.append(section)
+
+    # Insert index rows
+    sep_idx = doc.find(_BUGS_INDEX_SEP)
+    if sep_idx != -1:
+        insert_pos = sep_idx + len(_BUGS_INDEX_SEP)
+        nl_pos = doc.find("\n", insert_pos)
+        if nl_pos == -1:
+            nl_pos = len(doc)
+        rows_text = "\n" + "\n".join(new_rows)
+        doc = doc[:nl_pos] + rows_text + doc[nl_pos:]
+
+    # Insert sections after ---
+    separator_idx = doc.find("\n---\n")
+    if separator_idx != -1:
+        insert_pos = separator_idx + len("\n---\n")
+        sections_text = "\n".join(new_sections) + "\n"
+        doc = doc[:insert_pos] + "\n" + sections_text + doc[insert_pos:]
+
+    # Recompute summary
+    doc = _recompute_bug_stats(doc)
+
+    path.write_text(doc, encoding="utf-8")
+    logger.info("Updated %s with %d new bug traces", path, len(new_evals))
+
+
+def _render_bug_section(
+    e: TraceEvalReport,
+    tid: str,
+    date_str: str,
+    time_str: str,
+    user: str,
+) -> str:
+    """Render a single bug trace section."""
+    lines = [
+        f"## {tid} -- {date_str}",
+        "",
+        f"**User:** {user} | **Time:** {time_str}",
+        (
+            f"**Rooms:** {e.total_rooms} total "
+            f"({e.affected_rooms} affected, {e.unaffected_rooms} unaffected) "
+            f"| **Photos:** {e.photo_count} | **Notes:** {e.note_count} "
+            f"| **Floor Plans:** {e.floor_plan_count}"
+        ),
+        (
+            f"**Input Quality:** {e.input_score}/5 {e.input_label} "
+            f"| **Pipeline Health:** {e.pipeline_score}/5 {e.pipeline_label} "
+            f"| **Issue Score:** {e.issue_score}/5 {e.issue_label}"
+        ),
+        "",
+        "### Issues Found",
+        "",
+    ]
+
+    for key, items in e.issue_details.items():
+        if not items:
+            continue
+        label = _ISSUE_TYPE_LABELS.get(key, key.replace("_", " ").title())
+        lines.append(f"**{label}** ({len(items)}):")
+        lines.append("")
+        for item in items[:10]:
+            if isinstance(item, dict):
+                parts = []
+                for k, v in item.items():
+                    if k != "severity":
+                        parts.append(f"{k}: {v}")
+                sev = item.get("severity", "low")
+                lines.append(f"- [{sev.upper()}] {'; '.join(parts)}")
+            else:
+                lines.append(f"- {item}")
+        if len(items) > 10:
+            lines.append(f"- ...and {len(items) - 10} more")
+        lines.append("")
+
+    # Include the LLM-generated issue assessment if available
+    if e.issue_assessment:
+        lines.extend([
+            "### Assessment",
+            "",
+            e.issue_assessment,
+            "",
+        ])
+
+    lines.extend(["---", ""])
+    return "\n".join(lines)
+
+
+def _recompute_bug_stats(doc: str) -> str:
+    """Recompute the summary stats in the bugs doc."""
+    rows = re.findall(
+        r"^\| \d{4}-\d{2}-\d{2} \| [a-f0-9]{8,32} \|.*$", doc, re.MULTILINE,
+    )
+
+    total_traces = len(rows)
+    total_issues = 0
+    for row in rows:
+        cols = row.split("|")
+        if len(cols) > 4:
+            try:
+                total_issues += int(cols[4].strip())
+            except ValueError:
+                pass
+
+    from datetime import datetime, timezone
+    now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    new_stats = (
+        f"**Last Updated:** {now_str} "
+        f"| **Traces with Issues:** {total_traces} "
+        f"| **Total Issues:** {total_issues}"
+    )
+
+    doc = re.sub(
+        r"\*\*Last Updated:\*\*.*?\*\*Total Issues:\*\*\s*\S+",
+        new_stats,
+        doc,
+        count=1,
+    )
+
+    return doc

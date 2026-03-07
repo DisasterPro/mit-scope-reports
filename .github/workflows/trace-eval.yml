@@ -68,7 +68,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # Pull latest in case another workflow committed since checkout
           git pull --rebase origin main || true
-          git add docs/scope-eval-all-runs.md
+          git add docs/scope-eval-all-runs.md docs/scope-eval-bugs.md
           git diff --cached --quiet || git commit -m "Auto-eval traces [skip ci]"
           git push
 
@@ -85,10 +85,13 @@ jobs:
 
           cp "${{ github.workspace }}/docs/scope-eval-all-runs.md" \
              services/mitigation-scope/joe/docs/scope-eval-all-runs.md
+          cp "${{ github.workspace }}/docs/scope-eval-bugs.md" \
+             services/mitigation-scope/joe/docs/scope-eval-bugs.md 2>/dev/null || true
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add services/mitigation-scope/joe/docs/scope-eval-all-runs.md
+          git add services/mitigation-scope/joe/docs/scope-eval-all-runs.md \
+                 services/mitigation-scope/joe/docs/scope-eval-bugs.md
           git diff --cached --quiet || {
             git commit -m "Update trace evaluations [skip ci]"
             git push

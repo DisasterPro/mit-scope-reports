@@ -15,7 +15,7 @@ from pathlib import Path
 
 from .analyzers.trace_eval import analyze_trace_evals
 from .langfuse_client import LangfuseDataFetcher
-from .markdown_writer import write_trace_eval_report
+from .markdown_writer import write_trace_eval_bugs, write_trace_eval_report
 
 logging.basicConfig(
     level=logging.INFO,
@@ -120,6 +120,11 @@ def main() -> None:
 
     # Write results
     write_trace_eval_report(output_path, reports)
+
+    # Write bugs (traces with issue_score < 5)
+    bugs_path = docs_dir / "scope-eval-bugs.md"
+    write_trace_eval_bugs(bugs_path, reports)
+
     logger.info("Done! Evaluated %d traces", len(reports))
 
 

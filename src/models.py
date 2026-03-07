@@ -195,6 +195,9 @@ class TraceEvalReport:
     issue_score: int = 0
     issue_label: str = ""
 
+    # Raw issue data (for bug logging)
+    issue_details: dict = field(default_factory=dict)
+
     # Narrative (Haiku-generated)
     input_assessment: str = ""
     pipeline_assessment: str = ""
