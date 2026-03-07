@@ -1,11 +1,11 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-07 20:26 UTC | **Total Traces:** 25 | **Avg Input Score:** 3.6/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Overall:** 3.8/5 | **Success Rate:** 80%
+**Last Updated:** 2026-03-07 20:26 UTC | **Total Traces:** 25 | **Avg Input Score:** 3.6/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** --/5 | **Avg Overall:** 3.8/5 | **Success Rate:** 80%
 
 ## Index
 
-| Trace | Date | User | Time | Input | Pipeline | Rooms | Photos | Notes | Plans |
-|-------|------|------|------|-------|----------|-------|--------|-------|-------|
+| Trace | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |
+|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|
 | 531694ecf0dfaff3f44cc8afc992a99a | 2026-03-07 | sam.y@911restoration.com | 1m 24s | 4/5 Good | 5/5 Healthy | 3 (1/2) | 12 | 4 | 0 |
 | 4115f92144067c8623abc24ddff29770 | 2026-03-07 | kodiermcguirk@icloud.com | 0m 57s | 4/5 Good | 5/5 Healthy | 2 (1/1) | 42 | 4 | 1 |
 | 98e9af11b74d702167901290ff08b05f | 2026-03-07 | jbonilla@apolloconstructioncorp.com | 3m 15s | 4/5 Good | 4/5 Minor | 19 (7/12) | 774 | 14 | 2 |

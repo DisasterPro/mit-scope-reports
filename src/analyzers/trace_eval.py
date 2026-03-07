@@ -24,6 +24,9 @@ _INPUT_LABELS = {1: "Poor", 2: "Minimal", 3: "Adequate", 4: "Good", 5: "Excellen
 _PIPELINE_LABELS = {
     1: "Failed", 2: "Significant", 3: "Moderate", 4: "Minor", 5: "Healthy",
 }
+_ISSUE_LABELS = {
+    1: "Critical", 2: "Significant", 3: "Moderate", 4: "Minor", 5: "Clean",
+}
 
 HAIKU_PROMPT = """\
 You are writing a brief evaluation of a water damage scope generated for
@@ -73,6 +76,9 @@ Claim rooms that could not match any floor plan room: {unmatched_claim_rooms}
 ## Pipeline Data Quality Notes (from scope output)
 {data_quality_notes_section}
 
+## Structured Data Quality Issues
+{issue_data_section}
+
 ## Domain Rules (follow strictly)
 - Moisture readings help MONITOR drying progress over multiple visits.
   Equipment (air movers, dehumidifiers) is sized from room measurements
@@ -90,7 +96,7 @@ Claim rooms that could not match any floor plan room: {unmatched_claim_rooms}
 - Do NOT use internal names like "PropertyImages", "RoomsWithId",
   "Assembly", "Merge". Say "photos", "room data", "scope", "system".
 
-Write exactly two sections in markdown:
+Write exactly four sections in markdown:
 
 ### Input Assessment
 1-2 paragraphs covering:
@@ -98,7 +104,6 @@ Write exactly two sections in markdown:
   notes detailed or generic? rooms set up in app or inferred?)
 - Specific gaps found (rooms without photos, rooms without notes, etc.)
 - Room name matching issues if any (floor plan names vs claim names)
-- 2-3 actionable recommendations for next time, explaining WHY each matters
 
 ### Pipeline Assessment
 1 paragraph covering:
@@ -106,6 +111,21 @@ Write exactly two sections in markdown:
 - Any data quality issues the system detected (missing measurements,
   photo-damage mismatches, organizational rooms, etc.)
 - Do NOT mention cost
+
+### Issue Assessment
+1-2 paragraphs covering:
+- Summarize each data quality issue found (standard violations, material
+  conflicts, scope conflicts, equipment sizing issues, missing measurements)
+- Group by type and describe in plain language
+- If no issues found, say "No data quality issues were detected."
+
+### Recommendations
+Numbered list of 3-5 actionable steps:
+- Specific to THIS scope's gaps (not generic advice)
+- Written for a field technician, plain language
+- Explain WHY each step matters
+- Focus on what can be improved for this and future scopes
+- Do NOT mention cost, pricing, or internal system names
 """
 
 
@@ -144,11 +164,15 @@ def _evaluate_single_trace(
     pipeline_health = _extract_pipeline_health(observations)
     qualitative = _extract_qualitative_data(trace, observations)
 
+    # --- Extract issue data ---
+    issue_data = _extract_issue_data(observations)
+
     # --- Score ---
     input_score, input_label = _score_input(input_stats, room_stats)
     pipeline_score, pipeline_label = _score_pipeline(
         trace_data, pipeline_health, room_stats,
     )
+    issue_score, issue_label = _score_issues(issue_data)
 
     report = TraceEvalReport(
         trace_id=trace_data.id,
@@ -180,6 +204,8 @@ def _evaluate_single_trace(
         input_label=input_label,
         pipeline_score=pipeline_score,
         pipeline_label=pipeline_label,
+        issue_score=issue_score,
+        issue_label=issue_label,
     )
 
     # --- Generate narrative via LLM ---
@@ -187,16 +213,23 @@ def _evaluate_single_trace(
         try:
             narrative = _generate_narrative(
                 report, input_stats, room_stats, qualitative, llm_client,
+                issue_data=issue_data,
             )
             report.input_assessment = narrative.get("input_assessment", "")
             report.pipeline_assessment = narrative.get("pipeline_assessment", "")
+            report.issue_assessment = narrative.get("issue_assessment", "")
+            report.recommendations = narrative.get("recommendations", "")
         except Exception:
             logger.exception("LLM narrative generation failed for %s", trace_data.id)
             report.input_assessment = _fallback_input_summary(report)
             report.pipeline_assessment = _fallback_pipeline_summary(report)
+            report.issue_assessment = _fallback_issue_summary(issue_data)
+            report.recommendations = _fallback_recommendations(report, issue_data)
     else:
         report.input_assessment = _fallback_input_summary(report)
         report.pipeline_assessment = _fallback_pipeline_summary(report)
+        report.issue_assessment = _fallback_issue_summary(issue_data)
+        report.recommendations = _fallback_recommendations(report, issue_data)
 
     return report
 
@@ -389,6 +422,49 @@ def _extract_qualitative_data(trace, observations: dict) -> dict:
     return result
 
 
+def _extract_issue_data(observations: dict) -> dict:
+    """Extract all data_quality objects from Merge, Tasks, Drying."""
+    issues: dict[str, list] = {
+        "iicrc_conflicts": [],
+        "material_conflicts": [],
+        "measurement_warnings": [],
+        "rooms_with_missing_measurements": [],
+        "affected_rooms_without_photos": [],
+        "scope_conflicts": [],
+        "material_mismatches": [],
+        "factor_conflicts": [],
+    }
+
+    merge = observations.get("Merge")
+    if merge and merge.output and isinstance(merge.output, dict):
+        dq = merge.output.get("data_quality", {})
+        if isinstance(dq, dict):
+            issues["iicrc_conflicts"] = dq.get("iicrc_conflicts", [])
+            issues["material_conflicts"] = dq.get("material_conflicts", [])
+            issues["measurement_warnings"] = dq.get("measurement_warnings", [])
+            issues["rooms_with_missing_measurements"] = dq.get(
+                "rooms_with_missing_measurements", []
+            )
+            issues["affected_rooms_without_photos"] = dq.get(
+                "affected_rooms_without_photos", []
+            )
+
+    tasks = observations.get("Tasks")
+    if tasks and tasks.output and isinstance(tasks.output, dict):
+        dq = tasks.output.get("data_quality", {})
+        if isinstance(dq, dict):
+            issues["scope_conflicts"] = dq.get("scope_conflicts", [])
+            issues["material_mismatches"] = dq.get("material_mismatches", [])
+
+    drying = observations.get("Drying")
+    if drying and drying.output and isinstance(drying.output, dict):
+        dq = drying.output.get("data_quality", {})
+        if isinstance(dq, dict):
+            issues["factor_conflicts"] = dq.get("factor_conflicts", [])
+
+    return issues
+
+
 # ── Scoring ───────────────────────────────────────────────────────
 
 
@@ -454,6 +530,45 @@ def _score_pipeline(
     return 5, _PIPELINE_LABELS[5]
 
 
+def _score_issues(issue_data: dict) -> tuple[int, str]:
+    """Score data quality issues 1-5 based on severity counts."""
+    high = 0
+    medium = 0
+    low = 0
+
+    # Classify conflicts by severity field
+    for key in (
+        "iicrc_conflicts", "scope_conflicts", "material_conflicts",
+        "factor_conflicts", "material_mismatches",
+    ):
+        for item in issue_data.get(key, []):
+            sev = (item.get("severity") or "low").lower() if isinstance(item, dict) else "low"
+            if sev == "high":
+                high += 1
+            elif sev == "medium":
+                medium += 1
+            else:
+                low += 1
+
+    # Simple list items count as low severity
+    low += len(issue_data.get("measurement_warnings", []))
+    low += len(issue_data.get("rooms_with_missing_measurements", []))
+    low += len(issue_data.get("affected_rooms_without_photos", []))
+
+    if high >= 2:
+        score = 1
+    elif high >= 1 or medium >= 3:
+        score = 2
+    elif medium >= 1 or low >= 3:
+        score = 3
+    elif low >= 1:
+        score = 4
+    else:
+        score = 5
+
+    return score, _ISSUE_LABELS[score]
+
+
 # ── LLM Narrative ────────────────────────────────────────────────
 
 
@@ -463,8 +578,9 @@ def _generate_narrative(
     room_stats: dict,
     qualitative: dict,
     llm_client,
+    issue_data: dict | None = None,
 ) -> dict:
-    """Call LLM to generate Input Assessment and Pipeline Assessment."""
+    """Call LLM to generate Input/Pipeline/Issue Assessment + Recommendations."""
     minutes = int(report.latency // 60)
     seconds = int(report.latency % 60)
 
@@ -479,6 +595,7 @@ def _generate_narrative(
         "pipeline_complete": report.pipeline_complete,
         "input_score": f"{report.input_score}/5 {report.input_label}",
         "pipeline_score": f"{report.pipeline_score}/5 {report.pipeline_label}",
+        "issue_score": f"{report.issue_score}/5 {report.issue_label}",
     }, indent=2)
 
     prompt = HAIKU_PROMPT.format(
@@ -527,29 +644,40 @@ def _generate_narrative(
         data_quality_notes_section=qualitative.get(
             "data_quality_notes", "Not available"
         ),
+        issue_data_section=_format_issue_data_for_prompt(issue_data or {}),
     )
 
     response = llm_client.messages.create(
         model=os.environ.get("EVAL_MODEL", "claude-haiku-4-5-20251001"),
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
-        max_tokens=1000,
+        max_tokens=1500,
     )
 
     text = response.content[0].text if response.content else ""
 
-    # Parse the two sections
+    # Parse four sections
     input_match = re.search(
         r"### Input Assessment\n(.*?)(?=### Pipeline Assessment|\Z)",
         text, re.DOTALL,
     )
     pipeline_match = re.search(
-        r"### Pipeline Assessment\n(.*?)$", text, re.DOTALL,
+        r"### Pipeline Assessment\n(.*?)(?=### Issue Assessment|\Z)",
+        text, re.DOTALL,
+    )
+    issue_match = re.search(
+        r"### Issue Assessment\n(.*?)(?=### Recommendations|\Z)",
+        text, re.DOTALL,
+    )
+    recs_match = re.search(
+        r"### Recommendations\n(.*?)$", text, re.DOTALL,
     )
 
     return {
         "input_assessment": input_match.group(1).strip() if input_match else text,
         "pipeline_assessment": pipeline_match.group(1).strip() if pipeline_match else "",
+        "issue_assessment": issue_match.group(1).strip() if issue_match else "",
+        "recommendations": recs_match.group(1).strip() if recs_match else "",
     }
 
 
@@ -744,3 +872,116 @@ def _fallback_pipeline_summary(r: TraceEvalReport) -> str:
         parts.append("No data quality issues were flagged.")
 
     return " ".join(parts)
+
+
+def _fallback_issue_summary(issue_data: dict) -> str:
+    """Template-based issue summary when LLM is unavailable."""
+    total = sum(len(v) for v in issue_data.values())
+    if total == 0:
+        return "No data quality issues were detected in this scope."
+
+    parts = []
+    if issue_data.get("iicrc_conflicts"):
+        n = len(issue_data["iicrc_conflicts"])
+        parts.append(f"{n} IICRC standard deviation(s) were flagged")
+    if issue_data.get("scope_conflicts"):
+        n = len(issue_data["scope_conflicts"])
+        parts.append(f"{n} scope conflict(s) were identified")
+    if issue_data.get("material_conflicts"):
+        n = len(issue_data["material_conflicts"])
+        parts.append(f"{n} material discrepancy(ies) between photos and descriptions")
+    if issue_data.get("material_mismatches"):
+        n = len(issue_data["material_mismatches"])
+        parts.append(f"{n} material mismatch(es) between room data sources")
+    if issue_data.get("factor_conflicts"):
+        n = len(issue_data["factor_conflicts"])
+        parts.append(f"{n} equipment sizing conflict(s)")
+    if issue_data.get("measurement_warnings"):
+        n = len(issue_data["measurement_warnings"])
+        parts.append(f"{n} measurement validation warning(s)")
+    if issue_data.get("rooms_with_missing_measurements"):
+        n = len(issue_data["rooms_with_missing_measurements"])
+        parts.append(f"{n} room(s) with missing measurements")
+    if issue_data.get("affected_rooms_without_photos"):
+        n = len(issue_data["affected_rooms_without_photos"])
+        parts.append(f"{n} affected room(s) without photos")
+
+    return f"The system detected {total} data quality issue(s): " + "; ".join(parts) + "."
+
+
+def _fallback_recommendations(r: TraceEvalReport, issue_data: dict) -> str:
+    """Template-based recommendations when LLM is unavailable."""
+    recs = []
+
+    if r.photo_count == 0:
+        recs.append(
+            "Take photos of each affected room before running the scope. "
+            "Photos help verify damage type and extent in each room."
+        )
+    elif r.rooms_without_photos > 0:
+        recs.append(
+            f"Add photos for the {r.rooms_without_photos} room(s) that are "
+            "missing them. Each room should have at least a few photos "
+            "showing the damage."
+        )
+
+    if r.note_count == 0:
+        recs.append(
+            "Add technician notes describing the damage in each room. "
+            "Notes provide details that photos alone cannot capture, "
+            "like the source of water or hidden damage."
+        )
+    elif r.rooms_without_notes > 0:
+        recs.append(
+            f"Add notes for the {r.rooms_without_notes} room(s) missing them. "
+            "Even brief notes about damage type and extent help."
+        )
+
+    if r.floor_plan_count == 0:
+        recs.append(
+            "Upload a floor plan with room measurements. Without measurements, "
+            "task quantities cannot be calculated and must be filled in manually."
+        )
+    elif r.unmatched_floor_plan_rooms > 0:
+        recs.append(
+            "Check that floor plan room labels match the room names in your "
+            "claim. Mismatched names prevent measurements from being assigned."
+        )
+
+    if r.rooms_from_app == 0 and r.total_rooms > 0:
+        recs.append(
+            "Set up rooms in the app before running the scope. Rooms created "
+            "in the app sync back to your field application; rooms inferred "
+            "from notes do not."
+        )
+
+    if issue_data.get("iicrc_conflicts"):
+        recs.append(
+            "Review the IICRC standard deviations flagged in this scope. "
+            "These may indicate that the water category or class needs "
+            "to be re-evaluated."
+        )
+
+    if not recs:
+        return (
+            "This scope had good input data and no significant issues. "
+            "Continue providing detailed notes, photos, and floor plans "
+            "for consistent results."
+        )
+
+    return "\n".join(f"{i}. {rec}" for i, rec in enumerate(recs, 1))
+
+
+def _format_issue_data_for_prompt(issue_data: dict) -> str:
+    """Format structured issue data for the LLM prompt."""
+    sections = []
+    for key, items in issue_data.items():
+        if items:
+            label = key.replace("_", " ").title()
+            sections.append(f"{label} ({len(items)}):")
+            for item in items[:5]:
+                if isinstance(item, dict):
+                    sections.append(f"  - {json.dumps(item, default=str)}")
+                else:
+                    sections.append(f"  - {item}")
+    return "\n".join(sections) if sections else "No data quality issues found."

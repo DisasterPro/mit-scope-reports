@@ -192,7 +192,11 @@ class TraceEvalReport:
     input_label: str = ""
     pipeline_score: int = 0
     pipeline_label: str = ""
+    issue_score: int = 0
+    issue_label: str = ""
 
     # Narrative (Haiku-generated)
     input_assessment: str = ""
     pipeline_assessment: str = ""
+    issue_assessment: str = ""
+    recommendations: str = ""

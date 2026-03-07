@@ -243,18 +243,21 @@ def write_markdown_reports(
 _EVAL_SKELETON = """\
 # Scope Trace Evaluations
 
-**Last Updated:** -- | **Total Traces:** 0 | **Avg Input Score:** --/5 | **Avg Pipeline Score:** --/5 | **Avg Overall:** --/5 | **Success Rate:** --%
+**Last Updated:** -- | **Total Traces:** 0 | **Avg Input Score:** --/5 | **Avg Pipeline Score:** --/5 | **Avg Issue Score:** --/5 | **Avg Overall:** --/5 | **Success Rate:** --%
 
 ## Index
 
-| Trace | Date | User | Time | Input | Pipeline | Rooms | Photos | Notes | Plans |
-|-------|------|------|------|-------|----------|-------|--------|-------|-------|
+| Trace | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |
+|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|
 
 ---
 """
 
-_EVAL_INDEX_HEADER = "| Trace | Date | User | Time | Input | Pipeline | Rooms | Photos | Notes | Plans |"
-_EVAL_INDEX_SEP = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
+_EVAL_INDEX_HEADER = "| Trace | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |"
+_EVAL_INDEX_SEP = "|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
+
+# Old format (no Issues column) for backwards compat
+_EVAL_INDEX_SEP_OLD = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
 
 
 def write_trace_eval_report(
@@ -300,6 +303,7 @@ def write_trace_eval_report(
             f"| {tid} | {date_str} | {user} | {time_str} "
             f"| {e.input_score}/5 {e.input_label} "
             f"| {e.pipeline_score}/5 {e.pipeline_label} "
+            f"| {e.issue_score}/5 {e.issue_label} "
             f"| {e.total_rooms} ({e.affected_rooms}/{e.unaffected_rooms}) "
             f"| {e.photo_count} | {e.note_count} | {e.floor_plan_count} |"
         )
@@ -308,10 +312,15 @@ def write_trace_eval_report(
         section = _render_trace_eval_section(e, tid, date_str, time_str, user)
         new_sections.append(section)
 
-    # Insert index rows after the separator line
+    # Insert index rows after the separator line (try new format first, then old)
     sep_idx = doc.find(_EVAL_INDEX_SEP)
+    if sep_idx == -1:
+        sep_idx = doc.find(_EVAL_INDEX_SEP_OLD)
+        sep_len = len(_EVAL_INDEX_SEP_OLD) if sep_idx != -1 else 0
+    else:
+        sep_len = len(_EVAL_INDEX_SEP)
     if sep_idx != -1:
-        insert_pos = sep_idx + len(_EVAL_INDEX_SEP)
+        insert_pos = sep_idx + sep_len
         # Find end of line
         nl_pos = doc.find("\n", insert_pos)
         if nl_pos == -1:
@@ -356,7 +365,8 @@ def _render_trace_eval_section(
         ),
         (
             f"**Input Quality:** {e.input_score}/5 {e.input_label} "
-            f"| **Pipeline Health:** {e.pipeline_score}/5 {e.pipeline_label}"
+            f"| **Pipeline Health:** {e.pipeline_score}/5 {e.pipeline_label} "
+            f"| **Issue Score:** {e.issue_score}/5 {e.issue_label}"
         ),
         "",
     ]
@@ -428,6 +438,22 @@ def _render_trace_eval_section(
         "",
         e.pipeline_assessment or "_No assessment available._",
         "",
+    ])
+
+    # Issue Assessment
+    lines.extend([
+        "### Issue Assessment",
+        "",
+        e.issue_assessment or "_No data quality issues were detected._",
+        "",
+    ])
+
+    # Recommendations
+    lines.extend([
+        "### Recommendations",
+        "",
+        e.recommendations or "_No specific recommendations._",
+        "",
         "---",
         "",
     ])
@@ -448,21 +474,39 @@ def _recompute_eval_stats(doc: str) -> str:
 
     input_scores = []
     pipeline_scores = []
+    issue_scores = []
     healthy_count = 0
 
     for row in rows:
-        # Extract input score and pipeline score (e.g., "3/5 Adequate | 4/5 Minor")
-        input_match = re.search(r"\| (\d)/5 \w+\s*\| (\d)/5 (\w+)", row)
-        if input_match:
-            input_scores.append(int(input_match.group(1)))
-            p_score = int(input_match.group(2))
+        # Try 3-column format first: "N/5 Label | N/5 Label | N/5 Label"
+        three_col = re.search(
+            r"\| (\d)/5 \w+\s*\| (\d)/5 \w+\s*\| (\d)/5 \w+", row,
+        )
+        if three_col:
+            input_scores.append(int(three_col.group(1)))
+            p_score = int(three_col.group(2))
             pipeline_scores.append(p_score)
+            issue_scores.append(int(three_col.group(3)))
             if p_score >= 4:
                 healthy_count += 1
+        else:
+            # Fallback: 2-column format (old rows without Issues)
+            two_col = re.search(r"\| (\d)/5 \w+\s*\| (\d)/5 (\w+)", row)
+            if two_col:
+                input_scores.append(int(two_col.group(1)))
+                p_score = int(two_col.group(2))
+                pipeline_scores.append(p_score)
+                if p_score >= 4:
+                    healthy_count += 1
 
     avg_input = sum(input_scores) / len(input_scores) if input_scores else 0
     avg_pipeline = sum(pipeline_scores) / len(pipeline_scores) if pipeline_scores else 0
-    avg_overall = (avg_input + avg_pipeline) / 2 if input_scores else 0
+    avg_issue = sum(issue_scores) / len(issue_scores) if issue_scores else 0
+    # Overall: average of all available dimensions
+    if issue_scores:
+        avg_overall = (avg_input + avg_pipeline + avg_issue) / 3
+    else:
+        avg_overall = (avg_input + avg_pipeline) / 2 if input_scores else 0
     success_rate = (healthy_count / total * 100) if total else 0
 
     from datetime import datetime, timezone
@@ -472,6 +516,7 @@ def _recompute_eval_stats(doc: str) -> str:
         f"**Last Updated:** {now_str} | **Total Traces:** {total} "
         f"| **Avg Input Score:** {avg_input:.1f}/5 "
         f"| **Avg Pipeline Score:** {avg_pipeline:.1f}/5 "
+        f"| **Avg Issue Score:** {avg_issue:.1f}/5 "
         f"| **Avg Overall:** {avg_overall:.1f}/5 "
         f"| **Success Rate:** {success_rate:.0f}%"
     )
