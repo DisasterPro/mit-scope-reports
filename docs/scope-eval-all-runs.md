@@ -4,7 +4,7 @@
 
 ## Index
 
-| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |
-|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|
+| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
+|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
 
 ---

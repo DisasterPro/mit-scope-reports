@@ -247,16 +247,17 @@ _EVAL_SKELETON = """\
 
 ## Index
 
-| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |
-|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|
+| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
+|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
 
 ---
 """
 
-_EVAL_INDEX_HEADER = "| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |"
-_EVAL_INDEX_SEP = "|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
+_EVAL_INDEX_HEADER = "| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |"
+_EVAL_INDEX_SEP = "|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|"
 
 # Old formats for backwards compat
+_EVAL_INDEX_SEP_V3 = "|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
 _EVAL_INDEX_SEP_V2 = "|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
 _EVAL_INDEX_SEP_V1 = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
 
@@ -301,11 +302,13 @@ def write_trace_eval_report(
         tid = e.trace_id
 
         ver = e.version or "unknown"
+        overall = round((e.input_score + e.pipeline_score + e.issue_score) / 3, 1)
         row = (
             f"| {tid} | {ver} | {date_str} | {user} | {time_str} "
             f"| {e.input_score}/5 {e.input_label} "
             f"| {e.pipeline_score}/5 {e.pipeline_label} "
             f"| {e.issue_score}/5 {e.issue_label} "
+            f"| {overall}/5 "
             f"| {e.total_rooms} ({e.affected_rooms}/{e.unaffected_rooms}) "
             f"| {e.photo_count} | {e.note_count} | {e.floor_plan_count} |"
         )
@@ -317,6 +320,9 @@ def write_trace_eval_report(
     # Insert index rows after the separator line (try newest format first, then older)
     sep_idx = doc.find(_EVAL_INDEX_SEP)
     sep_len = len(_EVAL_INDEX_SEP)
+    if sep_idx == -1:
+        sep_idx = doc.find(_EVAL_INDEX_SEP_V3)
+        sep_len = len(_EVAL_INDEX_SEP_V3) if sep_idx != -1 else 0
     if sep_idx == -1:
         sep_idx = doc.find(_EVAL_INDEX_SEP_V2)
         sep_len = len(_EVAL_INDEX_SEP_V2) if sep_idx != -1 else 0
@@ -358,6 +364,7 @@ def _render_trace_eval_section(
 ) -> str:
     """Render a single trace eval section."""
     ver = e.version or "unknown"
+    overall = round((e.input_score + e.pipeline_score + e.issue_score) / 3, 1)
     lines = [
         f"## {tid} -- {date_str} -- {ver}",
         "",
@@ -371,7 +378,8 @@ def _render_trace_eval_section(
         (
             f"**Input Quality:** {e.input_score}/5 {e.input_label} "
             f"| **Pipeline Health:** {e.pipeline_score}/5 {e.pipeline_label} "
-            f"| **Issue Score:** {e.issue_score}/5 {e.issue_label}"
+            f"| **Issue Score:** {e.issue_score}/5 {e.issue_label} "
+            f"| **Overall:** {overall}/5"
         ),
         "",
     ]
@@ -480,38 +488,56 @@ def _recompute_eval_stats(doc: str) -> str:
     input_scores = []
     pipeline_scores = []
     issue_scores = []
+    overall_scores = []
     healthy_count = 0
 
     for row in rows:
-        # Try 3-column format first: "N/5 Label | N/5 Label | N/5 Label"
+        # Try 4-column format: "N/5 Label | N/5 Label | N/5 Label | N.N/5"
+        four_col = re.search(
+            r"\| (\d)/5 \w+\s*\| (\d)/5 \w+\s*\| (\d)/5 \w+\s*\| ([\d.]+)/5",
+            row,
+        )
+        if four_col:
+            input_scores.append(int(four_col.group(1)))
+            p_score = int(four_col.group(2))
+            pipeline_scores.append(p_score)
+            issue_scores.append(int(four_col.group(3)))
+            overall_scores.append(float(four_col.group(4)))
+            if p_score >= 4:
+                healthy_count += 1
+            continue
+
+        # Try 3-column format: "N/5 Label | N/5 Label | N/5 Label"
         three_col = re.search(
             r"\| (\d)/5 \w+\s*\| (\d)/5 \w+\s*\| (\d)/5 \w+", row,
         )
         if three_col:
-            input_scores.append(int(three_col.group(1)))
-            p_score = int(three_col.group(2))
-            pipeline_scores.append(p_score)
-            issue_scores.append(int(three_col.group(3)))
-            if p_score >= 4:
+            i = int(three_col.group(1))
+            p = int(three_col.group(2))
+            iss = int(three_col.group(3))
+            input_scores.append(i)
+            pipeline_scores.append(p)
+            issue_scores.append(iss)
+            overall_scores.append(round((i + p + iss) / 3, 1))
+            if p >= 4:
                 healthy_count += 1
-        else:
-            # Fallback: 2-column format (old rows without Issues)
-            two_col = re.search(r"\| (\d)/5 \w+\s*\| (\d)/5 (\w+)", row)
-            if two_col:
-                input_scores.append(int(two_col.group(1)))
-                p_score = int(two_col.group(2))
-                pipeline_scores.append(p_score)
-                if p_score >= 4:
-                    healthy_count += 1
+            continue
+
+        # Fallback: 2-column format (old rows without Issues)
+        two_col = re.search(r"\| (\d)/5 \w+\s*\| (\d)/5 (\w+)", row)
+        if two_col:
+            i = int(two_col.group(1))
+            p = int(two_col.group(2))
+            input_scores.append(i)
+            pipeline_scores.append(p)
+            overall_scores.append(round((i + p) / 2, 1))
+            if p >= 4:
+                healthy_count += 1
 
     avg_input = sum(input_scores) / len(input_scores) if input_scores else 0
     avg_pipeline = sum(pipeline_scores) / len(pipeline_scores) if pipeline_scores else 0
     avg_issue = sum(issue_scores) / len(issue_scores) if issue_scores else 0
-    # Overall: average of all available dimensions
-    if issue_scores:
-        avg_overall = (avg_input + avg_pipeline + avg_issue) / 3
-    else:
-        avg_overall = (avg_input + avg_pipeline) / 2 if input_scores else 0
+    avg_overall = sum(overall_scores) / len(overall_scores) if overall_scores else 0
     success_rate = (healthy_count / total * 100) if total else 0
 
     from datetime import datetime, timezone
@@ -689,6 +715,7 @@ def _render_bug_section(
 ) -> str:
     """Render a single bug trace section."""
     ver = e.version or "unknown"
+    overall = round((e.input_score + e.pipeline_score + e.issue_score) / 3, 1)
     lines = [
         f"## {tid} -- {date_str} -- {ver}",
         "",
@@ -702,7 +729,8 @@ def _render_bug_section(
         (
             f"**Input Quality:** {e.input_score}/5 {e.input_label} "
             f"| **Pipeline Health:** {e.pipeline_score}/5 {e.pipeline_label} "
-            f"| **Issue Score:** {e.issue_score}/5 {e.issue_label}"
+            f"| **Issue Score:** {e.issue_score}/5 {e.issue_label} "
+            f"| **Overall:** {overall}/5"
         ),
         "",
         "### Issues Found",
