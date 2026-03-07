@@ -54,6 +54,7 @@ jobs:
           LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
           LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          EVAL_LLM_API_KEY: ${{ secrets.EVAL_LLM_API_KEY }}
           REPORT_BASE_URL: https://disasterpro.github.io/mit-scope-reports
           REPORT_PERIOD: ${{ steps.period.outputs.period }}
         run: python -m src
@@ -83,6 +84,8 @@ jobs:
              services/mitigation-scope/joe/docs/scope-costs.md
           cp "${{ github.workspace }}/docs/scope-errors.md" \
              services/mitigation-scope/joe/docs/scope-errors.md
+          cp "${{ github.workspace }}/docs/scope-eval-all-runs.md" \
+             services/mitigation-scope/joe/docs/scope-eval-all-runs.md 2>/dev/null || true
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

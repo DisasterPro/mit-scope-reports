@@ -100,6 +100,31 @@ class LangfuseDataFetcher:
             logger.warning("Failed to verify trace %s, assuming error", trace_id)
             return True
 
+    def fetch_trace_full(self, trace_id: str) -> dict:
+        """Fetch full trace + observations with outputs for eval analysis.
+
+        Returns a dict with 'trace' (full trace object) and 'observations'
+        (dict keyed by observation name, first per name wins).
+        """
+        time.sleep(0.5)
+        try:
+            trace = self._client.trace.get(trace_id=trace_id)
+            obs_response = self._client.observations.get_many(
+                trace_id=trace_id, limit=100,
+            )
+            obs_by_name: dict[str, object] = {}
+            for obs in obs_response.data:
+                if obs.name and obs.name not in obs_by_name:
+                    obs_by_name[obs.name] = obs
+            logger.info(
+                "Trace %s: fetched full trace + %d observations",
+                trace_id, len(obs_by_name),
+            )
+            return {"trace": trace, "observations": obs_by_name}
+        except Exception:
+            logger.exception("Failed to fetch full trace %s", trace_id)
+            return {"trace": None, "observations": {}}
+
     def fetch_observations(self, trace_id: str) -> list[dict]:
         """Fetch observations for a trace to find error root cause.
 

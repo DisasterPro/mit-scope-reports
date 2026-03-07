@@ -147,3 +147,52 @@ class ErrorReport:
     error_rate: float
     error_groups: list[ErrorTypeGroup] = field(default_factory=list)
     affected_users: list[AffectedUser] = field(default_factory=list)
+
+
+@dataclass
+class TraceEvalReport:
+    """Lightweight per-trace evaluation report."""
+
+    trace_id: str
+    timestamp: datetime
+    user_id: str | None
+    latency: float
+
+    # Pipeline health
+    pipeline_complete: bool
+    nodes_completed: list[str] = field(default_factory=list)
+    error_node: str | None = None
+    error_type: str | None = None
+
+    # Room stats
+    total_rooms: int = 0
+    affected_rooms: int = 0
+    unaffected_rooms: int = 0
+    rooms_from_app: int = 0
+    rooms_from_description: int = 0
+    rooms_with_measurements: int = 0
+
+    # Input quality stats
+    photo_count: int = 0
+    floor_plan_count: int = 0
+    note_count: int = 0
+    has_guidelines: bool = False
+    has_moisture: bool = False
+
+    # Data quality flags
+    rooms_without_photos: int = 0
+    rooms_without_notes: int = 0
+    rooms_with_few_photos: int = 0
+    floor_plan_discrepancy_sf: float = 0.0
+    rooms_may_be_missing: bool = False
+    unmatched_floor_plan_rooms: int = 0
+
+    # Scores
+    input_score: int = 0
+    input_label: str = ""
+    pipeline_score: int = 0
+    pipeline_label: str = ""
+
+    # Narrative (Haiku-generated)
+    input_assessment: str = ""
+    pipeline_assessment: str = ""

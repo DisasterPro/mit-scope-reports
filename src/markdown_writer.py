@@ -7,7 +7,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from .models import CostReport, ErrorReport, UsageReport
+from .models import CostReport, ErrorReport, TraceEvalReport, UsageReport
 
 logger = logging.getLogger(__name__)
 
@@ -236,3 +236,271 @@ def write_markdown_reports(
     doc = _insert_entry(doc, section, entry)
     errors_path.write_text(doc, encoding="utf-8")
     logger.info("Updated %s", errors_path)
+
+
+# ── Trace Eval Report ────────────────────────────────────────────
+
+_EVAL_SKELETON = """\
+# Scope Trace Evaluations
+
+**Last Updated:** -- | **Total Traces:** 0 | **Avg Input Score:** --/5 | **Success Rate:** --%
+
+## Index
+
+| Trace | Date | User | Time | Input | Pipeline | Rooms | Photos | Notes | Plans |
+|-------|------|------|------|-------|----------|-------|--------|-------|-------|
+
+---
+"""
+
+_EVAL_INDEX_HEADER = "| Trace | Date | User | Time | Input | Pipeline | Rooms | Photos | Notes | Plans |"
+_EVAL_INDEX_SEP = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
+
+
+def write_trace_eval_report(
+    path: Path, evals: list[TraceEvalReport],
+) -> None:
+    """Write/update scope-eval-all-runs.md with new trace evaluations."""
+    path.parent.mkdir(exist_ok=True)
+
+    if path.exists():
+        doc = path.read_text(encoding="utf-8")
+    else:
+        doc = _EVAL_SKELETON
+
+    # Find existing trace IDs to skip duplicates
+    existing_ids = set(re.findall(r"^## ([a-f0-9]{8}) --", doc, re.MULTILINE))
+
+    new_evals = [e for e in evals if e.trace_id[:8] not in existing_ids]
+    if not new_evals:
+        logger.info("No new trace evals to write (all already present)")
+        return
+
+    # Sort newest first
+    new_evals.sort(key=lambda e: e.timestamp, reverse=True)
+
+    # Build new index rows and sections
+    new_rows = []
+    new_sections = []
+
+    for e in new_evals:
+        minutes = int(e.latency // 60)
+        seconds = int(e.latency % 60)
+        time_str = f"{minutes}m {seconds}s"
+        user = e.user_id or "unknown"
+        date_str = e.timestamp.strftime("%Y-%m-%d")
+        tid = e.trace_id[:8]
+
+        row = (
+            f"| {tid} | {date_str} | {user} | {time_str} "
+            f"| {e.input_score}/5 {e.input_label} "
+            f"| {e.pipeline_score}/5 {e.pipeline_label} "
+            f"| {e.total_rooms} ({e.affected_rooms}/{e.unaffected_rooms}) "
+            f"| {e.photo_count} | {e.note_count} | {e.floor_plan_count} |"
+        )
+        new_rows.append(row)
+
+        section = _render_trace_eval_section(e, tid, date_str, time_str, user)
+        new_sections.append(section)
+
+    # Insert index rows after the separator line
+    sep_idx = doc.find(_EVAL_INDEX_SEP)
+    if sep_idx != -1:
+        insert_pos = sep_idx + len(_EVAL_INDEX_SEP)
+        # Find end of line
+        nl_pos = doc.find("\n", insert_pos)
+        if nl_pos == -1:
+            nl_pos = len(doc)
+        rows_text = "\n" + "\n".join(new_rows)
+        doc = doc[:nl_pos] + rows_text + doc[nl_pos:]
+
+    # Insert sections after the --- separator
+    separator_idx = doc.find("\n---\n")
+    if separator_idx != -1:
+        insert_pos = separator_idx + len("\n---\n")
+        sections_text = "\n".join(new_sections) + "\n"
+        doc = doc[:insert_pos] + "\n" + sections_text + doc[insert_pos:]
+
+    # Recompute summary stats
+    doc = _recompute_eval_stats(doc)
+
+    # Rolling window: remove sections older than 90 days
+    doc = _trim_old_eval_sections(doc, days=90)
+
+    path.write_text(doc, encoding="utf-8")
+    logger.info("Updated %s with %d new evaluations", path, len(new_evals))
+
+
+def _render_trace_eval_section(
+    e: TraceEvalReport,
+    tid: str,
+    date_str: str,
+    time_str: str,
+    user: str,
+) -> str:
+    """Render a single trace eval section."""
+    lines = [
+        f"## {tid} -- {date_str}",
+        "",
+        f"**User:** {user} | **Time:** {time_str}",
+        (
+            f"**Rooms:** {e.total_rooms} total "
+            f"({e.affected_rooms} affected, {e.unaffected_rooms} unaffected) "
+            f"| **Photos:** {e.photo_count} | **Notes:** {e.note_count} "
+            f"| **Floor Plans:** {e.floor_plan_count}"
+        ),
+        (
+            f"**Input Quality:** {e.input_score}/5 {e.input_label} "
+            f"| **Pipeline Health:** {e.pipeline_score}/5 {e.pipeline_label}"
+        ),
+        "",
+    ]
+
+    # What Was Provided table
+    room_setup_status = "Good" if e.rooms_from_app > e.total_rooms * 0.5 else (
+        "Fair" if e.rooms_from_app > 0 else "Poor"
+    )
+    photo_status = (
+        "None" if e.photo_count == 0 else
+        "Minimal" if e.photo_count < 5 else
+        "Adequate" if e.photo_count < 15 else "Good"
+    )
+    note_status = (
+        "None" if e.note_count == 0 else
+        "Minimal" if e.note_count < e.affected_rooms * 0.5 else
+        "Adequate" if e.note_count < e.affected_rooms else "Detailed"
+    )
+    fp_status = (
+        "None" if e.floor_plan_count == 0 else
+        "Partial" if e.rooms_with_measurements == 0 else "Complete"
+    )
+    matching_status = (
+        "N/A" if e.floor_plan_count == 0 else
+        "Issues" if e.unmatched_floor_plan_rooms > 0 else "Good"
+    )
+
+    lines.extend([
+        "### What Was Provided",
+        "",
+        "| Category | Status | Details |",
+        "|----------|--------|---------|",
+        (
+            f"| Room Setup | {room_setup_status} | {e.total_rooms} rooms; "
+            f"{e.rooms_from_app} in app, {e.rooms_from_description} from notes |"
+        ),
+        (
+            f"| Field Photos | {photo_status} | {e.photo_count} photos; "
+            f"{e.rooms_without_photos} rooms without photos |"
+        ),
+        (
+            f"| Technician Notes | {note_status} | {e.note_count} notes; "
+            f"{e.rooms_without_notes} rooms without notes |"
+        ),
+        (
+            f"| Floor Plans | {fp_status} | {e.floor_plan_count} plans; "
+            f"{e.rooms_with_measurements} rooms with measurements |"
+        ),
+        (
+            f"| Room Name Matching | {matching_status} | "
+            f"{e.unmatched_floor_plan_rooms} unmatched floor plan rooms |"
+        ),
+        f"| Moisture Data | {'Present' if e.has_moisture else 'None'} | -- |",
+        f"| Guidelines | {'Present' if e.has_guidelines else 'None'} | -- |",
+        "",
+    ])
+
+    # Input Assessment
+    lines.extend([
+        "### Input Assessment",
+        "",
+        e.input_assessment or "_No assessment available._",
+        "",
+    ])
+
+    # Pipeline Assessment
+    lines.extend([
+        "### Pipeline Assessment",
+        "",
+        e.pipeline_assessment or "_No assessment available._",
+        "",
+        "---",
+        "",
+    ])
+
+    return "\n".join(lines)
+
+
+def _recompute_eval_stats(doc: str) -> str:
+    """Recompute the summary stats line at the top of the eval doc."""
+    # Extract all index rows (skip header and separator)
+    rows = re.findall(
+        r"^\| [a-f0-9]{8} \|.*$", doc, re.MULTILINE,
+    )
+
+    total = len(rows)
+    if total == 0:
+        return doc
+
+    input_scores = []
+    healthy_count = 0
+
+    for row in rows:
+        # Extract input score (e.g., "3/5 Adequate")
+        input_match = re.search(r"\| (\d)/5 \w+\s*\| (\d)/5 (\w+)", row)
+        if input_match:
+            input_scores.append(int(input_match.group(1)))
+            pipeline_score = int(input_match.group(2))
+            if pipeline_score >= 4:
+                healthy_count += 1
+
+    avg_input = sum(input_scores) / len(input_scores) if input_scores else 0
+    success_rate = (healthy_count / total * 100) if total else 0
+
+    from datetime import datetime, timezone
+    now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    new_stats = (
+        f"**Last Updated:** {now_str} | **Total Traces:** {total} "
+        f"| **Avg Input Score:** {avg_input:.1f}/5 "
+        f"| **Success Rate:** {success_rate:.0f}%"
+    )
+
+    doc = re.sub(
+        r"\*\*Last Updated:\*\*.*?\*\*Success Rate:\*\*\s*\S+",
+        new_stats,
+        doc,
+        count=1,
+    )
+
+    return doc
+
+
+def _trim_old_eval_sections(doc: str, days: int = 90) -> str:
+    """Remove per-trace sections older than N days (keep index rows)."""
+    from datetime import datetime, timedelta, timezone
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    cutoff_str = cutoff.strftime("%Y-%m-%d")
+
+    # Find all section headers like "## abc12345 -- 2026-01-01"
+    sections = list(re.finditer(
+        r"^## [a-f0-9]{8} -- (\d{4}-\d{2}-\d{2})\n",
+        doc, re.MULTILINE,
+    ))
+
+    # Remove sections with dates before cutoff (iterate in reverse)
+    for match in reversed(sections):
+        date_str = match.group(1)
+        if date_str < cutoff_str:
+            # Find the end of this section (next ## or end of doc)
+            start = match.start()
+            next_section = re.search(
+                r"^## [a-f0-9]{8} --", doc[match.end():], re.MULTILINE,
+            )
+            if next_section:
+                end = match.end() + next_section.start()
+            else:
+                end = len(doc)
+            doc = doc[:start] + doc[end:]
+
+    return doc

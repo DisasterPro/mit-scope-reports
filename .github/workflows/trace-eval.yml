@@ -1,0 +1,63 @@
+name: Trace Eval
+
+on:
+  schedule:
+    # Every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run trace eval
+        env:
+          LANGFUSE_HOST: https://us.cloud.langfuse.com
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          EVAL_LLM_API_KEY: ${{ secrets.EVAL_LLM_API_KEY }}
+        run: python -m src.trace_eval_runner
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/scope-eval-all-runs.md
+          git diff --cached --quiet || git commit -m "Auto-eval traces [skip ci]"
+          git push
+
+      - name: Sync to ai-services repo
+        env:
+          AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
+        if: env.AI_SERVICES_PAT != ''
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse \
+            "https://x-access-token:${AI_SERVICES_PAT}@github.com/encircle/ai-services.git" \
+            /tmp/ai-services
+          cd /tmp/ai-services
+          git sparse-checkout set services/mitigation-scope/joe/docs
+
+          cp "${{ github.workspace }}/docs/scope-eval-all-runs.md" \
+             services/mitigation-scope/joe/docs/scope-eval-all-runs.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add services/mitigation-scope/joe/docs/scope-eval-all-runs.md
+          git diff --cached --quiet || {
+            git commit -m "Update trace evaluations [skip ci]"
+            git push
+          }

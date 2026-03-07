@@ -14,9 +14,10 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .analyzers import analyze_costs, analyze_errors, analyze_usage
+from .analyzers.trace_eval import analyze_trace_evals
 from .index_builder import build_index_page
 from .langfuse_client import LangfuseDataFetcher
-from .markdown_writer import write_markdown_reports
+from .markdown_writer import write_markdown_reports, write_trace_eval_report
 from .renderer import render_report
 from .slack import post_to_slack
 
@@ -81,6 +82,22 @@ def main() -> None:
     logger.info("Running error analysis...")
     errors = analyze_errors(traces, fetcher)
 
+    # 4b. Run trace evaluations (lightweight per-trace evals)
+    logger.info("Running trace evaluations...")
+    llm_client = None
+    eval_api_key = os.environ.get("EVAL_LLM_API_KEY")
+    if eval_api_key:
+        try:
+            from openai import OpenAI
+            llm_client = OpenAI(api_key=eval_api_key)
+        except ImportError:
+            logger.warning("openai package not installed, skipping LLM narratives")
+    else:
+        logger.info("EVAL_LLM_API_KEY not set, using template-based narratives")
+
+    trace_evals = analyze_trace_evals(traces, fetcher, llm_client)
+    logger.info("Evaluated %d traces", len(trace_evals))
+
     # 5. Render HTML
     logger.info("Rendering HTML report...")
     project_root = Path(__file__).resolve().parent.parent
@@ -112,6 +129,12 @@ def main() -> None:
     logger.info("Updating markdown reports...")
     docs_dir = project_root / "docs"
     write_markdown_reports(docs_dir, usage, costs, errors, now, period)
+
+    # 7b. Write trace evaluation report
+    if trace_evals:
+        eval_report_path = docs_dir / "scope-eval-all-runs.md"
+        write_trace_eval_report(eval_report_path, trace_evals)
+        logger.info("Wrote trace eval report to %s", eval_report_path)
 
     # 8. Post to Slack (if configured)
     if slack_webhook_url:
