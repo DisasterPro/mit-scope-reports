@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-07 21:38 UTC | **Traces with Issues:** 19 | **Total Issues:** 121
+**Last Updated:** 2026-03-07 22:01 UTC | **Traces with Issues:** 20 | **Total Issues:** 147
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-07 | a5944d718f1d2e7e58ad8ee491c1928c | paul@rockemergency.com | 26 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 18 (18/0) | 92 | 14 | 1 |
 | 2026-03-07 | d917e448b326c6cee7b3971b09c6d6ba | jackie.knight@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (2/0) | 71 | 6 | 0 |
 | 2026-03-07 | 531694ecf0dfaff3f44cc8afc992a99a | sam.y@911restoration.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 3 (1/2) | 12 | 4 | 0 |
 | 2026-03-07 | 4bbc8e8218f6c5e710b52887e7f055df | jbonilla@apolloconstructioncorp.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 20 (8/12) | 759 | 14 | 2 |
@@ -30,6 +31,49 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a5944d718f1d2e7e58ad8ee491c1928c -- 2026-03-07 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 3m 24s
+**Rooms:** 18 total (18 affected, 0 unaffected) | **Photos:** 92 | **Notes:** 14 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (13):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom Lower Level has no measurements available - room dimensions required for complete scope.
+- Lower Level Bathroom has no measurements available - room dimensions required for complete scope.
+- Lower Level Utility has no measurements available - room dimensions required for complete scope.
+- Upper Level Hallway has no measurements available - room dimensions required for complete scope.
+- Upper Level Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- Upper Level Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- ...and 3 more
+
+**Missing Measurements** (13):
+
+- Dining Room
+- Living Room
+- Kitchen
+- Bathroom
+- Bedroom Lower Level
+- Lower Level Bathroom
+- Lower Level Utility
+- Upper Level Hallway
+- Upper Level Bedroom 1
+- Upper Level Bedroom 2
+- ...and 3 more
+
+### Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+---
+
 
 ## d917e448b326c6cee7b3971b09c6d6ba -- 2026-03-07 -- v2026.09.3
 

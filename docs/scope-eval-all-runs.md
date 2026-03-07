@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-07 21:38 UTC | **Total Traces:** 22 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 77%
+**Last Updated:** 2026-03-07 22:01 UTC | **Total Traces:** 23 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.4/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 74%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| a5944d718f1d2e7e58ad8ee491c1928c | v2026.09.3 | 2026-03-07 | paul@rockemergency.com | 3m 24s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 18 (18/0) | 92 | 14 | 1 |
 | d917e448b326c6cee7b3971b09c6d6ba | v2026.09.3 | 2026-03-07 | jackie.knight@ca.belfor.com | 1m 24s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 2 (2/0) | 71 | 6 | 0 |
 | 531694ecf0dfaff3f44cc8afc992a99a | v2026.09.3 | 2026-03-07 | sam.y@911restoration.com | 1m 24s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 3 (1/2) | 12 | 4 | 0 |
 | 4115f92144067c8623abc24ddff29770 | v2026.09.3 | 2026-03-07 | kodiermcguirk@icloud.com | 0m 57s | 4/5 Good | 5/5 Healthy | 5/5 Clean | 4.7/5 | 2 (1/1) | 42 | 4 | 1 |
@@ -30,6 +31,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a5944d718f1d2e7e58ad8ee491c1928c -- 2026-03-07 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 3m 24s
+**Rooms:** 18 total (18 affected, 0 unaffected) | **Photos:** 92 | **Notes:** 14 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 18 rooms; 12 in app, 12 from notes |
+| Field Photos | Good | 92 photos; 3 rooms without photos |
+| Technician Notes | Adequate | 14 notes; 13 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+92 field photos were submitted. Notes were provided for some rooms (14 notes across 18 affected rooms), but not all rooms had written descriptions of the damage. 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 12 of 18 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 3m 24s. Data quality flags: 3 affected room(s) had no photos; 13 affected room(s) had no technician notes; the floor plan area differs from room areas by 432 SF.
+
+### Issue Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add photos for the 3 room(s) that are missing them. Each room should have at least a few photos showing the damage.
+2. Add notes for the 13 room(s) missing them. Even brief notes about damage type and extent help.
+
+---
+
 
 ## d917e448b326c6cee7b3971b09c6d6ba -- 2026-03-07 -- v2026.09.3
 
