@@ -83,6 +83,27 @@ def analyze_errors(
             )
         )
 
+    # Step 3b: Post-classification heuristics (require trace-level data)
+
+    # Timeout heuristic (latency > 300s)
+    for et in error_traces:
+        if et.error_type == "Unknown" and et.latency and et.latency > 300:
+            et.error_type = "Timeout"
+            et.status_message = f"Pipeline exceeded {et.latency:.0f}s (timeout threshold: 300s)"
+
+    # Infrastructure incident (3+ Unknown errors within 30 min)
+    unknown_traces = [et for et in error_traces if et.error_type == "Unknown"]
+    for et in unknown_traces:
+        cluster = [
+            other for other in unknown_traces
+            if other.trace_id != et.trace_id
+            and abs((other.timestamp - et.timestamp).total_seconds()) < 1800
+        ]
+        if len(cluster) >= 2:  # 3+ total including this trace
+            for t in [et, *cluster]:
+                t.error_type = "InfrastructureIncident"
+                t.status_message = f"Part of {len(cluster) + 1}-trace failure cluster"
+
     # Step 4: Group errors by type + node
     group_key_map: dict[tuple[str, str, str | None], list[ErrorTrace]] = defaultdict(list)
     for et in error_traces:
@@ -156,17 +177,75 @@ def _classify_error(observations: list[dict]) -> dict:
         primary_error = fallback_error
 
     if not primary_error:
-        # No ERROR observation found -- classify as Unknown
+        # No ERROR observation -- use heuristic classification
         completed_nodes = [
             obs.get("name", "?")
             for obs in observations
             if obs.get("level") != "ERROR" and obs.get("name") not in CASCADE_NAMES
         ]
+        completeness = ", ".join(completed_nodes) if completed_nodes else "None"
+
+        pipeline_nodes = [
+            "Description", "PropertyImages", "MeasurementImages",
+            "PropertyImagesAggregator", "MeasurementImagesValidator",
+            "RoomNameNormalizer", "Merge", "RoomsWithId", "Tasks",
+            "Equipment", "Standards", "Drying", "Assembly", "Translation",
+        ]
+        image_nodes = {"PropertyImages", "MeasurementImages",
+                       "PropertyImagesAggregator", "MeasurementImagesValidator"}
+        data_nodes = {"RoomNameNormalizer", "RoomsWithId", "Equipment", "Standards"}
+
+        present_nodes = {n for n in completed_nodes if n in pipeline_nodes}
+        last_node = None
+        for n in reversed(pipeline_nodes):
+            if n in present_nodes:
+                last_node = n
+                break
+
+        # Heuristic 1: All nodes ran but output is null
+        if "Assembly" in present_nodes or "Translation" in present_nodes:
+            return {
+                "error_type": "AssemblyFrameworkError",
+                "failing_node": "Assembly",
+                "status_message": "All pipeline nodes completed but output is null",
+                "pipeline_completeness": completeness,
+            }
+
+        # Heuristic 2: Stalled at image processing
+        if present_nodes and present_nodes.issubset(
+            image_nodes | {"Description", "HoursPassed"}
+        ):
+            return {
+                "error_type": "ImageProcessingError",
+                "failing_node": last_node or "Unknown",
+                "status_message": "Pipeline stalled during image processing phase",
+                "pipeline_completeness": completeness,
+            }
+
+        # Heuristic 3: Stalled at Python data node
+        if last_node and last_node in data_nodes:
+            return {
+                "error_type": "DataProcessingError",
+                "failing_node": last_node,
+                "status_message": f"Pipeline stalled at {last_node}",
+                "pipeline_completeness": completeness,
+            }
+
+        # Heuristic 4: Only early nodes completed
+        if present_nodes and len(present_nodes) <= 3:
+            return {
+                "error_type": "EarlyPipelineError",
+                "failing_node": last_node or "Unknown",
+                "status_message": f"Pipeline failed early ({len(present_nodes)} nodes completed)",
+                "pipeline_completeness": completeness,
+            }
+
+        # Fallback
         return {
             "error_type": "Unknown",
-            "failing_node": "Unknown",
+            "failing_node": last_node or "Unknown",
             "status_message": "No ERROR observation found",
-            "pipeline_completeness": ", ".join(completed_nodes) if completed_nodes else "None",
+            "pipeline_completeness": completeness,
         }
 
     node_name = primary_error.get("name", "Unknown")

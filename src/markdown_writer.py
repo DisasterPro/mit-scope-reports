@@ -11,15 +11,15 @@ from .models import CostReport, ErrorReport, UsageReport
 
 logger = logging.getLogger(__name__)
 
-_WEEKLY_HEADER = "## Weekly Reports"
-_DAILY_HEADER = "## Daily Reports"
+_WEEKLY_HEADER = "## Weekly Reports (7d)"
+_DAILY_HEADER = "## Daily Reports (24h)"
 
 
 def _ensure_doc_structure(path: Path, title: str) -> str:
-    """Read existing doc or create skeleton with two sections."""
+    """Read existing doc or create skeleton with sections."""
     if path.exists():
         return path.read_text(encoding="utf-8")
-    return f"# {title}\n\n{_DAILY_HEADER}\n\n{_WEEKLY_HEADER}\n"
+    return f"# {title}\n\n{_WEEKLY_HEADER}\n\n{_DAILY_HEADER}\n\n## Other Reports\n"
 
 
 def _insert_entry(doc: str, section_header: str, entry: str) -> str:

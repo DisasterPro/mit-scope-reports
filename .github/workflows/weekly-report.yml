@@ -66,6 +66,32 @@ jobs:
           git diff --cached --quiet || git commit -m "Update ${{ steps.period.outputs.period }} report docs [skip ci]"
           git push
 
+      - name: Sync docs to ai-services repo
+        env:
+          AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
+        if: env.AI_SERVICES_PAT != ''
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse \
+            "https://x-access-token:${AI_SERVICES_PAT}@github.com/encircle/ai-services.git" \
+            /tmp/ai-services
+          cd /tmp/ai-services
+          git sparse-checkout set services/mitigation-scope/joe/docs
+
+          cp "${{ github.workspace }}/docs/scope-usage.md" \
+             services/mitigation-scope/joe/docs/scope-usage.md
+          cp "${{ github.workspace }}/docs/scope-costs.md" \
+             services/mitigation-scope/joe/docs/scope-costs.md
+          cp "${{ github.workspace }}/docs/scope-errors.md" \
+             services/mitigation-scope/joe/docs/scope-errors.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add services/mitigation-scope/joe/docs/scope-*.md
+          git diff --cached --quiet || {
+            git commit -m "Update scope reports from automated pipeline [skip ci]"
+            git push
+          }
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
