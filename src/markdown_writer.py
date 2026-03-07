@@ -243,7 +243,7 @@ def write_markdown_reports(
 _EVAL_SKELETON = """\
 # Scope Trace Evaluations
 
-**Last Updated:** -- | **Total Traces:** 0 | **Avg Input Score:** --/5 | **Success Rate:** --%
+**Last Updated:** -- | **Total Traces:** 0 | **Avg Input Score:** --/5 | **Avg Pipeline Score:** --/5 | **Avg Overall:** --/5 | **Success Rate:** --%
 
 ## Index
 
@@ -442,18 +442,22 @@ def _recompute_eval_stats(doc: str) -> str:
         return doc
 
     input_scores = []
+    pipeline_scores = []
     healthy_count = 0
 
     for row in rows:
-        # Extract input score (e.g., "3/5 Adequate")
+        # Extract input score and pipeline score (e.g., "3/5 Adequate | 4/5 Minor")
         input_match = re.search(r"\| (\d)/5 \w+\s*\| (\d)/5 (\w+)", row)
         if input_match:
             input_scores.append(int(input_match.group(1)))
-            pipeline_score = int(input_match.group(2))
-            if pipeline_score >= 4:
+            p_score = int(input_match.group(2))
+            pipeline_scores.append(p_score)
+            if p_score >= 4:
                 healthy_count += 1
 
     avg_input = sum(input_scores) / len(input_scores) if input_scores else 0
+    avg_pipeline = sum(pipeline_scores) / len(pipeline_scores) if pipeline_scores else 0
+    avg_overall = (avg_input + avg_pipeline) / 2 if input_scores else 0
     success_rate = (healthy_count / total * 100) if total else 0
 
     from datetime import datetime, timezone
@@ -462,6 +466,8 @@ def _recompute_eval_stats(doc: str) -> str:
     new_stats = (
         f"**Last Updated:** {now_str} | **Total Traces:** {total} "
         f"| **Avg Input Score:** {avg_input:.1f}/5 "
+        f"| **Avg Pipeline Score:** {avg_pipeline:.1f}/5 "
+        f"| **Avg Overall:** {avg_overall:.1f}/5 "
         f"| **Success Rate:** {success_rate:.0f}%"
     )
 
