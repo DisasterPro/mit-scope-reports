@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -22,6 +23,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Default lookback: 35 min (5-min overlap for cron safety).
+# First run (empty output file): 24 hours to backfill.
+_DEFAULT_LOOKBACK_MINUTES = 35
+_BACKFILL_LOOKBACK_MINUTES = 1440  # 24 hours
+
+
+def _get_existing_trace_ids(output_path: Path) -> set[str]:
+    """Read already-evaluated trace IDs (first 8 chars) from the output file."""
+    if not output_path.exists():
+        return set()
+    text = output_path.read_text(encoding="utf-8")
+    return set(re.findall(r"^## ([a-f0-9]{8}) --", text, re.MULTILINE))
+
 
 def main() -> None:
     """Run trace eval on recent production traces."""
@@ -34,21 +48,49 @@ def main() -> None:
         logger.error("LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY must be set")
         sys.exit(1)
 
-    # Time window: last 35 minutes (5-min overlap for safety)
-    now = datetime.now(timezone.utc)
-    from_ts = now - timedelta(minutes=35)
+    # Determine output path early to check existing state
+    project_root = Path(__file__).resolve().parent.parent
+    docs_dir = project_root / "docs"
+    docs_dir.mkdir(exist_ok=True)
+    output_path = docs_dir / "scope-eval-all-runs.md"
 
-    logger.info("Trace eval window: %s to %s", from_ts.isoformat(), now.isoformat())
+    existing_ids = _get_existing_trace_ids(output_path)
+
+    # Determine lookback window
+    override_minutes = os.environ.get("EVAL_LOOKBACK_MINUTES")
+    if override_minutes:
+        lookback = int(override_minutes)
+    elif not existing_ids:
+        lookback = _BACKFILL_LOOKBACK_MINUTES
+        logger.info("First run (no existing evals) -- backfilling last %d minutes", lookback)
+    else:
+        lookback = _DEFAULT_LOOKBACK_MINUTES
+
+    now = datetime.now(timezone.utc)
+    from_ts = now - timedelta(minutes=lookback)
+
+    logger.info("Trace eval window: %s to %s (%d min)", from_ts.isoformat(), now.isoformat(), lookback)
 
     # Fetch traces
     fetcher = LangfuseDataFetcher(host, public_key, secret_key)
     traces = fetcher.fetch_all_production_traces(from_ts, now)
 
     if not traces:
-        logger.info("No new traces in window, nothing to do")
+        logger.info("No traces found in window, nothing to do")
         return
 
-    logger.info("Found %d traces to evaluate", len(traces))
+    # Filter out already-evaluated traces
+    new_traces = [t for t in traces if t.id[:8] not in existing_ids]
+    logger.info(
+        "Found %d traces in window, %d already evaluated, %d new",
+        len(traces), len(traces) - len(new_traces), len(new_traces),
+    )
+
+    if not new_traces:
+        logger.info("All traces already evaluated, nothing to do")
+        return
+
+    traces = new_traces
 
     # Set up LLM client if key is available
     llm_client = None
@@ -81,11 +123,6 @@ def main() -> None:
         return
 
     # Write results
-    project_root = Path(__file__).resolve().parent.parent
-    docs_dir = project_root / "docs"
-    docs_dir.mkdir(exist_ok=True)
-    output_path = docs_dir / "scope-eval-all-runs.md"
-
     write_trace_eval_report(output_path, reports)
     logger.info("Done! Evaluated %d traces", len(reports))
 
