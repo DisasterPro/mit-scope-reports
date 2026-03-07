@@ -2,9 +2,16 @@ name: Trace Eval
 
 on:
   schedule:
-    # Every 30 minutes
+    # Every 30 minutes -- GitHub may delay cron by 5-15 min; overlap window handles gaps
     - cron: '*/30 * * * *'
   workflow_dispatch: {}
+  workflow_run:
+    workflows: ["MitScope Report"]
+    types: [completed]
+
+concurrency:
+  group: trace-eval
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -15,11 +22,28 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Fetch latest to avoid conflicts with other workflows
+          fetch-depth: 1
+
+      - name: Validate secrets
+        run: |
+          if [ -z "${{ secrets.LANGFUSE_PUBLIC_KEY }}" ] || [ -z "${{ secrets.LANGFUSE_SECRET_KEY }}" ]; then
+            echo "::error::LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY secrets must be configured"
+            exit 1
+          fi
+          echo "Langfuse secrets configured"
+          if [ -n "${{ secrets.EVAL_LLM_API_KEY }}" ]; then
+            echo "LLM API key configured (Haiku narrative enabled)"
+          else
+            echo "::warning::EVAL_LLM_API_KEY not set -- using template fallback for narratives"
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -36,6 +60,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Pull latest in case another workflow committed since checkout
+          git pull --rebase origin main || true
           git add docs/scope-eval-all-runs.md
           git diff --cached --quiet || git commit -m "Auto-eval traces [skip ci]"
           git push
@@ -61,3 +87,4 @@ jobs:
             git commit -m "Update trace evaluations [skip ci]"
             git push
           }
+
