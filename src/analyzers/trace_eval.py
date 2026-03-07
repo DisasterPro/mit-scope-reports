@@ -158,6 +158,9 @@ def _evaluate_single_trace(
     trace = full["trace"]
     observations = full["observations"]
 
+    # --- Extract version ---
+    version = _extract_version(trace)
+
     # --- Extract stats ---
     input_stats = _extract_input_stats(trace)
     room_stats = _extract_room_stats(observations)
@@ -177,6 +180,7 @@ def _evaluate_single_trace(
     report = TraceEvalReport(
         trace_id=trace_data.id,
         timestamp=trace_data.timestamp,
+        version=version,
         user_id=trace_data.user_id,
         latency=trace_data.latency,
         pipeline_complete=pipeline_health["complete"],
@@ -236,6 +240,28 @@ def _evaluate_single_trace(
 
 
 # ── Extraction ────────────────────────────────────────────────────
+
+
+def _extract_version(trace) -> str:
+    """Extract pipeline version from trace metadata."""
+    if not trace:
+        return "unknown"
+
+    # Try trace.version first (e.g. "V29.2")
+    if hasattr(trace, "version") and trace.version:
+        return str(trace.version)
+
+    # Try trace.release (git hash) -- return short hash
+    if hasattr(trace, "release") and trace.release:
+        return str(trace.release)[:8]
+
+    # Try metadata dict
+    if hasattr(trace, "metadata") and isinstance(trace.metadata, dict):
+        v = trace.metadata.get("version") or trace.metadata.get("pipeline_version")
+        if v:
+            return str(v)
+
+    return "unknown"
 
 
 def _extract_input_stats(trace) -> dict:

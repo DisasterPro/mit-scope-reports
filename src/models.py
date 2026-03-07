@@ -187,6 +187,9 @@ class TraceEvalReport:
     rooms_may_be_missing: bool = False
     unmatched_floor_plan_rooms: int = 0
 
+    # Version
+    version: str = ""
+
     # Scores
     input_score: int = 0
     input_label: str = ""

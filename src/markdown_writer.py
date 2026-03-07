@@ -247,17 +247,18 @@ _EVAL_SKELETON = """\
 
 ## Index
 
-| Trace | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |
-|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|
+| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |
+|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|
 
 ---
 """
 
-_EVAL_INDEX_HEADER = "| Trace | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |"
-_EVAL_INDEX_SEP = "|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
+_EVAL_INDEX_HEADER = "| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Rooms | Photos | Notes | Plans |"
+_EVAL_INDEX_SEP = "|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
 
-# Old format (no Issues column) for backwards compat
-_EVAL_INDEX_SEP_OLD = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
+# Old formats for backwards compat
+_EVAL_INDEX_SEP_V2 = "|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
+_EVAL_INDEX_SEP_V1 = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
 
 
 def write_trace_eval_report(
@@ -299,8 +300,9 @@ def write_trace_eval_report(
         date_str = e.timestamp.strftime("%Y-%m-%d")
         tid = e.trace_id
 
+        ver = e.version or "unknown"
         row = (
-            f"| {tid} | {date_str} | {user} | {time_str} "
+            f"| {tid} | {ver} | {date_str} | {user} | {time_str} "
             f"| {e.input_score}/5 {e.input_label} "
             f"| {e.pipeline_score}/5 {e.pipeline_label} "
             f"| {e.issue_score}/5 {e.issue_label} "
@@ -312,13 +314,15 @@ def write_trace_eval_report(
         section = _render_trace_eval_section(e, tid, date_str, time_str, user)
         new_sections.append(section)
 
-    # Insert index rows after the separator line (try new format first, then old)
+    # Insert index rows after the separator line (try newest format first, then older)
     sep_idx = doc.find(_EVAL_INDEX_SEP)
+    sep_len = len(_EVAL_INDEX_SEP)
     if sep_idx == -1:
-        sep_idx = doc.find(_EVAL_INDEX_SEP_OLD)
-        sep_len = len(_EVAL_INDEX_SEP_OLD) if sep_idx != -1 else 0
-    else:
-        sep_len = len(_EVAL_INDEX_SEP)
+        sep_idx = doc.find(_EVAL_INDEX_SEP_V2)
+        sep_len = len(_EVAL_INDEX_SEP_V2) if sep_idx != -1 else 0
+    if sep_idx == -1:
+        sep_idx = doc.find(_EVAL_INDEX_SEP_V1)
+        sep_len = len(_EVAL_INDEX_SEP_V1) if sep_idx != -1 else 0
     if sep_idx != -1:
         insert_pos = sep_idx + sep_len
         # Find end of line
@@ -353,8 +357,9 @@ def _render_trace_eval_section(
     user: str,
 ) -> str:
     """Render a single trace eval section."""
+    ver = e.version or "unknown"
     lines = [
-        f"## {tid} -- {date_str}",
+        f"## {tid} -- {date_str} -- {ver}",
         "",
         f"**User:** {user} | **Time:** {time_str}",
         (
@@ -538,9 +543,9 @@ def _trim_old_eval_sections(doc: str, days: int = 90) -> str:
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     cutoff_str = cutoff.strftime("%Y-%m-%d")
 
-    # Find all section headers like "## <trace_id> -- 2026-01-01"
+    # Find all section headers like "## <trace_id> -- 2026-01-01 -- V29.2"
     sections = list(re.finditer(
-        r"^## [a-f0-9]{8,32} -- (\d{4}-\d{2}-\d{2})\n",
+        r"^## [a-f0-9]{8,32} -- (\d{4}-\d{2}-\d{2}).*\n",
         doc, re.MULTILINE,
     ))
 
@@ -551,7 +556,7 @@ def _trim_old_eval_sections(doc: str, days: int = 90) -> str:
             # Find the end of this section (next ## or end of doc)
             start = match.start()
             next_section = re.search(
-                r"^## [a-f0-9]{8} --", doc[match.end():], re.MULTILINE,
+                r"^## [a-f0-9]{8,32} --", doc[match.end():], re.MULTILINE,
             )
             if next_section:
                 end = match.end() + next_section.start()
@@ -683,8 +688,9 @@ def _render_bug_section(
     user: str,
 ) -> str:
     """Render a single bug trace section."""
+    ver = e.version or "unknown"
     lines = [
-        f"## {tid} -- {date_str}",
+        f"## {tid} -- {date_str} -- {ver}",
         "",
         f"**User:** {user} | **Time:** {time_str}",
         (
