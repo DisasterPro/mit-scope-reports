@@ -1,11 +1,13 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-07 22:01 UTC | **Total Traces:** 23 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.4/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 74%
+**Last Updated:** 2026-03-07 23:36 UTC | **Total Traces:** 25 | **Avg Input Score:** 3.6/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 76%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| e800736678a1ffd6750a71cbf04395fb | v2026.09.3 | 2026-03-07 | chris.hudson+kitchener@ca.belfor.com | 0m 51s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 6 (1/5) | 38 | 12 | 1 |
+| 37ab5a0b4302ef0336b5c284bf507995 | v2026.09.3 | 2026-03-07 | rbyrd@decconstruction.com | 0m 52s | 4/5 Good | 5/5 Healthy | 5/5 Clean | 4.7/5 | 1 (0/1) | 9 | 2 | 1 |
 | a5944d718f1d2e7e58ad8ee491c1928c | v2026.09.3 | 2026-03-07 | paul@rockemergency.com | 3m 24s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 18 (18/0) | 92 | 14 | 1 |
 | d917e448b326c6cee7b3971b09c6d6ba | v2026.09.3 | 2026-03-07 | jackie.knight@ca.belfor.com | 1m 24s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 2 (2/0) | 71 | 6 | 0 |
 | 531694ecf0dfaff3f44cc8afc992a99a | v2026.09.3 | 2026-03-07 | sam.y@911restoration.com | 1m 24s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 3 (1/2) | 12 | 4 | 0 |
@@ -31,6 +33,79 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e800736678a1ffd6750a71cbf04395fb -- 2026-03-07 -- v2026.09.3
+
+**User:** chris.hudson+kitchener@ca.belfor.com | **Time:** 0m 51s
+**Rooms:** 6 total (1 affected, 5 unaffected) | **Photos:** 38 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 6 rooms; 1 in app, 1 from notes |
+| Field Photos | Good | 38 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 12 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+38 field photos were submitted. Technician notes were provided (12 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 1 of 6 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 0m 51s. Data quality flags: the floor plan area differs from room areas by 346 SF.
+
+### Issue Assessment
+
+The system detected 3 data quality issue(s): 2 material mismatch(es) between room data sources; 1 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
+## 37ab5a0b4302ef0336b5c284bf507995 -- 2026-03-07 -- v2026.09.3
+
+**User:** rbyrd@decconstruction.com | **Time:** 0m 52s
+**Rooms:** 1 total (0 affected, 1 unaffected) | **Photos:** 9 | **Notes:** 2 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 5/5 Clean | **Overall:** 4.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 1 rooms; 1 in app, 1 from notes |
+| Field Photos | Adequate | 9 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 2 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+9 field photos were submitted. Technician notes were provided (2 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms.
+
+### Pipeline Assessment
+
+The scope completed successfully in 0m 52s. No data quality issues were flagged.
+
+### Issue Assessment
+
+No data quality issues were detected in this scope.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## a5944d718f1d2e7e58ad8ee491c1928c -- 2026-03-07 -- v2026.09.3
 
