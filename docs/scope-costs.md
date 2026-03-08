@@ -95,3 +95,23 @@
 **Top Latency Users:** tiffany.mckinnon@ca.belfor.com (707s), amesser@dryunow.pro (436s), pwelty@capdsus.com (430s)
 
 ---
+
+## Daily Reports (24h)
+
+### 2026-03-07 (Daily)
+**Generated:** 2026-03-08 23:10 UTC | **Period:** 1d (2026-03-07 to 2026-03-08) | **Traces:** 20
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.50 | 89.6s |
+| Median | $0.49 | 83.5s |
+| P75 | $0.58 | 125.6s |
+| P95 | $0.82 | 182.8s |
+| Min | $0.10 | 24.9s |
+| Max | $1.57 | 183.0s |
+
+**Top Cost Users:** brad.emond@highland.dki.ca ($1.57), neil.burke@ca.belfor.com ($0.73), chris.hudson+kitchener@ca.belfor.com ($0.73)
+
+**Top Latency Users:** brad.emond@highland.dki.ca (183s), neil.burke@ca.belfor.com (163s), scott.honke@ca.belfor.com (127s)
+
+---

@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-08 20:01 UTC | **Total Traces:** 486 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 81%
+**Last Updated:** 2026-03-08 23:12 UTC | **Total Traces:** 487 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 81%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 50b85985e9e22ed0f875ac8255e6c488 | v2026.09.3 | 2026-03-08 | scott.honke@ca.belfor.com | 2m 17s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 10 (0/10) | 78 | 11 | 1 |
 | 2c7d33b23248f09ec4a5c9b5809268ec | v2026.09.3 | 2026-03-08 | brad.emond@highland.dki.ca | 3m 2s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 15 (5/10) | 423 | 17 | 0 |
 | 214340f7f89dee9aa6200c75d4931b14 | v2026.09.3 | 2026-03-08 | jackie.knight@ca.belfor.com | 2m 5s | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3.3/5 | 5 (5/0) | 104 | 4 | 0 |
 | b827a64aedf50a2e15056281f8c61600 | v2026.09.3 | 2026-03-08 | derek.kryjak@ca.belfor.com | 0m 30s | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4.3/5 | 1 (0/1) | 24 | 2 | 0 |
@@ -494,6 +495,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 50b85985e9e22ed0f875ac8255e6c488 -- 2026-03-08 -- v2026.09.3
+
+**User:** scott.honke@ca.belfor.com | **Time:** 2m 17s
+**Rooms:** 10 total (0 affected, 10 unaffected) | **Photos:** 78 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 10 rooms; 10 in app, 2 from notes |
+| Field Photos | Good | 78 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 11 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+78 field photos were submitted. Technician notes were provided (11 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 17s. No data quality issues were flagged.
+
+### Issue Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## 2c7d33b23248f09ec4a5c9b5809268ec -- 2026-03-08 -- v2026.09.3
 

@@ -100,3 +100,24 @@
 **Cost Outliers:** 26 users with avg > $1.00/scope
 
 ---
+
+## Daily Reports (24h)
+
+### 2026-03-07 (Daily)
+**Generated:** 2026-03-08 23:10 UTC | **Period:** 1d (2026-03-07 to 2026-03-08)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 20 |
+| Unique Organizations | 5 |
+| Unique Users | 11 |
+| Total Cost | $9.97 |
+| Average Cost / Scope | $0.50 |
+
+**Top Users:** jackie.knight@ca.belfor.com (4), scott.honke@ca.belfor.com (3), mary.hernandez@ca.belfor.com (2), neil.burke@ca.belfor.com (2), jelmin.lopez@pennroto.com (2)
+
+**Top Orgs:** BELFOR Canada (14), Pennroto (2), Steamatic (2), Highland DKI (1), Igkrenewandrestore (1)
+
+**Cost Outliers:** 1 users with avg > $1.00/scope
+
+---
