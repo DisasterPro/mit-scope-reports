@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 19:36 UTC | **Traces with Issues:** 35 | **Total Issues:** 234
+**Last Updated:** 2026-03-08 20:01 UTC | **Traces with Issues:** 37 | **Total Issues:** 279
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | 2c7d33b23248f09ec4a5c9b5809268ec | brad.emond@highland.dki.ca | 35 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 15 (5/10) | 423 | 17 | 0 |
+| 2026-03-08 | 214340f7f89dee9aa6200c75d4931b14 | jackie.knight@ca.belfor.com | 10 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 104 | 4 | 0 |
 | 2026-03-08 | b827a64aedf50a2e15056281f8c61600 | derek.kryjak@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (0/1) | 24 | 2 | 0 |
 | 2026-03-08 | 5718957b0219b45b5561ea006c27f076 | mary.hernandez@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 71 | 5 | 1 |
 | 2026-03-08 | 26f878b88715c5be4da561d83da305ee | mary.hernandez@ca.belfor.com | 2 | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 5 (2/3) | 0 | 1 | 1 |
@@ -46,6 +48,87 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 2c7d33b23248f09ec4a5c9b5809268ec -- 2026-03-08 -- v2026.09.3
+
+**User:** brad.emond@highland.dki.ca | **Time:** 3m 2s
+**Rooms:** 15 total (5 affected, 10 unaffected) | **Photos:** 423 | **Notes:** 17 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (15):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Womens Bathroom has no measurements available - room dimensions required for complete scope.
+- Mens Bathroom has no measurements available - room dimensions required for complete scope.
+- Banquet Area has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Back Hallway has no measurements available - room dimensions required for complete scope.
+- Back Kitchenette has no measurements available - room dimensions required for complete scope.
+- Table And Chair Storage Room has no measurements available - room dimensions required for complete scope.
+- ...and 5 more
+
+**Missing Measurements** (15):
+
+- Stairs
+- Hallway
+- Utility Room
+- Womens Bathroom
+- Mens Bathroom
+- Banquet Area
+- Kitchen
+- Back Hallway
+- Back Kitchenette
+- Table And Chair Storage Room
+- ...and 5 more
+
+**Material Mismatch** (5):
+
+- [INFO] room_name: Hallway; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring; room_elements_flooring: Vinyl flooring, Tile flooring; resolution: Used Vinyl flooring and Tile flooring (confirmed in room). Carpet is present in materials array but not the confirmed installed flooring in elements/summary.
+- [INFO] room_name: Banquet Area; materials_array_flooring: Carpet, Hardwood Flooring, Tile Flooring, Vinyl Flooring; room_elements_flooring: Vinyl flooring, Tile flooring, Carpet (localized); resolution: Used Vinyl flooring, Tile flooring, and localized Carpet (all confirmed/mentioned in room). Hardwood Flooring is present in materials array but not in confirmed installed flooring in elements/summary.
+- [INFO] room_name: Kitchen; materials_array_flooring: Laminate Flooring, Tile Flooring, Vinyl Flooring; room_elements_flooring: Vinyl and laminate flooring; resolution: Used Vinyl and Laminate flooring (confirmed installed flooring in elements). Tile Flooring shown in materials array but not as installed in elements.
+- [INFO] room_name: Back Hallway; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Vinyl flooring; resolution: Used Vinyl flooring (confirmed in room's elements); no conflict.
+- [INFO] room_name: Back Kitchenette; materials_array_flooring: Laminate Flooring, Tile Flooring, Vinyl Flooring, Concrete; room_elements_flooring: Tile and vinyl flooring, Concrete; resolution: Used Tile, Vinyl flooring, and Concrete (confirmed in room's elements). Laminate Flooring is present in materials array but not confirmed as installed in elements.
+
+### Assessment
+
+The system detected 35 data quality issue(s): 5 material mismatch(es) between room data sources; 15 measurement validation warning(s); 15 room(s) with missing measurements.
+
+---
+
+## 214340f7f89dee9aa6200c75d4931b14 -- 2026-03-08 -- v2026.09.3
+
+**User:** jackie.knight@ca.belfor.com | **Time:** 2m 5s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 104 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Basement Bedroom has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Stairs/Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Basement Bedroom
+- Recreation Room
+- Bathroom
+- Furnace Room
+- Stairs/Hallway
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
 
 ## b827a64aedf50a2e15056281f8c61600 -- 2026-03-08 -- v2026.09.3
 
