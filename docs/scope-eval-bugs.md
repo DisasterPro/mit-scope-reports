@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 08:02 UTC | **Traces with Issues:** 25 | **Total Issues:** 167
+**Last Updated:** 2026-03-08 12:44 UTC | **Traces with Issues:** 26 | **Total Issues:** 170
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | 71b79ea57883c2a992ae63374bc2d543 | michelle.wetheral@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (1/9) | 0 | 1 | 2 |
 | 2026-03-08 | aa8ee8f2a68a2777aae0e94d37ba5e77 | chris.hudson+kitchener@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 25 (8/17) | 94 | 20 | 1 |
 | 2026-03-08 | a88b9d0e74c68e57d8d9f809fe3daca4 | giovanni@igkrenewandrestore.com | 6 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 9 | 4 | 0 |
 | 2026-03-08 | 595cdbf7926d2af569197d44290c43a4 | jf.raymond@steamatic.ca | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (1/3) | 18 | 2 | 1 |
@@ -36,6 +37,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 71b79ea57883c2a992ae63374bc2d543 -- 2026-03-08 -- v2026.09.3
+
+**User:** michelle.wetheral@ca.belfor.com | **Time:** 0m 36s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Recreation Room
+
+**Affected Room Without Photos** (1):
+
+- Recreation Room
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
 
 ## aa8ee8f2a68a2777aae0e94d37ba5e77 -- 2026-03-08 -- v2026.09.3
 
