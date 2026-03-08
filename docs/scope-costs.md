@@ -75,3 +75,23 @@
 ---
 
 ## Weekly Reports
+
+## Weekly Reports (7d)
+
+### 2026-03-01 (Weekly)
+**Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08) | **Traces:** 473
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.59 | 126.9s |
+| Median | $0.43 | 93.5s |
+| P75 | $0.68 | 134.7s |
+| P95 | $1.78 | 309.3s |
+| Min | $0.04 | 12.8s |
+| Max | $3.75 | 989.8s |
+
+**Top Cost Users:** pwelty@capdsus.com ($3.75), shane@highlandrestoration.ca ($2.81), jbonilla@apolloconstructioncorp.com ($2.56)
+
+**Top Latency Users:** tiffany.mckinnon@ca.belfor.com (707s), amesser@dryunow.pro (436s), pwelty@capdsus.com (430s)
+
+---

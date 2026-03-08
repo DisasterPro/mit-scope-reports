@@ -79,3 +79,24 @@
 ---
 
 ## Weekly Reports
+
+## Weekly Reports (7d)
+
+### 2026-03-01 (Weekly)
+**Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 473 |
+| Unique Organizations | 90 |
+| Unique Users | 212 |
+| Total Cost | $277.29 |
+| Average Cost / Scope | $0.59 |
+
+**Top Users:** tracey.paris@ca.belfor.com (13), mary.hernandez@ca.belfor.com (12), ashley.platt@ca.belfor.com (9), dylanclimie@live.com (8), baney.parker@gmail.com (8)
+
+**Top Orgs:** BELFOR Canada (191), BELFOR US (19), Servicemasterbc (11), Restoration 1 (10), Encircle (internal) (9)
+
+**Cost Outliers:** 26 users with avg > $1.00/scope
+
+---

@@ -67,3 +67,28 @@
 ---
 
 ## Weekly Reports
+
+## Weekly Reports (7d)
+
+### 2026-03-01 (Weekly)
+**Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 473 |
+| Error Traces | 15 (3.2%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| ContentFilterCompletion | Merge | 6 | Unknown |
+| ContentFilterCompletion | Description | 3 | Unknown |
+| ImageProcessingError | MeasurementImagesValidator | 2 | -- |
+| DataProcessingError | RoomNameNormalizer | 1 | -- |
+| ContentFilterCompletion | Tasks | 1 | Unknown |
+| ContentFilterCompletion | MeasurementImages | 1 | Unknown |
+| ContentFilterCompletion | Description | 1 | Sexual |
+
+**Affected Users:** dylanknause@yahoo.com (1x DataProcessingError), nick.messina@us.belfor.com (1x ImageProcessingError), tony10noble@gmail.com (1x ImageProcessingError), greg.janse@ca.belfor.com (1x ContentFilterCompletion), roger.lough@ca.belfor.com (1x ContentFilterCompletion)
+  ...and 10 more
+
+---
