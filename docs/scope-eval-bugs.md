@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 15:37 UTC | **Traces with Issues:** 27 | **Total Issues:** 184
+**Last Updated:** 2026-03-08 16:41 UTC | **Traces with Issues:** 30 | **Total Issues:** 211
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | 06b0e764f4d352a554a7cf4db0c34a21 | scott.honke@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 78 | 11 | 1 |
+| 2026-03-08 | a08fe2483b7b898eb5c5145c0a65cb09 | neil.burke@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (8/0) | 201 | 13 | 0 |
+| 2026-03-08 | 67646a3e5f5cd3a2e963ada204009f64 | jackie.knight@ca.belfor.com | 3 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 1 (1/0) | 131 | 4 | 0 |
 | 2026-03-08 | cc31a6a3fc021475aa72653419b9329f | neil.burke@ca.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 97 | 12 | 0 |
 | 2026-03-08 | 71b79ea57883c2a992ae63374bc2d543 | michelle.wetheral@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (1/9) | 0 | 1 | 2 |
 | 2026-03-08 | aa8ee8f2a68a2777aae0e94d37ba5e77 | chris.hudson+kitchener@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 25 (8/17) | 94 | 20 | 1 |
@@ -38,6 +41,100 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 06b0e764f4d352a554a7cf4db0c34a21 -- 2026-03-08 -- v2026.09.3
+
+**User:** scott.honke@ca.belfor.com | **Time:** 1m 58s
+**Rooms:** 10 total (6 affected, 4 unaffected) | **Photos:** 78 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Extraction has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Extraction
+- Utility Room
+- Exterior
+
+**Affected Room Without Photos** (2):
+
+- Extraction
+- Exterior
+
+### Assessment
+
+The system detected 8 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## a08fe2483b7b898eb5c5145c0a65cb09 -- 2026-03-08 -- v2026.09.3
+
+**User:** neil.burke@ca.belfor.com | **Time:** 2m 22s
+**Rooms:** 8 total (8 affected, 0 unaffected) | **Photos:** 201 | **Notes:** 13 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Stairs Up has no measurements available - room dimensions required for complete scope.
+- L2 - Hallway has no measurements available - room dimensions required for complete scope.
+- L2 - Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Basement
+- Kitchen
+- Bedroom
+- Bedroom 2
+- Hallway
+- Stairs Up
+- L2 - Hallway
+- L2 - Bathroom
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
+## 67646a3e5f5cd3a2e963ada204009f64 -- 2026-03-08 -- v2026.09.3
+
+**User:** jackie.knight@ca.belfor.com | **Time:** 1m 42s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 131 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Basement; materials_array_flooring: Tile Flooring, Vinyl Flooring, Concrete; room_elements_flooring: Carpet, Carpet Pad; resolution: Used Carpet and Carpet Pad (confirmed in room elements and damage summary) as primary installed flooring for removal/extraction. Tile/Vinyl/Concrete may be in zones (utility, bath) but not primary floor. Tasks for these only generated if explicitly confirmed upon measurement.
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## cc31a6a3fc021475aa72653419b9329f -- 2026-03-08 -- v2026.09.3
 
