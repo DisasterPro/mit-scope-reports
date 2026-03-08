@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 12:44 UTC | **Traces with Issues:** 26 | **Total Issues:** 170
+**Last Updated:** 2026-03-08 15:37 UTC | **Traces with Issues:** 27 | **Total Issues:** 184
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | cc31a6a3fc021475aa72653419b9329f | neil.burke@ca.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 97 | 12 | 0 |
 | 2026-03-08 | 71b79ea57883c2a992ae63374bc2d543 | michelle.wetheral@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (1/9) | 0 | 1 | 2 |
 | 2026-03-08 | aa8ee8f2a68a2777aae0e94d37ba5e77 | chris.hudson+kitchener@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 25 (8/17) | 94 | 20 | 1 |
 | 2026-03-08 | a88b9d0e74c68e57d8d9f809fe3daca4 | giovanni@igkrenewandrestore.com | 6 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 9 | 4 | 0 |
@@ -37,6 +38,41 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## cc31a6a3fc021475aa72653419b9329f -- 2026-03-08 -- v2026.09.3
+
+**User:** neil.burke@ca.belfor.com | **Time:** 3m 2s
+**Rooms:** 9 total (6 affected, 3 unaffected) | **Photos:** 97 | **Notes:** 12 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Col has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Cellar has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Stairs
+- Family Room
+- Bathroom
+- Col
+- Laundry Room
+- Cellar
+- Bedroom
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
 
 ## 71b79ea57883c2a992ae63374bc2d543 -- 2026-03-08 -- v2026.09.3
 
