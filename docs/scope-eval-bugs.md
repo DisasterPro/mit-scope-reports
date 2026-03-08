@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 17:37 UTC | **Traces with Issues:** 32 | **Total Issues:** 224
+**Last Updated:** 2026-03-08 19:36 UTC | **Traces with Issues:** 35 | **Total Issues:** 234
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | b827a64aedf50a2e15056281f8c61600 | derek.kryjak@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (0/1) | 24 | 2 | 0 |
+| 2026-03-08 | 5718957b0219b45b5561ea006c27f076 | mary.hernandez@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 71 | 5 | 1 |
+| 2026-03-08 | 26f878b88715c5be4da561d83da305ee | mary.hernandez@ca.belfor.com | 2 | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 5 (2/3) | 0 | 1 | 1 |
 | 2026-03-08 | db07988efa070392a54ac308bf88a7c1 | jackie.knight@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (1/1) | 84 | 4 | 0 |
 | 2026-03-08 | baf0d8b3f4ecf471783d406cbe05ec65 | scott.honke@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 17 (8/9) | 78 | 11 | 1 |
 | 2026-03-08 | 06b0e764f4d352a554a7cf4db0c34a21 | scott.honke@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 78 | 11 | 1 |
@@ -43,6 +46,74 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## b827a64aedf50a2e15056281f8c61600 -- 2026-03-08 -- v2026.09.3
+
+**User:** derek.kryjak@ca.belfor.com | **Time:** 0m 30s
+**Rooms:** 1 total (0 affected, 1 unaffected) | **Photos:** 24 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 5718957b0219b45b5561ea006c27f076 -- 2026-03-08 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 1m 3s
+**Rooms:** 4 total (0 affected, 4 unaffected) | **Photos:** 71 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Entry Foyer has no measurements available - room dimensions required for complete scope.
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Entry Foyer
+- Entrance
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 26f878b88715c5be4da561d83da305ee -- 2026-03-08 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 0m 28s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (2):
+
+- Furnace Area
+- Laundry Area
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 affected room(s) without photos.
+
+---
+
 
 ## db07988efa070392a54ac308bf88a7c1 -- 2026-03-08 -- v2026.09.3
 
