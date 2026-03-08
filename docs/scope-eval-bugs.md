@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-07 23:36 UTC | **Traces with Issues:** 21 | **Total Issues:** 150
+**Last Updated:** 2026-03-08 00:03 UTC | **Traces with Issues:** 23 | **Total Issues:** 159
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | 595cdbf7926d2af569197d44290c43a4 | jf.raymond@steamatic.ca | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (1/3) | 18 | 2 | 1 |
+| 2026-03-07 | 64428f1674f269a045ba74aa143bea4a | jackie.knight@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (1/3) | 86 | 6 | 0 |
 | 2026-03-07 | e800736678a1ffd6750a71cbf04395fb | chris.hudson+kitchener@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (1/5) | 38 | 12 | 1 |
 | 2026-03-07 | a5944d718f1d2e7e58ad8ee491c1928c | paul@rockemergency.com | 26 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 18 (18/0) | 92 | 14 | 1 |
 | 2026-03-07 | d917e448b326c6cee7b3971b09c6d6ba | jackie.knight@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (2/0) | 71 | 6 | 0 |
@@ -32,6 +34,53 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 595cdbf7926d2af569197d44290c43a4 -- 2026-03-08 -- v2026.09.3
+
+**User:** jf.raymond@steamatic.ca | **Time:** 0m 41s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 18 | **Notes:** 2 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement: floor plan shows no matching room - using claim data measurements.
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 measurement validation warning(s).
+
+---
+
+## 64428f1674f269a045ba74aa143bea4a -- 2026-03-07 -- v2026.09.3
+
+**User:** jackie.knight@ca.belfor.com | **Time:** 1m 23s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 86 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Furnace Room/Storage has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Recreation Room
+- Furnace Room/Storage
+- Bathroom
+- Exterior
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## e800736678a1ffd6750a71cbf04395fb -- 2026-03-07 -- v2026.09.3
 
