@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 16:41 UTC | **Traces with Issues:** 30 | **Total Issues:** 211
+**Last Updated:** 2026-03-08 17:03 UTC | **Traces with Issues:** 31 | **Total Issues:** 218
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | baf0d8b3f4ecf471783d406cbe05ec65 | scott.honke@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 17 (8/9) | 78 | 11 | 1 |
 | 2026-03-08 | 06b0e764f4d352a554a7cf4db0c34a21 | scott.honke@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 78 | 11 | 1 |
 | 2026-03-08 | a08fe2483b7b898eb5c5145c0a65cb09 | neil.burke@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (8/0) | 201 | 13 | 0 |
 | 2026-03-08 | 67646a3e5f5cd3a2e963ada204009f64 | jackie.knight@ca.belfor.com | 3 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 1 (1/0) | 131 | 4 | 0 |
@@ -41,6 +42,37 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## baf0d8b3f4ecf471783d406cbe05ec65 -- 2026-03-08 -- v2026.09.3
+
+**User:** scott.honke@ca.belfor.com | **Time:** 2m 5s
+**Rooms:** 17 total (8 affected, 9 unaffected) | **Photos:** 78 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Cause has no measurements available - room dimensions required for complete scope.
+- Extraction has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Cause
+- Extraction
+- Exterior
+
+**Affected Room Without Photos** (1):
+
+- Cause
+
+### Assessment
+
+The system detected 7 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
 
 ## 06b0e764f4d352a554a7cf4db0c34a21 -- 2026-03-08 -- v2026.09.3
 
