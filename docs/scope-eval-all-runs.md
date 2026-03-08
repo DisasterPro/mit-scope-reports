@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-08 06:24 UTC | **Total Traces:** 473 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 81%
+**Last Updated:** 2026-03-08 08:02 UTC | **Total Traces:** 474 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 81%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| aa8ee8f2a68a2777aae0e94d37ba5e77 | v2026.09.3 | 2026-03-08 | chris.hudson+kitchener@ca.belfor.com | 1m 49s | 4/5 Good | 3/5 Moderate | 4/5 Minor | 3.7/5 | 25 (8/17) | 94 | 20 | 1 |
 | 536af742c3652ca8273cfd6ef8f2a639 | v2026.09.3 | 2026-03-08 | jelmin.lopez@pennroto.com | 0m 46s | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 3.0/5 | 5 (2/3) | 1 | 1 | 1 |
 | 680636b85e0d1b0555de410194756035 | v2026.09.3 | 2026-03-08 | jf.raymond@steamatic.ca | 0m 24s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 1 (1/0) | 0 | 1 | 0 |
 | 23efe7fcfe70fdf34e5fa9274f0fe9fe | v2026.09.3 | 2026-03-06 | bgabris@abff.ca | 1m 9s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 4 (2/2) | 18 | 7 | 0 |
@@ -481,6 +482,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## aa8ee8f2a68a2777aae0e94d37ba5e77 -- 2026-03-08 -- v2026.09.3
+
+**User:** chris.hudson+kitchener@ca.belfor.com | **Time:** 1m 49s
+**Rooms:** 25 total (8 affected, 17 unaffected) | **Photos:** 94 | **Notes:** 20 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 25 rooms; 17 in app, 14 from notes |
+| Field Photos | Good | 94 photos; 8 rooms without photos |
+| Technician Notes | Detailed | 20 notes; 7 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+94 field photos were submitted. Technician notes were provided (20 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 17 of 25 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 49s. Data quality flags: 8 affected room(s) had no photos; 7 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 2 data quality issue(s): 2 measurement validation warning(s).
+
+### Recommendations
+
+1. Add photos for the 8 room(s) that are missing them. Each room should have at least a few photos showing the damage.
+2. Add notes for the 7 room(s) missing them. Even brief notes about damage type and extent help.
+
+---
+
 
 ## 536af742c3652ca8273cfd6ef8f2a639 -- 2026-03-08 -- v2026.09.3
 

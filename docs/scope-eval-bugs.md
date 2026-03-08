@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 04:13 UTC | **Traces with Issues:** 24 | **Total Issues:** 165
+**Last Updated:** 2026-03-08 08:02 UTC | **Traces with Issues:** 25 | **Total Issues:** 167
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | aa8ee8f2a68a2777aae0e94d37ba5e77 | chris.hudson+kitchener@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 25 (8/17) | 94 | 20 | 1 |
 | 2026-03-08 | a88b9d0e74c68e57d8d9f809fe3daca4 | giovanni@igkrenewandrestore.com | 6 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 9 | 4 | 0 |
 | 2026-03-08 | 595cdbf7926d2af569197d44290c43a4 | jf.raymond@steamatic.ca | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (1/3) | 18 | 2 | 1 |
 | 2026-03-07 | 64428f1674f269a045ba74aa143bea4a | jackie.knight@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (1/3) | 86 | 6 | 0 |
@@ -35,6 +36,26 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## aa8ee8f2a68a2777aae0e94d37ba5e77 -- 2026-03-08 -- v2026.09.3
+
+**User:** chris.hudson+kitchener@ca.belfor.com | **Time:** 1m 49s
+**Rooms:** 25 total (8 affected, 17 unaffected) | **Photos:** 94 | **Notes:** 20 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- MeasurementImages floor plan area discrepancy: floor plan total 1767.6 SF vs room sum 1560.3 SF - discrepancy 207.3 SF.
+- All rooms volume calculated using assumed 7 ft ceiling height.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 measurement validation warning(s).
+
+---
+
 
 ## a88b9d0e74c68e57d8d9f809fe3daca4 -- 2026-03-08 -- v2026.09.3
 
