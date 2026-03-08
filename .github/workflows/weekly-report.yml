@@ -73,7 +73,7 @@ jobs:
         if: env.AI_SERVICES_PAT != ''
         run: |
           git clone --depth 1 --filter=blob:none --sparse \
-            "https://x-access-token:${AI_SERVICES_PAT}@github.com/encircle/ai-services.git" \
+            "https://x-access-token:${AI_SERVICES_PAT}@github.com/EncircleInc/ai-services.git" \
             /tmp/ai-services
           cd /tmp/ai-services
           git sparse-checkout set services/mitigation-scope/joe/docs
