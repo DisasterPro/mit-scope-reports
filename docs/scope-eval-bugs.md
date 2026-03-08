@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 17:03 UTC | **Traces with Issues:** 31 | **Total Issues:** 218
+**Last Updated:** 2026-03-08 17:37 UTC | **Traces with Issues:** 32 | **Total Issues:** 224
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | db07988efa070392a54ac308bf88a7c1 | jackie.knight@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (1/1) | 84 | 4 | 0 |
 | 2026-03-08 | baf0d8b3f4ecf471783d406cbe05ec65 | scott.honke@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 17 (8/9) | 78 | 11 | 1 |
 | 2026-03-08 | 06b0e764f4d352a554a7cf4db0c34a21 | scott.honke@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 78 | 11 | 1 |
 | 2026-03-08 | a08fe2483b7b898eb5c5145c0a65cb09 | neil.burke@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (8/0) | 201 | 13 | 0 |
@@ -42,6 +43,36 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## db07988efa070392a54ac308bf88a7c1 -- 2026-03-08 -- v2026.09.3
+
+**User:** jackie.knight@ca.belfor.com | **Time:** 1m 16s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 84 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Basement
+- Exterior
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Basement; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Tile is present in bathroom area only; tasks/affected_materials limited to areas described in elements and summary.
+- [INFO] room_name: Basement; materials_array_flooring: Concrete; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Concrete is subfloor, not a finished flooring layer; no separate extraction or removal generated.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## baf0d8b3f4ecf471783d406cbe05ec65 -- 2026-03-08 -- v2026.09.3
 
