@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 00:03 UTC | **Traces with Issues:** 23 | **Total Issues:** 159
+**Last Updated:** 2026-03-08 04:13 UTC | **Traces with Issues:** 24 | **Total Issues:** 165
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | a88b9d0e74c68e57d8d9f809fe3daca4 | giovanni@igkrenewandrestore.com | 6 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 9 | 4 | 0 |
 | 2026-03-08 | 595cdbf7926d2af569197d44290c43a4 | jf.raymond@steamatic.ca | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (1/3) | 18 | 2 | 1 |
 | 2026-03-07 | 64428f1674f269a045ba74aa143bea4a | jackie.knight@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (1/3) | 86 | 6 | 0 |
 | 2026-03-07 | e800736678a1ffd6750a71cbf04395fb | chris.hudson+kitchener@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (1/5) | 38 | 12 | 1 |
@@ -34,6 +35,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a88b9d0e74c68e57d8d9f809fe3daca4 -- 2026-03-08 -- v2026.09.3
+
+**User:** giovanni@igkrenewandrestore.com | **Time:** 1m 23s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 9 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Primary Bathroom
+- Dining Room
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 595cdbf7926d2af569197d44290c43a4 -- 2026-03-08 -- v2026.09.3
 
