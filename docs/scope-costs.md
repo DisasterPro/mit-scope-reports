@@ -98,6 +98,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-08 (Daily)
+**Generated:** 2026-03-09 05:32 UTC | **Period:** 1d (2026-03-08 to 2026-03-09) | **Traces:** 19
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.62 | 111.0s |
+| Median | $0.57 | 118.5s |
+| P75 | $0.75 | 140.1s |
+| P95 | $1.00 | 184.9s |
+| Min | $0.22 | 28.2s |
+| Max | $1.57 | 201.9s |
+
+**Top Cost Users:** brad.emond@highland.dki.ca ($1.57), dylanknause@yahoo.com ($0.93), neil.burke@ca.belfor.com ($0.73)
+
+**Top Latency Users:** brad.emond@highland.dki.ca (183s), neil.burke@ca.belfor.com (163s), dylanknause@yahoo.com (146s)
+
+---
+
 ### 2026-03-07 (Daily)
 **Generated:** 2026-03-08 23:10 UTC | **Period:** 1d (2026-03-07 to 2026-03-08) | **Traces:** 20
 

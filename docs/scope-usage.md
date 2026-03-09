@@ -103,6 +103,25 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-08 (Daily)
+**Generated:** 2026-03-09 05:32 UTC | **Period:** 1d (2026-03-08 to 2026-03-09)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 19 |
+| Unique Organizations | 4 |
+| Unique Users | 10 |
+| Total Cost | $11.84 |
+| Average Cost / Scope | $0.62 |
+
+**Top Users:** michelle.wetheral@ca.belfor.com (3), mary.hernandez@ca.belfor.com (3), jackie.knight@ca.belfor.com (3), scott.honke@ca.belfor.com (3), neil.burke@ca.belfor.com (2)
+
+**Top Orgs:** BELFOR Canada (16), dylanknause@yahoo.com (1), Emergmit (1), Highland DKI (1)
+
+**Cost Outliers:** 1 users with avg > $1.00/scope
+
+---
+
 ### 2026-03-07 (Daily)
 **Generated:** 2026-03-08 23:10 UTC | **Period:** 1d (2026-03-07 to 2026-03-08)
 
