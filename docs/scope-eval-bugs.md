@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 18:13 UTC | **Traces with Issues:** 93 | **Total Issues:** 775
+**Last Updated:** 2026-03-09 18:47 UTC | **Traces with Issues:** 97 | **Total Issues:** 798
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 5d544ec55c85f98a008b2e023a5932cc | tanya.leite@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 26 | 2 | 0 |
+| 2026-03-09 | 71e7042fba9426ab746cf57e33215ffb | jangermeyer@encircleapp.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 4 (3/1) | 7 | 6 | 0 |
+| 2026-03-09 | a6691854a61bb0024d53ae9a235da390 | randy.goulding@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (5/4) | 167 | 11 | 1 |
+| 2026-03-09 | d8cdff0b2447aab4e6018a35f8411e74 | ronald.gauthier@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (3/1) | 17 | 5 | 0 |
 | 2026-03-09 | 058404bbcdfe0c1034bd83f9d0dd7053 | rcv1988@gmail.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (8/17) | 135 | 12 | 2 |
 | 2026-03-09 | f846d285815a141e316a7a909f96225f | baney.parker@gmail.com | 14 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 0 (0/0) | 0 | 0 | 0 |
 | 2026-03-09 | 3249c353cf2da70be0e0903b4518dcd5 | ronald.gauthier@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (3/1) | 31 | 5 | 0 |
@@ -104,6 +108,110 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5d544ec55c85f98a008b2e023a5932cc -- 2026-03-09 -- v2026.09.3
+
+**User:** tanya.leite@ca.belfor.com | **Time:** 1m 6s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 26 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 71e7042fba9426ab746cf57e33215ffb -- 2026-03-09 -- v2026.09.3
+
+**User:** jangermeyer@encircleapp.com | **Time:** 1m 5s
+**Rooms:** 4 total (3 affected, 1 unaffected) | **Photos:** 7 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Attic has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Attic
+- Primary Bedroom
+- Basement
+
+**Affected Room Without Photos** (3):
+
+- Pool House
+- Attic
+- Primary Bedroom
+
+### Assessment
+
+The system detected 9 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
+## a6691854a61bb0024d53ae9a235da390 -- 2026-03-09 -- v2026.09.3
+
+**User:** randy.goulding@ca.belfor.com | **Time:** 2m 41s
+**Rooms:** 9 total (5 affected, 4 unaffected) | **Photos:** 167 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Pantry Closet volume calculated using assumed 8 ft ceiling height.
+- Craft Room volume calculated using assumed 8 ft ceiling height.
+- Recreation Room volume calculated using assumed 8 ft ceiling height.
+- Bathroom volume calculated using assumed 8 ft ceiling height.
+- Landing And Stairs volume calculated using assumed 8 ft ceiling height.
+- Tool Closet volume calculated using assumed 8 ft ceiling height.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 6 measurement validation warning(s).
+
+---
+
+## d8cdff0b2447aab4e6018a35f8411e74 -- 2026-03-09 -- v2026.09.3
+
+**User:** ronald.gauthier@ca.belfor.com | **Time:** 2m 31s
+**Rooms:** 4 total (3 affected, 1 unaffected) | **Photos:** 17 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Office has no measurements available - room dimensions required for complete scope.
+- Office Reception Area has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Office
+- Office Reception Area
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 058404bbcdfe0c1034bd83f9d0dd7053 -- 2026-03-09 -- v2026.09.3
 
