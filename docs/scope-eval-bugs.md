@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 20:05 UTC | **Traces with Issues:** 110 | **Total Issues:** 929
+**Last Updated:** 2026-03-09 20:29 UTC | **Traces with Issues:** 115 | **Total Issues:** 947
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | ebd6fe738c3f21e93b4e3eb9f925b49c | jonathan.watson@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 11 (5/6) | 456 | 1 | 1 |
+| 2026-03-09 | b0c21190b50e6e0c169b9a26c5169ecd | o.maldonado3823@gmail.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 23 | 4 | 0 |
+| 2026-03-09 | e54dfef89ebd0ff6bad529821b3bae7e | nick.gorecki@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 11 (5/6) | 14 | 7 | 1 |
+| 2026-03-09 | aba7bd229ec198cb2f056034ef585abd | michael.zinz@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (4/9) | 67 | 7 | 2 |
+| 2026-03-09 | 240ad638f2ffe4d85aec2718529673f5 | kay.cayuga+owensound@ca.belfor.com | 1 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 13 (7/6) | 160 | 11 | 1 |
 | 2026-03-09 | b574071166327588d311ac00c51a52e0 | darren@cancaderestoration.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (3/2) | 65 | 7 | 0 |
 | 2026-03-09 | 59abccb0e4f7590fe0c36abba946835a | troy.nicholson+collingwood@ca.belfor.com | 22 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 17 (7/10) | 196 | 23 | 1 |
 | 2026-03-09 | 7a24445d87c8667bfc6d4e0362fe4032 | troy.nicholson+collingwood@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 18 (3/15) | 80 | 13 | 1 |
@@ -121,6 +126,125 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## ebd6fe738c3f21e93b4e3eb9f925b49c -- 2026-03-09 -- v2026.09.3
+
+**User:** jonathan.watson@ca.belfor.com | **Time:** 4m 23s
+**Rooms:** 11 total (5 affected, 6 unaffected) | **Photos:** 456 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Total floor plan area discrepancy is 256.9 SF between exterior perimeter and sum of room areas.
+- Volume calculated using assumed 8 ft ceiling height for all rooms.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 measurement validation warning(s).
+
+---
+
+## b0c21190b50e6e0c169b9a26c5169ecd -- 2026-03-09 -- v2026.09.3
+
+**User:** o.maldonado3823@gmail.com | **Time:** 1m 32s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 23 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Entry has no measurements available - room dimensions required for complete scope.
+- Half Bath has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Entry
+- Half Bath
+- Exterior
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Entry; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring, Hardwood Flooring, Carpet; resolution: Used Tile Flooring, Hardwood Flooring, and Carpet (confirmed in room). Laminate is likely a moisture meter artifact.
+- [INFO] room_name: Half Bath; materials_array_flooring: Laminate Flooring, Hardwood Flooring; room_elements_flooring: Vinyl Flooring, Tile Flooring; resolution: Used Vinyl Flooring and Tile Flooring (confirmed in room). Laminate and Hardwood Flooring are likely meter artifacts.
+
+### Assessment
+
+The system detected 8 data quality issue(s): 2 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## e54dfef89ebd0ff6bad529821b3bae7e -- 2026-03-09 -- v2026.09.3
+
+**User:** nick.gorecki@ca.belfor.com | **Time:** 2m 55s
+**Rooms:** 11 total (5 affected, 6 unaffected) | **Photos:** 14 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Entrance has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Entrance
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## aba7bd229ec198cb2f056034ef585abd -- 2026-03-09 -- v2026.09.3
+
+**User:** michael.zinz@ca.belfor.com | **Time:** 2m 15s
+**Rooms:** 13 total (4 affected, 9 unaffected) | **Photos:** 67 | **Notes:** 7 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Crawlspace
+
+**Affected Room Without Photos** (2):
+
+- Hallway Closet
+- Crawlspace
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Kitchen; materials_array_flooring: Laminate Flooring, Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate and hardwood are not installed per room description and images.
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring, Vinyl Flooring; room_elements_flooring: Flooring (type not explicitly stated, but evidence of vinyl installation in images; prioritized main confirmed type); resolution: Used main described flooring as only installed material. Laminate is not confirmed installed in this room.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 2 material mismatch(es) between room data sources; 1 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 240ad638f2ffe4d85aec2718529673f5 -- 2026-03-09 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 2m 11s
+**Rooms:** 13 total (7 affected, 6 unaffected) | **Photos:** 160 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Col
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
 
 ## b574071166327588d311ac00c51a52e0 -- 2026-03-09 -- v2026.09.3
 
