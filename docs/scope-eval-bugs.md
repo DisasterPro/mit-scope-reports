@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 01:30 UTC | **Traces with Issues:** 42 | **Total Issues:** 319
+**Last Updated:** 2026-03-09 10:13 UTC | **Traces with Issues:** 43 | **Total Issues:** 322
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 4614f448958f7ab66bb4b77069e6ed2f | andrew.santos@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 53 | 4 | 1 |
 | 2026-03-09 | 6b7c51bb56e660554cd6a0e21d2e9e0e | dylanknause@yahoo.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (5/5) | 263 | 7 | 1 |
 | 2026-03-09 | bc2fbaa52492c74335c0f95a40ab66a3 | michelle.wetheral@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 7 (6/1) | 131 | 9 | 0 |
 | 2026-03-09 | e212f6ee22dec1170e5a279dc4df2bd0 | michelle.wetheral@ca.belfor.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 79 | 8 | 2 |
@@ -53,6 +54,30 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 4614f448958f7ab66bb4b77069e6ed2f -- 2026-03-09 -- v2026.09.3
+
+**User:** andrew.santos@ca.belfor.com | **Time:** 1m 53s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 53 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Missing Measurements** (2):
+
+- Eq
+- Exterior
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using Non-Beneficial (hydro value) - structural review confirmed no operable built-in HVAC in affected zone
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 equipment sizing conflict(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 6b7c51bb56e660554cd6a0e21d2e9e0e -- 2026-03-09 -- v2026.09.3
 
