@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 00:03 UTC | **Traces with Issues:** 39 | **Total Issues:** 303
+**Last Updated:** 2026-03-09 00:54 UTC | **Traces with Issues:** 40 | **Total Issues:** 308
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | e212f6ee22dec1170e5a279dc4df2bd0 | michelle.wetheral@ca.belfor.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 79 | 8 | 2 |
 | 2026-03-08 | f5bfd8479563262dd368ad675bbd8e3b | mary.hernandez@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (5/14) | 170 | 10 | 2 |
 | 2026-03-08 | d7996fc5462fe9e13b65bd5568fea22b | accounting@emergmit.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (1/9) | 59 | 5 | 1 |
 | 2026-03-08 | 2c7d33b23248f09ec4a5c9b5809268ec | brad.emond@highland.dki.ca | 35 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 15 (5/10) | 423 | 17 | 0 |
@@ -50,6 +51,35 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e212f6ee22dec1170e5a279dc4df2bd0 -- 2026-03-09 -- v2026.09.3
+
+**User:** michelle.wetheral@ca.belfor.com | **Time:** 2m 3s
+**Rooms:** 12 total (4 affected, 8 unaffected) | **Photos:** 79 | **Notes:** 8 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Stairs
+- Exterior
+
+**Affected Room Without Photos** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 5 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
 
 ## f5bfd8479563262dd368ad675bbd8e3b -- 2026-03-08 -- v2026.09.3
 
