@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 11:41 UTC | **Traces with Issues:** 47 | **Total Issues:** 355
+**Last Updated:** 2026-03-09 12:46 UTC | **Traces with Issues:** 51 | **Total Issues:** 375
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 9e22489f31696ed2986a2a6e32f78737 | kay.cayuga+owensound@ca.belfor.com | 10 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (10/3) | 620 | 11 | 1 |
+| 2026-03-09 | 43c9a1626b491a822616b61de4d14b53 | kay.cayuga+owensound@ca.belfor.com | 4 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (8/2) | 159 | 1 | 1 |
+| 2026-03-09 | 45c69d1c5ce1b55b9636831efddb7a6e | guy.tiomkin@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 2 (1/1) | 45 | 3 | 0 |
+| 2026-03-09 | c2d1d5dd46d95263757ee68be25464ed | matthew.bishop@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 65 | 7 | 1 |
 | 2026-03-09 | 77c24e64dc8bc4f09c58f1650fc0b29e | andrew.santos@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (2/8) | 46 | 4 | 1 |
 | 2026-03-09 | 269fcc4fb924731bb416b257ebe2f9cd | devindale88@gmail.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (2/5) | 190 | 8 | 0 |
 | 2026-03-09 | 230f7f9ad8cadfa7e447423fd57757d3 | andrew.santos@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (4/5) | 86 | 7 | 1 |
@@ -58,6 +62,107 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 9e22489f31696ed2986a2a6e32f78737 -- 2026-03-09 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 5m 53s
+**Rooms:** 13 total (10 affected, 3 unaffected) | **Photos:** 620 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Closet has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Stairs
+- Closet
+- Storage
+- Exterior
+
+**Affected Room Without Photos** (2):
+
+- Stairs
+- Exterior
+
+### Assessment
+
+The system detected 10 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 43c9a1626b491a822616b61de4d14b53 -- 2026-03-09 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 5m 22s
+**Rooms:** 10 total (8 affected, 2 unaffected) | **Photos:** 159 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Stairs
+- Hallway
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 45c69d1c5ce1b55b9636831efddb7a6e -- 2026-03-09 -- v2026.09.3
+
+**User:** guy.tiomkin@ca.belfor.com | **Time:** 1m 24s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 45 | **Notes:** 3 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Property Survey Plan has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Property Survey Plan
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## c2d1d5dd46d95263757ee68be25464ed -- 2026-03-09 -- v2026.09.3
+
+**User:** matthew.bishop@ca.belfor.com | **Time:** 2m 19s
+**Rooms:** 12 total (4 affected, 8 unaffected) | **Photos:** 65 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Kitchen; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate/Vinyl Flooring; resolution: Used Laminate and Vinyl Flooring (both confirmed in room). Hardwood is not installed in this room—likely a meter setting or area transition artifact. No removal/cleaning tasks generated for hardwood in Kitchen.
+- [INFO] room_name: Kitchen; materials_array_flooring: Tile Flooring; room_elements_flooring: Laminate/Vinyl Flooring; resolution: Used Laminate and Vinyl Flooring (both confirmed in room). Tile is not an installed flooring in Kitchen—likely a meter setting artifact. No tasks generated for tile in Kitchen.
+- [INFO] room_name: Hallway; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate/Tile Flooring; resolution: Used Laminate and Tile Flooring (both confirmed in room). Hardwood flooring is not an installed flooring in Hallway—likely a meter setting or area transition artifact. No tasks generated for hardwood in Hallway.
+- [INFO] room_name: Bedroom; materials_array_flooring: Tile Flooring; room_elements_flooring: Laminate/Hardwood Flooring; resolution: Used Laminate and Hardwood Flooring (both confirmed in room). Tile is not an installed flooring in Bedroom—likely a meter artifact or transition at closet. No tasks generated for tile in Bedroom.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 4 material mismatch(es) between room data sources.
+
+---
+
 
 ## 77c24e64dc8bc4f09c58f1650fc0b29e -- 2026-03-09 -- v2026.09.3
 
