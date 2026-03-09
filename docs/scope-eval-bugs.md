@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 13:27 UTC | **Traces with Issues:** 54 | **Total Issues:** 408
+**Last Updated:** 2026-03-09 13:53 UTC | **Traces with Issues:** 57 | **Total Issues:** 441
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | d2d8ed79cdbcfe59d6f70993cb4be5a0 | paul@rockemergency.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 36 | 2 | 0 |
+| 2026-03-09 | 844102900a0521bf09e8e50f5fae10b8 | jason.stout@rs1967.com | 30 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 22 (11/11) | 334 | 16 | 1 |
+| 2026-03-09 | 953e067f2247ca63536cb3c8f9955111 | chris.hudson+kitchener@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 15 | 12 | 1 |
 | 2026-03-09 | 3a6e3a9f8299e21427a9cd3e7c15fdb2 | chris.hudson+kitchener@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (4/5) | 65 | 16 | 1 |
 | 2026-03-09 | a58bb8c1b7bc3646ecd837fdcc815b2f | kay.cayuga+owensound@ca.belfor.com | 13 | 4/5 Good | 1/5 Failed | 3/5 Moderate | 8 (8/0) | 310 | 7 | 1 |
 | 2026-03-09 | 078ecae7e5e83f9d407de7448547ba41 | kay.cayuga+owensound@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (5/7) | 528 | 11 | 1 |
@@ -65,6 +68,89 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## d2d8ed79cdbcfe59d6f70993cb4be5a0 -- 2026-03-09 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 1m 37s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 36 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 844102900a0521bf09e8e50f5fae10b8 -- 2026-03-09 -- v2026.09.3
+
+**User:** jason.stout@rs1967.com | **Time:** 4m 6s
+**Rooms:** 22 total (11 affected, 11 unaffected) | **Photos:** 334 | **Notes:** 16 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (15):
+
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Primary Closet has no measurements available - room dimensions required for complete scope.
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Kitchen Closet has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Kitchen  Pantry has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Damaged For Water has no measurements available - room dimensions required for complete scope.
+- Not Salvage Damaged For Water And The Broken Item Damaged Cor Emergency Team has no measurements available - room dimensions required for complete scope.
+- ...and 5 more
+
+**Missing Measurements** (15):
+
+- Primary Bedroom
+- Primary Closet
+- Primary Bathroom
+- Kitchen Closet
+- Laundry Room
+- Entry
+- Kitchen  Pantry
+- Living Room
+- Damaged For Water
+- Not Salvage Damaged For Water And The Broken Item Damaged Cor Emergency Team
+- ...and 5 more
+
+### Assessment
+
+The system detected 30 data quality issue(s): 15 measurement validation warning(s); 15 room(s) with missing measurements.
+
+---
+
+## 953e067f2247ca63536cb3c8f9955111 -- 2026-03-09 -- v2026.09.3
+
+**User:** chris.hudson+kitchener@ca.belfor.com | **Time:** 1m 4s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 15 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Recreation Room; materials_array_flooring: Carpet, Laminate Flooring; room_elements_flooring: Carpet (installed), Laminate Flooring (area of migration; surface material in select zones); resolution: Used Carpet as installed flooring for extraction; Laminate Flooring as water migration surface (as described in elements/damage_summary). Both confirmed affected, both receive appropriate extraction/removal tasks.
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 material mismatch(es) between room data sources.
+
+---
+
 
 ## 3a6e3a9f8299e21427a9cd3e7c15fdb2 -- 2026-03-09 -- v2026.09.3
 
