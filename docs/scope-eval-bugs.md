@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 11:12 UTC | **Traces with Issues:** 46 | **Total Issues:** 349
+**Last Updated:** 2026-03-09 11:41 UTC | **Traces with Issues:** 47 | **Total Issues:** 355
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 77c24e64dc8bc4f09c58f1650fc0b29e | andrew.santos@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (2/8) | 46 | 4 | 1 |
 | 2026-03-09 | 269fcc4fb924731bb416b257ebe2f9cd | devindale88@gmail.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (2/5) | 190 | 8 | 0 |
 | 2026-03-09 | 230f7f9ad8cadfa7e447423fd57757d3 | andrew.santos@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (4/5) | 86 | 7 | 1 |
 | 2026-03-09 | 869546b3e8c52e3e8d6b17c6781ea43b | andrew.santos@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 5 (2/3) | 53 | 5 | 1 |
@@ -57,6 +58,30 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 77c24e64dc8bc4f09c58f1650fc0b29e -- 2026-03-09 -- v2026.09.3
+
+**User:** andrew.santos@ca.belfor.com | **Time:** 2m 20s
+**Rooms:** 10 total (2 affected, 8 unaffected) | **Photos:** 46 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Mismatch** (6):
+
+- [INFO] room_name: Basement Kitchenette; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Basement Kitchenette; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile is a meter setting, not installed material.
+- [INFO] room_name: Basement Kitchenette; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 6 material mismatch(es) between room data sources.
+
+---
+
 
 ## 269fcc4fb924731bb416b257ebe2f9cd -- 2026-03-09 -- v2026.09.3
 
