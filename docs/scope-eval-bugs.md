@@ -3,12 +3,21 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 14:46 UTC | **Traces with Issues:** 68 | **Total Issues:** 539
+**Last Updated:** 2026-03-09 15:18 UTC | **Traces with Issues:** 77 | **Total Issues:** 647
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 6d809b2759a82a5d5931c2da09eafa12 | bchristie+scopeai@encircleapp.com | 2 | 2/5 Minimal | 5/5 Healthy | 4/5 Minor | 2 (0/2) | 0 | 1 | 1 |
+| 2026-03-09 | 7a87cfdc12d242609c35e7e8ce9e0280 | nick.gorecki@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 14 | 7 | 0 |
+| 2026-03-09 | 455f9ef887a1ade6ef23e25b9a696be5 | robert.jesso@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (6/1) | 102 | 9 | 0 |
+| 2026-03-09 | 3772a23db0abda907a5e0dfbe9e65c46 | bchristie+scopeai@encircleapp.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
+| 2026-03-09 | ba25acb2f574a470840c9996b2396986 | bchristie+scopeai@encircleapp.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 28 (19/9) | 330 | 29 | 1 |
+| 2026-03-09 | 25cec1f1afb87b70a1e116577af422e9 | bchristie+scopeai@encircleapp.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 0 | 1 | 1 |
+| 2026-03-09 | d59ce270bbaa8f858d06e7c61d4ee657 | harleen.harleen+hamilton@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (2/2) | 58 | 6 | 0 |
+| 2026-03-09 | cd4985f15982c68c777f49c7aa1bd909 | andrew.quick@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (0/7) | 78 | 8 | 1 |
+| 2026-03-09 | b109a997192d105503a1015711235617 | trey@atlassoo.com | 44 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 43 (24/19) | 454 | 25 | 1 |
 | 2026-03-09 | f94c4cd3eb2dfeb43e331658d1852009 | jetambe23@gmail.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (4/4) | 33 | 7 | 1 |
 | 2026-03-09 | 6091f301639dae3022252e42a4e469ca | jonathan.watson@ca.belfor.com | 17 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 258 | 4 | 2 |
 | 2026-03-09 | 5f9cd4ca6d2328a9c6c38be81289a172 | robert.jesso@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (2/2) | 55 | 4 | 1 |
@@ -79,6 +88,277 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 6d809b2759a82a5d5931c2da09eafa12 -- 2026-03-09 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 0m 40s
+**Rooms:** 2 total (0 affected, 2 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (2):
+
+- Bedroom
+- Walk-In Closet
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 affected room(s) without photos.
+
+---
+
+## 7a87cfdc12d242609c35e7e8ce9e0280 -- 2026-03-09 -- v2026.09.3
+
+**User:** nick.gorecki@ca.belfor.com | **Time:** 3m 45s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 14 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Entrance has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Utility Room
+- Recreation Room
+- Bedroom
+- Bedroom 2
+- Entrance
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Bedroom 2; materials_array_flooring: Laminate Flooring, Hardwood Flooring; room_elements_flooring: Laminate Flooring, Hardwood Flooring; resolution: Both confirmed present in room by elements; extract and remove both materials.
+- [INFO] room_name: Entrance; materials_array_flooring: Tile Flooring, Hardwood Flooring, Carpet; room_elements_flooring: Tile Flooring (wet/affected), Hardwood Flooring (dry at upper landing), Carpet (stair runner unaffected); resolution: Tile Flooring confirmed wet and affected in main entrance; Hardwood and Carpet not affected. Extraction/removal ONLY for Tile Flooring.
+
+### Assessment
+
+The system detected 12 data quality issue(s): 2 material mismatch(es) between room data sources; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 455f9ef887a1ade6ef23e25b9a696be5 -- 2026-03-09 -- v2026.09.3
+
+**User:** robert.jesso@ca.belfor.com | **Time:** 2m 7s
+**Rooms:** 7 total (6 affected, 1 unaffected) | **Photos:** 102 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Unaffected has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Recreation Room
+- Hallway
+- Bedroom
+- Bedroom 2
+- Unaffected
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 3772a23db0abda907a5e0dfbe9e65c46 -- 2026-03-09 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 1m 14s
+**Rooms:** 6 total (6 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (6):
+
+- Basement
+- Laundry
+- Utility
+- Bath
+- Bedroom
+- Stairs
+
+### Assessment
+
+The system detected 6 data quality issue(s): 6 affected room(s) without photos.
+
+---
+
+## ba25acb2f574a470840c9996b2396986 -- 2026-03-09 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 7m 40s
+**Rooms:** 28 total (19 affected, 9 unaffected) | **Photos:** 330 | **Notes:** 29 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Hallway
+
+**Material Mismatch** (13):
+
+- [INFO] room_name: Staff Break 114; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Staff Break 114; materials_array_flooring: Duraceramic Tile; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Duraceramic Tile is a meter setting, not installed material.
+- [INFO] room_name: Staff Break 114; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Tile Flooring is a meter setting, not installed material.
+- [INFO] room_name: Staff Break 114; materials_array_flooring: Concrete; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Concrete is a meter setting, not installed material.
+- [INFO] room_name: Classroom 112; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Classroom 112; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Tile Flooring is a meter setting, not installed material.
+- [INFO] room_name: Office 119; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Tile Flooring is a meter setting, not installed material.
+- [INFO] room_name: Office 119; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Board Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet, Duraceramic Tile; resolution: Used Carpet and Duraceramic Tile (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Board Room; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet, Duraceramic Tile; resolution: Used Carpet and Duraceramic Tile (confirmed in room). Tile Flooring is a meter setting, not installed material.
+- ...and 3 more
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (hydro value) - values match between hydro and structural assessment
+- [NONE] factor: Construction; hydro_assessment: Standard; structural_analysis: standard; resolution: Using Standard (hydro value) - values match between hydro and structural assessment
+- [NONE] factor: HVAC; hydro_assessment: Yes; structural_analysis: beneficial; resolution: Using Beneficial (hydro value mapped to enum) - values match
+- [NONE] factor: Weather + Envelope; hydro_assessment: Neutral/Moderate; structural_analysis: neutral_moderate; resolution: Using Neutral/Moderate (hydro weather + envelope) - values match
+
+### Assessment
+
+The system detected 19 data quality issue(s): 13 material mismatch(es) between room data sources; 4 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 25cec1f1afb87b70a1e116577af422e9 -- 2026-03-09 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 0m 43s
+**Rooms:** 5 total (1 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## d59ce270bbaa8f858d06e7c61d4ee657 -- 2026-03-09 -- v2026.09.3
+
+**User:** harleen.harleen+hamilton@ca.belfor.com | **Time:** 1m 30s
+**Rooms:** 4 total (2 affected, 2 unaffected) | **Photos:** 58 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Crawl Space has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Laundry Room
+- Crawl Space
+- Kitchen
+- Exterior
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## cd4985f15982c68c777f49c7aa1bd909 -- 2026-03-09 -- v2026.09.3
+
+**User:** andrew.quick@ca.belfor.com | **Time:** 1m 22s
+**Rooms:** 7 total (0 affected, 7 unaffected) | **Photos:** 78 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Col has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Col
+- Exterior
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## b109a997192d105503a1015711235617 -- 2026-03-09 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 19m 1s
+**Rooms:** 43 total (24 affected, 19 unaffected) | **Photos:** 454 | **Notes:** 25 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (22):
+
+- Ms Ormsbee - Classroom has no measurements available - room dimensions required for complete scope.
+- Career Center Office has no measurements available - room dimensions required for complete scope.
+- Shacc has no measurements available - room dimensions required for complete scope.
+- Shacc - Hallway has no measurements available - room dimensions required for complete scope.
+- Shacc - Back Entry has no measurements available - room dimensions required for complete scope.
+- Shacc - Group Meeting Room has no measurements available - room dimensions required for complete scope.
+- Robotics Room has no measurements available - room dimensions required for complete scope.
+- Counseling 1 has no measurements available - room dimensions required for complete scope.
+- Shacc - Storage has no measurements available - room dimensions required for complete scope.
+- Shacc - Counseling 2 has no measurements available - room dimensions required for complete scope.
+- ...and 12 more
+
+**Missing Measurements** (22):
+
+- Ms Ormsbee - Classroom
+- Career Center Office
+- Shacc
+- Shacc - Hallway
+- Shacc - Back Entry
+- Shacc - Group Meeting Room
+- Robotics Room
+- Counseling 1
+- Shacc - Storage
+- Shacc - Counseling 2
+- ...and 12 more
+
+### Assessment
+
+The system detected 44 data quality issue(s): 22 measurement validation warning(s); 22 room(s) with missing measurements.
+
+---
+
 
 ## f94c4cd3eb2dfeb43e331658d1852009 -- 2026-03-09 -- v2026.09.3
 
