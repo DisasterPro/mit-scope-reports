@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 16:48 UTC | **Traces with Issues:** 83 | **Total Issues:** 679
+**Last Updated:** 2026-03-09 17:15 UTC | **Traces with Issues:** 85 | **Total Issues:** 691
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 8c5f60413d050c8eee495cbe89b492b5 | fusionxp2@gmail.com | 10 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 32 (9/23) | 150 | 12 | 5 |
+| 2026-03-09 | 519aef065a87339c18f9da279b59b7b2 | ashley.platt@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 10 (2/8) | 74 | 9 | 1 |
 | 2026-03-09 | df63b9f5cbd547aa73ce6ace18993741 | webbryan1329@yahoo.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 225 | 6 | 0 |
 | 2026-03-09 | 198d9669c0c6626270998353ddba76db | will@millerrestoration.us | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 19 (6/13) | 285 | 7 | 3 |
 | 2026-03-09 | b5f92597ab19ffa5d4dba59445ed8074 | neil.burke@ca.belfor.com | 2 | 2/5 Minimal | 4/5 Minor | 4/5 Minor | 1 (1/0) | 0 | 1 | 0 |
@@ -94,6 +96,59 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 8c5f60413d050c8eee495cbe89b492b5 -- 2026-03-09 -- v2026.09.3
+
+**User:** fusionxp2@gmail.com | **Time:** 4m 29s
+**Rooms:** 32 total (9 affected, 23 unaffected) | **Photos:** 150 | **Notes:** 12 | **Floor Plans:** 5
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Lounge Room has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Office Source has no measurements available - room dimensions required for complete scope.
+- Kitchen Pantry has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Lounge Room
+- Entry
+- Office Source
+- Kitchen Pantry
+- Basement
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 519aef065a87339c18f9da279b59b7b2 -- 2026-03-09 -- v2026.09.3
+
+**User:** ashley.platt@ca.belfor.com | **Time:** 1m 46s
+**Rooms:** 10 total (2 affected, 8 unaffected) | **Photos:** 74 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Dining Room
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## df63b9f5cbd547aa73ce6ace18993741 -- 2026-03-09 -- v2026.09.3
 
