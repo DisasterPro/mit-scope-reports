@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 17:46 UTC | **Traces with Issues:** 91 | **Total Issues:** 745
+**Last Updated:** 2026-03-09 18:13 UTC | **Traces with Issues:** 93 | **Total Issues:** 775
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 058404bbcdfe0c1034bd83f9d0dd7053 | rcv1988@gmail.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (8/17) | 135 | 12 | 2 |
+| 2026-03-09 | f846d285815a141e316a7a909f96225f | baney.parker@gmail.com | 14 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 0 (0/0) | 0 | 0 | 0 |
 | 2026-03-09 | 3249c353cf2da70be0e0903b4518dcd5 | ronald.gauthier@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (3/1) | 31 | 5 | 0 |
 | 2026-03-09 | feff05cb0e9d04103eec919d552eb0ca | thojackson2001@gmail.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-09 | 75c40bf92c5f5d9ae1cedb70d3b0183c | paul@rockemergency.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (4/1) | 64 | 7 | 0 |
@@ -102,6 +104,80 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 058404bbcdfe0c1034bd83f9d0dd7053 -- 2026-03-09 -- v2026.09.3
+
+**User:** rcv1988@gmail.com | **Time:** 2m 40s
+**Rooms:** 25 total (8 affected, 17 unaffected) | **Photos:** 135 | **Notes:** 12 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Hallway Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Bedroom has no measurements available - room dimensions required for complete scope.
+- Theater Room has no measurements available - room dimensions required for complete scope.
+- Crawlspace has no measurements available - room dimensions required for complete scope.
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Bedroom Closet has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Hallway
+- Hallway Bathroom
+- Basement Bedroom
+- Theater Room
+- Crawlspace
+- Basement Bathroom
+- Storage
+- Bedroom Closet
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
+## f846d285815a141e316a7a909f96225f -- 2026-03-09 -- v2026.09.3
+
+**User:** baney.parker@gmail.com | **Time:** 1m 43s
+**Rooms:** 0 total (0 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Dining Room
+- Kitchen
+- Hallway
+- Bathroom
+- Basement
+
+**Affected Room Without Photos** (4):
+
+- Kitchen
+- Hallway
+- Bathroom
+- Basement
+
+### Assessment
+
+The system detected 14 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements; 4 affected room(s) without photos.
+
+---
+
 
 ## 3249c353cf2da70be0e0903b4518dcd5 -- 2026-03-09 -- v2026.09.3
 
