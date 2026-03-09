@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 10:44 UTC | **Traces with Issues:** 44 | **Total Issues:** 331
+**Last Updated:** 2026-03-09 11:12 UTC | **Traces with Issues:** 46 | **Total Issues:** 349
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 269fcc4fb924731bb416b257ebe2f9cd | devindale88@gmail.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (2/5) | 190 | 8 | 0 |
+| 2026-03-09 | 230f7f9ad8cadfa7e447423fd57757d3 | andrew.santos@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (4/5) | 86 | 7 | 1 |
 | 2026-03-09 | 869546b3e8c52e3e8d6b17c6781ea43b | andrew.santos@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 5 (2/3) | 53 | 5 | 1 |
 | 2026-03-09 | 4614f448958f7ab66bb4b77069e6ed2f | andrew.santos@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 53 | 4 | 1 |
 | 2026-03-09 | 6b7c51bb56e660554cd6a0e21d2e9e0e | dylanknause@yahoo.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (5/5) | 263 | 7 | 1 |
@@ -55,6 +57,65 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 269fcc4fb924731bb416b257ebe2f9cd -- 2026-03-09 -- v2026.09.3
+
+**User:** devindale88@gmail.com | **Time:** 1m 49s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 190 | **Notes:** 8 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Employee Restroom has no measurements available - room dimensions required for complete scope.
+- Restroom has no measurements available - room dimensions required for complete scope.
+- Lab has no measurements available - room dimensions required for complete scope.
+- Suite 190 Office has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Kitchen
+- Hallway
+- Employee Restroom
+- Restroom
+- Lab
+- Suite 190 Office
+- Exterior
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## 230f7f9ad8cadfa7e447423fd57757d3 -- 2026-03-09 -- v2026.09.3
+
+**User:** andrew.santos@ca.belfor.com | **Time:** 3m 56s
+**Rooms:** 9 total (4 affected, 5 unaffected) | **Photos:** 86 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Eq
+
+**Material Mismatch** (3):
+
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Recroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Washroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring, Tile Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 3 material mismatch(es) between room data sources; 1 room(s) with missing measurements.
+
+---
+
 
 ## 869546b3e8c52e3e8d6b17c6781ea43b -- 2026-03-09 -- v2026.09.3
 
