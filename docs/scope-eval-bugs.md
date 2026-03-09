@@ -3,12 +3,18 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 17:15 UTC | **Traces with Issues:** 85 | **Total Issues:** 691
+**Last Updated:** 2026-03-09 17:46 UTC | **Traces with Issues:** 91 | **Total Issues:** 745
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 3249c353cf2da70be0e0903b4518dcd5 | ronald.gauthier@ca.belfor.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (3/1) | 31 | 5 | 0 |
+| 2026-03-09 | feff05cb0e9d04103eec919d552eb0ca | thojackson2001@gmail.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
+| 2026-03-09 | 75c40bf92c5f5d9ae1cedb70d3b0183c | paul@rockemergency.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (4/1) | 64 | 7 | 0 |
+| 2026-03-09 | 307ad414acc75af063d637fe25697fd4 | paul@rockemergency.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (3/0) | 111 | 4 | 0 |
+| 2026-03-09 | 2cf5ea90231decbc25fb8054dfb8afb2 | paul@rockemergency.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 17 (5/12) | 71 | 8 | 4 |
+| 2026-03-09 | 20cc6fffdd60be0fb9e696887971f43b | paul@rockemergency.com | 17 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 10 (4/6) | 175 | 8 | 1 |
 | 2026-03-09 | 8c5f60413d050c8eee495cbe89b492b5 | fusionxp2@gmail.com | 10 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 32 (9/23) | 150 | 12 | 5 |
 | 2026-03-09 | 519aef065a87339c18f9da279b59b7b2 | ashley.platt@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 10 (2/8) | 74 | 9 | 1 |
 | 2026-03-09 | df63b9f5cbd547aa73ce6ace18993741 | webbryan1329@yahoo.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 225 | 6 | 0 |
@@ -96,6 +102,190 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 3249c353cf2da70be0e0903b4518dcd5 -- 2026-03-09 -- v2026.09.3
+
+**User:** ronald.gauthier@ca.belfor.com | **Time:** 2m 43s
+**Rooms:** 4 total (3 affected, 1 unaffected) | **Photos:** 31 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Office Reception Area has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Exterior
+- Bathroom
+- Office
+- Office Reception Area
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## feff05cb0e9d04103eec919d552eb0ca -- 2026-03-09 -- v2026.09.3
+
+**User:** thojackson2001@gmail.com | **Time:** 0m 44s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 75c40bf92c5f5d9ae1cedb70d3b0183c -- 2026-03-09 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 2m 10s
+**Rooms:** 5 total (4 affected, 1 unaffected) | **Photos:** 64 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Video has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Basement
+- Bathroom
+- Hallway
+- Laundry Room
+- Video
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 307ad414acc75af063d637fe25697fd4 -- 2026-03-09 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 1m 28s
+**Rooms:** 3 total (3 affected, 0 unaffected) | **Photos:** 111 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Kids Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Dining Room
+- Bathroom
+- Kids Room
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 2cf5ea90231decbc25fb8054dfb8afb2 -- 2026-03-09 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 3m 1s
+**Rooms:** 17 total (5 affected, 12 unaffected) | **Photos:** 71 | **Notes:** 8 | **Floor Plans:** 4
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- 2Nd Basement Flood has no measurements available - room dimensions required for complete scope.
+- Upstairs Bathroom has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Lock Box has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Basement
+- 2Nd Basement Flood
+- Upstairs Bathroom
+- Exterior
+- Lock Box
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 20cc6fffdd60be0fb9e696887971f43b -- 2026-03-09 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 2m 28s
+**Rooms:** 10 total (4 affected, 6 unaffected) | **Photos:** 175 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [SIGNIFICANT] field: water_category; iicrc_recommended: 3; user_specified: 1; justification: Description assigned Category 1 due to presumed clean appearance, but photo evidence and water entry via garage floor drain confirm gross contamination (soil, mud, debris). Field override to Category 3 for scope safety; see category_justification for details.; source: Merge.jinja2 photo evidence/guideline override; impact: All porous materials will be removed and contaminated contents handled/disposed per Category 3 protocols. Enhanced PPE is now mandatory for scope and tasks. This is a significant upgrade in protocol compared to Category 1.
+
+**Measurement Warning** (6):
+
+- Entry has no measurements available - room dimensions required for complete scope.
+- Basement Bedroom has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Garage has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Entry
+- Basement Bedroom
+- Laundry Room
+- Bathroom
+- Garage
+- Exterior
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Entry; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring, Laminate Flooring, Concrete; resolution: Both vinyl and laminate flooring are confirmed as installed; extraction/removal tasks generated for both. Concrete subfloor extraction is also included as all three are referenced in room elements.
+- [INFO] room_name: Basement Bedroom; materials_array_flooring: Vinyl Flooring, Laminate Flooring, Carpet Pad, Tile Flooring, Concrete; room_elements_flooring: Vinyl Flooring, Laminate Flooring, Tile Flooring, Carpet Pad, Concrete; resolution: Multiple flooring types confirmed present in room elements for a large room (bedroom >150 SF); extraction/removal tasks generated for all. No artifact materials identified.
+- [INFO] room_name: Laundry Room; materials_array_flooring: Vinyl Flooring, Tile Flooring, Carpet Pad, Concrete; room_elements_flooring: Vinyl Flooring, Tile Flooring, Carpet Pad, Concrete; resolution: Multiple flooring types confirmed as installed in Laundry Room; extraction/removal tasks generated for each.
+- [INFO] room_name: Bathroom; materials_array_flooring: Vinyl Flooring, Tile Flooring, Carpet Pad, Concrete; room_elements_flooring: Vinyl Flooring, Tile Flooring, Carpet Pad, Concrete; resolution: Multiple flooring types confirmed as installed in Bathroom; extraction/removal tasks generated for each.
+
+### Assessment
+
+The system detected 17 data quality issue(s): 1 IICRC standard deviation(s) were flagged; 4 material mismatch(es) between room data sources; 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
 
 ## 8c5f60413d050c8eee495cbe89b492b5 -- 2026-03-09 -- v2026.09.3
 
