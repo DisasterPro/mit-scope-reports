@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 15:52 UTC | **Traces with Issues:** 78 | **Total Issues:** 650
+**Last Updated:** 2026-03-09 16:48 UTC | **Traces with Issues:** 83 | **Total Issues:** 679
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | df63b9f5cbd547aa73ce6ace18993741 | webbryan1329@yahoo.com | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 225 | 6 | 0 |
+| 2026-03-09 | 198d9669c0c6626270998353ddba76db | will@millerrestoration.us | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 19 (6/13) | 285 | 7 | 3 |
+| 2026-03-09 | b5f92597ab19ffa5d4dba59445ed8074 | neil.burke@ca.belfor.com | 2 | 2/5 Minimal | 4/5 Minor | 4/5 Minor | 1 (1/0) | 0 | 1 | 0 |
+| 2026-03-09 | 5fbe07fb2a9adc0d7ffc30159fb12f95 | nick.gorecki@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 3 (1/2) | 25 | 4 | 0 |
+| 2026-03-09 | bf29f826f9608795aa983fd9d7055109 | nick.gorecki@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 25 | 4 | 0 |
 | 2026-03-09 | b5d1c475ad9c0409b3106956784288cd | kay.cayuga+owensound@ca.belfor.com | 3 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (6/7) | 528 | 11 | 1 |
 | 2026-03-09 | 6d809b2759a82a5d5931c2da09eafa12 | bchristie+scopeai@encircleapp.com | 2 | 2/5 Minimal | 5/5 Healthy | 4/5 Minor | 2 (0/2) | 0 | 1 | 1 |
 | 2026-03-09 | 7a87cfdc12d242609c35e7e8ce9e0280 | nick.gorecki@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 14 | 7 | 0 |
@@ -89,6 +94,142 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## df63b9f5cbd547aa73ce6ace18993741 -- 2026-03-09 -- v2026.09.3
+
+**User:** webbryan1329@yahoo.com | **Time:** 2m 29s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 225 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Downstairs Bedroom volume calculated using assumed 8 ft ceiling height.
+- Upstairs Restroom volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (3):
+
+- Hallway
+- Storage
+- Exterior
+
+### Assessment
+
+The system detected 8 data quality issue(s): 5 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 198d9669c0c6626270998353ddba76db -- 2026-03-09 -- v2026.09.3
+
+**User:** will@millerrestoration.us | **Time:** 3m 8s
+**Rooms:** 19 total (6 affected, 13 unaffected) | **Photos:** 285 | **Notes:** 7 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Discrepancy** (2):
+
+- [MODERATE] room_name: Bedroom; description_material: Carpet; photo_material: Engineered Hardwood Flooring; moisture_material: None; resolution: Using Carpet (technician ground truth, flooring transitioned at room edge; hardwood in separate zone)
+- [MINOR] room_name: Garage; description_material: Drywall; photo_material: Drywall (wall); moisture_material: None; resolution: Using technician description for wall drywall, photo evidence corroborates
+
+**Measurement Warning** (2):
+
+- Bedroom Closet has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Bedroom Closet
+- Exterior
+
+**Affected Room Without Photos** (1):
+
+- Bedroom Closet
+
+### Assessment
+
+The system detected 7 data quality issue(s): 2 material discrepancy(ies) between photos and descriptions; 2 measurement validation warning(s); 2 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## b5f92597ab19ffa5d4dba59445ed8074 -- 2026-03-09 -- v2026.09.3
+
+**User:** neil.burke@ca.belfor.com | **Time:** 0m 30s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement volume calculated using explicit flood water height of 3 inches.
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 affected room(s) without photos.
+
+---
+
+## 5fbe07fb2a9adc0d7ffc30159fb12f95 -- 2026-03-09 -- v2026.09.3
+
+**User:** nick.gorecki@ca.belfor.com | **Time:** 1m 43s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 25 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Basement
+- Entrance
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## bf29f826f9608795aa983fd9d7055109 -- 2026-03-09 -- v2026.09.3
+
+**User:** nick.gorecki@ca.belfor.com | **Time:** 1m 5s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 25 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Basement
+- Entrance
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## b5d1c475ad9c0409b3106956784288cd -- 2026-03-09 -- v2026.09.3
 
