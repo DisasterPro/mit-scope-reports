@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 23:04 UTC | **Traces with Issues:** 127 | **Total Issues:** 1066
+**Last Updated:** 2026-03-09 23:39 UTC | **Traces with Issues:** 130 | **Total Issues:** 1081
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 5c3fefd5b22419bceb63c571f47a7396 | yahsef@impeccable-restoration.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 20 (5/15) | 0 | 1 | 3 |
+| 2026-03-09 | 3d2e0b52a7b2c2cfa708667b2af97454 | jf.raymond@steamatic.ca | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 7 (1/6) | 0 | 1 | 1 |
+| 2026-03-09 | c7a9224c62a07b6d7fb143b5cd0365a0 | tony@servpro9332.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 10 (1/9) | 21 | 3 | 1 |
 | 2026-03-09 | 82a828ae827ea15a06666e0ded7be2d2 | tristan.randolph@rs1967.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (6/3) | 84 | 10 | 1 |
 | 2026-03-09 | 86d755aa7bd9d08be44f1c32770ea1d1 | greg.janse@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 8 (2/6) | 37 | 5 | 1 |
 | 2026-03-09 | e6d512d9293765d9ec6f8447734e6b6c | ssmyrski@servicemasterbc.ca | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 19 | 4 | 0 |
@@ -138,6 +141,85 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5c3fefd5b22419bceb63c571f47a7396 -- 2026-03-09 -- v2026.09.3
+
+**User:** yahsef@impeccable-restoration.com | **Time:** 2m 27s
+**Rooms:** 20 total (5 affected, 15 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 3
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Ceiling has no measurements available - room dimensions required for complete scope.
+- Basement Floor has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Basement Ceiling
+- Basement Floor
+
+**Affected Room Without Photos** (5):
+
+- Bathroom
+- Living Room
+- Kitchen
+- Basement Ceiling
+- Basement Floor
+
+### Assessment
+
+The system detected 11 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 5 affected room(s) without photos.
+
+---
+
+## 3d2e0b52a7b2c2cfa708667b2af97454 -- 2026-03-09 -- v2026.09.3
+
+**User:** jf.raymond@steamatic.ca | **Time:** 1m 6s
+**Rooms:** 7 total (1 affected, 6 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## c7a9224c62a07b6d7fb143b5cd0365a0 -- 2026-03-09 -- v2026.09.3
+
+**User:** tony@servpro9332.com | **Time:** 2m 1s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 21 | **Notes:** 3 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
 
 ## 82a828ae827ea15a06666e0ded7be2d2 -- 2026-03-09 -- v2026.09.3
 
