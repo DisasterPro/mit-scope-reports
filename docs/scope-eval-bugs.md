@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 22:03 UTC | **Traces with Issues:** 122 | **Total Issues:** 1041
+**Last Updated:** 2026-03-09 22:41 UTC | **Traces with Issues:** 125 | **Total Issues:** 1057
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | e6d512d9293765d9ec6f8447734e6b6c | ssmyrski@servicemasterbc.ca | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 19 | 4 | 0 |
+| 2026-03-09 | 262551d6cfcde057aca6f48ab2b027a3 | brenden.steeves@svmrestore.ca | 2 | 2/5 Minimal | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 2 | 1 | 0 |
+| 2026-03-09 | 3819fec1361319f02ce63c451704621b | chad.gerber@ca.belfor.com | 8 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (6/4) | 85 | 10 | 2 |
 | 2026-03-09 | 323aa7ebd207a388b9c534b3410d4855 | kristy.persson+hub@ca.belfor.com | 13 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 10 (10/0) | 0 | 1 | 1 |
 | 2026-03-09 | 062901d1240b7350881d4b54af56cc06 | ssmyrski@servicemasterbc.ca | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 87 | 9 | 0 |
 | 2026-03-09 | bc3af01a498e3e2e69557339f9c409b2 | fernando.alvarez@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 44 | 14 | 0 |
@@ -133,6 +136,83 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e6d512d9293765d9ec6f8447734e6b6c -- 2026-03-09 -- v2026.09.3
+
+**User:** ssmyrski@servicemasterbc.ca | **Time:** 0m 50s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 19 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Attic has no measurements available - room dimensions required for complete scope.
+- Closet has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Attic
+- Closet
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 262551d6cfcde057aca6f48ab2b027a3 -- 2026-03-09 -- v2026.09.3
+
+**User:** brenden.steeves@svmrestore.ca | **Time:** 1m 20s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 2 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 3819fec1361319f02ce63c451704621b -- 2026-03-09 -- v2026.09.3
+
+**User:** chad.gerber@ca.belfor.com | **Time:** 2m 33s
+**Rooms:** 10 total (6 affected, 4 unaffected) | **Photos:** 85 | **Notes:** 10 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Entry/Hall has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Cause has no measurements available - room dimensions required for complete scope.
+- Panel has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Entry/Hall
+- Stairs
+- Cause
+- Panel
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 323aa7ebd207a388b9c534b3410d4855 -- 2026-03-09 -- v2026.09.3
 
