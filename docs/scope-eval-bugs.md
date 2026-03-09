@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-08 20:01 UTC | **Traces with Issues:** 37 | **Total Issues:** 279
+**Last Updated:** 2026-03-09 00:03 UTC | **Traces with Issues:** 39 | **Total Issues:** 303
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-08 | f5bfd8479563262dd368ad675bbd8e3b | mary.hernandez@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (5/14) | 170 | 10 | 2 |
+| 2026-03-08 | d7996fc5462fe9e13b65bd5568fea22b | accounting@emergmit.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (1/9) | 59 | 5 | 1 |
 | 2026-03-08 | 2c7d33b23248f09ec4a5c9b5809268ec | brad.emond@highland.dki.ca | 35 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 15 (5/10) | 423 | 17 | 0 |
 | 2026-03-08 | 214340f7f89dee9aa6200c75d4931b14 | jackie.knight@ca.belfor.com | 10 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 104 | 4 | 0 |
 | 2026-03-08 | b827a64aedf50a2e15056281f8c61600 | derek.kryjak@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (0/1) | 24 | 2 | 0 |
@@ -48,6 +50,77 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## f5bfd8479563262dd368ad675bbd8e3b -- 2026-03-08 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 1m 44s
+**Rooms:** 19 total (5 affected, 14 unaffected) | **Photos:** 170 | **Notes:** 10 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom volume calculated using assumed 8 ft ceiling height.
+- Laundry Room volume calculated using assumed 8 ft ceiling height.
+- Bedroom volume calculated using assumed 8 ft ceiling height.
+- Bathroom volume calculated using assumed 8 ft ceiling height.
+- Furnace Room volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (3):
+
+- Recreation Room
+- Kitchen
+- Basement
+
+**Equipment Sizing Conflict** (5):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (hydro value) - values agree with structural evidence from room photos and layout.
+- [NONE] factor: Construction; hydro_assessment: Standard; structural_analysis: standard; resolution: Using Standard (hydro value) - values agree based on material descriptions and finishes observed.
+- [NONE] factor: HVAC; hydro_assessment: Yes; structural_analysis: beneficial; resolution: Using Beneficial (hydro value) - values agree with visible central HVAC equipment documented.
+- [NONE] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral; resolution: Using Neutral (hydro value) - values agree with property location and climate data.
+- [NONE] factor: Envelope Tightness; hydro_assessment: Moderate; structural_analysis: moderate; resolution: Using Moderate (hydro value) - values agree based on building age and visible construction features.
+
+### Assessment
+
+The system detected 16 data quality issue(s): 5 equipment sizing conflict(s); 8 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## d7996fc5462fe9e13b65bd5568fea22b -- 2026-03-08 -- v2026.09.3
+
+**User:** accounting@emergmit.com | **Time:** 1m 9s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 59 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Policyholder Photos And Videos has no measurements available - room dimensions required for complete scope.
+- Foyer has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Exterior
+- Policyholder Photos And Videos
+- Foyer
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Basement; materials_array_flooring: Carpet; room_elements_flooring: Concrete, Hardwood Flooring, Tile Flooring; resolution: Used Concrete, Hardwood Flooring, Tile Flooring (confirmed in room). Carpet is not installed; likely a meter setting or monitoring artifact.
+- [INFO] room_name: Basement; materials_array_flooring: Carpet Pad; room_elements_flooring: Concrete, Hardwood Flooring, Tile Flooring; resolution: Used Concrete, Hardwood Flooring, Tile Flooring (confirmed in room). Carpet Pad not installed; likely a meter setting or monitoring artifact.
+
+### Assessment
+
+The system detected 8 data quality issue(s): 2 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 2c7d33b23248f09ec4a5c9b5809268ec -- 2026-03-08 -- v2026.09.3
 
