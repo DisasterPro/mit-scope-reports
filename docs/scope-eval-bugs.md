@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 20:42 UTC | **Traces with Issues:** 116 | **Total Issues:** 973
+**Last Updated:** 2026-03-09 21:42 UTC | **Traces with Issues:** 119 | **Total Issues:** 1004
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 0ffe076853bddaeb4945ce2ace1dcfa9 | jrod.swan@gmail.com | 12 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 0 | 1 | 1 |
+| 2026-03-09 | 0530da4234f6a9b077cd5a8cc8c2bd17 | jrod.swan@gmail.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 1 | 8 | 1 |
+| 2026-03-09 | 8676d9b1e7e7d515c71a0b4d92412f65 | jrod.swan@gmail.com | 10 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (4/5) | 0 | 1 | 1 |
 | 2026-03-09 | 20f3ddc1fd085f26e806226ba4a95563 | melissa.cove@ca.belfor.com | 26 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 12 (0/12) | 0 | 1 | 2 |
 | 2026-03-09 | ebd6fe738c3f21e93b4e3eb9f925b49c | jonathan.watson@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 11 (5/6) | 456 | 1 | 1 |
 | 2026-03-09 | b0c21190b50e6e0c169b9a26c5169ecd | o.maldonado3823@gmail.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 23 | 4 | 0 |
@@ -127,6 +130,107 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 0ffe076853bddaeb4945ce2ace1dcfa9 -- 2026-03-09 -- v2026.09.3
+
+**User:** jrod.swan@gmail.com | **Time:** 2m 41s
+**Rooms:** 10 total (6 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Office 2 has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Office 2
+- Kitchen
+
+**Affected Room Without Photos** (6):
+
+- Bathroom
+- Office 1
+- Office 2
+- Kitchen
+- Recreation Room
+- Storage
+
+### Assessment
+
+The system detected 12 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 6 affected room(s) without photos.
+
+---
+
+## 0530da4234f6a9b077cd5a8cc8c2bd17 -- 2026-03-09 -- v2026.09.3
+
+**User:** jrod.swan@gmail.com | **Time:** 2m 14s
+**Rooms:** 10 total (6 affected, 4 unaffected) | **Photos:** 1 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bathroom: floor plan shows 17.6 SF, description has no area - using floor plan value.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Vestibule has no measurements available - room dimensions required for complete scope.
+- Utility Closet has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Hallway
+- Vestibule
+- Utility Closet
+
+**Affected Room Without Photos** (2):
+
+- Storage
+- Office 2
+
+### Assessment
+
+The system detected 9 data quality issue(s): 4 measurement validation warning(s); 3 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 8676d9b1e7e7d515c71a0b4d92412f65 -- 2026-03-09 -- v2026.09.3
+
+**User:** jrod.swan@gmail.com | **Time:** 2m 48s
+**Rooms:** 9 total (4 affected, 5 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Office 2 has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Office 2
+- Kitchen
+
+**Affected Room Without Photos** (4):
+
+- Bathroom
+- Office 1
+- Office 2
+- Kitchen
+
+### Assessment
+
+The system detected 10 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 4 affected room(s) without photos.
+
+---
+
 
 ## 20f3ddc1fd085f26e806226ba4a95563 -- 2026-03-09 -- v2026.09.3
 
