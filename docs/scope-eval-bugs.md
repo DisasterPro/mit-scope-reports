@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 00:54 UTC | **Traces with Issues:** 40 | **Total Issues:** 308
+**Last Updated:** 2026-03-09 01:30 UTC | **Traces with Issues:** 42 | **Total Issues:** 319
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 6b7c51bb56e660554cd6a0e21d2e9e0e | dylanknause@yahoo.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (5/5) | 263 | 7 | 1 |
+| 2026-03-09 | bc2fbaa52492c74335c0f95a40ab66a3 | michelle.wetheral@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 7 (6/1) | 131 | 9 | 0 |
 | 2026-03-09 | e212f6ee22dec1170e5a279dc4df2bd0 | michelle.wetheral@ca.belfor.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 79 | 8 | 2 |
 | 2026-03-08 | f5bfd8479563262dd368ad675bbd8e3b | mary.hernandez@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (5/14) | 170 | 10 | 2 |
 | 2026-03-08 | d7996fc5462fe9e13b65bd5568fea22b | accounting@emergmit.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (1/9) | 59 | 5 | 1 |
@@ -51,6 +53,58 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 6b7c51bb56e660554cd6a0e21d2e9e0e -- 2026-03-09 -- v2026.09.3
+
+**User:** dylanknause@yahoo.com | **Time:** 2m 25s
+**Rooms:** 10 total (5 affected, 5 unaffected) | **Photos:** 263 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Hvac has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Hvac
+- Exterior
+
+**Material Mismatch** (5):
+
+- [INFO] room_name: Basement; materials_array_flooring: Tile Flooring, Vinyl Flooring; room_elements_flooring: Ceramic Tile; resolution: Used Ceramic Tile (confirmed in room elements). Tile Flooring and Vinyl Flooring are moisture meter or data entry artifacts, not installed materials.
+- [INFO] room_name: Storage; materials_array_flooring: Ceramic Tile, Concrete; room_elements_flooring: Ceramic Tile; resolution: Used Ceramic Tile (confirmed in room elements). Concrete appearing as flooring is a substrate, not the installed finish.
+- [INFO] room_name: Breaker Box; materials_array_flooring: Ceramic Tile, Concrete; room_elements_flooring: Ceramic Tile; resolution: Used Ceramic Tile (confirmed in room elements). Concrete appearing as flooring is a substrate, not the installed finish.
+- [INFO] room_name: Sump; materials_array_flooring: Ceramic Tile, Concrete; room_elements_flooring: Ceramic Tile; resolution: Used Ceramic Tile (confirmed in room elements). Concrete appearing as flooring is a substrate, not the installed finish.
+- [INFO] room_name: Hvac; materials_array_flooring: Ceramic Tile, Concrete; room_elements_flooring: Ceramic Tile; resolution: Used Ceramic Tile (confirmed in room elements). Concrete appearing as flooring is a substrate, not the installed finish.
+
+### Assessment
+
+The system detected 9 data quality issue(s): 5 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## bc2fbaa52492c74335c0f95a40ab66a3 -- 2026-03-09 -- v2026.09.3
+
+**User:** michelle.wetheral@ca.belfor.com | **Time:** 3m 21s
+**Rooms:** 7 total (6 affected, 1 unaffected) | **Photos:** 131 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Missing Measurements** (2):
+
+- Exterior
+- Cause Of Loss
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 room(s) with missing measurements.
+
+---
+
 
 ## e212f6ee22dec1170e5a279dc4df2bd0 -- 2026-03-09 -- v2026.09.3
 
