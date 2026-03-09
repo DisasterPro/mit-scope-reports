@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 21:42 UTC | **Traces with Issues:** 119 | **Total Issues:** 1004
+**Last Updated:** 2026-03-09 22:03 UTC | **Traces with Issues:** 122 | **Total Issues:** 1041
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 323aa7ebd207a388b9c534b3410d4855 | kristy.persson+hub@ca.belfor.com | 13 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 10 (10/0) | 0 | 1 | 1 |
+| 2026-03-09 | 062901d1240b7350881d4b54af56cc06 | ssmyrski@servicemasterbc.ca | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 87 | 9 | 0 |
+| 2026-03-09 | bc3af01a498e3e2e69557339f9c409b2 | fernando.alvarez@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 44 | 14 | 0 |
 | 2026-03-09 | 0ffe076853bddaeb4945ce2ace1dcfa9 | jrod.swan@gmail.com | 12 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 0 | 1 | 1 |
 | 2026-03-09 | 0530da4234f6a9b077cd5a8cc8c2bd17 | jrod.swan@gmail.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 10 (6/4) | 1 | 8 | 1 |
 | 2026-03-09 | 8676d9b1e7e7d515c71a0b4d92412f65 | jrod.swan@gmail.com | 10 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (4/5) | 0 | 1 | 1 |
@@ -130,6 +133,103 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 323aa7ebd207a388b9c534b3410d4855 -- 2026-03-09 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 56s
+**Rooms:** 10 total (10 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Floor plan area discrepancy: total measured area (1703.1 SF) minus summed room areas (1581.9 SF) = 121.2 SF. Please verify room boundaries and annotations for accuracy.
+
+**Affected Room Without Photos** (12):
+
+- Living Room
+- Dining Area
+- Kitchen
+- Bedroom
+- Bedroom
+- Primary Bedroom
+- Primary Bath
+- Bath
+- Foyer
+- Hall
+- ...and 2 more
+
+### Assessment
+
+The system detected 13 data quality issue(s): 1 measurement validation warning(s); 12 affected room(s) without photos.
+
+---
+
+## 062901d1240b7350881d4b54af56cc06 -- 2026-03-09 -- v2026.09.3
+
+**User:** ssmyrski@servicemasterbc.ca | **Time:** 2m 6s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 87 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Main Bathroom has no measurements available - room dimensions required for complete scope.
+- Ensuite Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Entryway has no measurements available - room dimensions required for complete scope.
+- Sketch has no measurements available - room dimensions required for complete scope.
+- Main Entrance has no measurements available - room dimensions required for complete scope.
+- Master has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Main Bathroom
+- Ensuite Bathroom
+- Basement Bathroom
+- Basement Entryway
+- Sketch
+- Main Entrance
+- Master
+- Exterior
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
+## bc3af01a498e3e2e69557339f9c409b2 -- 2026-03-09 -- v2026.09.3
+
+**User:** fernando.alvarez@ca.belfor.com | **Time:** 2m 0s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 44 | **Notes:** 14 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Landing has no measurements available - room dimensions required for complete scope.
+- Front Of House has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Furnace Room
+- Bathroom
+- Landing
+- Front Of House
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 0ffe076853bddaeb4945ce2ace1dcfa9 -- 2026-03-09 -- v2026.09.3
 
