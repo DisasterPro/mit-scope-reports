@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-09 20:29 UTC | **Total Traces:** 585 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.7/5 | **Success Rate:** 79%
+**Last Updated:** 2026-03-09 20:42 UTC | **Total Traces:** 586 | **Avg Input Score:** 3.5/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 79%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 20f3ddc1fd085f26e806226ba4a95563 | v2026.09.3 | 2026-03-09 | melissa.cove@ca.belfor.com | 1m 52s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 12 (0/12) | 0 | 1 | 2 |
 | 732d63d828bf19b85d1ee40d7e9fbe16 | v2026.09.3 | 2026-03-09 | rcv1988@gmail.com | 0m 2s | 1/5 Poor | 2/5 Significant | 5/5 Clean | 2.7/5 | 0 (0/0) | 0 | 0 | 0 |
 | ebd6fe738c3f21e93b4e3eb9f925b49c | v2026.09.3 | 2026-03-09 | jonathan.watson@ca.belfor.com | 4m 23s | 4/5 Good | 3/5 Moderate | 4/5 Minor | 3.7/5 | 11 (5/6) | 456 | 1 | 1 |
 | b0c21190b50e6e0c169b9a26c5169ecd | v2026.09.3 | 2026-03-09 | o.maldonado3823@gmail.com | 1m 32s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 3 (2/1) | 23 | 4 | 0 |
@@ -593,6 +594,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 20f3ddc1fd085f26e806226ba4a95563 -- 2026-03-09 -- v2026.09.3
+
+**User:** melissa.cove@ca.belfor.com | **Time:** 1m 52s
+**Rooms:** 12 total (0 affected, 12 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 12 rooms; 0 in app, 0 from notes |
+| Field Photos | None | 0 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 1 notes; 0 rooms without notes |
+| Floor Plans | Partial | 2 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+No field photos were submitted for this scope. Technician notes were provided (1 notes). 2 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 52s. Data quality flags: the floor plan area differs from room areas by 1489 SF.
+
+### Issue Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 affected room(s) without photos.
+
+### Recommendations
+
+1. Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.
+2. Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.
+
+---
+
 
 ## 732d63d828bf19b85d1ee40d7e9fbe16 -- 2026-03-09 -- v2026.09.3
 
