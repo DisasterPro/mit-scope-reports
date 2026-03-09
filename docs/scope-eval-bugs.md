@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 10:13 UTC | **Traces with Issues:** 43 | **Total Issues:** 322
+**Last Updated:** 2026-03-09 10:44 UTC | **Traces with Issues:** 44 | **Total Issues:** 331
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 869546b3e8c52e3e8d6b17c6781ea43b | andrew.santos@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 5 (2/3) | 53 | 5 | 1 |
 | 2026-03-09 | 4614f448958f7ab66bb4b77069e6ed2f | andrew.santos@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 53 | 4 | 1 |
 | 2026-03-09 | 6b7c51bb56e660554cd6a0e21d2e9e0e | dylanknause@yahoo.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (5/5) | 263 | 7 | 1 |
 | 2026-03-09 | bc2fbaa52492c74335c0f95a40ab66a3 | michelle.wetheral@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 7 (6/1) | 131 | 9 | 0 |
@@ -54,6 +55,42 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 869546b3e8c52e3e8d6b17c6781ea43b -- 2026-03-09 -- v2026.09.3
+
+**User:** andrew.santos@ca.belfor.com | **Time:** 2m 9s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 53 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Cause Of Loss has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Cause Of Loss
+- Exterior
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Utility Room; materials_array_flooring: Concrete; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Concrete is the substrate but not the installed flooring.
+- [INFO] room_name: Recreation Room; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Flooring appears as a secondary flooring—primary floor is carpet per room description.
+
+**Equipment Sizing Conflict** (3):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: Fairly Open; resolution: Using fairly_open (agreement between hydro and property analysis)
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial (no beneficial HVAC present per input data); resolution: Using non_beneficial (agreement - non-beneificial HVAC evident from room notes and hydro data)
+- [NONE] factor: Weather; hydro_assessment: Neutral + Moderate; structural_analysis: neutral_moderate; resolution: Using neutral_moderate (hydro matches observed weather and envelope characteristics)
+
+### Assessment
+
+The system detected 9 data quality issue(s): 2 material mismatch(es) between room data sources; 3 equipment sizing conflict(s); 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 4614f448958f7ab66bb4b77069e6ed2f -- 2026-03-09 -- v2026.09.3
 
