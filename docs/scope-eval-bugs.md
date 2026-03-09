@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 18:47 UTC | **Traces with Issues:** 97 | **Total Issues:** 798
+**Last Updated:** 2026-03-09 19:15 UTC | **Traces with Issues:** 102 | **Total Issues:** 850
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | 046b7c776a2f2be5465ac6503e617a24 | steve.poll@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 14 | 15 | 0 |
+| 2026-03-09 | 43647ab3aabcf90324e6119a6599b5d7 | csuarez@servicemastertbay.com | 16 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 18 (4/14) | 103 | 12 | 2 |
+| 2026-03-09 | b973aa24934f8bfc4d2e0cce671d9b72 | andrew.jeoung@ca.belfor.com | 4 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 14 (2/12) | 0 | 1 | 2 |
+| 2026-03-09 | 06de9dc58d84a42b8ff29e0943fdf683 | robert.jesso@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 7 (6/1) | 102 | 9 | 2 |
+| 2026-03-09 | 9fe287143ee441b4b30336240f8e2104 | roger.lough@ca.belfor.com | 23 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 15 (8/7) | 171 | 12 | 2 |
 | 2026-03-09 | 5d544ec55c85f98a008b2e023a5932cc | tanya.leite@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 26 | 2 | 0 |
 | 2026-03-09 | 71e7042fba9426ab746cf57e33215ffb | jangermeyer@encircleapp.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 4 (3/1) | 7 | 6 | 0 |
 | 2026-03-09 | a6691854a61bb0024d53ae9a235da390 | randy.goulding@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (5/4) | 167 | 11 | 1 |
@@ -108,6 +113,171 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 046b7c776a2f2be5465ac6503e617a24 -- 2026-03-09 -- v2026.09.3
+
+**User:** steve.poll@ca.belfor.com | **Time:** 1m 17s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 14 | **Notes:** 15 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Feb 18 - Kitchen has no measurements available - room dimensions required for complete scope.
+- Floor Plan has no measurements available - room dimensions required for complete scope.
+- Roof - Feb 18 has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Feb 18 - Kitchen
+- Floor Plan
+- Roof - Feb 18
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Feb 18 - Kitchen; materials_array_flooring: Laminate Flooring, Vinyl Flooring; room_elements_flooring: Laminate Flooring, Vinyl Flooring (listed), but only Laminate confirmed as installed; resolution: Laminate Flooring confirmed based on elements describing its color and pattern as installed floor, Vinyl Flooring listed but not shown as installed; did not generate tasks for Vinyl Flooring. If photos clarify, update.
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 43647ab3aabcf90324e6119a6599b5d7 -- 2026-03-09 -- v2026.09.3
+
+**User:** csuarez@servicemastertbay.com | **Time:** 2m 39s
+**Rooms:** 18 total (4 affected, 14 unaffected) | **Photos:** 103 | **Notes:** 12 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Discrepancy** (4):
+
+- [MODERATE] room_name: Kitchen; description_material: Hardwood Flooring; photo_material: Laminate Flooring; moisture_material: None; resolution: Using Laminate Flooring (photo evidence)
+- [MODERATE] room_name: Dining Room; description_material: None; photo_material: Laminate Flooring; moisture_material: None; resolution: Using Laminate Flooring (photo evidence)
+- [MODERATE] room_name: Bedroom 1; description_material: Hardwood Flooring; photo_material: Laminate Flooring; moisture_material: None; resolution: Using Laminate Flooring (photo evidence)
+- [MODERATE] room_name: Bedroom 2; description_material: None; photo_material: Laminate Flooring; moisture_material: None; resolution: Using Laminate Flooring (photo evidence)
+
+**Measurement Warning** (4):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bathroom
+- Hallway
+- Stairs
+- Bedroom 3
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Tile Flooring, Hardwood Flooring; room_elements_flooring: Tile Flooring, Hardwood Flooring; resolution: Both floor types confirmed: generate extraction for both per description.
+- [INFO] room_name: Kitchen; materials_array_flooring: Laminate Flooring, Vinyl Flooring, Hardwood Flooring; room_elements_flooring: Laminate Flooring, Vinyl Flooring, Hardwood Flooring; resolution: Multiple floor types confirmed in description, generate extraction tasks for all listed in elements.
+- [INFO] room_name: Dining Room; materials_array_flooring: Laminate Flooring, Vinyl Flooring; room_elements_flooring: Laminate Flooring, Vinyl Flooring; resolution: Both laminate and vinyl are confirmed in elements, extract both as installed floors.
+- [INFO] room_name: Hallway; materials_array_flooring: Laminate Flooring, Vinyl Flooring; room_elements_flooring: Laminate Flooring, Vinyl Flooring; resolution: Both flooring types confirmed as present near transition, generate extraction tasks for both.
+
+### Assessment
+
+The system detected 16 data quality issue(s): 4 material discrepancy(ies) between photos and descriptions; 4 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## b973aa24934f8bfc4d2e0cce671d9b72 -- 2026-03-09 -- v2026.09.3
+
+**User:** andrew.jeoung@ca.belfor.com | **Time:** 1m 11s
+**Rooms:** 14 total (2 affected, 12 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (2):
+
+- Guest Bathroom
+- Hallway
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Guest Bathroom; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Vinyl flooring; resolution: Used Vinyl Flooring (confirmed in room).
+- [INFO] room_name: Hallway; materials_array_flooring: Carpet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room).
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 material mismatch(es) between room data sources; 2 affected room(s) without photos.
+
+---
+
+## 06de9dc58d84a42b8ff29e0943fdf683 -- 2026-03-09 -- v2026.09.3
+
+**User:** robert.jesso@ca.belfor.com | **Time:** 1m 40s
+**Rooms:** 7 total (6 affected, 1 unaffected) | **Photos:** 102 | **Notes:** 9 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Storage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Storage
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 9fe287143ee441b4b30336240f8e2104 -- 2026-03-09 -- v2026.09.3
+
+**User:** roger.lough@ca.belfor.com | **Time:** 3m 10s
+**Rooms:** 15 total (8 affected, 7 unaffected) | **Photos:** 171 | **Notes:** 12 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Rec Room has no measurements available - room dimensions required for complete scope.
+- Storage Under Stairs has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Kids Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Bathroom
+- Basement Rec Room
+- Storage Under Stairs
+- Bedroom
+- Bedroom 2
+- Hallway
+- Storage
+- Kids Bedroom
+
+**Material Mismatch** (7):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Tile Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). No other flooring types present.
+- [INFO] room_name: Basement Rec Room; materials_array_flooring: Carpet, Tile Flooring, Concrete; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in elements/description) for removal/extraction tasks. Tile Flooring and Concrete are moisture meter artifacts, not installed surface.
+- [INFO] room_name: Storage Under Stairs; materials_array_flooring: Carpet, Carpet Pad; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed). Carpet Pad assumed present for assembly tasks.
+- [INFO] room_name: Bedroom; materials_array_flooring: Carpet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed).
+- [INFO] room_name: Bedroom 2; materials_array_flooring: Carpet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed).
+- [INFO] room_name: Storage; materials_array_flooring: Carpet, Tile Flooring, Concrete, Concrete Slab, Subfloor; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in elements) for demo/mitigation. Tile Flooring, Concrete, Subfloor entries are assembly/inference only.
+- [INFO] room_name: Front Entrance; materials_array_flooring: Tile Flooring, Hardwood Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in elements). Hardwood Flooring ignored as non-installed surface.
+
+### Assessment
+
+The system detected 23 data quality issue(s): 7 material mismatch(es) between room data sources; 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
 
 ## 5d544ec55c85f98a008b2e023a5932cc -- 2026-03-09 -- v2026.09.3
 
