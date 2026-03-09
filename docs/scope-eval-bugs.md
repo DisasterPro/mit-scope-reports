@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 14:17 UTC | **Traces with Issues:** 63 | **Total Issues:** 495
+**Last Updated:** 2026-03-09 14:46 UTC | **Traces with Issues:** 68 | **Total Issues:** 539
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | f94c4cd3eb2dfeb43e331658d1852009 | jetambe23@gmail.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (4/4) | 33 | 7 | 1 |
+| 2026-03-09 | 6091f301639dae3022252e42a4e469ca | jonathan.watson@ca.belfor.com | 17 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 258 | 4 | 2 |
+| 2026-03-09 | 5f9cd4ca6d2328a9c6c38be81289a172 | robert.jesso@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (2/2) | 55 | 4 | 1 |
+| 2026-03-09 | 910abcff28896c3418557d434651e0ed | trey@atlassoo.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 40 (24/16) | 438 | 25 | 1 |
+| 2026-03-09 | e7051321bf580bf20f39c8ae0a3d6b74 | bchristie+scopeai@encircleapp.com | 1 | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 13 (13/0) | 0 | 1 | 2 |
 | 2026-03-09 | 95f36c56e02d0dbf73a3800cfaa738d2 | jamie.traverse@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 67 | 7 | 0 |
 | 2026-03-09 | 02f3b77bf31d0a2ee760222dd23eaf8c | jetambe23@gmail.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 19 (12/7) | 470 | 15 | 1 |
 | 2026-03-09 | 1d7308f1115fc4b4afe60d47ec5d1ca5 | trey@atlassoo.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 17 (4/13) | 52 | 6 | 2 |
@@ -74,6 +79,148 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## f94c4cd3eb2dfeb43e331658d1852009 -- 2026-03-09 -- v2026.09.3
+
+**User:** jetambe23@gmail.com | **Time:** 2m 20s
+**Rooms:** 8 total (4 affected, 4 unaffected) | **Photos:** 33 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Under Stairs has no measurements available - room dimensions required for complete scope.
+- Breaker Room has no measurements available - room dimensions required for complete scope.
+- Sump Pump Room has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Customer Videos has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Under Stairs
+- Breaker Room
+- Sump Pump Room
+- Basement
+- Customer Videos
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 6091f301639dae3022252e42a4e469ca -- 2026-03-09 -- v2026.09.3
+
+**User:** jonathan.watson@ca.belfor.com | **Time:** 5m 55s
+**Rooms:** 9 total (6 affected, 3 unaffected) | **Photos:** 258 | **Notes:** 4 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Basement Laundry Room has no measurements available - room dimensions required for complete scope.
+- Basement Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Basement Storage has no measurements available - room dimensions required for complete scope.
+- Basement Stairs has no measurements available - room dimensions required for complete scope.
+- Basement Utility Room has no measurements available - room dimensions required for complete scope.
+- Pre Existing has no measurements available - room dimensions required for complete scope.
+- Basement Laundry Room, Basement Mechanical Room, Basement Storage, Basement Stairs, Basement Utility Room, Pre Existing volumes calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (6):
+
+- Basement Laundry Room
+- Basement Mechanical Room
+- Basement Storage
+- Basement Stairs
+- Basement Utility Room
+- Pre Existing
+
+**Equipment Sizing Conflict** (4):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (agreement between hydro and structural assessment)
+- [MINOR] factor: Construction; hydro_assessment: Standard; structural_analysis: standard; resolution: Using Standard (agreement between hydro and structural assessment)
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using Non-Beneficial (agreement between hydro and structural assessment)
+- [MINOR] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral_moderate; resolution: Using Neutral/Moderate (agreement between hydro and local climate/structure evidence)
+
+### Assessment
+
+The system detected 17 data quality issue(s): 4 equipment sizing conflict(s); 7 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
+## 5f9cd4ca6d2328a9c6c38be81289a172 -- 2026-03-09 -- v2026.09.3
+
+**User:** robert.jesso@ca.belfor.com | **Time:** 1m 49s
+**Rooms:** 4 total (2 affected, 2 unaffected) | **Photos:** 55 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Recroom volume calculated using assumed 8 ft ceiling height.
+- Bedroom volume calculated using assumed 8 ft ceiling height.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 measurement validation warning(s).
+
+---
+
+## 910abcff28896c3418557d434651e0ed -- 2026-03-09 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 21m 33s
+**Rooms:** 40 total (24 affected, 16 unaffected) | **Photos:** 438 | **Notes:** 25 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Ms Ormsbee - Classroom has no measurements available - room dimensions required for complete scope.
+- Career Center Office has no measurements available - room dimensions required for complete scope.
+- V612 has no measurements available - room dimensions required for complete scope.
+- Counseling 1 has no measurements available - room dimensions required for complete scope.
+- Shacc - Group Meeting Room has no measurements available - room dimensions required for complete scope.
+- Shacc - Nurse Practicioner has no measurements available - room dimensions required for complete scope.
+- Shacc - Dental Lab has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Ms Ormsbee - Classroom
+- Career Center Office
+- V612
+- Counseling 1
+- Shacc - Group Meeting Room
+- Shacc - Nurse Practicioner
+- Shacc - Dental Lab
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## e7051321bf580bf20f39c8ae0a3d6b74 -- 2026-03-09 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 1m 46s
+**Rooms:** 13 total (13 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Total area discrepancy between floor plan perimeter and sum of individual rooms exceeds allowable threshold (Main Floor: 245.8 SF; Basement: 278.8 SF). Field verification recommended.
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 measurement validation warning(s).
+
+---
+
 
 ## 95f36c56e02d0dbf73a3800cfaa738d2 -- 2026-03-09 -- v2026.09.3
 
