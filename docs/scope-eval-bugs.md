@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 19:44 UTC | **Traces with Issues:** 107 | **Total Issues:** 885
+**Last Updated:** 2026-03-09 20:05 UTC | **Traces with Issues:** 110 | **Total Issues:** 929
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-09 | b574071166327588d311ac00c51a52e0 | darren@cancaderestoration.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (3/2) | 65 | 7 | 0 |
+| 2026-03-09 | 59abccb0e4f7590fe0c36abba946835a | troy.nicholson+collingwood@ca.belfor.com | 22 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 17 (7/10) | 196 | 23 | 1 |
+| 2026-03-09 | 7a24445d87c8667bfc6d4e0362fe4032 | troy.nicholson+collingwood@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 18 (3/15) | 80 | 13 | 1 |
 | 2026-03-09 | 2aa67c1492ba7236631cba49f1955582 | troy.nicholson+collingwood@ca.belfor.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (3/1) | 56 | 6 | 1 |
 | 2026-03-09 | 719304972007b78f2c6202fbd72cfdb6 | troy.nicholson+collingwood@ca.belfor.com | 21 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (9/4) | 251 | 27 | 1 |
 | 2026-03-09 | d42b111976c53178be06e439a34246d7 | troy.nicholson+collingwood@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 2 (1/1) | 11 | 3 | 1 |
@@ -118,6 +121,111 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## b574071166327588d311ac00c51a52e0 -- 2026-03-09 -- v2026.09.3
+
+**User:** darren@cancaderestoration.com | **Time:** 1m 57s
+**Rooms:** 5 total (3 affected, 2 unaffected) | **Photos:** 65 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Mechanical has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Under Stairs Storage has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Mechanical
+- Laundry Room
+- Recreation Room
+- Under Stairs Storage
+- Bathroom
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 59abccb0e4f7590fe0c36abba946835a -- 2026-03-09 -- v2026.09.3
+
+**User:** troy.nicholson+collingwood@ca.belfor.com | **Time:** 4m 8s
+**Rooms:** 17 total (7 affected, 10 unaffected) | **Photos:** 196 | **Notes:** 23 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (11):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+- Recroom has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- ...and 1 more
+
+**Missing Measurements** (11):
+
+- Bathroom
+- Bedroom
+- Bedroom 2
+- Bedroom 3
+- Recroom
+- Living Room
+- Furnace Room
+- Basement
+- Storage
+- Utility Room
+- ...and 1 more
+
+### Assessment
+
+The system detected 22 data quality issue(s): 11 measurement validation warning(s); 11 room(s) with missing measurements.
+
+---
+
+## 7a24445d87c8667bfc6d4e0362fe4032 -- 2026-03-09 -- v2026.09.3
+
+**User:** troy.nicholson+collingwood@ca.belfor.com | **Time:** 3m 9s
+**Rooms:** 18 total (3 affected, 15 unaffected) | **Photos:** 80 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Emerge has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Basement
+- Furnace Room
+- Bedroom
+- Bathroom
+- Emerge
+- Kitchen
+
+### Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
 
 ## 2aa67c1492ba7236631cba49f1955582 -- 2026-03-09 -- v2026.09.3
 
