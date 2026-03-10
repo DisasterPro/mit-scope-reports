@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 14:14 UTC | **Traces with Issues:** 167 | **Total Issues:** 1333
+**Last Updated:** 2026-03-10 14:45 UTC | **Traces with Issues:** 172 | **Total Issues:** 1405
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | a6d2b56ae3fd57d23eb5b2f79fb1f685 | kay.cayuga+owensound@ca.belfor.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (4/5) | 130 | 3 | 2 |
+| 2026-03-10 | 759b52df02a2bc9fb30ad788673d61ad | rick.deckert@ca.belfor.com | 18 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 19 (9/10) | 112 | 15 | 1 |
+| 2026-03-10 | 88c0dca4aff556f0230a680834c93570 | dylanclimie@live.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (7/4) | 108 | 10 | 1 |
+| 2026-03-10 | d34a141874d5cc80226afb0bf093c14c | fernando.alvarez@ca.belfor.com | 7 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 0 | 1 | 2 |
+| 2026-03-10 | 48ada796b4566e1f1a3c2bcd0144115e | rick.deckert@ca.belfor.com | 23 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 17 (3/14) | 88 | 14 | 1 |
 | 2026-03-10 | d884e14ed248291c10b69634a381fcc2 | jfullerton+floater@encircleapp.com | 13 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 21 (11/10) | 0 | 0 | 0 |
 | 2026-03-10 | 14f90dae5a3c5db02f72d4b6bf082794 | matthew.bishop@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (1/5) | 22 | 4 | 1 |
 | 2026-03-10 | 40a9a24b473d889d30125e6fc96e697c | tracey.paris@ca.belfor.com | 8 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 15 (9/6) | 196 | 23 | 1 |
@@ -178,6 +183,185 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a6d2b56ae3fd57d23eb5b2f79fb1f685 -- 2026-03-10 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 2m 10s
+**Rooms:** 9 total (4 affected, 5 unaffected) | **Photos:** 130 | **Notes:** 3 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Entry/Stairs has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Basement Closet has no measurements available - room dimensions required for complete scope.
+- Basement Storage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Entry/Stairs
+- Storage
+- Basement Closet
+- Basement Storage
+
+**Affected Room Without Photos** (1):
+
+- Entry/Stairs
+
+**Material Mismatch** (10):
+
+- [INFO] room_name: Laundry Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Laundry Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Laundry Room; materials_array_flooring: Stone Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Stone is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Concrete; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Concrete is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Stone Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Stone is a meter setting, not installed material.
+- [INFO] room_name: Storage; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Storage; materials_array_flooring: Stone Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Stone is a meter setting, not installed material.
+- [INFO] room_name: Storage; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Hardwood is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 19 data quality issue(s): 10 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 759b52df02a2bc9fb30ad788673d61ad -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 3m 9s
+**Rooms:** 19 total (9 affected, 10 unaffected) | **Photos:** 112 | **Notes:** 15 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (9):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (9):
+
+- Primary Bathroom
+- Bathroom
+- Hallway
+- Living Room
+- Kitchen
+- Furnace Room
+- Storage
+- Primary Bedroom
+- Entry
+
+### Assessment
+
+The system detected 18 data quality issue(s): 9 measurement validation warning(s); 9 room(s) with missing measurements.
+
+---
+
+## 88c0dca4aff556f0230a680834c93570 -- 2026-03-10 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 4m 27s
+**Rooms:** 11 total (7 affected, 4 unaffected) | **Photos:** 108 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Foyer
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (agreement between hydro and structural analysis)
+- [NONE] factor: Construction; hydro_assessment: HighEnd; structural_analysis: high_end; resolution: Using High End (agreement between hydro and photo/structural analysis)
+- [NONE] factor: HVAC; hydro_assessment: Yes; structural_analysis: beneficial; resolution: Using Beneficial (agreement between hydro and structural indicators)
+- [NONE] factor: Weather/Envelope; hydro_assessment: Neutral/Tight; structural_analysis: neutral_tight; resolution: Using Neutral Tight (agreement between hydro and property climate/envelope evidence)
+
+### Assessment
+
+The system detected 5 data quality issue(s): 4 equipment sizing conflict(s); 1 room(s) with missing measurements.
+
+---
+
+## d34a141874d5cc80226afb0bf093c14c -- 2026-03-10 -- v2026.09.3
+
+**User:** fernando.alvarez@ca.belfor.com | **Time:** 2m 6s
+**Rooms:** 7 total (7 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (7):
+
+- Living Room
+- Kitchen
+- Entry
+- Stairs
+- Unlabeled Room 1
+- Unlabeled Room 2
+- Basement
+
+### Assessment
+
+The system detected 7 data quality issue(s): 7 affected room(s) without photos.
+
+---
+
+## 48ada796b4566e1f1a3c2bcd0144115e -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 2m 52s
+**Rooms:** 17 total (3 affected, 14 unaffected) | **Photos:** 88 | **Notes:** 14 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (10):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Lobby has no measurements available - room dimensions required for complete scope.
+- Emerge has no measurements available - room dimensions required for complete scope.
+- Staff Videos has no measurements available - room dimensions required for complete scope.
+- Sump Pump Fix Mar 9 has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (10):
+
+- Basement
+- Furnace Room
+- Bedroom
+- Kitchen
+- Bathroom
+- Lobby
+- Emerge
+- Staff Videos
+- Sump Pump Fix Mar 9
+- Bedroom
+
+**Affected Room Without Photos** (3):
+
+- Basement
+- Furnace Room
+- Bedroom
+
+### Assessment
+
+The system detected 23 data quality issue(s): 10 measurement validation warning(s); 10 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
 
 ## d884e14ed248291c10b69634a381fcc2 -- 2026-03-10 -- v2026.09.3
 
