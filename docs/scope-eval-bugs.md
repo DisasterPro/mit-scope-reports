@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 22:03 UTC | **Traces with Issues:** 228 | **Total Issues:** 1833
+**Last Updated:** 2026-03-10 22:41 UTC | **Traces with Issues:** 231 | **Total Issues:** 1864
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 522ca77ea108665f5dc8535d82e7f4fc | ashley.platt@ca.belfor.com | 1 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 8 (4/4) | 83 | 11 | 1 |
+| 2026-03-10 | 6850ee640dbb406da87f199ba9160c19 | tammy.gemmill@ca.belfor.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 17 (3/14) | 161 | 15 | 6 |
+| 2026-03-10 | 05ef7a2665fddf41acf133999e62bcae | derek.kryjak@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (0/5) | 61 | 6 | 0 |
 | 2026-03-10 | cd4c2016054ebaae9b4beea6b838644c | gene@gosbr.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (12/0) | 32 | 13 | 1 |
 | 2026-03-10 | 2e839f55c5ac15903e13e7aaf73ba819 | gene@gosbr.com | 25 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (12/0) | 29 | 13 | 1 |
 | 2026-03-10 | 279428451b5bc2b356c5fcd4b2b2c9fe | tom@servicemasterbc.ca | 16 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (6/2) | 587 | 12 | 0 |
@@ -239,6 +242,98 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 522ca77ea108665f5dc8535d82e7f4fc -- 2026-03-10 -- v2026.09.3
+
+**User:** ashley.platt@ca.belfor.com | **Time:** 2m 33s
+**Rooms:** 8 total (4 affected, 4 unaffected) | **Photos:** 83 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Front Of House
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
+## 6850ee640dbb406da87f199ba9160c19 -- 2026-03-10 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 2m 57s
+**Rooms:** 17 total (3 affected, 14 unaffected) | **Photos:** 161 | **Notes:** 15 | **Floor Plans:** 6
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (9):
+
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Back Storage has no measurements available - room dimensions required for complete scope.
+- Back Landing has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Inder Stairs Storage has no measurements available - room dimensions required for complete scope.
+- Closet Bottom Of Stairs has no measurements available - room dimensions required for complete scope.
+- Landing At Front has no measurements available - room dimensions required for complete scope.
+- Sump Pump Room has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (9):
+
+- Family Room
+- Back Storage
+- Back Landing
+- Bathroom
+- Inder Stairs Storage
+- Closet Bottom Of Stairs
+- Landing At Front
+- Sump Pump Room
+- Basement
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Family Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Family Room; materials_array_flooring: Carpet Pad; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Carpet Pad is not an exposed installed surface—see elements.
+
+### Assessment
+
+The system detected 20 data quality issue(s): 2 material mismatch(es) between room data sources; 9 measurement validation warning(s); 9 room(s) with missing measurements.
+
+---
+
+## 05ef7a2665fddf41acf133999e62bcae -- 2026-03-10 -- v2026.09.3
+
+**User:** derek.kryjak@ca.belfor.com | **Time:** 1m 24s
+**Rooms:** 5 total (0 affected, 5 unaffected) | **Photos:** 61 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Spare Bedroom has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Exterior
+- Bathroom
+- Recreation Room
+- Spare Bedroom
+- Storage
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
 
 ## cd4c2016054ebaae9b4beea6b838644c -- 2026-03-10 -- v2026.09.3
 
