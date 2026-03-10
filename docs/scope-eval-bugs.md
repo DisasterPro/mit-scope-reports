@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 20:07 UTC | **Traces with Issues:** 220 | **Total Issues:** 1745
+**Last Updated:** 2026-03-10 20:42 UTC | **Traces with Issues:** 222 | **Total Issues:** 1763
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 709130e36383a4e0d788fb89b0592208 | harleen.harleen+hamilton@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (0/7) | 46 | 8 | 0 |
+| 2026-03-10 | 8e84216e96ba73bb698fe2e31652c5d2 | terence.dunphy@ca.belfor.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (1/5) | 0 | 1 | 1 |
 | 2026-03-10 | f7b1ff2c9878dd89558db2744f131905 | roger.lough@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 43 | 6 | 0 |
 | 2026-03-10 | bf4ff8756d8e4d2388f1bcb48c6dded2 | greg.janse@ca.belfor.com | 3 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 13 (5/8) | 0 | 0 | 0 |
 | 2026-03-10 | f8d1d7c4a2ec9ace960abb985321e6cf | robert.chapman@us.belfor.com | 12 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (0/7) | 58 | 8 | 0 |
@@ -231,6 +233,71 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 709130e36383a4e0d788fb89b0592208 -- 2026-03-10 -- v2026.09.3
+
+**User:** harleen.harleen+hamilton@ca.belfor.com | **Time:** 1m 53s
+**Rooms:** 7 total (0 affected, 7 unaffected) | **Photos:** 46 | **Notes:** 8 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Tv Room has no measurements available - room dimensions required for complete scope.
+- Front Of Loss has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Hallway
+- Living Room
+- Primary Bedroom
+- Bedroom 2
+- Tv Room
+- Front Of Loss
+- Exterior
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## 8e84216e96ba73bb698fe2e31652c5d2 -- 2026-03-10 -- v2026.09.3
+
+**User:** terence.dunphy@ca.belfor.com | **Time:** 0m 49s
+**Rooms:** 6 total (1 affected, 5 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: Very Open; resolution: Using Very Open (hydro value) - values agree, no conflict exists
+
+### Assessment
+
+The system detected 4 data quality issue(s): 1 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
 
 ## f7b1ff2c9878dd89558db2744f131905 -- 2026-03-10 -- v2026.09.3
 
