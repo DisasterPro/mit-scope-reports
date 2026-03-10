@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 12:45 UTC | **Traces with Issues:** 152 | **Total Issues:** 1240
+**Last Updated:** 2026-03-10 13:25 UTC | **Traces with Issues:** 157 | **Total Issues:** 1272
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 87429542e927dd3126b89e919fe2e0a0 | rick.higgins@ca.belfor.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 0 | 1 | 2 |
+| 2026-03-10 | 9ca923bfd38be148cbf767092a7de464 | aiden.wade@restoration1.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 23 | 8 | 0 |
+| 2026-03-10 | bf0b0b97d925619f144c06e42a00c9ce | jledbetter@encircleapp.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (4/7) | 99 | 13 | 1 |
+| 2026-03-10 | f4cd753ed1f2afbec8ffa1dbeffacded | blake.goulding@ca.belfor.com | 8 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 8 (0/8) | 0 | 1 | 1 |
+| 2026-03-10 | ed1a900499e27cb535a096825b9b29ef | ahmad.darwech@ca.belfor.com | 2 | 2/5 Minimal | 4/5 Minor | 4/5 Minor | 4 (1/3) | 0 | 2 | 1 |
 | 2026-03-10 | 27d16adb01b810383625fe203079260f | lesley.mele@ca.belfor.com | 12 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (4/8) | 49 | 11 | 1 |
 | 2026-03-10 | b7ce6ec8144adcd3a9b66414f5e08e90 | fernando.alvarez@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-10 | 303a55791ae7abc1e9f09f865c052b5e | kay.cayuga+owensound@ca.belfor.com | 15 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 310 | 7 | 1 |
@@ -163,6 +168,133 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 87429542e927dd3126b89e919fe2e0a0 -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.higgins@ca.belfor.com | **Time:** 1m 0s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (4):
+
+- Laundry
+- Basement
+- Entry
+- Stairway
+
+### Assessment
+
+The system detected 4 data quality issue(s): 4 affected room(s) without photos.
+
+---
+
+## 9ca923bfd38be148cbf767092a7de464 -- 2026-03-10 -- v2026.09.3
+
+**User:** aiden.wade@restoration1.com | **Time:** 2m 36s
+**Rooms:** 7 total (7 affected, 0 unaffected) | **Photos:** 23 | **Notes:** 8 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Kid Cubby has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Computer Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Basement
+- Storage
+- Kid Cubby
+- Utility Room
+- Computer Room
+- Hallway
+- Bathroom
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## bf0b0b97d925619f144c06e42a00c9ce -- 2026-03-10 -- v2026.09.3
+
+**User:** jledbetter@encircleapp.com | **Time:** 3m 53s
+**Rooms:** 11 total (4 affected, 7 unaffected) | **Photos:** 99 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Policyholder Photos & Videos has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Exterior
+- Policyholder Photos & Videos
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## f4cd753ed1f2afbec8ffa1dbeffacded -- 2026-03-10 -- v2026.09.3
+
+**User:** blake.goulding@ca.belfor.com | **Time:** 1m 30s
+**Rooms:** 8 total (0 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (8):
+
+- Laundry
+- Utility
+- Recreation Room
+- Bar
+- Unlabeled Room 1
+- Unlabeled Room 2
+- Unlabeled Room 3
+- Unlabeled Room 4
+
+### Assessment
+
+The system detected 8 data quality issue(s): 8 affected room(s) without photos.
+
+---
+
+## ed1a900499e27cb535a096825b9b29ef -- 2026-03-10 -- v2026.09.3
+
+**User:** ahmad.darwech@ca.belfor.com | **Time:** 0m 38s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 0 | **Notes:** 2 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 3.3/5
+
+### Issues Found
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+**Equipment Sizing Conflict** (1):
+
+- [NONE] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: Very Open; resolution: Using Very Open (hydro value) - values agree
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 equipment sizing conflict(s); 1 affected room(s) without photos.
+
+---
+
 
 ## 27d16adb01b810383625fe203079260f -- 2026-03-10 -- v2026.09.3
 
