@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 11:10 UTC | **Traces with Issues:** 141 | **Total Issues:** 1157
+**Last Updated:** 2026-03-10 11:42 UTC | **Traces with Issues:** 144 | **Total Issues:** 1172
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 24276d823362b4a3178b7e015b1bb2ff | jamie.traverse@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (5/8) | 55 | 7 | 3 |
+| 2026-03-10 | 0b3e2c0f54ebf9f355b60614ae75255e | su.sahin+toronto@ca.belfor.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (10/0) | 0 | 1 | 3 |
+| 2026-03-10 | 85a484aabbddc3b52d328226b7e20042 | trey@atlassoo.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 7 (2/5) | 73 | 3 | 1 |
 | 2026-03-10 | 482526a4934b9ef492b8f0935e7076bf | trey@atlassoo.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (2/4) | 73 | 3 | 1 |
 | 2026-03-10 | a238e4fb5380c6c54794a76c10f0c009 | rick.deckert@ca.belfor.com | 24 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (10/9) | 112 | 15 | 1 |
 | 2026-03-10 | 41017502c6152cb49e134a326219ea74 | andrew.santos@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (7/12) | 140 | 13 | 2 |
@@ -152,6 +155,79 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 24276d823362b4a3178b7e015b1bb2ff -- 2026-03-10 -- v2026.09.3
+
+**User:** jamie.traverse@ca.belfor.com | **Time:** 2m 15s
+**Rooms:** 13 total (5 affected, 8 unaffected) | **Photos:** 55 | **Notes:** 7 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Roof has no measurements available - room dimensions required for complete scope.
+- Attic has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Roof
+- Attic
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 0b3e2c0f54ebf9f355b60614ae75255e -- 2026-03-10 -- v2026.09.3
+
+**User:** su.sahin+toronto@ca.belfor.com | **Time:** 2m 44s
+**Rooms:** 10 total (10 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 3
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (9):
+
+- Foyer
+- Hall
+- Stairway
+- Bedroom 1
+- Bedroom 2
+- Primary Bedroom
+- Recreation Room
+- Room
+- Bath
+
+### Assessment
+
+The system detected 9 data quality issue(s): 9 affected room(s) without photos.
+
+---
+
+## 85a484aabbddc3b52d328226b7e20042 -- 2026-03-10 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 32s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 73 | **Notes:** 3 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Utility Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Utility Room
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 482526a4934b9ef492b8f0935e7076bf -- 2026-03-10 -- v2026.09.3
 
