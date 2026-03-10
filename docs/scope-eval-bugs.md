@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 12:04 UTC | **Traces with Issues:** 147 | **Total Issues:** 1188
+**Last Updated:** 2026-03-10 12:45 UTC | **Traces with Issues:** 152 | **Total Issues:** 1240
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 27d16adb01b810383625fe203079260f | lesley.mele@ca.belfor.com | 12 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (4/8) | 49 | 11 | 1 |
+| 2026-03-10 | b7ce6ec8144adcd3a9b66414f5e08e90 | fernando.alvarez@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
+| 2026-03-10 | 303a55791ae7abc1e9f09f865c052b5e | kay.cayuga+owensound@ca.belfor.com | 15 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 310 | 7 | 1 |
+| 2026-03-10 | aab74fbc19bd1982ae622e3ad70b74c1 | dylanclimie@live.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (8/1) | 64 | 9 | 1 |
+| 2026-03-10 | 68a787c69d940be309ae91f98ea8fc35 | nick.gorecki@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 18 (7/11) | 36 | 10 | 2 |
 | 2026-03-10 | 894f7e8cf315f1bb37aca89b39228ffb | rick.deckert@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (5/10) | 76 | 10 | 2 |
 | 2026-03-10 | cfbbb4831b1a76fd5ca8b71021e24ecc | ronald.gauthier@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 27 | 5 | 0 |
 | 2026-03-10 | a06d2981c1e59da90504dcc903f7e58e | darrell.thompson@ungerman.net | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (2/8) | 0 | 1 | 2 |
@@ -158,6 +163,168 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 27d16adb01b810383625fe203079260f -- 2026-03-10 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 2m 6s
+**Rooms:** 12 total (4 affected, 8 unaffected) | **Photos:** 49 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Discrepancy** (2):
+
+- [MODERATE] room_name: Bedroom; description_material: Laminate Flooring; photo_material: Hardwood Flooring; moisture_material: None; resolution: Using photo evidence for hardwood flooring. The room will be treated for both laminate and hardwood warping.
+- [MODERATE] room_name: Hallway; description_material: Laminate Flooring; photo_material: Hardwood Flooring; moisture_material: None; resolution: Using photo evidence for hardwood flooring. Laminate flooring retained per description for adjacent areas; treatment applies to both.
+
+**Measurement Warning** (5):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Sitting Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Sump Pump has no measurements available - room dimensions required for complete scope.
+- Staff Tear Out has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Bedroom
+- Sitting Room
+- Hallway
+- Sump Pump
+- Staff Tear Out
+
+### Assessment
+
+The system detected 12 data quality issue(s): 2 material discrepancy(ies) between photos and descriptions; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## b7ce6ec8144adcd3a9b66414f5e08e90 -- 2026-03-10 -- v2026.09.3
+
+**User:** fernando.alvarez@ca.belfor.com | **Time:** 0m 34s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Recreation Room
+
+**Affected Room Without Photos** (1):
+
+- Recreation Room
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 303a55791ae7abc1e9f09f865c052b5e -- 2026-03-10 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 13m 37s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 310 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Col has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Stairs
+- Col
+
+**Affected Room Without Photos** (1):
+
+- Stairs
+
+**Material Mismatch** (10):
+
+- [INFO] room_name: Living Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Carpet; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Carpet is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile Flooring is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Stone Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Stone Flooring is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood Flooring is a meter setting, not installed material.
+- [INFO] room_name: Utility/Laundry; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Utility/Laundry; materials_array_flooring: Carpet; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Carpet is a meter setting, not installed material.
+- [INFO] room_name: Utility/Laundry; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood Flooring is a meter setting, not installed material.
+- [INFO] room_name: Utility/Laundry; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile Flooring is a meter setting, not installed material.
+- [INFO] room_name: Utility/Laundry; materials_array_flooring: Stone Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Stone Flooring is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 15 data quality issue(s): 10 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## aab74fbc19bd1982ae622e3ad70b74c1 -- 2026-03-10 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 2m 42s
+**Rooms:** 9 total (8 affected, 1 unaffected) | **Photos:** 64 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Mismatch** (6):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bedroom Closet; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl is a meter setting, not installed material.
+- [INFO] room_name: Furnace Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Storage; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 6 material mismatch(es) between room data sources.
+
+---
+
+## 68a787c69d940be309ae91f98ea8fc35 -- 2026-03-10 -- v2026.09.3
+
+**User:** nick.gorecki@ca.belfor.com | **Time:** 2m 47s
+**Rooms:** 18 total (7 affected, 11 unaffected) | **Photos:** 36 | **Notes:** 10 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Under Stairs has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Garage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Entrance
+- Recreation Room
+- Bedroom
+- Bathroom
+- Laundry Room
+- Under Stairs
+- Furnace Room
+- Garage
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
 
 ## 894f7e8cf315f1bb37aca89b39228ffb -- 2026-03-10 -- v2026.09.3
 
