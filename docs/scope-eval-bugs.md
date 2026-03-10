@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 19:14 UTC | **Traces with Issues:** 210 | **Total Issues:** 1663
+**Last Updated:** 2026-03-10 19:42 UTC | **Traces with Issues:** 211 | **Total Issues:** 1672
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 559c64fce7e275f261e99ba772e563e9 | harleen.harleen+hamilton@ca.belfor.com | 9 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (1/3) | 34 | 6 | 0 |
 | 2026-03-10 | 5776f673d0ff96272904ed5db22dd097 | mark.heinemann@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 86 | 7 | 0 |
 | 2026-03-10 | 1d65eb17bae00bd509af875c3fb59719 | aiden.wade@restoration1.com | 1 | 3/5 Adequate | 5/5 Healthy | 4/5 Minor | 2 (2/0) | 7 | 3 | 0 |
 | 2026-03-10 | 18cea50b2ba8b298d9dc27d53d08919e | tristan.randolph@rs1967.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (6/3) | 88 | 10 | 1 |
@@ -221,6 +222,39 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 559c64fce7e275f261e99ba772e563e9 -- 2026-03-10 -- v2026.09.3
+
+**User:** harleen.harleen+hamilton@ca.belfor.com | **Time:** 1m 14s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 34 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Understair Closet has no measurements available - room dimensions required for complete scope.
+- Col has no measurements available - room dimensions required for complete scope.
+- Contents has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Understair Closet
+- Col
+- Contents
+- Furnace Room
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Understair Closet; materials_array_flooring: Concrete; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Concrete is the subfloor, not a surface floor material. Extraction/removal tasks generated only for Vinyl Flooring.
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 5776f673d0ff96272904ed5db22dd097 -- 2026-03-10 -- v2026.09.3
 
