@@ -3,12 +3,19 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 13:25 UTC | **Traces with Issues:** 157 | **Total Issues:** 1272
+**Last Updated:** 2026-03-10 13:52 UTC | **Traces with Issues:** 164 | **Total Issues:** 1311
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | dab964a7224ef1373b0e8587de94598f | bchristie+scopeai@encircleapp.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 3 (1/2) | 208 | 4 | 0 |
+| 2026-03-10 | 370e724b290edab534e6fe55ac2e1d63 | kay.cayuga+owensound@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 11 (4/7) | 204 | 6 | 2 |
+| 2026-03-10 | cd938d635ad8fed16c0f5df6e0ba47ac | nicholasm@smsarnia.ca | 6 | 3/5 Adequate | 5/5 Healthy | 3/5 Moderate | 11 (1/10) | 2 | 1 | 1 |
+| 2026-03-10 | 96c23c9eb77531009d055579d96e59e6 | nicholasm@smsarnia.ca | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 21 (7/14) | 78 | 12 | 1 |
+| 2026-03-10 | ab2c6dc775616f157b8d714bf872b9ed | fernando.alvarez@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (0/5) | 33 | 12 | 0 |
+| 2026-03-10 | 11a8ac96f588cc9ac99d6c5b0ccf6461 | schallersmail0307@gmail.com | 14 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 7 (2/5) | 0 | 0 | 0 |
+| 2026-03-10 | 6ed6d620540f53e2b6bf5d1816ef43e8 | nicholasm@smsarnia.ca | 7 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 20 (7/13) | 0 | 0 | 0 |
 | 2026-03-10 | 87429542e927dd3126b89e919fe2e0a0 | rick.higgins@ca.belfor.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 0 | 1 | 2 |
 | 2026-03-10 | 9ca923bfd38be148cbf767092a7de464 | aiden.wade@restoration1.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 23 | 8 | 0 |
 | 2026-03-10 | bf0b0b97d925619f144c06e42a00c9ce | jledbetter@encircleapp.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (4/7) | 99 | 13 | 1 |
@@ -168,6 +175,189 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## dab964a7224ef1373b0e8587de94598f -- 2026-03-10 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 2m 14s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 208 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Basement; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet, Vinyl Flooring, Laminate Flooring; resolution: All three (Carpet, Vinyl, Laminate) removal tasks generated based on explicit removal in elements and explicit_quantities. Flooring removal is sequence-verified.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 material mismatch(es) between room data sources; 1 room(s) with missing measurements.
+
+---
+
+## 370e724b290edab534e6fe55ac2e1d63 -- 2026-03-10 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 4m 6s
+**Rooms:** 11 total (4 affected, 7 unaffected) | **Photos:** 204 | **Notes:** 6 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [MODERATE] field: water_category; iicrc_recommended: 2; user_specified: 1; justification: Technician notes assigned Category 1 based on clean groundwater runoff and no visible contamination at time of assessment, but IICRC standards require at least Category 2 for all groundwater occurring via foundation entry, regardless of visual clarity. Category 2 protocol enforced for scope.; source: Merge.jinja2 guidelines override; impact: Tasks will follow Category 2 protocols (enhanced PPE, cleaning, and material evaluation) instead of Category 1 (standard PPE, easier salvage of porous materials).
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 IICRC standard deviation(s) were flagged.
+
+---
+
+## cd938d635ad8fed16c0f5df6e0ba47ac -- 2026-03-10 -- v2026.09.3
+
+**User:** nicholasm@smsarnia.ca | **Time:** 0m 59s
+**Rooms:** 11 total (1 affected, 10 unaffected) | **Photos:** 2 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Values agree; using 'fairly_open' from hydro and structural assessment.
+- [NONE] factor: Construction; hydro_assessment: HighEnd; structural_analysis: high_end; resolution: Values agree; using 'high_end' from hydro and structural assessment.
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Values agree; using 'non_beneficial' from hydro and structural assessment.
+- [NONE] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral_tight; resolution: Values agree; using 'neutral_tight' from hydro and structural assessment (envelope tightness: Tight).
+
+### Assessment
+
+The system detected 6 data quality issue(s): 4 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 96c23c9eb77531009d055579d96e59e6 -- 2026-03-10 -- v2026.09.3
+
+**User:** nicholasm@smsarnia.ca | **Time:** 3m 17s
+**Rooms:** 21 total (7 affected, 14 unaffected) | **Photos:** 78 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (hydro value) - matches structural assessment of mostly open basement layout with multiple large finished rooms and minimal dense partitioning.
+- [NONE] factor: Construction; hydro_assessment: HighEnd; structural_analysis: high_end; resolution: Using HighEnd (hydro value) - finish materials and assembly complexity in room descriptions suggest higher-end construction quality is appropriate.
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using No (hydro value) - confirmed by reference to furnace and HVAC system, but no evidence of dedicated built-in HVAC serving drying operations for this basement area.
+- [NONE] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral_tight; resolution: Using Neutral/Tight (composite - hydro weather=Neutral, envelope= Tight) - matches described property.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 4 equipment sizing conflict(s); 1 room(s) with missing measurements.
+
+---
+
+## ab2c6dc775616f157b8d714bf872b9ed -- 2026-03-10 -- v2026.09.3
+
+**User:** fernando.alvarez@ca.belfor.com | **Time:** 1m 36s
+**Rooms:** 5 total (0 affected, 5 unaffected) | **Photos:** 33 | **Notes:** 12 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Contents has no measurements available - room dimensions required for complete scope.
+- From Of House has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Contents
+- From Of House
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 11a8ac96f588cc9ac99d6c5b0ccf6461 -- 2026-03-10 -- v2026.09.3
+
+**User:** schallersmail0307@gmail.com | **Time:** 3m 28s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Basement Main has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Main Floor Bathroom has no measurements available - room dimensions required for complete scope.
+- Main Floor Closet has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Hvac has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Basement Main
+- Office
+- Storage
+- Main Floor Bathroom
+- Main Floor Closet
+- Hallway
+- Hvac
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## 6ed6d620540f53e2b6bf5d1816ef43e8 -- 2026-03-10 -- v2026.09.3
+
+**User:** nicholasm@smsarnia.ca | **Time:** 3m 41s
+**Rooms:** 20 total (7 affected, 13 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Material Discrepancy** (1):
+
+- [MINOR] room_name: Bedroom; description_material: Laminate Flooring; photo_material: Hardwood Flooring; moisture_material: None; resolution: Using both Laminate and Hardwood Flooring. Photo evidence and technician notes confirm both materials present. No conflict - multi-flooring observed.
+
+**Measurement Warning** (3):
+
+- Bedroom Closet has no measurements available - room dimensions required for complete scope.
+- Office Closet has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bedroom Closet
+- Office Closet
+- Kitchen
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 87429542e927dd3126b89e919fe2e0a0 -- 2026-03-10 -- v2026.09.3
 
