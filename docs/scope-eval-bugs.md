@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 17:44 UTC | **Traces with Issues:** 198 | **Total Issues:** 1564
+**Last Updated:** 2026-03-10 18:12 UTC | **Traces with Issues:** 203 | **Total Issues:** 1611
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | f98df23d520c7fe757291947939b972d | blake.goulding@ca.belfor.com | 4 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 4 (4/0) | 0 | 1 | 1 |
+| 2026-03-10 | a0fa6d61c50b69928310a7cd286fb2dc | coyne.borree@guardianrestoration.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 31 | 3 | 0 |
+| 2026-03-10 | def14ee13a10ebad28ada398652beaef | dylanclimie@live.com | 11 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (7/1) | 103 | 10 | 1 |
+| 2026-03-10 | 9537c9af1ee278fb552909bdcd410f0d | robert@eproresponse.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (9/0) | 40 | 10 | 0 |
+| 2026-03-10 | d2de88cb48afeffa2935d966a78acf8c | dylanclimie@live.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (7/2) | 103 | 10 | 1 |
 | 2026-03-10 | 91cb2357873c8e4a9d1801178576d73e | kristy.persson+hub@ca.belfor.com | 16 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (1/8) | 92 | 13 | 1 |
 | 2026-03-10 | 1850f37427782510ba7b5f0afb8952cd | dwoods@encircleapp.com | 13 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 91 | 8 | 0 |
 | 2026-03-10 | 4b6b7751fe014ac0a16fee28aacf9feb | phil.maurer@restoration1.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (2/10) | 23 | 5 | 2 |
@@ -209,6 +214,163 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## f98df23d520c7fe757291947939b972d -- 2026-03-10 -- v2026.09.3
+
+**User:** blake.goulding@ca.belfor.com | **Time:** 0m 39s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (4):
+
+- Laundry
+- Utility
+- Recreation Room
+- Bar
+
+### Assessment
+
+The system detected 4 data quality issue(s): 4 affected room(s) without photos.
+
+---
+
+## a0fa6d61c50b69928310a7cd286fb2dc -- 2026-03-10 -- v2026.09.3
+
+**User:** coyne.borree@guardianrestoration.com | **Time:** 1m 10s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 31 | **Notes:** 3 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Pre Mitigation has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Exterior
+- Pre Mitigation
+
+**Affected Room Without Photos** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 5 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## def14ee13a10ebad28ada398652beaef -- 2026-03-10 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 2m 52s
+**Rooms:** 8 total (7 affected, 1 unaffected) | **Photos:** 103 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+**Material Mismatch** (6):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter reading artifact, not installed finish.
+- [INFO] room_name: Bedroom Closet; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter reading artifact, not installed finish.
+- [INFO] room_name: Living Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter reading artifact, not installed finish.
+- [INFO] room_name: Storage; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter reading artifact, not installed finish.
+- [INFO] room_name: Furnace Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Laminate is a meter reading artifact, not installed finish.
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter reading artifact, not installed finish.
+
+**Equipment Sizing Conflict** (3):
+
+- [MINOR] factor: Construction; hydro_assessment: HighEnd; structural_analysis: high_end; resolution: Using high_end (agreement between hydro and structural evidence; finishes and complex assemblies match description)
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using non_beneficial (agreement between hydro and property evidence; HVAC present but not assisting drying in affected areas)
+- [MINOR] factor: Weather/Envelope; hydro_assessment: Neutral/Moderate; structural_analysis: neutral_moderate; resolution: Using neutral_moderate (agreement between hydro and structural analysis; moderate envelope tightness and neutral weather confirmed)
+
+### Assessment
+
+The system detected 11 data quality issue(s): 6 material mismatch(es) between room data sources; 3 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 9537c9af1ee278fb552909bdcd410f0d -- 2026-03-10 -- v2026.09.3
+
+**User:** robert@eproresponse.com | **Time:** 2m 44s
+**Rooms:** 9 total (9 affected, 0 unaffected) | **Photos:** 40 | **Notes:** 10 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (9):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Hall Bath has no measurements available - room dimensions required for complete scope.
+- Pantry has no measurements available - room dimensions required for complete scope.
+- Back Bedroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (9):
+
+- Living Room
+- Laundry Room
+- Bedroom
+- Hall Bath
+- Pantry
+- Back Bedroom
+- Hallway
+- Primary Bedroom
+- Primary Bathroom
+
+### Assessment
+
+The system detected 18 data quality issue(s): 9 measurement validation warning(s); 9 room(s) with missing measurements.
+
+---
+
+## d2de88cb48afeffa2935d966a78acf8c -- 2026-03-10 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 3m 51s
+**Rooms:** 9 total (7 affected, 2 unaffected) | **Photos:** 103 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Kitchen
+- Exterior
+
+**Material Mismatch** (5):
+
+- [INFO] room_name: Bedroom Closet; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring, Carpet; resolution: Used Vinyl Flooring and Carpet (both confirmed in room elements). Laminate is a meter setting for spot moisture detection only.
+- [INFO] room_name: Storage; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Furnace Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 9 data quality issue(s): 5 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 91cb2357873c8e4a9d1801178576d73e -- 2026-03-10 -- v2026.09.3
 
