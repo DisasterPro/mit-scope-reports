@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 21:40 UTC | **Traces with Issues:** 227 | **Total Issues:** 1827
+**Last Updated:** 2026-03-10 22:03 UTC | **Traces with Issues:** 228 | **Total Issues:** 1833
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | cd4c2016054ebaae9b4beea6b838644c | gene@gosbr.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (12/0) | 32 | 13 | 1 |
 | 2026-03-10 | 2e839f55c5ac15903e13e7aaf73ba819 | gene@gosbr.com | 25 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (12/0) | 29 | 13 | 1 |
 | 2026-03-10 | 279428451b5bc2b356c5fcd4b2b2c9fe | tom@servicemasterbc.ca | 16 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (6/2) | 587 | 12 | 0 |
 | 2026-03-10 | d381bc4c7f4fcd53fd5b4ca3761569e8 | brad.balkan@firstgeneraledm.ca | 10 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 0 | 1 | 0 |
@@ -238,6 +239,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## cd4c2016054ebaae9b4beea6b838644c -- 2026-03-10 -- v2026.09.3
+
+**User:** gene@gosbr.com | **Time:** 3m 33s
+**Rooms:** 12 total (12 affected, 0 unaffected) | **Photos:** 32 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Attic has no measurements available - room dimensions required for complete scope.
+- Water Heater Closet has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Attic
+- Water Heater Closet
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 2e839f55c5ac15903e13e7aaf73ba819 -- 2026-03-10 -- v2026.09.3
 
