@@ -1,11 +1,13 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-10 01:30 UTC | **Total Traces:** 609 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-10 02:21 UTC | **Total Traces:** 611 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 79%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 797b686d0f432e354a5d9e78068d1687 | v2026.09.3 | 2026-03-10 | jf.raymond@steamatic.ca | 1m 3s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 9 (1/8) | 0 | 1 | 1 |
+| c86322e29e24ff0478718e5c4bc8c75b | v2026.09.3 | 2026-03-10 | trey@atlassoo.com | 1m 50s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 7 (2/5) | 74 | 4 | 1 |
 | 294736a3946be3f7647d45b2b998c093 | v2026.09.3 | 2026-03-10 | rjohnson@zeusrestoration.com | 0m 50s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 1 (1/0) | 0 | 1 | 0 |
 | 36a8fb7777ddeb1580bbf3835f735950 | v2026.09.3 | 2026-03-10 | sfisher@puroclean.ca | 0m 44s | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 2.7/5 | 8 (2/6) | 0 | 1 | 1 |
 | 9c4b42029b92ae7eb57fd765a09ff51c | v2026.09.3 | 2026-03-10 | sfisher@puroclean.ca | 1m 45s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 9 (3/6) | 63 | 9 | 1 |
@@ -617,6 +619,80 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 797b686d0f432e354a5d9e78068d1687 -- 2026-03-10 -- v2026.09.3
+
+**User:** jf.raymond@steamatic.ca | **Time:** 1m 3s
+**Rooms:** 9 total (1 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 9 rooms; 0 in app, 1 from notes |
+| Field Photos | None | 0 photos; 1 rooms without photos |
+| Technician Notes | Detailed | 1 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+No field photos were submitted for this scope. Technician notes were provided (1 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 3s. Data quality flags: 1 affected room(s) had no photos.
+
+### Issue Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+### Recommendations
+
+1. Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.
+2. Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.
+
+---
+
+## c86322e29e24ff0478718e5c4bc8c75b -- 2026-03-10 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 50s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 74 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 7 rooms; 3 in app, 3 from notes |
+| Field Photos | Good | 74 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 4 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Issues | 3 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+74 field photos were submitted. Technician notes were provided (4 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 3 floor plan room(s) could not be matched to claim rooms because the names didn't match. Make sure floor plan room labels match claim room names before running the scope. 3 of 7 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 50s. Data quality flags: 3 floor plan room(s) could not be matched to claim rooms.
+
+### Issue Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+### Recommendations
+
+1. Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.
+
+---
+
 
 ## 294736a3946be3f7647d45b2b998c093 -- 2026-03-10 -- v2026.09.3
 

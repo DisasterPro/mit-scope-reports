@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 01:30 UTC | **Traces with Issues:** 135 | **Total Issues:** 1109
+**Last Updated:** 2026-03-10 02:21 UTC | **Traces with Issues:** 137 | **Total Issues:** 1118
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 797b686d0f432e354a5d9e78068d1687 | jf.raymond@steamatic.ca | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 9 (1/8) | 0 | 1 | 1 |
+| 2026-03-10 | c86322e29e24ff0478718e5c4bc8c75b | trey@atlassoo.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 74 | 4 | 1 |
 | 2026-03-10 | 294736a3946be3f7647d45b2b998c093 | rjohnson@zeusrestoration.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-10 | 36a8fb7777ddeb1580bbf3835f735950 | sfisher@puroclean.ca | 6 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 8 (2/6) | 0 | 1 | 1 |
 | 2026-03-10 | 9c4b42029b92ae7eb57fd765a09ff51c | sfisher@puroclean.ca | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (3/6) | 63 | 9 | 1 |
@@ -146,6 +148,59 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 797b686d0f432e354a5d9e78068d1687 -- 2026-03-10 -- v2026.09.3
+
+**User:** jf.raymond@steamatic.ca | **Time:** 1m 3s
+**Rooms:** 9 total (1 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## c86322e29e24ff0478718e5c4bc8c75b -- 2026-03-10 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 50s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 74 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Utility Room
+- Living Room
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 294736a3946be3f7647d45b2b998c093 -- 2026-03-10 -- v2026.09.3
 
