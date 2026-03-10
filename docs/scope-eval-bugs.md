@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 21:07 UTC | **Traces with Issues:** 224 | **Total Issues:** 1776
+**Last Updated:** 2026-03-10 21:40 UTC | **Traces with Issues:** 227 | **Total Issues:** 1827
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 2e839f55c5ac15903e13e7aaf73ba819 | gene@gosbr.com | 25 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (12/0) | 29 | 13 | 1 |
+| 2026-03-10 | 279428451b5bc2b356c5fcd4b2b2c9fe | tom@servicemasterbc.ca | 16 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (6/2) | 587 | 12 | 0 |
+| 2026-03-10 | d381bc4c7f4fcd53fd5b4ca3761569e8 | brad.balkan@firstgeneraledm.ca | 10 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 0 | 1 | 0 |
 | 2026-03-10 | 696c2263e8a4aeaafa33d2f78782532a | lesley.mele@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 83 | 11 | 0 |
 | 2026-03-10 | 6bc73abe0051f8af88b09dc6cd4f6c8b | robert.chapman@us.belfor.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (7/3) | 365 | 10 | 1 |
 | 2026-03-10 | 709130e36383a4e0d788fb89b0592208 | harleen.harleen+hamilton@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (0/7) | 46 | 8 | 0 |
@@ -235,6 +238,122 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 2e839f55c5ac15903e13e7aaf73ba819 -- 2026-03-10 -- v2026.09.3
+
+**User:** gene@gosbr.com | **Time:** 3m 13s
+**Rooms:** 12 total (12 affected, 0 unaffected) | **Photos:** 29 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (12):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Attic has no measurements available - room dimensions required for complete scope.
+- ...and 2 more
+
+**Missing Measurements** (12):
+
+- Living Room
+- Dining Room
+- Kitchen
+- Hallway
+- Laundry Room
+- Bathroom
+- Bedroom
+- Bedroom 2
+- Primary Bedroom
+- Attic
+- ...and 2 more
+
+**Affected Room Without Photos** (1):
+
+- Water Heater Closer
+
+### Assessment
+
+The system detected 25 data quality issue(s): 12 measurement validation warning(s); 12 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 279428451b5bc2b356c5fcd4b2b2c9fe -- 2026-03-10 -- v2026.09.3
+
+**User:** tom@servicemasterbc.ca | **Time:** 6m 36s
+**Rooms:** 8 total (6 affected, 2 unaffected) | **Photos:** 587 | **Notes:** 12 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Basement Rec Room has no measurements available - room dimensions required for complete scope.
+- Basement Office has no measurements available - room dimensions required for complete scope.
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Bedroom has no measurements available - room dimensions required for complete scope.
+- Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Hobby Room has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Basement Rec Room
+- Basement Office
+- Basement Bathroom
+- Basement Bedroom
+- Mechanical Room
+- Hobby Room
+- Entry
+- Stairs
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
+## d381bc4c7f4fcd53fd5b4ca3761569e8 -- 2026-03-10 -- v2026.09.3
+
+**User:** brad.balkan@firstgeneraledm.ca | **Time:** 1m 0s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Crawl Space has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Mechanical Room
+- Crawl Space
+- Storage
+
+**Affected Room Without Photos** (3):
+
+- Mechanical Room
+- Crawl Space
+- Storage
+
+### Assessment
+
+The system detected 10 data quality issue(s): 4 measurement validation warning(s); 3 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
 
 ## 696c2263e8a4aeaafa33d2f78782532a -- 2026-03-10 -- v2026.09.3
 
