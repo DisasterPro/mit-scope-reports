@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 15:47 UTC | **Traces with Issues:** 187 | **Total Issues:** 1479
+**Last Updated:** 2026-03-10 16:18 UTC | **Traces with Issues:** 192 | **Total Issues:** 1492
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 1fc62c81463468a5b70de5dd118f5bc1 | aiden.wade@restoration1.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 10 (7/3) | 23 | 8 | 1 |
+| 2026-03-10 | 61eab0751dbe5a83081986e873181ccd | jim.beveridge@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (2/7) | 71 | 15 | 1 |
+| 2026-03-10 | ac327b737a05deefbf1eeed2b2df4aef | ashley.platt@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 6 (3/3) | 121 | 5 | 1 |
+| 2026-03-10 | fd67809fad34d8a2f9be25dcffab4356 | yahsef@impeccable-restoration.com | 5 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 14 (5/9) | 0 | 1 | 3 |
+| 2026-03-10 | e85f6389868835ae2b68788b44ab4ea4 | tanya.leite@ca.belfor.com | 2 | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 3 (1/2) | 0 | 1 | 1 |
 | 2026-03-10 | 1644b5208dec827a187a6907d832269b | tanya.leite@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 0 | 1 | 1 |
 | 2026-03-10 | a9fd975ab9b76101eab5d5f5c53aef2c | dbailey@randrpros.com | 15 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 21 (9/12) | 201 | 14 | 2 |
 | 2026-03-10 | 5120a6fb115e2b87a5de8dcb0c6a9d71 | rick.deckert@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (5/6) | 251 | 27 | 1 |
@@ -198,6 +203,117 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 1fc62c81463468a5b70de5dd118f5bc1 -- 2026-03-10 -- v2026.09.3
+
+**User:** aiden.wade@restoration1.com | **Time:** 2m 17s
+**Rooms:** 10 total (7 affected, 3 unaffected) | **Photos:** 23 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Kid Cubby has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kid Cubby
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 61eab0751dbe5a83081986e873181ccd -- 2026-03-10 -- v2026.09.3
+
+**User:** jim.beveridge@ca.belfor.com | **Time:** 2m 51s
+**Rooms:** 9 total (2 affected, 7 unaffected) | **Photos:** 71 | **Notes:** 15 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Front Entry has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Front Entry
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## ac327b737a05deefbf1eeed2b2df4aef -- 2026-03-10 -- v2026.09.3
+
+**User:** ashley.platt@ca.belfor.com | **Time:** 1m 54s
+**Rooms:** 6 total (3 affected, 3 unaffected) | **Photos:** 121 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Front Of Loss has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Front Of Loss
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## fd67809fad34d8a2f9be25dcffab4356 -- 2026-03-10 -- v2026.09.3
+
+**User:** yahsef@impeccable-restoration.com | **Time:** 2m 27s
+**Rooms:** 14 total (5 affected, 9 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 3
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (5):
+
+- Bathroom
+- Living Room
+- Kitchen
+- Ceiling
+- Concrete Flooring
+
+### Assessment
+
+The system detected 5 data quality issue(s): 5 affected room(s) without photos.
+
+---
+
+## e85f6389868835ae2b68788b44ab4ea4 -- 2026-03-10 -- v2026.09.3
+
+**User:** tanya.leite@ca.belfor.com | **Time:** 1m 17s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (1):
+
+- Basement Bedroom
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Basement Bedroom; materials_array_flooring: Floor; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). 'Floor' is a meter artifact, not an installed material.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 material mismatch(es) between room data sources; 1 affected room(s) without photos.
+
+---
+
 
 ## 1644b5208dec827a187a6907d832269b -- 2026-03-10 -- v2026.09.3
 
