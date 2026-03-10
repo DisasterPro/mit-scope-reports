@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 20:42 UTC | **Traces with Issues:** 222 | **Total Issues:** 1763
+**Last Updated:** 2026-03-10 21:07 UTC | **Traces with Issues:** 224 | **Total Issues:** 1776
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 696c2263e8a4aeaafa33d2f78782532a | lesley.mele@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 83 | 11 | 0 |
+| 2026-03-10 | 6bc73abe0051f8af88b09dc6cd4f6c8b | robert.chapman@us.belfor.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (7/3) | 365 | 10 | 1 |
 | 2026-03-10 | 709130e36383a4e0d788fb89b0592208 | harleen.harleen+hamilton@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (0/7) | 46 | 8 | 0 |
 | 2026-03-10 | 8e84216e96ba73bb698fe2e31652c5d2 | terence.dunphy@ca.belfor.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (1/5) | 0 | 1 | 1 |
 | 2026-03-10 | f7b1ff2c9878dd89558db2744f131905 | roger.lough@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 43 | 6 | 0 |
@@ -233,6 +235,63 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 696c2263e8a4aeaafa33d2f78782532a -- 2026-03-10 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 2m 12s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 83 | **Notes:** 11 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Work Shop has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Laundry Room
+- Recreation Room
+- Bathroom
+- Work Shop
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 6bc73abe0051f8af88b09dc6cd4f6c8b -- 2026-03-10 -- v2026.09.3
+
+**User:** robert.chapman@us.belfor.com | **Time:** 3m 42s
+**Rooms:** 10 total (7 affected, 3 unaffected) | **Photos:** 365 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Overview Photo has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Overview Photo
+
+**Material Mismatch** (3):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring and Laminate only at door/vanity edges (per elements). Ignored other flooring types as possible meter artifacts.
+- [INFO] room_name: Living Room; materials_array_flooring: Concrete; room_elements_flooring: Laminate Flooring/Tile Flooring; resolution: Used Laminate and Tile Flooring as primary, Concrete as substrate only; ignored as installed flooring.
+- [INFO] room_name: Bedroom 2; materials_array_flooring: Concrete; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring per elements. Concrete present as substrate. Ignored as installed flooring.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 3 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 709130e36383a4e0d788fb89b0592208 -- 2026-03-10 -- v2026.09.3
 
