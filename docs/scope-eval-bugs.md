@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 11:42 UTC | **Traces with Issues:** 144 | **Total Issues:** 1172
+**Last Updated:** 2026-03-10 12:04 UTC | **Traces with Issues:** 147 | **Total Issues:** 1188
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 894f7e8cf315f1bb37aca89b39228ffb | rick.deckert@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (5/10) | 76 | 10 | 2 |
+| 2026-03-10 | cfbbb4831b1a76fd5ca8b71021e24ecc | ronald.gauthier@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 27 | 5 | 0 |
+| 2026-03-10 | a06d2981c1e59da90504dcc903f7e58e | darrell.thompson@ungerman.net | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (2/8) | 0 | 1 | 2 |
 | 2026-03-10 | 24276d823362b4a3178b7e015b1bb2ff | jamie.traverse@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (5/8) | 55 | 7 | 3 |
 | 2026-03-10 | 0b3e2c0f54ebf9f355b60614ae75255e | su.sahin+toronto@ca.belfor.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (10/0) | 0 | 1 | 3 |
 | 2026-03-10 | 85a484aabbddc3b52d328226b7e20042 | trey@atlassoo.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 7 (2/5) | 73 | 3 | 1 |
@@ -155,6 +158,83 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 894f7e8cf315f1bb37aca89b39228ffb -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 2m 20s
+**Rooms:** 15 total (5 affected, 10 unaffected) | **Photos:** 76 | **Notes:** 10 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Recreation Room: floor plan shows 354.0 SF, description shows no SF - using floor plan value.
+- Basement volume calculated using assumed 7 ft ceiling height.
+- Laundry Room volume calculated using assumed 7 ft ceiling height.
+- Furnace Room volume calculated using assumed 7 ft ceiling height.
+- Bedroom volume calculated using assumed 7 ft ceiling height.
+- Bedroom 2 volume calculated using assumed 7 ft ceiling height.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 6 measurement validation warning(s).
+
+---
+
+## cfbbb4831b1a76fd5ca8b71021e24ecc -- 2026-03-10 -- v2026.09.3
+
+**User:** ronald.gauthier@ca.belfor.com | **Time:** 1m 15s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 27 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Furnace Room
+- Hallway
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## a06d2981c1e59da90504dcc903f7e58e -- 2026-03-10 -- v2026.09.3
+
+**User:** darrell.thompson@ungerman.net | **Time:** 0m 58s
+**Rooms:** 10 total (2 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Primary Bathroom
+- Kitchen
+
+**Affected Room Without Photos** (2):
+
+- Primary Bathroom
+- Kitchen
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
 
 ## 24276d823362b4a3178b7e015b1bb2ff -- 2026-03-10 -- v2026.09.3
 
