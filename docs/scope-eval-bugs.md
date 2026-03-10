@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-09 23:39 UTC | **Traces with Issues:** 130 | **Total Issues:** 1081
+**Last Updated:** 2026-03-10 00:02 UTC | **Traces with Issues:** 132 | **Total Issues:** 1091
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 5760e707e6465a1ccb2de77054d196f3 | jrod.swan@gmail.com | 3 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 7 (2/5) | 0 | 0 | 0 |
+| 2026-03-09 | 98b53769c4bb0566db1d070e9bb89f08 | sfisher@puroclean.ca | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (3/9) | 63 | 9 | 1 |
 | 2026-03-09 | 5c3fefd5b22419bceb63c571f47a7396 | yahsef@impeccable-restoration.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 20 (5/15) | 0 | 1 | 3 |
 | 2026-03-09 | 3d2e0b52a7b2c2cfa708667b2af97454 | jf.raymond@steamatic.ca | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 7 (1/6) | 0 | 1 | 1 |
 | 2026-03-09 | c7a9224c62a07b6d7fb143b5cd0365a0 | tony@servpro9332.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 10 (1/9) | 21 | 3 | 1 |
@@ -141,6 +143,63 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5760e707e6465a1ccb2de77054d196f3 -- 2026-03-10 -- v2026.09.3
+
+**User:** jrod.swan@gmail.com | **Time:** 1m 1s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- [Kitchen] has no measurements available - room dimensions required for complete scope.
+
+**Affected Room Without Photos** (1):
+
+- Office
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using non_beneficial (hydro value) - agreement with observed assessment (no built-in system detected)
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 equipment sizing conflict(s); 1 measurement validation warning(s); 1 affected room(s) without photos.
+
+---
+
+## 98b53769c4bb0566db1d070e9bb89f08 -- 2026-03-09 -- v2026.09.3
+
+**User:** sfisher@puroclean.ca | **Time:** 1m 32s
+**Rooms:** 12 total (3 affected, 9 unaffected) | **Photos:** 63 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Back Room has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Back Room
+- Office
+- Bathroom
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Office; materials_array_flooring: Laminate Flooring, Hardwood Flooring, Vinyl Flooring, Tile Flooring; room_elements_flooring: Laminate, hardwood, vinyl, and tile flooring confirmed via room elements and damage_summary; resolution: Multiple flooring types confirmed in elements and damage_summary for Office. Generated tasks for all confirmed installed floorings.
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 5c3fefd5b22419bceb63c571f47a7396 -- 2026-03-09 -- v2026.09.3
 
