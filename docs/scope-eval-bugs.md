@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 16:47 UTC | **Traces with Issues:** 193 | **Total Issues:** 1512
+**Last Updated:** 2026-03-10 17:15 UTC | **Traces with Issues:** 195 | **Total Issues:** 1526
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 4d98703808b25f79647fd642036550df | corey.benjamin@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (5/6) | 54 | 7 | 1 |
+| 2026-03-10 | a7dc85a9e8736f645038743ffcb27c89 | nadiia.kaverina@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 39 | 5 | 1 |
 | 2026-03-10 | 577fbd802fff988c51112453cbe3e96a | akunze@zeusrestoration.com | 20 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 15 (7/8) | 112 | 14 | 1 |
 | 2026-03-10 | 1fc62c81463468a5b70de5dd118f5bc1 | aiden.wade@restoration1.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 10 (7/3) | 23 | 8 | 1 |
 | 2026-03-10 | 61eab0751dbe5a83081986e873181ccd | jim.beveridge@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (2/7) | 71 | 15 | 1 |
@@ -204,6 +206,61 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 4d98703808b25f79647fd642036550df -- 2026-03-10 -- v2026.09.3
+
+**User:** corey.benjamin@ca.belfor.com | **Time:** 2m 19s
+**Rooms:** 11 total (5 affected, 6 unaffected) | **Photos:** 54 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Entry has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Entry
+- Kitchen
+- Bathroom
+- Living Room
+- Primary Bedroom
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## a7dc85a9e8736f645038743ffcb27c89 -- 2026-03-10 -- v2026.09.3
+
+**User:** nadiia.kaverina@ca.belfor.com | **Time:** 1m 14s
+**Rooms:** 5 total (1 affected, 4 unaffected) | **Photos:** 39 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Entrance
+- Hallway
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 577fbd802fff988c51112453cbe3e96a -- 2026-03-10 -- v2026.09.3
 
