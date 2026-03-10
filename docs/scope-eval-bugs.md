@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 22:41 UTC | **Traces with Issues:** 231 | **Total Issues:** 1864
+**Last Updated:** 2026-03-10 23:04 UTC | **Traces with Issues:** 234 | **Total Issues:** 1884
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | e9173b8bdf534654668eeea1256b3d39 | corey.benjamin@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (7/2) | 100 | 11 | 0 |
+| 2026-03-10 | 63b1ce8c996f81942fc281aad7d642c2 | tammy.gemmill@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (6/8) | 195 | 17 | 5 |
+| 2026-03-10 | a153fac55493adce2cb282b28c2c09e8 | tony@servpro9332.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 3 (2/1) | 70 | 5 | 1 |
 | 2026-03-10 | 522ca77ea108665f5dc8535d82e7f4fc | ashley.platt@ca.belfor.com | 1 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 8 (4/4) | 83 | 11 | 1 |
 | 2026-03-10 | 6850ee640dbb406da87f199ba9160c19 | tammy.gemmill@ca.belfor.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 17 (3/14) | 161 | 15 | 6 |
 | 2026-03-10 | 05ef7a2665fddf41acf133999e62bcae | derek.kryjak@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (0/5) | 61 | 6 | 0 |
@@ -242,6 +245,90 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e9173b8bdf534654668eeea1256b3d39 -- 2026-03-10 -- v2026.09.3
+
+**User:** corey.benjamin@ca.belfor.com | **Time:** 3m 7s
+**Rooms:** 9 total (7 affected, 2 unaffected) | **Photos:** 100 | **Notes:** 11 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Source has no measurements available - room dimensions required for complete scope.
+- Initial Photos has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Source
+- Initial Photos
+
+**Material Mismatch** (6):
+
+- [INFO] room_name: Landing; materials_array_flooring: Laminate Flooring, Vinyl Flooring, Stone Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl and Stone are meter setting artifacts and were ignored.
+- [INFO] room_name: Kitchen; materials_array_flooring: Laminate Flooring, Vinyl Flooring; room_elements_flooring: Laminate Flooring, Vinyl Flooring (localized area only); resolution: Laminate used as main flooring. Vinyl used only for localized area per elements.
+- [INFO] room_name: Living Room; materials_array_flooring: Laminate Flooring, Vinyl Flooring, Stone Flooring, Tile Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Stone, Tile and Vinyl are meter setting artifacts or area transitions.
+- [INFO] room_name: Back Shop; materials_array_flooring: Concrete; room_elements_flooring: Concrete Flooring; resolution: Used Concrete Flooring (confirmed).
+- [INFO] room_name: Storage; materials_array_flooring: Laminate Flooring; room_elements_flooring: Laminate Flooring; resolution: Laminate confirmed as main flooring.
+- [INFO] room_name: Back Closet; materials_array_flooring: Tile Flooring, Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Laminate is a meter setting artifact, not installed material.
+
+### Assessment
+
+The system detected 10 data quality issue(s): 6 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 63b1ce8c996f81942fc281aad7d642c2 -- 2026-03-10 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 2m 44s
+**Rooms:** 14 total (6 affected, 8 unaffected) | **Photos:** 195 | **Notes:** 17 | **Floor Plans:** 5
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- [Exterior] has no measurements available - room dimensions required for complete scope.
+- [Moisture Map] has no measurements available - room dimensions required for complete scope.
+- [Notes] has no measurements available - room dimensions required for complete scope.
+- [Kitchen] has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Exterior
+- Moisture Map
+- Notes
+- Kitchen
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## a153fac55493adce2cb282b28c2c09e8 -- 2026-03-10 -- v2026.09.3
+
+**User:** tony@servpro9332.com | **Time:** 1m 54s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 70 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Hallway
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 522ca77ea108665f5dc8535d82e7f4fc -- 2026-03-10 -- v2026.09.3
 
