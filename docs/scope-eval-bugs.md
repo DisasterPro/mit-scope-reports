@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 18:12 UTC | **Traces with Issues:** 203 | **Total Issues:** 1611
+**Last Updated:** 2026-03-10 18:48 UTC | **Traces with Issues:** 207 | **Total Issues:** 1645
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | ca081deb48522625244e114c7f39bc26 | nathan.ramsey@rotorooterindiana.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (1/1) | 34 | 5 | 1 |
+| 2026-03-10 | 230d185e5833d5ca40cfc4779f22f30f | kris_walsh_11@yahoo.ca | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (2/3) | 58 | 7 | 0 |
+| 2026-03-10 | 11f806af60d038d6d07a25426a1b33b5 | kristy.persson+hub@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 10 (1/9) | 92 | 13 | 1 |
+| 2026-03-10 | b17930c3a3753562d3665582730b4606 | dylanclimie@live.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 20 (7/13) | 89 | 12 | 1 |
 | 2026-03-10 | f98df23d520c7fe757291947939b972d | blake.goulding@ca.belfor.com | 4 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 4 (4/0) | 0 | 1 | 1 |
 | 2026-03-10 | a0fa6d61c50b69928310a7cd286fb2dc | coyne.borree@guardianrestoration.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 31 | 3 | 0 |
 | 2026-03-10 | def14ee13a10ebad28ada398652beaef | dylanclimie@live.com | 11 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (7/1) | 103 | 10 | 1 |
@@ -214,6 +218,124 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## ca081deb48522625244e114c7f39bc26 -- 2026-03-10 -- v2026.09.3
+
+**User:** nathan.ramsey@rotorooterindiana.com | **Time:** 1m 7s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 34 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Family Room volume calculated using assumed 8 ft ceiling height.
+- Family Room has measurements available from floor plan.
+- Downstairs Bathroom has no measurements available - room dimensions required for complete scope.
+- Family Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Downstairs Bathroom
+- Family Room
+
+### Assessment
+
+The system detected 6 data quality issue(s): 4 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 230d185e5833d5ca40cfc4779f22f30f -- 2026-03-10 -- v2026.09.3
+
+**User:** kris_walsh_11@yahoo.ca | **Time:** 1m 32s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 58 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- The Bathroom Vanity Measurements 30×21 has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Basement
+- Bathroom
+- The Bathroom Vanity Measurements 30×21
+- Exterior
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 11f806af60d038d6d07a25426a1b33b5 -- 2026-03-10 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 38s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 92 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Breezeway has no measurements available - room dimensions required for complete scope.
+- March 9 Eq has no measurements available - room dimensions required for complete scope.
+- Readings has no measurements available - room dimensions required for complete scope.
+- Post Tearout has no measurements available - room dimensions required for complete scope.
+- Eq has no measurements available - room dimensions required for complete scope.
+- Interior has no measurements available - room dimensions required for complete scope.
+- Roof has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Breezeway
+- March 9 Eq
+- Readings
+- Post Tearout
+- Eq
+- Interior
+- Roof
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## b17930c3a3753562d3665582730b4606 -- 2026-03-10 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 2m 18s
+**Rooms:** 20 total (7 affected, 13 unaffected) | **Photos:** 89 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Values matched; using Fairly Open (hydro value) as confirmed by structural review.
+- [NONE] factor: Construction; hydro_assessment: HighEnd; structural_analysis: high_end; resolution: Values matched; using High-End (hydro value) as confirmed by finishes and build quality.
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Values matched; using Non-Beneficial (hydro value) as no operable built-in HVAC observed.
+- [NONE] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral_tight; resolution: Values matched; using Neutral Tight (composite hydro and structural assessment confirmed for weather and envelope tightness).
+
+### Assessment
+
+The system detected 6 data quality issue(s): 4 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## f98df23d520c7fe757291947939b972d -- 2026-03-10 -- v2026.09.3
 
