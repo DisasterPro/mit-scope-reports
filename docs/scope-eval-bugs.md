@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 17:15 UTC | **Traces with Issues:** 195 | **Total Issues:** 1526
+**Last Updated:** 2026-03-10 17:44 UTC | **Traces with Issues:** 198 | **Total Issues:** 1564
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 91cb2357873c8e4a9d1801178576d73e | kristy.persson+hub@ca.belfor.com | 16 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (1/8) | 92 | 13 | 1 |
+| 2026-03-10 | 1850f37427782510ba7b5f0afb8952cd | dwoods@encircleapp.com | 13 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 91 | 8 | 0 |
+| 2026-03-10 | 4b6b7751fe014ac0a16fee28aacf9feb | phil.maurer@restoration1.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (2/10) | 23 | 5 | 2 |
 | 2026-03-10 | 4d98703808b25f79647fd642036550df | corey.benjamin@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (5/6) | 54 | 7 | 1 |
 | 2026-03-10 | a7dc85a9e8736f645038743ffcb27c89 | nadiia.kaverina@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 39 | 5 | 1 |
 | 2026-03-10 | 577fbd802fff988c51112453cbe3e96a | akunze@zeusrestoration.com | 20 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 15 (7/8) | 112 | 14 | 1 |
@@ -206,6 +209,114 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 91cb2357873c8e4a9d1801178576d73e -- 2026-03-10 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 52s
+**Rooms:** 9 total (1 affected, 8 unaffected) | **Photos:** 92 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Breezeway has no measurements available - room dimensions required for complete scope.
+- Containment has no measurements available - room dimensions required for complete scope.
+- Eq has no measurements available - room dimensions required for complete scope.
+- Post Tearout has no measurements available - room dimensions required for complete scope.
+- Readings has no measurements available - room dimensions required for complete scope.
+- March 9 Eq has no measurements available - room dimensions required for complete scope.
+- Interior has no measurements available - room dimensions required for complete scope.
+- Roof has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Breezeway
+- Containment
+- Eq
+- Post Tearout
+- Readings
+- March 9 Eq
+- Interior
+- Roof
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
+## 1850f37427782510ba7b5f0afb8952cd -- 2026-03-10 -- v2026.09.3
+
+**User:** dwoods@encircleapp.com | **Time:** 1m 55s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 91 | **Notes:** 8 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Discrepancy** (2):
+
+- [MODERATE] room_name: Kitchen; description_material: Flooring; photo_material: Hardwood Flooring; moisture_material: None; resolution: Using Hardwood Flooring from property images as photo evidence supersedes technician notes.
+- [MODERATE] room_name: New Kitchen Test; description_material: Flooring; photo_material: Tile Flooring; moisture_material: None; resolution: Using Tile Flooring from property images as visual evidence supersedes technician notes.
+
+**Measurement Warning** (5):
+
+- Cellar has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- New Kitchen Test has no measurements available - room dimensions required for complete scope.
+- Attic has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Cellar
+- Kitchen
+- New Kitchen Test
+- Attic
+- Basement
+
+**Affected Room Without Photos** (1):
+
+- Cellar
+
+### Assessment
+
+The system detected 13 data quality issue(s): 2 material discrepancy(ies) between photos and descriptions; 5 measurement validation warning(s); 5 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 4b6b7751fe014ac0a16fee28aacf9feb -- 2026-03-10 -- v2026.09.3
+
+**User:** phil.maurer@restoration1.com | **Time:** 1m 31s
+**Rooms:** 12 total (2 affected, 10 unaffected) | **Photos:** 23 | **Notes:** 5 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [MODERATE] field: water_category; iicrc_recommended: 2; user_specified: 0; justification: No category documented in claim notes; IICRC recommends assigning Category 2 precautionary when the source of loss is unknown.; source: Merge.jinja2 guidelines override; impact: Tasks will follow Category 2 protocols (standard PPE, containment, antimicrobial treatment) instead of no mitigation protocols.
+
+**Measurement Warning** (4):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Breakfast Nook has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Living Room
+- Breakfast Nook
+- Bathroom
+- Kitchen
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 IICRC standard deviation(s) were flagged; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 4d98703808b25f79647fd642036550df -- 2026-03-10 -- v2026.09.3
 
