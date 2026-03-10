@@ -3,12 +3,21 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 19:42 UTC | **Traces with Issues:** 211 | **Total Issues:** 1672
+**Last Updated:** 2026-03-10 20:07 UTC | **Traces with Issues:** 220 | **Total Issues:** 1745
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | f7b1ff2c9878dd89558db2744f131905 | roger.lough@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 43 | 6 | 0 |
+| 2026-03-10 | bf4ff8756d8e4d2388f1bcb48c6dded2 | greg.janse@ca.belfor.com | 3 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 13 (5/8) | 0 | 0 | 0 |
+| 2026-03-10 | f8d1d7c4a2ec9ace960abb985321e6cf | robert.chapman@us.belfor.com | 12 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (0/7) | 58 | 8 | 0 |
+| 2026-03-10 | cb06ae002948630011a301e7bcb15f08 | robert.chapman@us.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 154 | 7 | 0 |
+| 2026-03-10 | e7065b569aed74d0facc110e963135ec | robert.chapman@us.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (6/1) | 140 | 8 | 0 |
+| 2026-03-10 | 24f1149a3a871fe68051a13c7f1b138b | robert.chapman@us.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 205 | 6 | 0 |
+| 2026-03-10 | a882222e8b69c082b4acf92e8f696161 | robert.chapman@us.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 108 | 6 | 0 |
+| 2026-03-10 | e405b1df3bd817b293931698a65fe61c | nate.r@restoration1.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (3/6) | 135 | 8 | 1 |
+| 2026-03-10 | bea92c5619924a19585167fe93cedfa4 | absolutecleanpres@gmail.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (2/4) | 0 | 1 | 2 |
 | 2026-03-10 | 559c64fce7e275f261e99ba772e563e9 | harleen.harleen+hamilton@ca.belfor.com | 9 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (1/3) | 34 | 6 | 0 |
 | 2026-03-10 | 5776f673d0ff96272904ed5db22dd097 | mark.heinemann@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 86 | 7 | 0 |
 | 2026-03-10 | 1d65eb17bae00bd509af875c3fb59719 | aiden.wade@restoration1.com | 1 | 3/5 Adequate | 5/5 Healthy | 4/5 Minor | 2 (2/0) | 7 | 3 | 0 |
@@ -222,6 +231,260 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## f7b1ff2c9878dd89558db2744f131905 -- 2026-03-10 -- v2026.09.3
+
+**User:** roger.lough@ca.belfor.com | **Time:** 1m 58s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 43 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Recreation Room
+- Laundry Room
+- Hallway
+- Stairs
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## bf4ff8756d8e4d2388f1bcb48c6dded2 -- 2026-03-10 -- v2026.09.3
+
+**User:** greg.janse@ca.belfor.com | **Time:** 3m 23s
+**Rooms:** 13 total (5 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Missing Measurements** (3):
+
+- Sub Pump
+- Entrance
+- Front Of Loss
+
+### Assessment
+
+The system detected 3 data quality issue(s): 3 room(s) with missing measurements.
+
+---
+
+## f8d1d7c4a2ec9ace960abb985321e6cf -- 2026-03-10 -- v2026.09.3
+
+**User:** robert.chapman@us.belfor.com | **Time:** 1m 33s
+**Rooms:** 7 total (0 affected, 7 unaffected) | **Photos:** 58 | **Notes:** 8 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Overview Photos has no measurements available - room dimensions required for complete scope.
+- Bullpen has no measurements available - room dimensions required for complete scope.
+- File Room has no measurements available - room dimensions required for complete scope.
+- Office 1 has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Overview Photos
+- Bullpen
+- File Room
+- Office 1
+- Hallway
+- Exterior
+
+### Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
+## cb06ae002948630011a301e7bcb15f08 -- 2026-03-10 -- v2026.09.3
+
+**User:** robert.chapman@us.belfor.com | **Time:** 1m 34s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 154 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Overview has no measurements available - room dimensions required for complete scope.
+- Bullpen has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Paperwork Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Overview
+- Bullpen
+- Office
+- Hallway
+- Paperwork Room
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## e7065b569aed74d0facc110e963135ec -- 2026-03-10 -- v2026.09.3
+
+**User:** robert.chapman@us.belfor.com | **Time:** 2m 38s
+**Rooms:** 7 total (6 affected, 1 unaffected) | **Photos:** 140 | **Notes:** 8 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Bullpen has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- File Room has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Overview has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Bullpen
+- Hallway
+- File Room
+- Office
+- Overview
+- Kitchen
+- Exterior
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## 24f1149a3a871fe68051a13c7f1b138b -- 2026-03-10 -- v2026.09.3
+
+**User:** robert.chapman@us.belfor.com | **Time:** 2m 1s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 205 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bullpin has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Office 1 has no measurements available - room dimensions required for complete scope.
+- File Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bullpin
+- Hallway
+- Office 1
+- File Room
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## a882222e8b69c082b4acf92e8f696161 -- 2026-03-10 -- v2026.09.3
+
+**User:** robert.chapman@us.belfor.com | **Time:** 1m 32s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 108 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bullpen has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- File Room has no measurements available - room dimensions required for complete scope.
+- Office 1 has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bullpen
+- Hallway
+- File Room
+- Office 1
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## e405b1df3bd817b293931698a65fe61c -- 2026-03-10 -- v2026.09.3
+
+**User:** nate.r@restoration1.com | **Time:** 2m 40s
+**Rooms:** 9 total (3 affected, 6 unaffected) | **Photos:** 135 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Under Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Stairs
+- Entry
+- Under Stairs
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## bea92c5619924a19585167fe93cedfa4 -- 2026-03-10 -- v2026.09.3
+
+**User:** absolutecleanpres@gmail.com | **Time:** 0m 52s
+**Rooms:** 6 total (2 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Sensory Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Sensory Room
+
+**Affected Room Without Photos** (2):
+
+- Basement
+- Sensory Room
+
+### Assessment
+
+The system detected 4 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
 
 ## 559c64fce7e275f261e99ba772e563e9 -- 2026-03-10 -- v2026.09.3
 
