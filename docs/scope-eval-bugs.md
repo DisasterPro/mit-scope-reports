@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 23:04 UTC | **Traces with Issues:** 234 | **Total Issues:** 1884
+**Last Updated:** 2026-03-10 23:39 UTC | **Traces with Issues:** 236 | **Total Issues:** 1889
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | c23d760ed8f73a87e692f3f87e621280 | tammy.gemmill@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (6/6) | 62 | 13 | 2 |
+| 2026-03-10 | 68615e889d09b97e6eab1b37dce7505e | tammy.gemmill@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 13 (5/8) | 62 | 13 | 2 |
 | 2026-03-10 | e9173b8bdf534654668eeea1256b3d39 | corey.benjamin@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (7/2) | 100 | 11 | 0 |
 | 2026-03-10 | 63b1ce8c996f81942fc281aad7d642c2 | tammy.gemmill@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (6/8) | 195 | 17 | 5 |
 | 2026-03-10 | a153fac55493adce2cb282b28c2c09e8 | tony@servpro9332.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 3 (2/1) | 70 | 5 | 1 |
@@ -245,6 +247,49 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## c23d760ed8f73a87e692f3f87e621280 -- 2026-03-10 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 2m 3s
+**Rooms:** 12 total (6 affected, 6 unaffected) | **Photos:** 62 | **Notes:** 13 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Entry has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Loft has no measurements available - room dimensions required for complete scope.
+
+### Assessment
+
+The system detected 3 data quality issue(s): 3 measurement validation warning(s).
+
+---
+
+## 68615e889d09b97e6eab1b37dce7505e -- 2026-03-10 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 2m 48s
+**Rooms:** 13 total (5 affected, 8 unaffected) | **Photos:** 62 | **Notes:** 13 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Cat Walk has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Cat Walk
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## e9173b8bdf534654668eeea1256b3d39 -- 2026-03-10 -- v2026.09.3
 
