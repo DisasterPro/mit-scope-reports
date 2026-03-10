@@ -103,6 +103,25 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-09 (Daily)
+**Generated:** 2026-03-10 05:26 UTC | **Period:** 1d (2026-03-09 to 2026-03-10)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 122 |
+| Unique Organizations | 27 |
+| Unique Users | 63 |
+| Total Cost | $75.21 |
+| Average Cost / Scope | $0.62 |
+
+**Top Users:** kay.cayuga+owensound@ca.belfor.com (8), troy.nicholson+collingwood@ca.belfor.com (7), paul@rockemergency.com (7), bchristie+scopeai@encircleapp.com (7), trey@atlassoo.com (5)
+
+**Top Orgs:** BELFOR Canada (64), Encircle (internal) (8), Rockemergency (7), Atlassoo (5), jrod.swan@gmail.com (4)
+
+**Cost Outliers:** 7 users with avg > $1.00/scope
+
+---
+
 ### 2026-03-08 (Daily)
 **Generated:** 2026-03-09 20:35 UTC | **Period:** 1d (2026-03-08 to 2026-03-09)
 

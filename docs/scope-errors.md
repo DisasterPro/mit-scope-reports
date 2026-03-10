@@ -95,6 +95,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-09 (Daily)
+**Generated:** 2026-03-10 05:26 UTC | **Period:** 1d (2026-03-09 to 2026-03-10)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 122 |
+| Error Traces | 3 (2.5%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| ImageProcessingError | Description | 1 | -- |
+| EarlyPipelineError | Merge | 1 | -- |
+| Other | Assembly | 1 | -- |
+
+**Affected Users:** chris.allen@us.belfor.com (1x ImageProcessingError), baney.parker@gmail.com (1x EarlyPipelineError), kay.cayuga+owensound@ca.belfor.com (1x Other)
+
+---
+
 ### 2026-03-08 (Daily)
 **Generated:** 2026-03-09 20:35 UTC | **Period:** 1d (2026-03-08 to 2026-03-09)
 

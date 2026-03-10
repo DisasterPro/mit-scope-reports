@@ -98,6 +98,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-09 (Daily)
+**Generated:** 2026-03-10 05:26 UTC | **Period:** 1d (2026-03-09 to 2026-03-10) | **Traces:** 122
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.62 | 171.4s |
+| Median | $0.47 | 127.3s |
+| P75 | $0.71 | 187.1s |
+| P95 | $1.68 | 369.0s |
+| Min | $0.06 | 21.3s |
+| Max | $2.88 | 1293.5s |
+
+**Top Cost Users:** jennifer.rousseau@us.belfor.com ($2.88), josh.serna@us.belfor.com ($1.79), garciatanner81@gmail.com ($1.67)
+
+**Top Latency Users:** trey@atlassoo.com (626s), fusionxp2@gmail.com (562s), garciatanner81@gmail.com (460s)
+
+---
+
 ### 2026-03-08 (Daily)
 **Generated:** 2026-03-09 20:35 UTC | **Period:** 1d (2026-03-08 to 2026-03-09) | **Traces:** 98
 
