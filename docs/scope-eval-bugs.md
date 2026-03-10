@@ -3,12 +3,19 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 14:45 UTC | **Traces with Issues:** 172 | **Total Issues:** 1405
+**Last Updated:** 2026-03-10 15:16 UTC | **Traces with Issues:** 179 | **Total Issues:** 1440
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | cf1014bb22158b2c58c55f6b191660c7 | rick.deckert@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 3 (3/0) | 56 | 6 | 1 |
+| 2026-03-10 | c2a19bd96b40866109ef6b402b44fe93 | fusionxp2@gmail.com | 6 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 7 | 4 | 0 |
+| 2026-03-10 | e68e1abb411dd7243aeb993ad40a635f | jf.raymond@steamatic.ca | 1 | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 10 (1/9) | 0 | 1 | 3 |
+| 2026-03-10 | 08aed3c95c57f2b721313ceb48c1886b | rick.deckert@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (7/3) | 94 | 12 | 2 |
+| 2026-03-10 | a0edd4cfde7ac390ee71a3217403a688 | lesley.mele@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 10 (2/8) | 74 | 9 | 1 |
+| 2026-03-10 | 696591ce26495c0b955793b47cd9cd9f | dylanclimie@live.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (7/1) | 108 | 10 | 1 |
+| 2026-03-10 | 94eef0c9ccba225a7479d2587cf11588 | rick.deckert@ca.belfor.com | 11 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 14 (14/0) | 0 | 1 | 2 |
 | 2026-03-10 | a6d2b56ae3fd57d23eb5b2f79fb1f685 | kay.cayuga+owensound@ca.belfor.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (4/5) | 130 | 3 | 2 |
 | 2026-03-10 | 759b52df02a2bc9fb30ad788673d61ad | rick.deckert@ca.belfor.com | 18 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 19 (9/10) | 112 | 15 | 1 |
 | 2026-03-10 | 88c0dca4aff556f0230a680834c93570 | dylanclimie@live.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (7/4) | 108 | 10 | 1 |
@@ -183,6 +190,179 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## cf1014bb22158b2c58c55f6b191660c7 -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 1m 55s
+**Rooms:** 3 total (3 affected, 0 unaffected) | **Photos:** 56 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Crawlspace has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Crawlspace
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## c2a19bd96b40866109ef6b402b44fe93 -- 2026-03-10 -- v2026.09.3
+
+**User:** fusionxp2@gmail.com | **Time:** 1m 31s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 7 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Bathroom 2Nd Floor Master has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Dining Room
+- Bathroom 2Nd Floor Master
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## e68e1abb411dd7243aeb993ad40a635f -- 2026-03-10 -- v2026.09.3
+
+**User:** jf.raymond@steamatic.ca | **Time:** 1m 14s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 3
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 affected room(s) without photos.
+
+---
+
+## 08aed3c95c57f2b721313ceb48c1886b -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 4m 55s
+**Rooms:** 10 total (7 affected, 3 unaffected) | **Photos:** 94 | **Notes:** 12 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- [Basement] volume calculated using assumed 8 ft ceiling height.
+- [Shop] volume calculated using assumed 8 ft ceiling height.
+- [Storage] volume calculated using assumed 8 ft ceiling height.
+- [Bathroom] volume calculated using assumed 8 ft ceiling height.
+- [Bedroom] volume calculated using assumed 8 ft ceiling height.
+- [Furnace Room] volume calculated using assumed 8 ft ceiling height.
+- [Hallway] volume calculated using assumed 8 ft ceiling height.
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 8 data quality issue(s): 1 material mismatch(es) between room data sources; 7 measurement validation warning(s).
+
+---
+
+## a0edd4cfde7ac390ee71a3217403a688 -- 2026-03-10 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 2m 7s
+**Rooms:** 10 total (2 affected, 8 unaffected) | **Photos:** 74 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Dining Room
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 696591ce26495c0b955793b47cd9cd9f -- 2026-03-10 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 4m 9s
+**Rooms:** 8 total (7 affected, 1 unaffected) | **Photos:** 108 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Foyer
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (agreement with technician assessment and structural evidence).
+- [NONE] factor: Construction Quality; hydro_assessment: HighEnd; structural_analysis: high_end; resolution: Using High-End (agreement with technician assessment and observed finishes and assembly).
+- [NONE] factor: HVAC; hydro_assessment: Yes; structural_analysis: beneficial; resolution: Using Beneficial (built-in HVAC present per fixtures and description).
+- [NONE] factor: Weather/Envelope; hydro_assessment: Neutral/Tight; structural_analysis: neutral_tight; resolution: Using Neutral/Tight (agreement with moisture monitoring and property info).
+
+### Assessment
+
+The system detected 5 data quality issue(s): 4 equipment sizing conflict(s); 1 room(s) with missing measurements.
+
+---
+
+## 94eef0c9ccba225a7479d2587cf11588 -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 2m 24s
+**Rooms:** 14 total (14 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- MeasurementImages floor plan validation failed - area discrepancy is 605.5 SF. Field verification required.
+
+**Affected Room Without Photos** (10):
+
+- Basement
+- Laundry Room
+- Bedroom 2
+- Bedroom
+- Hall
+- Furnace Room
+- Bathroom
+- Workshop
+- Storage Room
+- Bath
+
+### Assessment
+
+The system detected 11 data quality issue(s): 1 measurement validation warning(s); 10 affected room(s) without photos.
+
+---
+
 
 ## a6d2b56ae3fd57d23eb5b2f79fb1f685 -- 2026-03-10 -- v2026.09.3
 
