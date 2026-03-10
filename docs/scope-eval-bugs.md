@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 18:48 UTC | **Traces with Issues:** 207 | **Total Issues:** 1645
+**Last Updated:** 2026-03-10 19:14 UTC | **Traces with Issues:** 210 | **Total Issues:** 1663
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 5776f673d0ff96272904ed5db22dd097 | mark.heinemann@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 86 | 7 | 0 |
+| 2026-03-10 | 1d65eb17bae00bd509af875c3fb59719 | aiden.wade@restoration1.com | 1 | 3/5 Adequate | 5/5 Healthy | 4/5 Minor | 2 (2/0) | 7 | 3 | 0 |
+| 2026-03-10 | 18cea50b2ba8b298d9dc27d53d08919e | tristan.randolph@rs1967.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (6/3) | 88 | 10 | 1 |
 | 2026-03-10 | ca081deb48522625244e114c7f39bc26 | nathan.ramsey@rotorooterindiana.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (1/1) | 34 | 5 | 1 |
 | 2026-03-10 | 230d185e5833d5ca40cfc4779f22f30f | kris_walsh_11@yahoo.ca | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (2/3) | 58 | 7 | 0 |
 | 2026-03-10 | 11f806af60d038d6d07a25426a1b33b5 | kristy.persson+hub@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 10 (1/9) | 92 | 13 | 1 |
@@ -218,6 +221,82 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5776f673d0ff96272904ed5db22dd097 -- 2026-03-10 -- v2026.09.3
+
+**User:** mark.heinemann@ca.belfor.com | **Time:** 2m 35s
+**Rooms:** 6 total (6 affected, 0 unaffected) | **Photos:** 86 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Bathroom
+- Bedroom 2
+- Utility Room
+- Family Room
+- Bedroom
+- Exterior
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring, Tile Flooring, Vinyl Flooring, Hardwood Flooring; room_elements_flooring: Laminate, Tile, Vinyl, and Hardwood flooring; resolution: Used all confirmed flooring types (per elements field and images) for removal and affected_materials. No cross-room artifacts present.
+- [INFO] room_name: Bedroom 2; materials_array_flooring: Carpet; room_elements_flooring: Carpet and Carpet Pad; resolution: Used only Carpet (primary installed floor per elements and images). No other flooring removal tasks generated. No meter artifacts found.
+- [INFO] room_name: Family Room; materials_array_flooring: Hardwood Flooring, Laminate Flooring, Concrete; room_elements_flooring: Hardwood and laminate flooring, concrete floor; resolution: Used all confirmed flooring types (per elements and images). No meter artifacts present.
+- [INFO] room_name: Bedroom; materials_array_flooring: Carpet, Laminate Flooring; room_elements_flooring: Carpet and pad, laminate flooring; resolution: Used only Carpet and Laminate as confirmed in elements/notes. No meter artifacts present.
+
+### Assessment
+
+The system detected 16 data quality issue(s): 4 material mismatch(es) between room data sources; 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
+## 1d65eb17bae00bd509af875c3fb59719 -- 2026-03-10 -- v2026.09.3
+
+**User:** aiden.wade@restoration1.com | **Time:** 1m 3s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 7 | **Notes:** 3 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Basement; materials_array_flooring: Floor; room_elements_flooring: Floor (water extraction required); resolution: Confirmed installed flooring is 'Floor' as referenced for weighted extraction; used this for extraction/removal. No conflict as both align.
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 material mismatch(es) between room data sources.
+
+---
+
+## 18cea50b2ba8b298d9dc27d53d08919e -- 2026-03-10 -- v2026.09.3
+
+**User:** tristan.randolph@rs1967.com | **Time:** 3m 16s
+**Rooms:** 9 total (6 affected, 3 unaffected) | **Photos:** 88 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Entry
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
 
 ## ca081deb48522625244e114c7f39bc26 -- 2026-03-10 -- v2026.09.3
 
