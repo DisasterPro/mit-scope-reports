@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 00:02 UTC | **Traces with Issues:** 132 | **Total Issues:** 1091
+**Last Updated:** 2026-03-10 00:49 UTC | **Traces with Issues:** 133 | **Total Issues:** 1100
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 9c4b42029b92ae7eb57fd765a09ff51c | sfisher@puroclean.ca | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (3/6) | 63 | 9 | 1 |
 | 2026-03-10 | 5760e707e6465a1ccb2de77054d196f3 | jrod.swan@gmail.com | 3 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 7 (2/5) | 0 | 0 | 0 |
 | 2026-03-09 | 98b53769c4bb0566db1d070e9bb89f08 | sfisher@puroclean.ca | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (3/9) | 63 | 9 | 1 |
 | 2026-03-09 | 5c3fefd5b22419bceb63c571f47a7396 | yahsef@impeccable-restoration.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 20 (5/15) | 0 | 1 | 3 |
@@ -143,6 +144,39 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 9c4b42029b92ae7eb57fd765a09ff51c -- 2026-03-10 -- v2026.09.3
+
+**User:** sfisher@puroclean.ca | **Time:** 1m 45s
+**Rooms:** 9 total (3 affected, 6 unaffected) | **Photos:** 63 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Discrepancy** (1):
+
+- [MODERATE] room_name: Office; description_material: Laminate Flooring; photo_material: Hardwood Flooring; moisture_material: None; resolution: Using Hardwood Flooring (photo evidence confirms current installed flooring over laminate)
+
+**Measurement Warning** (4):
+
+- Back Room has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Cause Of Loss has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Back Room
+- Office
+- Bathroom
+- Cause Of Loss
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 5760e707e6465a1ccb2de77054d196f3 -- 2026-03-10 -- v2026.09.3
 
