@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 10:44 UTC | **Traces with Issues:** 140 | **Total Issues:** 1151
+**Last Updated:** 2026-03-10 11:10 UTC | **Traces with Issues:** 141 | **Total Issues:** 1157
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 482526a4934b9ef492b8f0935e7076bf | trey@atlassoo.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (2/4) | 73 | 3 | 1 |
 | 2026-03-10 | a238e4fb5380c6c54794a76c10f0c009 | rick.deckert@ca.belfor.com | 24 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (10/9) | 112 | 15 | 1 |
 | 2026-03-10 | 41017502c6152cb49e134a326219ea74 | andrew.santos@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (7/12) | 140 | 13 | 2 |
 | 2026-03-10 | 8f51cbdef39f2f3da87547a9b41e6ddf | anthonywilliams123456789@gmail.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 11 (2/9) | 124 | 5 | 2 |
@@ -151,6 +152,36 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 482526a4934b9ef492b8f0935e7076bf -- 2026-03-10 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 2m 2s
+**Rooms:** 6 total (2 affected, 4 unaffected) | **Photos:** 73 | **Notes:** 3 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Utility Room
+- Living Room
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Utility Room; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet, Vinyl Flooring; resolution: Used Carpet and Vinyl Flooring (confirmed in room). Tile is a meter setting, not installed material.
+- [INFO] room_name: Living Room; materials_array_flooring: Tile Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Tile is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## a238e4fb5380c6c54794a76c10f0c009 -- 2026-03-10 -- v2026.09.3
 
