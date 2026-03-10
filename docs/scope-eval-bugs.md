@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 03:16 UTC | **Traces with Issues:** 138 | **Total Issues:** 1119
+**Last Updated:** 2026-03-10 10:44 UTC | **Traces with Issues:** 140 | **Total Issues:** 1151
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | a238e4fb5380c6c54794a76c10f0c009 | rick.deckert@ca.belfor.com | 24 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (10/9) | 112 | 15 | 1 |
+| 2026-03-10 | 41017502c6152cb49e134a326219ea74 | andrew.santos@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 19 (7/12) | 140 | 13 | 2 |
 | 2026-03-10 | 8f51cbdef39f2f3da87547a9b41e6ddf | anthonywilliams123456789@gmail.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 11 (2/9) | 124 | 5 | 2 |
 | 2026-03-10 | 797b686d0f432e354a5d9e78068d1687 | jf.raymond@steamatic.ca | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 9 (1/8) | 0 | 1 | 1 |
 | 2026-03-10 | c86322e29e24ff0478718e5c4bc8c75b | trey@atlassoo.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 74 | 4 | 1 |
@@ -149,6 +151,77 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a238e4fb5380c6c54794a76c10f0c009 -- 2026-03-10 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 3m 2s
+**Rooms:** 19 total (10 affected, 9 unaffected) | **Photos:** 112 | **Notes:** 15 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (12):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Pump has no measurements available - room dimensions required for complete scope.
+- ...and 2 more
+
+**Missing Measurements** (12):
+
+- Primary Bathroom
+- Bathroom
+- Hallway
+- Living Room
+- Kitchen
+- Furnace Room
+- Entry
+- Storage
+- Primary Bedroom
+- Pump
+- ...and 2 more
+
+### Assessment
+
+The system detected 24 data quality issue(s): 12 measurement validation warning(s); 12 room(s) with missing measurements.
+
+---
+
+## 41017502c6152cb49e134a326219ea74 -- 2026-03-10 -- v2026.09.3
+
+**User:** andrew.santos@ca.belfor.com | **Time:** 5m 1s
+**Rooms:** 19 total (7 affected, 12 unaffected) | **Photos:** 140 | **Notes:** 13 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Washroom has no measurements available - room dimensions required for complete scope.
+- Crawl Space has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Washroom
+- Crawl Space
+- Living Room
+- Kitchen
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 8f51cbdef39f2f3da87547a9b41e6ddf -- 2026-03-10 -- v2026.09.3
 
