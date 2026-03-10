@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 00:49 UTC | **Traces with Issues:** 133 | **Total Issues:** 1100
+**Last Updated:** 2026-03-10 01:30 UTC | **Traces with Issues:** 135 | **Total Issues:** 1109
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-10 | 294736a3946be3f7647d45b2b998c093 | rjohnson@zeusrestoration.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
+| 2026-03-10 | 36a8fb7777ddeb1580bbf3835f735950 | sfisher@puroclean.ca | 6 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 8 (2/6) | 0 | 1 | 1 |
 | 2026-03-10 | 9c4b42029b92ae7eb57fd765a09ff51c | sfisher@puroclean.ca | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (3/6) | 63 | 9 | 1 |
 | 2026-03-10 | 5760e707e6465a1ccb2de77054d196f3 | jrod.swan@gmail.com | 3 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 7 (2/5) | 0 | 0 | 0 |
 | 2026-03-09 | 98b53769c4bb0566db1d070e9bb89f08 | sfisher@puroclean.ca | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (3/9) | 63 | 9 | 1 |
@@ -144,6 +146,62 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 294736a3946be3f7647d45b2b998c093 -- 2026-03-10 -- v2026.09.3
+
+**User:** rjohnson@zeusrestoration.com | **Time:** 0m 50s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+**Affected Room Without Photos** (1):
+
+- Kitchen
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 36a8fb7777ddeb1580bbf3835f735950 -- 2026-03-10 -- v2026.09.3
+
+**User:** sfisher@puroclean.ca | **Time:** 0m 44s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Office has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Office
+- Bathroom
+
+**Affected Room Without Photos** (2):
+
+- Office
+- Bathroom
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
 
 ## 9c4b42029b92ae7eb57fd765a09ff51c -- 2026-03-10 -- v2026.09.3
 
