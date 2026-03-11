@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 18:47 UTC | **Traces with Issues:** 298 | **Total Issues:** 2419
+**Last Updated:** 2026-03-11 19:15 UTC | **Traces with Issues:** 302 | **Total Issues:** 2472
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 80fc819d812053829961d931925fb714 | dylanclimie@live.com | 11 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (2/6) | 18 | 6 | 1 |
+| 2026-03-11 | 4a29fba87ec63699edb3d1b26839dbf6 | craig.dicks@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 14 (5/9) | 0 | 1 | 7 |
+| 2026-03-11 | 70a59e1e3d1c9a2b348f76f2f1080df1 | dylanclimie@live.com | 11 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (2/6) | 18 | 6 | 1 |
+| 2026-03-11 | 150cca7cd383ee49efc12652b629f914 | andy.whitehead+vancouver@ca.belfor.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 23 (6/17) | 193 | 18 | 2 |
 | 2026-03-11 | e8c787b280ef75c7de0a456c675e1c73 | robert@eproresponse.com | 20 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (12/0) | 41 | 11 | 1 |
 | 2026-03-11 | eb2de54da6f3cfbb8bbabd8c615e4498 | craig.dicks@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (5/10) | 89 | 8 | 7 |
 | 2026-03-11 | 5551caa9133af48245094406c0811b2d | dylanclimie@live.com | 4 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 7 (2/5) | 18 | 6 | 1 |
@@ -309,6 +313,149 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 80fc819d812053829961d931925fb714 -- 2026-03-11 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 1m 25s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 18 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Discrepancy** (1):
+
+- [MODERATE] room_name: Laundry Room; description_material: None; photo_material: Tile Flooring; moisture_material: None; resolution: Using Tile Flooring (photo evidence)
+
+**Measurement Warning** (5):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Cold Storage has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Recreation Room
+- Cold Storage
+- Laundry Room
+- Bedroom
+- Exterior
+
+### Assessment
+
+The system detected 11 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 4a29fba87ec63699edb3d1b26839dbf6 -- 2026-03-11 -- v2026.09.3
+
+**User:** craig.dicks@ca.belfor.com | **Time:** 2m 4s
+**Rooms:** 14 total (5 affected, 9 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 7
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Dining Room
+- Kitchen
+
+**Affected Room Without Photos** (5):
+
+- Bathroom
+- Dining Room
+- Kitchen
+- Basement
+- Foyer
+
+### Assessment
+
+The system detected 11 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 5 affected room(s) without photos.
+
+---
+
+## 70a59e1e3d1c9a2b348f76f2f1080df1 -- 2026-03-11 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 2m 15s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 18 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Discrepancy** (1):
+
+- [MINOR] room_name: Bedroom; description_material: Carpet; photo_material: Carpet; moisture_material: None; resolution: Minor differences in water staining patterns but visual and written evidence both support carpet as installed flooring. Technician judgment applied.
+
+**Measurement Warning** (5):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Cold Storage has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Laundry Room
+- Bedroom
+- Recreation Room
+- Cold Storage
+- Exterior
+
+### Assessment
+
+The system detected 11 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 150cca7cd383ee49efc12652b629f914 -- 2026-03-11 -- v2026.09.3
+
+**User:** andy.whitehead+vancouver@ca.belfor.com | **Time:** 5m 10s
+**Rooms:** 23 total (6 affected, 17 unaffected) | **Photos:** 193 | **Notes:** 18 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (10):
+
+- Basement Hallway has no measurements available - room dimensions required for complete scope.
+- Basement Laundry Room has no measurements available - room dimensions required for complete scope.
+- Basement Wash Room has no measurements available - room dimensions required for complete scope.
+- Main Floor Ensuite (Source) has no measurements available - room dimensions required for complete scope.
+- Main Floor Hallway has no measurements available - room dimensions required for complete scope.
+- Main Floor Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bath (Col) has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (10):
+
+- Basement Hallway
+- Basement Laundry Room
+- Basement Wash Room
+- Main Floor Ensuite (Source)
+- Main Floor Hallway
+- Main Floor Bathroom
+- Hallway
+- Laundry Room
+- Bath (Col)
+- Bathroom
+
+### Assessment
+
+The system detected 20 data quality issue(s): 10 measurement validation warning(s); 10 room(s) with missing measurements.
+
+---
+
 
 ## e8c787b280ef75c7de0a456c675e1c73 -- 2026-03-11 -- v2026.09.3
 
