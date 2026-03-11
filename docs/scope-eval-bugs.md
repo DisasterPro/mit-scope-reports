@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 22:39 UTC | **Traces with Issues:** 330 | **Total Issues:** 2750
+**Last Updated:** 2026-03-11 23:03 UTC | **Traces with Issues:** 333 | **Total Issues:** 2776
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | cda8fa6309fb3228b0e66ce9c53da6f8 | corey.benjamin@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 27 | 3 | 0 |
+| 2026-03-11 | 9652b08969e94b8c04d09bf629819889 | tristan.randolph@rs1967.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 108 | 10 | 1 |
+| 2026-03-11 | e51ccee85e4a45c9c0f9063fa4317e75 | darren.ball+chatham@ca.belfor.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (8/0) | 68 | 10 | 0 |
 | 2026-03-11 | 2fef4e9c2acf5a6998828f3b9abfae51 | arturo@nlsco.com | 6 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 0 | 1 | 0 |
 | 2026-03-11 | 683f6d4fa0f69f35585bc9211d7c97cb | adonahoo+rescuepro@encircleapp.com | 12 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 0 | 5 | 0 |
 | 2026-03-11 | 5a997c0cf2cd24e2eecb4a8d72898add | adonahoo+rescuepro@encircleapp.com | 9 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 3 (0/3) | 0 | 5 | 0 |
@@ -341,6 +344,99 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## cda8fa6309fb3228b0e66ce9c53da6f8 -- 2026-03-11 -- v2026.09.3
+
+**User:** corey.benjamin@ca.belfor.com | **Time:** 1m 19s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 27 | **Notes:** 3 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 9652b08969e94b8c04d09bf629819889 -- 2026-03-11 -- v2026.09.3
+
+**User:** tristan.randolph@rs1967.com | **Time:** 3m 5s
+**Rooms:** 9 total (6 affected, 3 unaffected) | **Photos:** 108 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Entry has no measurements available - room dimensions required for complete scope.
+- Hallway Closet has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Entry
+- Hallway Closet
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: Weather/Envelope; hydro_assessment: Unfavorable/Tight; structural_analysis: Unfavorable/Tight; resolution: Using unfavorable_tight per agreement between hydro and structural evidence; values match.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 1 equipment sizing conflict(s); 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## e51ccee85e4a45c9c0f9063fa4317e75 -- 2026-03-11 -- v2026.09.3
+
+**User:** darren.ball+chatham@ca.belfor.com | **Time:** 2m 7s
+**Rooms:** 8 total (8 affected, 0 unaffected) | **Photos:** 68 | **Notes:** 10 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Basement Living Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Office/Work Out has no measurements available - room dimensions required for complete scope.
+- Back Storage has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Cold Storage has no measurements available - room dimensions required for complete scope.
+- Closet has no measurements available - room dimensions required for complete scope.
+- Source has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Basement Living Room
+- Bathroom
+- Office/Work Out
+- Back Storage
+- Utility Room
+- Cold Storage
+- Closet
+- Source
+
+**Material Mismatch** (3):
+
+- [INFO] room_name: Basement Living Room; materials_array_flooring: Laminate Flooring, Vinyl Flooring, Hardwood Flooring; room_elements_flooring: Laminate Flooring, Vinyl Flooring, Hardwood Flooring; resolution: All three floorings listed in room elements as affected and requiring removal per technician description. Included all in affected_materials and tasks as confirmed installed and affected. No meter artifact present.
+- [INFO] room_name: Bathroom; materials_array_flooring: Vinyl Flooring, Hardwood Flooring; room_elements_flooring: Vinyl Flooring, Hardwood Flooring; resolution: Both vinyl and hardwood floorings listed as affected in room elements. Included both in affected_materials and tasks per evidence of multiple installed flooring types.
+- [INFO] room_name: Office/Work Out; materials_array_flooring: Laminate Flooring, Hardwood Flooring; room_elements_flooring: Laminate Flooring, Hardwood Flooring; resolution: Both laminate and hardwood floorings listed as affected in room elements. Included both as affected_materials and tasks as confirmed affected for area variations.
+
+### Assessment
+
+The system detected 19 data quality issue(s): 3 material mismatch(es) between room data sources; 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
 
 ## 2fef4e9c2acf5a6998828f3b9abfae51 -- 2026-03-11 -- v2026.09.3
 
