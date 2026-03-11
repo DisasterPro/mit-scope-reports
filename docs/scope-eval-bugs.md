@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 12:05 UTC | **Traces with Issues:** 249 | **Total Issues:** 1994
+**Last Updated:** 2026-03-11 12:45 UTC | **Traces with Issues:** 251 | **Total Issues:** 2013
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | be384b969bd4dc1d21b972084129c1f6 | guy.tiomkin@ca.belfor.com | 10 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (6/5) | 91 | 9 | 2 |
+| 2026-03-11 | 1c5e2a6aed1b9917e1eb7a214e714885 | rick.higgins@ca.belfor.com | 9 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 8 (8/0) | 0 | 1 | 1 |
 | 2026-03-11 | 9bde758ae83a2535f6f6370a0d658a27 | ryan.smith@restoration1.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 12 | 5 | 0 |
 | 2026-03-11 | 4e00194798403ceaac926ef595d41742 | trey@atlassoo.com | 11 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (7/8) | 206 | 12 | 1 |
 | 2026-03-11 | 8a7eebb3e9f8e2bdcddfc75ccbe773df | rick.deckert@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (3/0) | 56 | 6 | 1 |
@@ -260,6 +262,66 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## be384b969bd4dc1d21b972084129c1f6 -- 2026-03-11 -- v2026.09.3
+
+**User:** guy.tiomkin@ca.belfor.com | **Time:** 2m 3s
+**Rooms:** 11 total (6 affected, 5 unaffected) | **Photos:** 91 | **Notes:** 9 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- After Carpet Removed has no measurements available - room dimensions required for complete scope.
+- Moisture Readings February 4, 2026 has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Cause Of Loss has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Hallway
+- After Carpet Removed
+- Moisture Readings February 4, 2026
+- Exterior
+- Cause Of Loss
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 1c5e2a6aed1b9917e1eb7a214e714885 -- 2026-03-11 -- v2026.09.3
+
+**User:** rick.higgins@ca.belfor.com | **Time:** 1m 26s
+**Rooms:** 8 total (8 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Floor plan area validation failed - discrepancy of 97.3 SF (Floor Plan Total 706.0 SF vs. Sum of Room Areas 608.7 SF). Please review and verify room measurements.
+
+**Affected Room Without Photos** (8):
+
+- Bedroom
+- Kitchen
+- Bath
+- Hall
+- Stairway
+- Closet 1
+- Closet 2
+- Unlabeled Room 1
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 measurement validation warning(s); 8 affected room(s) without photos.
+
+---
+
 
 ## 9bde758ae83a2535f6f6370a0d658a27 -- 2026-03-11 -- v2026.09.3
 
