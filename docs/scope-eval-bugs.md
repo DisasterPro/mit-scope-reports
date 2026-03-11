@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 19:15 UTC | **Traces with Issues:** 302 | **Total Issues:** 2472
+**Last Updated:** 2026-03-11 19:44 UTC | **Traces with Issues:** 305 | **Total Issues:** 2519
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | b8c4487fdab1f463d4b0b76da5080756 | scott.shizuru@us.belfor.com | 28 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 37 (37/0) | 0 | 0 | 0 |
+| 2026-03-11 | b3868a71704beec1ee962c5a49a89dae | andy.whitehead+vancouver@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (6/9) | 193 | 18 | 2 |
+| 2026-03-11 | 142d432795b926ec26b7ad4e8a11a672 | craig.dicks@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 14 (5/9) | 0 | 1 | 7 |
 | 2026-03-11 | 80fc819d812053829961d931925fb714 | dylanclimie@live.com | 11 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (2/6) | 18 | 6 | 1 |
 | 2026-03-11 | 4a29fba87ec63699edb3d1b26839dbf6 | craig.dicks@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 14 (5/9) | 0 | 1 | 7 |
 | 2026-03-11 | 70a59e1e3d1c9a2b348f76f2f1080df1 | dylanclimie@live.com | 11 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (2/6) | 18 | 6 | 1 |
@@ -313,6 +316,111 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## b8c4487fdab1f463d4b0b76da5080756 -- 2026-03-11 -- v2026.09.3
+
+**User:** scott.shizuru@us.belfor.com | **Time:** 14m 6s
+**Rooms:** 37 total (37 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Measurement Warning** (14):
+
+- 1St Floor has no measurements available - room dimensions required for complete scope.
+- 2Nd Floor has no measurements available - room dimensions required for complete scope.
+- Bedroom 4 has no measurements available - room dimensions required for complete scope.
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+- Bathroom 4 has no measurements available - room dimensions required for complete scope.
+- Bathroom 2 has no measurements available - room dimensions required for complete scope.
+- Bathroom 3 has no measurements available - room dimensions required for complete scope.
+- Bathroom 5 has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- ...and 4 more
+
+**Missing Measurements** (14):
+
+- 1St Floor
+- 2Nd Floor
+- Bedroom 4
+- Bedroom 3
+- Bathroom 4
+- Bathroom 2
+- Bathroom 3
+- Bathroom 5
+- Bedroom 2
+- Bedroom
+- ...and 4 more
+
+### Assessment
+
+The system detected 28 data quality issue(s): 14 measurement validation warning(s); 14 room(s) with missing measurements.
+
+---
+
+## b3868a71704beec1ee962c5a49a89dae -- 2026-03-11 -- v2026.09.3
+
+**User:** andy.whitehead+vancouver@ca.belfor.com | **Time:** 3m 58s
+**Rooms:** 15 total (6 affected, 9 unaffected) | **Photos:** 193 | **Notes:** 18 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bulkhead volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (4):
+
+- Hallway
+- Laundry Room
+- Bathroom
+- Bath (Source)
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 142d432795b926ec26b7ad4e8a11a672 -- 2026-03-11 -- v2026.09.3
+
+**User:** craig.dicks@ca.belfor.com | **Time:** 1m 18s
+**Rooms:** 14 total (5 affected, 9 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 7
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Dining Room
+- Kitchen
+
+**Affected Room Without Photos** (5):
+
+- Bathroom
+- Dining Room
+- Kitchen
+- Basement
+- Foyer
+
+### Assessment
+
+The system detected 11 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 5 affected room(s) without photos.
+
+---
+
 
 ## 80fc819d812053829961d931925fb714 -- 2026-03-11 -- v2026.09.3
 
