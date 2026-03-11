@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 19:44 UTC | **Traces with Issues:** 305 | **Total Issues:** 2519
+**Last Updated:** 2026-03-11 20:05 UTC | **Traces with Issues:** 307 | **Total Issues:** 2526
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | bda768efdb26fe81210d8e8f905082d4 | steven.wallace@us.belfor.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (2/3) | 0 | 1 | 1 |
+| 2026-03-11 | f3b4979af9bc7187d42f2bbcb7b7d534 | ryan.weitzman@us.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4 (2/2) | 108 | 5 | 2 |
 | 2026-03-11 | b8c4487fdab1f463d4b0b76da5080756 | scott.shizuru@us.belfor.com | 28 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 37 (37/0) | 0 | 0 | 0 |
 | 2026-03-11 | b3868a71704beec1ee962c5a49a89dae | andy.whitehead+vancouver@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (6/9) | 193 | 18 | 2 |
 | 2026-03-11 | 142d432795b926ec26b7ad4e8a11a672 | craig.dicks@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 14 (5/9) | 0 | 1 | 7 |
@@ -316,6 +318,54 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## bda768efdb26fe81210d8e8f905082d4 -- 2026-03-11 -- v2026.09.3
+
+**User:** steven.wallace@us.belfor.com | **Time:** 1m 10s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- [Kitchen]: floor plan shows 127.3 SF, description affected area is 10 SF of ceiling drywall - using floor plan value.
+- [Dining Room]: floor plan shows 116.6 SF, description affected area presumed included in kitchen affected area - using floor plan value.
+
+**Affected Room Without Photos** (2):
+
+- Kitchen
+- Dining Room
+
+**Equipment Sizing Conflict** (2):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: average; resolution: Using VeryOpen (hydro value) - minor 1-level difference validated against structural assessment
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: beneficial; resolution: Using No (hydro value) - minor 1-level difference validated against structural assessment
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 equipment sizing conflict(s); 2 measurement validation warning(s); 2 affected room(s) without photos.
+
+---
+
+## f3b4979af9bc7187d42f2bbcb7b7d534 -- 2026-03-11 -- v2026.09.3
+
+**User:** ryan.weitzman@us.belfor.com | **Time:** 2m 0s
+**Rooms:** 4 total (2 affected, 2 unaffected) | **Photos:** 108 | **Notes:** 5 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: average; resolution: Using VeryOpen (hydro value) - minor 1-level difference validated against structural analysis of property layout
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 equipment sizing conflict(s).
+
+---
+
 
 ## b8c4487fdab1f463d4b0b76da5080756 -- 2026-03-11 -- v2026.09.3
 
