@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-11 16:14 UTC | **Total Traces:** 796 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-11 16:46 UTC | **Total Traces:** 797 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 0557b65b6dab9c99d96baa7cf8c55618 | v2026.09.3 | 2026-03-11 | harleen.harleen+hamilton@ca.belfor.com | 1m 59s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 12 (4/8) | 112 | 12 | 1 |
 | 319af12a2194e9c2bb09c3566a3d1fe1 | v2026.09.3 | 2026-03-11 | craig.dicks@ca.belfor.com | 1m 25s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 6 (1/5) | 20 | 5 | 3 |
 | 53e2326fd048a2eaa6d51e4a212a14af | v2026.09.3 | 2026-03-11 | craig.dicks@ca.belfor.com | 1m 5s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 5 (1/4) | 28 | 4 | 2 |
 | 7d3f67c5c41261e437502b1ccb204070 | v2026.09.3 | 2026-03-11 | myles.kirkhammer@ca.belfor.com | 1m 14s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 4 (4/0) | 0 | 1 | 2 |
@@ -804,6 +805,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 0557b65b6dab9c99d96baa7cf8c55618 -- 2026-03-11 -- v2026.09.3
+
+**User:** harleen.harleen+hamilton@ca.belfor.com | **Time:** 1m 59s
+**Rooms:** 12 total (4 affected, 8 unaffected) | **Photos:** 112 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 12 rooms; 9 in app, 9 from notes |
+| Field Photos | Good | 112 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 12 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+112 field photos were submitted. Technician notes were provided (12 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 9 of 12 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 59s. Data quality flags: the floor plan area differs from room areas by 555 SF.
+
+### Issue Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## 319af12a2194e9c2bb09c3566a3d1fe1 -- 2026-03-11 -- v2026.09.3
 

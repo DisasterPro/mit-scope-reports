@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 16:14 UTC | **Traces with Issues:** 283 | **Total Issues:** 2318
+**Last Updated:** 2026-03-11 16:46 UTC | **Traces with Issues:** 284 | **Total Issues:** 2330
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 0557b65b6dab9c99d96baa7cf8c55618 | harleen.harleen+hamilton@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 112 | 12 | 1 |
 | 2026-03-11 | 319af12a2194e9c2bb09c3566a3d1fe1 | craig.dicks@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (1/5) | 20 | 5 | 3 |
 | 2026-03-11 | 53e2326fd048a2eaa6d51e4a212a14af | craig.dicks@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 28 | 4 | 2 |
 | 2026-03-11 | 7d3f67c5c41261e437502b1ccb204070 | myles.kirkhammer@ca.belfor.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 0 | 1 | 2 |
@@ -294,6 +295,39 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 0557b65b6dab9c99d96baa7cf8c55618 -- 2026-03-11 -- v2026.09.3
+
+**User:** harleen.harleen+hamilton@ca.belfor.com | **Time:** 1m 59s
+**Rooms:** 12 total (4 affected, 8 unaffected) | **Photos:** 112 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Basement Hallway has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Workshop has no measurements available - room dimensions required for complete scope.
+- Col has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Laundry Room
+- Basement Hallway
+- Office
+- Workshop
+- Col
+- Hallway
+
+### Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
 
 ## 319af12a2194e9c2bb09c3566a3d1fe1 -- 2026-03-11 -- v2026.09.3
 
