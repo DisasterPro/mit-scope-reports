@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 04:58 UTC | **Traces with Issues:** 242 | **Total Issues:** 1937
+**Last Updated:** 2026-03-11 09:12 UTC | **Traces with Issues:** 243 | **Total Issues:** 1946
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 581e527a21d91830cf9b956c56799170 | yahsef@impeccable-restoration.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 7 (5/2) | 9 | 9 | 0 |
 | 2026-03-11 | bc4d5fb8031494747446919602a3caeb | giovanni@igkrenewandrestore.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (9/1) | 66 | 11 | 0 |
 | 2026-03-11 | fcea451d90da03a62881e68970157390 | o.maldonado3823@gmail.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 7 (2/5) | 53 | 4 | 1 |
 | 2026-03-11 | fcc210a2679efa601d978f0da2411db0 | mary.hernandez@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
@@ -253,6 +254,39 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 581e527a21d91830cf9b956c56799170 -- 2026-03-11 -- v2026.09.3
+
+**User:** yahsef@impeccable-restoration.com | **Time:** 2m 5s
+**Rooms:** 7 total (5 affected, 2 unaffected) | **Photos:** 9 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Crawl Space has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Kitchen
+- Crawl Space
+- Scoping Video
+- Living Room
+
+**Affected Room Without Photos** (3):
+
+- Bathroom
+- Utility Room
+- Basement Common Area
+
+### Assessment
+
+The system detected 9 data quality issue(s): 2 measurement validation warning(s); 4 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
 
 ## bc4d5fb8031494747446919602a3caeb -- 2026-03-11 -- v2026.09.3
 

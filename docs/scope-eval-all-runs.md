@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-11 05:44 UTC | **Total Traces:** 750 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-11 09:12 UTC | **Total Traces:** 751 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 581e527a21d91830cf9b956c56799170 | v2026.09.3 | 2026-03-11 | yahsef@impeccable-restoration.com | 2m 5s | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3.3/5 | 7 (5/2) | 9 | 9 | 0 |
 | 4904c7d0178deddd048c58b4f2ffc7c3 | v2026.09.3 | 2026-03-11 | andy.whitehead+vancouver@ca.belfor.com | 5m 24s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 24 (6/18) | 193 | 18 | 2 |
 | 60bbde8187a7a24f962a9ce25dcc1c98 | v2026.09.3 | 2026-03-11 | nick@thedryguy.com | 1m 7s | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 3.7/5 | 2 (2/0) | 27 | 1 | 0 |
 | 299d813dad12a101c243e68d5beec469 | v2026.09.3 | 2026-03-10 | jf.raymond@steamatic.ca | 0m 25s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 1 (1/0) | 0 | 1 | 0 |
@@ -758,6 +759,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 581e527a21d91830cf9b956c56799170 -- 2026-03-11 -- v2026.09.3
+
+**User:** yahsef@impeccable-restoration.com | **Time:** 2m 5s
+**Rooms:** 7 total (5 affected, 2 unaffected) | **Photos:** 9 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 7 rooms; 7 in app, 7 from notes |
+| Field Photos | Adequate | 9 photos; 3 rooms without photos |
+| Technician Notes | Detailed | 9 notes; 0 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+9 field photos were submitted. Technician notes were provided (9 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 5s. Data quality flags: 3 affected room(s) had no photos.
+
+### Issue Assessment
+
+The system detected 9 data quality issue(s): 2 measurement validation warning(s); 4 room(s) with missing measurements; 3 affected room(s) without photos.
+
+### Recommendations
+
+1. Add photos for the 3 room(s) that are missing them. Each room should have at least a few photos showing the damage.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 4904c7d0178deddd048c58b4f2ffc7c3 -- 2026-03-11 -- v2026.09.3
 
