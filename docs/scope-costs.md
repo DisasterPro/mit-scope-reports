@@ -98,6 +98,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-10 (Daily)
+**Generated:** 2026-03-11 05:27 UTC | **Period:** 1d (2026-03-10 to 2026-03-11) | **Traces:** 136
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.63 | 178.0s |
+| Median | $0.50 | 138.0s |
+| P75 | $0.72 | 194.3s |
+| P95 | $1.43 | 456.1s |
+| Min | $0.11 | 25.0s |
+| Max | $3.77 | 939.6s |
+
+**Top Cost Users:** chris.allen@us.belfor.com ($3.27), garciatanner81@gmail.com ($2.94), tom@servicemasterbc.ca ($2.11)
+
+**Top Latency Users:** daniel.lockhart@ca.belfor.com (745s), garciatanner81@gmail.com (547s), chris.allen@us.belfor.com (545s)
+
+---
+
 ### 2026-03-09 (Daily)
 **Generated:** 2026-03-10 05:26 UTC | **Period:** 1d (2026-03-09 to 2026-03-10) | **Traces:** 122
 

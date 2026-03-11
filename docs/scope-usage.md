@@ -103,6 +103,25 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-10 (Daily)
+**Generated:** 2026-03-11 05:27 UTC | **Period:** 1d (2026-03-10 to 2026-03-11)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 136 |
+| Unique Organizations | 32 |
+| Unique Users | 72 |
+| Total Cost | $85.52 |
+| Average Cost / Scope | $0.63 |
+
+**Top Users:** rick.deckert@ca.belfor.com (12), dylanclimie@live.com (8), robert.chapman@us.belfor.com (7), tammy.gemmill@ca.belfor.com (5), lesley.mele@ca.belfor.com (4)
+
+**Top Orgs:** BELFOR Canada (70), BELFOR US (9), dylanclimie@live.com (8), Encircle (internal) (6), Restoration 1 (5)
+
+**Cost Outliers:** 8 users with avg > $1.00/scope
+
+---
+
 ### 2026-03-09 (Daily)
 **Generated:** 2026-03-10 05:26 UTC | **Period:** 1d (2026-03-09 to 2026-03-10)
 

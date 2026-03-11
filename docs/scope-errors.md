@@ -95,6 +95,25 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-10 (Daily)
+**Generated:** 2026-03-11 05:27 UTC | **Period:** 1d (2026-03-10 to 2026-03-11)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 136 |
+| Error Traces | 5 (3.7%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| DataProcessingError | Standards | 2 | -- |
+| Unknown | Drying | 1 | -- |
+| ImageProcessingError | MeasurementImagesValidator | 1 | -- |
+| Unknown | Unknown | 1 | -- |
+
+**Affected Users:** wwaters@capdsus.com (1x Unknown), byron.kent@rfconstruction.dki.ca (1x ImageProcessingError), garciatanner81@gmail.com (1x Unknown), schallersmail0307@gmail.com (1x DataProcessingError), nicholasm@smsarnia.ca (1x DataProcessingError)
+
+---
+
 ### 2026-03-09 (Daily)
 **Generated:** 2026-03-10 05:26 UTC | **Period:** 1d (2026-03-09 to 2026-03-10)
 
