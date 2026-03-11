@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 21:44 UTC | **Traces with Issues:** 329 | **Total Issues:** 2744
+**Last Updated:** 2026-03-11 22:39 UTC | **Traces with Issues:** 330 | **Total Issues:** 2750
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 2fef4e9c2acf5a6998828f3b9abfae51 | arturo@nlsco.com | 6 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 0 | 1 | 0 |
 | 2026-03-11 | 683f6d4fa0f69f35585bc9211d7c97cb | adonahoo+rescuepro@encircleapp.com | 12 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 0 | 5 | 0 |
 | 2026-03-11 | 5a997c0cf2cd24e2eecb4a8d72898add | adonahoo+rescuepro@encircleapp.com | 9 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 3 (0/3) | 0 | 5 | 0 |
 | 2026-03-11 | 55ec17b3c5b4101df85446d0181d2c4b | kristy.persson+hub@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (1/7) | 54 | 7 | 1 |
@@ -340,6 +341,36 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 2fef4e9c2acf5a6998828f3b9abfae51 -- 2026-03-11 -- v2026.09.3
+
+**User:** arturo@nlsco.com | **Time:** 0m 46s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Bathroom
+- Primary Bedroom
+
+**Affected Room Without Photos** (2):
+
+- Bathroom
+- Primary Bedroom
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
 
 ## 683f6d4fa0f69f35585bc9211d7c97cb -- 2026-03-11 -- v2026.09.3
 
