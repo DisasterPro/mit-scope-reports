@@ -3,12 +3,18 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 18:13 UTC | **Traces with Issues:** 292 | **Total Issues:** 2375
+**Last Updated:** 2026-03-11 18:47 UTC | **Traces with Issues:** 298 | **Total Issues:** 2419
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | e8c787b280ef75c7de0a456c675e1c73 | robert@eproresponse.com | 20 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 12 (12/0) | 41 | 11 | 1 |
+| 2026-03-11 | eb2de54da6f3cfbb8bbabd8c615e4498 | craig.dicks@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (5/10) | 89 | 8 | 7 |
+| 2026-03-11 | 5551caa9133af48245094406c0811b2d | dylanclimie@live.com | 4 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 7 (2/5) | 18 | 6 | 1 |
+| 2026-03-11 | fa0bd9637467e7698987600fc47ac673 | tracey.paris@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 91 | 9 | 2 |
+| 2026-03-11 | e8860fc3137688c18053fcf7fb46fad0 | jamesl@bluelinesolutions.net | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 41 | 6 | 0 |
+| 2026-03-11 | f39bf5575f698dfe729a8dbc529372fe | roger.lough@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (8/4) | 82 | 10 | 1 |
 | 2026-03-11 | 451d2fa836d574cd473d9669c6aaa16e | dylanclimie@live.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 18 | 6 | 1 |
 | 2026-03-11 | 272dccb7d560efec3d70ef9efbd14027 | claudette.ryan@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (7/4) | 91 | 9 | 2 |
 | 2026-03-11 | 8fe11e3ff655ba9e00db50f2fc692015 | derek.kryjak@ca.belfor.com | 6 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 5 (2/3) | 0 | 1 | 2 |
@@ -303,6 +309,171 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e8c787b280ef75c7de0a456c675e1c73 -- 2026-03-11 -- v2026.09.3
+
+**User:** robert@eproresponse.com | **Time:** 3m 26s
+**Rooms:** 12 total (12 affected, 0 unaffected) | **Photos:** 41 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (10):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+- Pantry has no measurements available - room dimensions required for complete scope.
+- Guest Bathroom has no measurements available - room dimensions required for complete scope.
+- Hall 1 has no measurements available - room dimensions required for complete scope.
+- Hallway 2 has no measurements available - room dimensions required for complete scope.
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (10):
+
+- Living Room
+- Laundry Room
+- Bedroom 2
+- Bedroom 3
+- Pantry
+- Guest Bathroom
+- Hall 1
+- Hallway 2
+- Primary Bathroom
+- Primary Bedroom
+
+### Assessment
+
+The system detected 20 data quality issue(s): 10 measurement validation warning(s); 10 room(s) with missing measurements.
+
+---
+
+## eb2de54da6f3cfbb8bbabd8c615e4498 -- 2026-03-11 -- v2026.09.3
+
+**User:** craig.dicks@ca.belfor.com | **Time:** 1m 54s
+**Rooms:** 15 total (5 affected, 10 unaffected) | **Photos:** 89 | **Notes:** 8 | **Floor Plans:** 7
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Basement Apartment has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Dining Room
+- Basement Apartment
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 5551caa9133af48245094406c0811b2d -- 2026-03-11 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 2m 4s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 18 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Laundry Room
+- Bedroom
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## fa0bd9637467e7698987600fc47ac673 -- 2026-03-11 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 3m 41s
+**Rooms:** 9 total (6 affected, 3 unaffected) | **Photos:** 91 | **Notes:** 9 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Entrance has no measurements available - room dimensions required for complete scope.
+- After Carpet Removed has no measurements available - room dimensions required for complete scope.
+- Recroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Entrance
+- After Carpet Removed
+- Recroom
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## e8860fc3137688c18053fcf7fb46fad0 -- 2026-03-11 -- v2026.09.3
+
+**User:** jamesl@bluelinesolutions.net | **Time:** 0m 59s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 41 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Attic has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Dining Room
+- Attic
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## f39bf5575f698dfe729a8dbc529372fe -- 2026-03-11 -- v2026.09.3
+
+**User:** roger.lough@ca.belfor.com | **Time:** 4m 58s
+**Rooms:** 12 total (8 affected, 4 unaffected) | **Photos:** 82 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Foyer has no measurements available - room dimensions required for complete scope.
+- Playroom has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Foyer
+- Playroom
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 451d2fa836d574cd473d9669c6aaa16e -- 2026-03-11 -- v2026.09.3
 
