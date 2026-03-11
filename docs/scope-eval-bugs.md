@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 03:16 UTC | **Traces with Issues:** 240 | **Total Issues:** 1916
+**Last Updated:** 2026-03-11 04:58 UTC | **Traces with Issues:** 242 | **Total Issues:** 1937
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | bc4d5fb8031494747446919602a3caeb | giovanni@igkrenewandrestore.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (9/1) | 66 | 11 | 0 |
+| 2026-03-11 | fcea451d90da03a62881e68970157390 | o.maldonado3823@gmail.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 7 (2/5) | 53 | 4 | 1 |
 | 2026-03-11 | fcc210a2679efa601d978f0da2411db0 | mary.hernandez@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
 | 2026-03-11 | 1f2ef6e2c13f7afe43ae7d3bd31d1aa3 | mary.hernandez@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (0/8) | 141 | 7 | 1 |
 | 2026-03-11 | 2aed12ae6c6b41b9b2b6a9e86262ed79 | biohazardfirstresponse3@gmail.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (0/6) | 74 | 4 | 1 |
@@ -251,6 +253,65 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## bc4d5fb8031494747446919602a3caeb -- 2026-03-11 -- v2026.09.3
+
+**User:** giovanni@igkrenewandrestore.com | **Time:** 2m 36s
+**Rooms:** 10 total (9 affected, 1 unaffected) | **Photos:** 66 | **Notes:** 11 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (10):
+
+- Crawlspace has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Attic has no measurements available - room dimensions required for complete scope.
+- Window Mold has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (10):
+
+- Crawlspace
+- Basement
+- Living Room
+- Kitchen
+- Bathroom
+- Bedroom 1
+- Bedroom 2
+- Attic
+- Window Mold
+- Exterior
+
+### Assessment
+
+The system detected 20 data quality issue(s): 10 measurement validation warning(s); 10 room(s) with missing measurements.
+
+---
+
+## fcea451d90da03a62881e68970157390 -- 2026-03-11 -- v2026.09.3
+
+**User:** o.maldonado3823@gmail.com | **Time:** 1m 52s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 53 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
 
 ## fcc210a2679efa601d978f0da2411db0 -- 2026-03-11 -- v2026.09.3
 
