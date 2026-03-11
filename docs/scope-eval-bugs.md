@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 09:12 UTC | **Traces with Issues:** 243 | **Total Issues:** 1946
+**Last Updated:** 2026-03-11 10:10 UTC | **Traces with Issues:** 244 | **Total Issues:** 1952
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 339693496216a617f5608b4948659bbe | chad.gerber@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 21 (8/13) | 94 | 12 | 2 |
 | 2026-03-11 | 581e527a21d91830cf9b956c56799170 | yahsef@impeccable-restoration.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 7 (5/2) | 9 | 9 | 0 |
 | 2026-03-11 | bc4d5fb8031494747446919602a3caeb | giovanni@igkrenewandrestore.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (9/1) | 66 | 11 | 0 |
 | 2026-03-11 | fcea451d90da03a62881e68970157390 | o.maldonado3823@gmail.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 7 (2/5) | 53 | 4 | 1 |
@@ -254,6 +255,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 339693496216a617f5608b4948659bbe -- 2026-03-11 -- v2026.09.3
+
+**User:** chad.gerber@ca.belfor.com | **Time:** 5m 15s
+**Rooms:** 21 total (8 affected, 13 unaffected) | **Photos:** 94 | **Notes:** 12 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Content has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Cause has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Content
+- Exterior
+- Cause
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 581e527a21d91830cf9b956c56799170 -- 2026-03-11 -- v2026.09.3
 
