@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 01:30 UTC | **Traces with Issues:** 238 | **Total Issues:** 1901
+**Last Updated:** 2026-03-11 03:16 UTC | **Traces with Issues:** 240 | **Total Issues:** 1916
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | fcc210a2679efa601d978f0da2411db0 | mary.hernandez@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
+| 2026-03-11 | 1f2ef6e2c13f7afe43ae7d3bd31d1aa3 | mary.hernandez@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (0/8) | 141 | 7 | 1 |
 | 2026-03-11 | 2aed12ae6c6b41b9b2b6a9e86262ed79 | biohazardfirstresponse3@gmail.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (0/6) | 74 | 4 | 1 |
 | 2026-03-11 | 92e9498e2af2fc7b967b045c79f53d8a | tammy.gemmill@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 20 (9/11) | 161 | 15 | 6 |
 | 2026-03-10 | c23d760ed8f73a87e692f3f87e621280 | tammy.gemmill@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (6/6) | 62 | 13 | 2 |
@@ -249,6 +251,62 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## fcc210a2679efa601d978f0da2411db0 -- 2026-03-11 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 1m 9s
+**Rooms:** 6 total (6 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (5):
+
+- Laundry
+- Recreation Room
+- Utility
+- Room
+- Bath
+
+**Material Mismatch** (6):
+
+- [INFO] room_name: Laundry; materials_array_flooring: Vinyl Sheet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Sheet is unaffected and not the installed floor.
+- [INFO] room_name: Recreation Room; materials_array_flooring: Vinyl Sheet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Sheet is unaffected and not the installed floor.
+- [INFO] room_name: Utility; materials_array_flooring: Vinyl Sheet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Sheet is unaffected and not the installed floor.
+- [INFO] room_name: Room; materials_array_flooring: Vinyl Sheet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Sheet is unaffected and not the installed floor.
+- [INFO] room_name: Bath; materials_array_flooring: Vinyl Sheet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Sheet is unaffected and not the installed floor.
+- [INFO] room_name: Basement; materials_array_flooring: Vinyl Sheet; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Vinyl Sheet is unaffected and not the installed floor.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 6 material mismatch(es) between room data sources; 5 affected room(s) without photos.
+
+---
+
+## 1f2ef6e2c13f7afe43ae7d3bd31d1aa3 -- 2026-03-11 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 5m 3s
+**Rooms:** 8 total (0 affected, 8 unaffected) | **Photos:** 141 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Entrance
+- Exterior
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 2aed12ae6c6b41b9b2b6a9e86262ed79 -- 2026-03-11 -- v2026.09.3
 
