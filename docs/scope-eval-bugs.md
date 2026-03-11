@@ -3,12 +3,23 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 21:07 UTC | **Traces with Issues:** 318 | **Total Issues:** 2606
+**Last Updated:** 2026-03-11 21:44 UTC | **Traces with Issues:** 329 | **Total Issues:** 2744
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 683f6d4fa0f69f35585bc9211d7c97cb | adonahoo+rescuepro@encircleapp.com | 12 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 0 | 5 | 0 |
+| 2026-03-11 | 5a997c0cf2cd24e2eecb4a8d72898add | adonahoo+rescuepro@encircleapp.com | 9 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 3 (0/3) | 0 | 5 | 0 |
+| 2026-03-11 | 55ec17b3c5b4101df85446d0181d2c4b | kristy.persson+hub@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (1/7) | 54 | 7 | 1 |
+| 2026-03-11 | d39d21e9ad60deecb16ac79fbcc23541 | claire@restoration1.com | 22 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 23 (3/20) | 379 | 13 | 1 |
+| 2026-03-11 | e572f5da205693e6dc403c323dc19583 | trey@atlassoo.com | 24 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (12/0) | 198 | 13 | 0 |
+| 2026-03-11 | acb9b01e66fe88ec687879440883ae0c | trey@atlassoo.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (0/5) | 57 | 6 | 0 |
+| 2026-03-11 | 30fe446664334850d5866b0270a3f182 | trey@atlassoo.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 28 | 2 | 0 |
+| 2026-03-11 | 0bbc84ede5bc177de3b2f41b471c3082 | trey@atlassoo.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (0/1) | 20 | 2 | 0 |
+| 2026-03-11 | 32c854275985c72fc614f35ae165c2fd | trey@atlassoo.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 3 (0/3) | 30 | 4 | 0 |
+| 2026-03-11 | de276a7b9cc6b757152132afaeae644e | trey@atlassoo.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 17 (7/10) | 231 | 13 | 1 |
+| 2026-03-11 | cc05640e05f20ca4c72c721d0d27659f | bhaynes@brookstone247.com | 32 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 17 (0/17) | 146 | 18 | 0 |
 | 2026-03-11 | eed5331b8fe92ddb70c110236003793e | steven.wallace@us.belfor.com | 5 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (2/4) | 0 | 1 | 2 |
 | 2026-03-11 | 3c3ec0b7f8c23a29220033cd1665e199 | adonahoo+rescuepro@encircleapp.com | 12 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 0 | 5 | 0 |
 | 2026-03-11 | fb5599378f431d7f1bf084df28afe578 | kristy.persson+hub@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (3/6) | 45 | 14 | 3 |
@@ -329,6 +340,368 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 683f6d4fa0f69f35585bc9211d7c97cb -- 2026-03-11 -- v2026.09.3
+
+**User:** adonahoo+rescuepro@encircleapp.com | **Time:** 0m 32s
+**Rooms:** 4 total (0 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Living Room
+- Dining Room
+- Kitchen
+- Exterior
+
+**Affected Room Without Photos** (4):
+
+- Living Room
+- Dining Room
+- Kitchen
+- Exterior
+
+### Assessment
+
+The system detected 12 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements; 4 affected room(s) without photos.
+
+---
+
+## 5a997c0cf2cd24e2eecb4a8d72898add -- 2026-03-11 -- v2026.09.3
+
+**User:** adonahoo+rescuepro@encircleapp.com | **Time:** 0m 40s
+**Rooms:** 3 total (0 affected, 3 unaffected) | **Photos:** 0 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Living Room
+- Dining population
+- Kitchen
+
+**Affected Room Without Photos** (3):
+
+- Living Room
+- Dining Room
+- Kitchen
+
+### Assessment
+
+The system detected 9 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
+## 55ec17b3c5b4101df85446d0181d2c4b -- 2026-03-11 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 40s
+**Rooms:** 8 total (1 affected, 7 unaffected) | **Photos:** 54 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Front Of House has no measurements available - room dimensions required for complete scope.
+- Landing has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Hallway
+- Front Of House
+- Landing
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## d39d21e9ad60deecb16ac79fbcc23541 -- 2026-03-11 -- v2026.09.3
+
+**User:** claire@restoration1.com | **Time:** 3m 14s
+**Rooms:** 23 total (3 affected, 20 unaffected) | **Photos:** 379 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (11):
+
+- Den has no measurements available - room dimensions required for complete scope.
+- Little Hallway has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Long L Hallway has no measurements available - room dimensions required for complete scope.
+- Closet Under Stairs has no measurements available - room dimensions required for complete scope.
+- Hvac Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bathroom 2 has no measurements available - room dimensions required for complete scope.
+- ...and 1 more
+
+**Missing Measurements** (11):
+
+- Den
+- Little Hallway
+- Storage
+- Bedroom 1
+- Bedroom 2
+- Long L Hallway
+- Closet Under Stairs
+- Hvac Room
+- Kitchen
+- Bathroom 2
+- ...and 1 more
+
+### Assessment
+
+The system detected 22 data quality issue(s): 11 measurement validation warning(s); 11 room(s) with missing measurements.
+
+---
+
+## e572f5da205693e6dc403c323dc19583 -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 2m 58s
+**Rooms:** 12 total (12 affected, 0 unaffected) | **Photos:** 198 | **Notes:** 13 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (12):
+
+- Basement Kitchen has no measurements available - room dimensions required for complete scope.
+- Basement Back Hallway has no measurements available - room dimensions required for complete scope.
+- Basement Back Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Storage Room has no measurements available - room dimensions required for complete scope.
+- Basement Office has no measurements available - room dimensions required for complete scope.
+- Basement Office 2 has no measurements available - room dimensions required for complete scope.
+- Basement Meeting Room has no measurements available - room dimensions required for complete scope.
+- Basement Mens Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Mechanical Room 1 has no measurements available - room dimensions required for complete scope.
+- Basememt Mechanical Room 2 has no measurements available - room dimensions required for complete scope.
+- ...and 2 more
+
+**Missing Measurements** (12):
+
+- Basement Kitchen
+- Basement Back Hallway
+- Basement Back Bathroom
+- Basement Storage Room
+- Basement Office
+- Basement Office 2
+- Basement Meeting Room
+- Basement Mens Bathroom
+- Basement Mechanical Room 1
+- Basememt Mechanical Room 2
+- ...and 2 more
+
+### Assessment
+
+The system detected 24 data quality issue(s): 12 measurement validation warning(s); 12 room(s) with missing measurements.
+
+---
+
+## acb9b01e66fe88ec687879440883ae0c -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 33s
+**Rooms:** 5 total (0 affected, 5 unaffected) | **Photos:** 57 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Sources has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Basement
+- Mechanical Room
+- Bathroom
+- Sources
+- Storage
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 30fe446664334850d5866b0270a3f182 -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 24s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 28 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Living Room
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Living Room; materials_array_flooring: Laminate Flooring, Hardwood Flooring; room_elements_flooring: Hardwood Flooring, Laminate Flooring; resolution: Both hardwood and laminate flooring are confirmed present per room elements; both require extraction due to area variation noted in central vs. rest of room. No conflict.
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 0bbc84ede5bc177de3b2f41b471c3082 -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 2s
+**Rooms:** 1 total (0 affected, 1 unaffected) | **Photos:** 20 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 32c854275985c72fc614f35ae165c2fd -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 0m 42s
+**Rooms:** 3 total (0 affected, 3 unaffected) | **Photos:** 30 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Shed has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Exterior
+- Bedroom
+- Shed
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## de276a7b9cc6b757152132afaeae644e -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 3m 46s
+**Rooms:** 17 total (7 affected, 10 unaffected) | **Photos:** 231 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [SIGNIFICANT] field: water_category; iicrc_recommended: 3; user_specified: 2; justification: Advisory from property images and hazard validation notes possible sewage, but technician field notes confirm outside water backup with no evidence of gross fecal contamination or interior sewage overflow. Category 2 assigned as loss does not have direct evidence of gross contamination.; source: Merge.jinja2 - sewage category alignment advisory; impact: Tasks will follow Category 2 protocols (significantly contaminated clean up, standard PPE) instead of Category 3 (grossly contaminated, mandatory removal of all porous material, enhanced PPE and containment). Safety advisement in place for possible escalation if future evidence indicates gross contamination.
+
+**Measurement Warning** (2):
+
+- Basement Storage 2 has no measurements available - room dimensions required for complete scope.
+- Power has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Basement Storage 2
+- Power
+
+**Material Mismatch** (7):
+
+- [INFO] room_name: Basement Bathroom; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Other flooring listings are moisture meter artifact or only at transition—no extraction, removal, or cleaning tasks generated for those materials.
+- [INFO] room_name: Basement Living; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Other flooring listings are moisture meter artifact or only at perimeters/transition. Only carpet extraction/removal/cleaning tasks generated for main area.
+- [INFO] room_name: Utility Room; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete, Concrete Slab; room_elements_flooring: Concrete; resolution: Used Concrete (confirmed in room). Other floorings are not main installed material—no extraction/removal/cleaning tasks generated for those types.
+- [INFO] room_name: Storage; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete, Concrete Slab; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). All other flooring materials present in materials[] array are moisture meter artifacts or transition materials only. Extract/remove/cleaning tasks only for carpet.
+- [INFO] room_name: Basement Storage 2; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Other flooring types not the installed floor—no tasks generated for other flooring materials.
+- [INFO] room_name: Closet; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). No extraction, removal, or cleaning tasks for other flooring materials.
+- [INFO] room_name: Stairs; materials_array_flooring: Carpet, Tile Flooring, Vinyl Flooring, Hardwood Flooring, Laminate Flooring, Concrete; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Other flooring materials not main installed flooring—no tasks generated for those types.
+
+### Assessment
+
+The system detected 12 data quality issue(s): 1 IICRC standard deviation(s) were flagged; 7 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## cc05640e05f20ca4c72c721d0d27659f -- 2026-03-11 -- v2026.09.3
+
+**User:** bhaynes@brookstone247.com | **Time:** 3m 19s
+**Rooms:** 17 total (0 affected, 17 unaffected) | **Photos:** 146 | **Notes:** 18 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (16):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Hall2 has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Pantry has no measurements available - room dimensions required for complete scope.
+- Hall 1 has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Coat Closet has no measurements available - room dimensions required for complete scope.
+- ...and 6 more
+
+**Missing Measurements** (16):
+
+- Kitchen
+- Bathroom
+- Living Room
+- Bedroom
+- Hall2
+- Laundry Room
+- Pantry
+- Hall 1
+- Dining Room
+- Coat Closet
+- ...and 6 more
+
+### Assessment
+
+The system detected 32 data quality issue(s): 16 measurement validation warning(s); 16 room(s) with missing measurements.
+
+---
+
 
 ## eed5331b8fe92ddb70c110236003793e -- 2026-03-11 -- v2026.09.3
 
