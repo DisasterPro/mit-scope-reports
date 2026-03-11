@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 23:03 UTC | **Traces with Issues:** 333 | **Total Issues:** 2776
+**Last Updated:** 2026-03-11 23:38 UTC | **Traces with Issues:** 334 | **Total Issues:** 2793
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 4bfcdf9bc380795a2c8be949a9c08e8d | corey.benjamin@ca.belfor.com | 17 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 42 | 7 | 1 |
 | 2026-03-11 | cda8fa6309fb3228b0e66ce9c53da6f8 | corey.benjamin@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 27 | 3 | 0 |
 | 2026-03-11 | 9652b08969e94b8c04d09bf629819889 | tristan.randolph@rs1967.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 108 | 10 | 1 |
 | 2026-03-11 | e51ccee85e4a45c9c0f9063fa4317e75 | darren.ball+chatham@ca.belfor.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (8/0) | 68 | 10 | 0 |
@@ -344,6 +345,47 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 4bfcdf9bc380795a2c8be949a9c08e8d -- 2026-03-11 -- v2026.09.3
+
+**User:** corey.benjamin@ca.belfor.com | **Time:** 1m 46s
+**Rooms:** 11 total (6 affected, 5 unaffected) | **Photos:** 42 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Back Hall has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Bedroom
+- Primary Bedroom
+- Living Room
+- Kitchen
+- Dining Room
+- Back Hall
+
+**Material Mismatch** (5):
+
+- [INFO] room_name: Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room elements and damage summary). Hardwood is present but not listed as affected/wet in this room.
+- [INFO] room_name: Primary Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room elements and damage summary). Hardwood is present but not listed as affected/wet in this room.
+- [INFO] room_name: Living Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room elements and damage summary). Hardwood is present but not listed as affected/wet in this room.
+- [INFO] room_name: Dining Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room elements field as 'carpet/hardwood flooring: wet/contaminated'. Carpet is most consistent with standard assemblies and small room size.)
+- [INFO] room_name: Back Hall; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room elements 'carpet/hardwood flooring: subject to gross contamination'). No explicit hardwood damage—used Carpet only for wet extraction/removal.
+
+### Assessment
+
+The system detected 17 data quality issue(s): 5 material mismatch(es) between room data sources; 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
 
 ## cda8fa6309fb3228b0e66ce9c53da6f8 -- 2026-03-11 -- v2026.09.3
 
