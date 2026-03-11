@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 14:46 UTC | **Traces with Issues:** 267 | **Total Issues:** 2166
+**Last Updated:** 2026-03-11 15:15 UTC | **Traces with Issues:** 272 | **Total Issues:** 2212
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 1f079f45043f522ecec759ab495d8507 | marek.chabrowski@firstgeneraledm.ca | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (5/5) | 214 | 14 | 1 |
+| 2026-03-11 | 4c6ee2bd190f8cc470638e4a41e26651 | tracey.paris@ca.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 23 (7/16) | 255 | 24 | 1 |
+| 2026-03-11 | abc303298ac09e8d8ccd575b35b8d467 | mary.hernandez@ca.belfor.com | 10 | 4/5 Good | 2/5 Significant | 3/5 Moderate | 27 (12/15) | 349 | 17 | 3 |
+| 2026-03-11 | 7e6080d04192744e439730f885c2810f | mary.hernandez@ca.belfor.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 73 | 4 | 1 |
+| 2026-03-11 | 4925784513d52d37ea3b33611fc355cc | darren.ball+chatham@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (2/9) | 107 | 11 | 1 |
 | 2026-03-11 | 08ed3f0a0e4fabe7dc575db5f2b6d241 | kristy.persson+hub@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 34 | 6 | 1 |
 | 2026-03-11 | e18679f9b8100c42ed8e6768a901bcf8 | marek.chabrowski@firstgeneraledm.ca | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (9/5) | 744 | 20 | 1 |
 | 2026-03-11 | ae0b52697e40fc973b9e07d7d8f6596f | brad.emond@highland.dki.ca | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 16 (8/8) | 341 | 10 | 1 |
@@ -278,6 +283,162 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 1f079f45043f522ecec759ab495d8507 -- 2026-03-11 -- v2026.09.3
+
+**User:** marek.chabrowski@firstgeneraledm.ca | **Time:** 4m 11s
+**Rooms:** 10 total (5 affected, 5 unaffected) | **Photos:** 214 | **Notes:** 14 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- [Office]: floor plan shows 135.5 SF, description shows no specific SF - using floor plan value.
+- [Bathroom]: floor plan shows 36.5 SF, description shows no specific SF - using floor plan value.
+- [Bedroom]: floor plan shows 127.3 SF, description shows no specific SF - using floor plan value.
+- [Bedroom 2]: floor plan shows 92.6 SF, description shows no specific SF - using floor plan value.
+- [Hallway]: floor plan shows 45.5 SF, description shows no specific SF - using floor plan value.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 5 measurement validation warning(s).
+
+---
+
+## 4c6ee2bd190f8cc470638e4a41e26651 -- 2026-03-11 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 6m 58s
+**Rooms:** 23 total (7 affected, 16 unaffected) | **Photos:** 255 | **Notes:** 24 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+- Recroom has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Bedroom 3, Recroom, Living Room, Lamp Room, Back Bedroom, Wet, Sump Pump, Utility Room, Readings volumes calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (9):
+
+- Bedroom 3
+- Recroom
+- Living Room
+- Lamp Room
+- Back Bedroom
+- Wet
+- Sump Pump
+- Utility Room
+- Readings
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Recroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 14 data quality issue(s): 1 material mismatch(es) between room data sources; 4 measurement validation warning(s); 9 room(s) with missing measurements.
+
+---
+
+## abc303298ac09e8d8ccd575b35b8d467 -- 2026-03-11 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 16m 57s
+**Rooms:** 27 total (12 affected, 15 unaffected) | **Photos:** 349 | **Notes:** 17 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Solarium has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Basement
+- Furnace Room
+- Solarium
+- Hallway
+- Stairs
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 7e6080d04192744e439730f885c2810f -- 2026-03-11 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 1m 38s
+**Rooms:** 5 total (1 affected, 4 unaffected) | **Photos:** 73 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Discrepancy** (3):
+
+- [MODERATE] room_name: Bedroom; description_material: Floor; photo_material: Carpet; moisture_material: None; resolution: Using Carpet as primary flooring based on photo evidence; technician notes listed generic 'Floor'.
+- [MODERATE] room_name: Bedroom; description_material: Floor; photo_material: Laminate Flooring; moisture_material: None; resolution: Using Laminate Flooring as affected flooring based on photo evidence; technician notes listed generic 'Floor'.
+- [MODERATE] room_name: Basement; description_material: Walls; photo_material: Drywall; moisture_material: None; resolution: Using Drywall from PropertyImages as wall material; technician notes listed generic 'Walls'.
+
+**Measurement Warning** (2):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Basement
+- Exterior
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring, Hardwood Flooring, Vinyl Flooring, Concrete; room_elements_flooring: Carpet, Laminate Flooring, Hardwood Flooring, Vinyl Flooring; resolution: Used all four flooring types for removal as confirmed in room elements. Concrete not removed because it is structural (clean/decontaminate as needed for concrete, removal for others). Laminate, hardwood, vinyl, and carpet removal included per contamination and direct element confirmation.
+
+**Equipment Sizing Conflict** (1):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (hydro value) - agreement between hydro assessment and structural analysis.
+
+### Assessment
+
+The system detected 9 data quality issue(s): 3 material discrepancy(ies) between photos and descriptions; 1 material mismatch(es) between room data sources; 1 equipment sizing conflict(s); 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 4925784513d52d37ea3b33611fc355cc -- 2026-03-11 -- v2026.09.3
+
+**User:** darren.ball+chatham@ca.belfor.com | **Time:** 2m 7s
+**Rooms:** 11 total (2 affected, 9 unaffected) | **Photos:** 107 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Office has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Equipment has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Office
+- Utility Room
+- Equipment
+- Living Room
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 08ed3f0a0e4fabe7dc575db5f2b6d241 -- 2026-03-11 -- v2026.09.3
 
