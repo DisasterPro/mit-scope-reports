@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 17:46 UTC | **Traces with Issues:** 291 | **Total Issues:** 2371
+**Last Updated:** 2026-03-11 18:13 UTC | **Traces with Issues:** 292 | **Total Issues:** 2375
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 451d2fa836d574cd473d9669c6aaa16e | dylanclimie@live.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 18 | 6 | 1 |
 | 2026-03-11 | 272dccb7d560efec3d70ef9efbd14027 | claudette.ryan@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (7/4) | 91 | 9 | 2 |
 | 2026-03-11 | 8fe11e3ff655ba9e00db50f2fc692015 | derek.kryjak@ca.belfor.com | 6 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 5 (2/3) | 0 | 1 | 2 |
 | 2026-03-11 | 6268177c16b9b2e88053cde9f99e7cde | melissa.cove@ca.belfor.com | 10 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (9/0) | 0 | 1 | 1 |
@@ -302,6 +303,31 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 451d2fa836d574cd473d9669c6aaa16e -- 2026-03-11 -- v2026.09.3
+
+**User:** dylanclimie@live.com | **Time:** 1m 25s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 18 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Laundry Room
+- Exterior
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 272dccb7d560efec3d70ef9efbd14027 -- 2026-03-11 -- v2026.09.3
 
