@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 13:52 UTC | **Traces with Issues:** 261 | **Total Issues:** 2113
+**Last Updated:** 2026-03-11 14:16 UTC | **Traces with Issues:** 264 | **Total Issues:** 2128
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 11c61bf912e1fa83f891a3f7ca88ec41 | brendan.macdonald@ca.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 5 (2/3) | 34 | 4 | 1 |
+| 2026-03-11 | 6bb47dfd90b58767b5ba2e9dd82735fa | claudette.ryan@ca.belfor.com | 11 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (7/3) | 85 | 14 | 1 |
+| 2026-03-11 | 4b567aa860c7f8e4491966c57b58faa5 | claudette.ryan@ca.belfor.com | 3 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (7/4) | 85 | 14 | 1 |
 | 2026-03-11 | 765f2ccba3e0ff77220e23ef6ba6ffd4 | kay.cayuga+owensound@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (10/3) | 246 | 11 | 1 |
 | 2026-03-11 | acfcccdbcd3ca14c3cd424ba31bc7580 | tracey.paris@ca.belfor.com | 17 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (8/6) | 85 | 14 | 1 |
 | 2026-03-11 | abbd3ea6ffee8650ff6e5556063bac0d | shane@highlandrestoration.ca | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 8 (1/7) | 24 | 5 | 1 |
@@ -272,6 +275,82 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 11c61bf912e1fa83f891a3f7ca88ec41 -- 2026-03-11 -- v2026.09.3
+
+**User:** brendan.macdonald@ca.belfor.com | **Time:** 1m 56s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 34 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
+## 6bb47dfd90b58767b5ba2e9dd82735fa -- 2026-03-11 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 3m 55s
+**Rooms:** 10 total (7 affected, 3 unaffected) | **Photos:** 85 | **Notes:** 14 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Dining Area has no measurements available - room dimensions required for complete scope.
+- Trim has no measurements available - room dimensions required for complete scope.
+- Mold Development has no measurements available - room dimensions required for complete scope.
+- Insureds Pictures has no measurements available - room dimensions required for complete scope.
+- Risk has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Dining Area
+- Trim
+- Mold Development
+- Insureds Pictures
+- Risk
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Basement Entrance; materials_array_flooring: Carpet; room_elements_flooring: Hardwood Flooring; resolution: Used Hardwood Flooring (confirmed in room). Carpet appears to be a secondary or rug material; only hardwood is installed.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 1 material mismatch(es) between room data sources; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 4b567aa860c7f8e4491966c57b58faa5 -- 2026-03-11 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 3m 10s
+**Rooms:** 11 total (7 affected, 4 unaffected) | **Photos:** 85 | **Notes:** 14 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Baesment Entrance has no measurements available - room dimensions required for complete scope.
+- [Baesment Entrance] volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (1):
+
+- Baesment Entrance
+
+### Assessment
+
+The system detected 3 data quality issue(s): 2 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 765f2ccba3e0ff77220e23ef6ba6ffd4 -- 2026-03-11 -- v2026.09.3
 
