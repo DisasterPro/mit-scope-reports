@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-11 00:50 UTC | **Total Traces:** 736 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-11 01:30 UTC | **Total Traces:** 737 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 2aed12ae6c6b41b9b2b6a9e86262ed79 | v2026.09.3 | 2026-03-11 | biohazardfirstresponse3@gmail.com | 1m 14s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 6 (0/6) | 74 | 4 | 1 |
 | 92e9498e2af2fc7b967b045c79f53d8a | v2026.09.3 | 2026-03-11 | tammy.gemmill@ca.belfor.com | 4m 48s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 20 (9/11) | 161 | 15 | 6 |
 | 74726d227e5708458d82696e925b746a | v2026.09.3 | 2026-03-10 | tony@servpro9332.com | 1m 25s | 4/5 Good | 5/5 Healthy | 5/5 Clean | 4.7/5 | 3 (2/1) | 70 | 5 | 1 |
 | c23d760ed8f73a87e692f3f87e621280 | v2026.09.3 | 2026-03-10 | tammy.gemmill@ca.belfor.com | 2m 3s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 12 (6/6) | 62 | 13 | 2 |
@@ -744,6 +745,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 2aed12ae6c6b41b9b2b6a9e86262ed79 -- 2026-03-11 -- v2026.09.3
+
+**User:** biohazardfirstresponse3@gmail.com | **Time:** 1m 14s
+**Rooms:** 6 total (0 affected, 6 unaffected) | **Photos:** 74 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 6 rooms; 3 in app, 3 from notes |
+| Field Photos | Good | 74 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 4 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+74 field photos were submitted. Technician notes were provided (4 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 3 of 6 rooms were set up in the app beforehand.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 14s. No data quality issues were flagged.
+
+### Issue Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## 92e9498e2af2fc7b967b045c79f53d8a -- 2026-03-11 -- v2026.09.3
 
