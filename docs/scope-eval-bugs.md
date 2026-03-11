@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 11:10 UTC | **Traces with Issues:** 246 | **Total Issues:** 1972
+**Last Updated:** 2026-03-11 12:05 UTC | **Traces with Issues:** 249 | **Total Issues:** 1994
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 9bde758ae83a2535f6f6370a0d658a27 | ryan.smith@restoration1.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 12 | 5 | 0 |
+| 2026-03-11 | 4e00194798403ceaac926ef595d41742 | trey@atlassoo.com | 11 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (7/8) | 206 | 12 | 1 |
+| 2026-03-11 | 8a7eebb3e9f8e2bdcddfc75ccbe773df | rick.deckert@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (3/0) | 56 | 6 | 1 |
 | 2026-03-11 | b59b521454557e6d9bc458f49f66eea1 | ben.coates@ca.belfor.com | 4 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 14 (4/10) | 187 | 19 | 1 |
 | 2026-03-11 | ceb55976647ec374245c551d7db24c7b | trey@atlassoo.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 16 (7/9) | 206 | 12 | 1 |
 | 2026-03-11 | 339693496216a617f5608b4948659bbe | chad.gerber@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 21 (8/13) | 94 | 12 | 2 |
@@ -257,6 +260,92 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 9bde758ae83a2535f6f6370a0d658a27 -- 2026-03-11 -- v2026.09.3
+
+**User:** ryan.smith@restoration1.com | **Time:** 2m 16s
+**Rooms:** 7 total (7 affected, 0 unaffected) | **Photos:** 12 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Basement Under Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Basement
+- Basement Under Stairs
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 4e00194798403ceaac926ef595d41742 -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 4m 21s
+**Rooms:** 15 total (7 affected, 8 unaffected) | **Photos:** 206 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [SIGNIFICANT] field: water_category; iicrc_recommended: 3; user_specified: 2; justification: Description specified Category 2 based on outside water backup as non-sewage, but hazard analysis and photo evidence confirm sewage/mud contamination consistent with drain backup. IICRC S500 mandates Category 3 for this. Photo and hazard evidence require escalating to Category 3.; source: Merge.jinja2 category determination; impact: Tasks, containment level, PPE, and porous material removal will follow Category 3 gross contamination protocols instead of Category 2. Enhanced PPE, more aggressive demolition, and separate disposal required.
+
+**Measurement Warning** (4):
+
+- Basement Storage 2 has no measurements available - room dimensions required for complete scope.
+- Power has no measurements available - room dimensions required for complete scope.
+- Scoping Video has no measurements available - room dimensions required for complete scope.
+- Outside has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Basement Storage 2
+- Power
+- Scoping Video
+- Outside
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Basement Living; materials_array_flooring: Vinyl Flooring, Laminate Flooring, Stone Flooring, Hardwood Flooring, Tile Flooring, Carpet; room_elements_flooring: Carpet; resolution: Used Carpet as primary installed flooring per room elements. Other flooring materials are likely moisture meter artifacts. Removal quantities for non-primary floorings set to 0 SF for transparency.
+- [INFO] room_name: Storage; materials_array_flooring: Hardwood Flooring, Laminate Flooring, Carpet Pad, Concrete; room_elements_flooring: Concrete, Carpet; resolution: Used Concrete as primary installed flooring per room elements. Laminate and hardwood likely measurement artifacts or secondary small zones. Quantities consolidated for main surfaces only.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 1 IICRC standard deviation(s) were flagged; 2 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 8a7eebb3e9f8e2bdcddfc75ccbe773df -- 2026-03-11 -- v2026.09.3
+
+**User:** rick.deckert@ca.belfor.com | **Time:** 2m 18s
+**Rooms:** 3 total (3 affected, 0 unaffected) | **Photos:** 56 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Mismatch** (7):
+
+- [INFO] room_name: Basement; materials_array_flooring: Tile Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Tile is a meter setting, not installed material.
+- [INFO] room_name: Basement; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Laundry Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Laundry Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Basement 2; materials_array_flooring: Laminate Flooring; room_elements_flooring: Concrete; resolution: Used Concrete (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Basement 2; materials_array_flooring: Tile Flooring; room_elements_flooring: Concrete; resolution: Used Concrete (confirmed in room). Tile is a meter setting, not installed material.
+- [INFO] room_name: Basement 2; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Concrete; resolution: Used Concrete (confirmed in room). Hardwood is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 7 data quality issue(s): 7 material mismatch(es) between room data sources.
+
+---
+
 
 ## b59b521454557e6d9bc458f49f66eea1 -- 2026-03-11 -- v2026.09.3
 
