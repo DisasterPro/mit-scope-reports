@@ -3,12 +3,19 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 20:43 UTC | **Traces with Issues:** 311 | **Total Issues:** 2568
+**Last Updated:** 2026-03-11 21:07 UTC | **Traces with Issues:** 318 | **Total Issues:** 2606
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | eed5331b8fe92ddb70c110236003793e | steven.wallace@us.belfor.com | 5 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (2/4) | 0 | 1 | 2 |
+| 2026-03-11 | 3c3ec0b7f8c23a29220033cd1665e199 | adonahoo+rescuepro@encircleapp.com | 12 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 4 (0/4) | 0 | 5 | 0 |
+| 2026-03-11 | fb5599378f431d7f1bf084df28afe578 | kristy.persson+hub@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (3/6) | 45 | 14 | 3 |
+| 2026-03-11 | 0666d363e864d5bbc1f6245f35a01838 | steven.wallace@us.belfor.com | 1 | 2/5 Minimal | 4/5 Minor | 4/5 Minor | 2 (1/1) | 0 | 1 | 1 |
+| 2026-03-11 | 7ceab0b471d8543689dd6b09cc00ac68 | darrell.thompson@ungerman.net | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 10 (2/8) | 0 | 1 | 2 |
+| 2026-03-11 | 3d4b963bd15824baf04f603888ac8153 | ssmyrski@servicemasterbc.ca | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 16 | 2 | 0 |
+| 2026-03-11 | 17823639ce4e5aec196ab181efba6671 | ashley.platt@ca.belfor.com | 11 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (4/9) | 187 | 19 | 1 |
 | 2026-03-11 | e224a26f46cb48bca986021add573664 | tylerhelms@winmarkelowna.com | 13 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 5 (4/1) | 0 | 0 | 0 |
 | 2026-03-11 | b6dae23e94c32b8809ba88578fb64225 | steven.wallace@us.belfor.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (3/2) | 0 | 1 | 2 |
 | 2026-03-11 | 0dce5358900e0bb41833e70b2f3dc54e | bchristie+scopeai@encircleapp.com | 10 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 11 (4/7) | 0 | 1 | 1 |
@@ -322,6 +329,194 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## eed5331b8fe92ddb70c110236003793e -- 2026-03-11 -- v2026.09.3
+
+**User:** steven.wallace@us.belfor.com | **Time:** 1m 9s
+**Rooms:** 6 total (2 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Bathroom
+
+**Affected Room Without Photos** (2):
+
+- Bathroom
+- Kitchen
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: Dense; structural_analysis: Very Dense; resolution: Using Very Dense (conservative estimate) - compartmentalized layout inferred; professional classification conflicts with hydro value.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 1 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 3c3ec0b7f8c23a29220033cd1665e199 -- 2026-03-11 -- v2026.09.3
+
+**User:** adonahoo+rescuepro@encircleapp.com | **Time:** 0m 48s
+**Rooms:** 4 total (0 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Living Room
+- Dining Room
+- Kitchen
+- Exterior
+
+**Affected Room Without Photos** (4):
+
+- Living Room
+- Dining Room
+- Kitchen
+- Exterior
+
+### Assessment
+
+The system detected 12 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements; 4 affected room(s) without photos.
+
+---
+
+## fb5599378f431d7f1bf084df28afe578 -- 2026-03-11 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 38s
+**Rooms:** 9 total (3 affected, 6 unaffected) | **Photos:** 45 | **Notes:** 14 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Under Stairs Storage has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+
+### Assessment
+
+The system detected 3 data quality issue(s): 3 measurement validation warning(s).
+
+---
+
+## 0666d363e864d5bbc1f6245f35a01838 -- 2026-03-11 -- v2026.09.3
+
+**User:** steven.wallace@us.belfor.com | **Time:** 0m 53s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 3.3/5
+
+### Issues Found
+
+**Affected Room Without Photos** (1):
+
+- Kitchen
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 affected room(s) without photos.
+
+---
+
+## 7ceab0b471d8543689dd6b09cc00ac68 -- 2026-03-11 -- v2026.09.3
+
+**User:** darrell.thompson@ungerman.net | **Time:** 1m 38s
+**Rooms:** 10 total (2 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Primary Bathroom
+
+**Affected Room Without Photos** (2):
+
+- Primary Bathroom
+- Kitchen
+
+### Assessment
+
+The system detected 4 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 3d4b963bd15824baf04f603888ac8153 -- 2026-03-11 -- v2026.09.3
+
+**User:** ssmyrski@servicemasterbc.ca | **Time:** 0m 52s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 16 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Bedroom
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 17823639ce4e5aec196ab181efba6671 -- 2026-03-11 -- v2026.09.3
+
+**User:** ashley.platt@ca.belfor.com | **Time:** 2m 11s
+**Rooms:** 13 total (4 affected, 9 unaffected) | **Photos:** 187 | **Notes:** 19 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Family Room
+- Office
+
+**Material Mismatch** (7):
+
+- [INFO] room_name: Bedroom; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Carpet; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Carpet is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Carpet Pad; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Carpet Pad is a meter setting, not installed material.
+- [INFO] room_name: Recreation Room; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl is a meter setting, not installed material.
+- [INFO] room_name: Recreation Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Recreation Room; materials_array_flooring: Carpet; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Carpet is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 7 material mismatch(es) between room data sources; 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## e224a26f46cb48bca986021add573664 -- 2026-03-11 -- v2026.09.3
 
