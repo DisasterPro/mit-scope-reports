@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 16:46 UTC | **Traces with Issues:** 284 | **Total Issues:** 2330
+**Last Updated:** 2026-03-11 17:16 UTC | **Traces with Issues:** 288 | **Total Issues:** 2348
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | cd2d51effd205df1160d004ccf039448 | bretlecroy09@gmail.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
+| 2026-03-11 | 67ac0fcf96e6c79e6bd97edde9269a28 | matthew.bishop@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (0/11) | 102 | 6 | 1 |
+| 2026-03-11 | 8d6a333104c58fa81209ff37b862d35d | jamesl@bluelinesolutions.net | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 26 | 4 | 0 |
+| 2026-03-11 | da8dd3c5e4466e3415aa16561f5c77dd | tracey.paris@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 8 (4/4) | 43 | 6 | 1 |
 | 2026-03-11 | 0557b65b6dab9c99d96baa7cf8c55618 | harleen.harleen+hamilton@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 112 | 12 | 1 |
 | 2026-03-11 | 319af12a2194e9c2bb09c3566a3d1fe1 | craig.dicks@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (1/5) | 20 | 5 | 3 |
 | 2026-03-11 | 53e2326fd048a2eaa6d51e4a212a14af | craig.dicks@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 28 | 4 | 2 |
@@ -295,6 +299,108 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## cd2d51effd205df1160d004ccf039448 -- 2026-03-11 -- v2026.09.3
+
+**User:** bretlecroy09@gmail.com | **Time:** 0m 43s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+**Affected Room Without Photos** (1):
+
+- Kitchen
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using Non-Beneficial (hydro value) - hydro and structural evidence agree; built-in HVAC not detected.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 1 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## 67ac0fcf96e6c79e6bd97edde9269a28 -- 2026-03-11 -- v2026.09.3
+
+**User:** matthew.bishop@ca.belfor.com | **Time:** 1m 17s
+**Rooms:** 11 total (0 affected, 11 unaffected) | **Photos:** 102 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bedroom Number Five has no measurements available - room dimensions required for complete scope.
+- Bedroom Number Two has no measurements available - room dimensions required for complete scope.
+- Roof has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Hallway
+- Bedroom Number Five
+- Bedroom Number Two
+- Roof
+- Exterior
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 8d6a333104c58fa81209ff37b862d35d -- 2026-03-11 -- v2026.09.3
+
+**User:** jamesl@bluelinesolutions.net | **Time:** 0m 56s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 26 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Upstairs Den has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Upstairs Den
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## da8dd3c5e4466e3415aa16561f5c77dd -- 2026-03-11 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 1m 55s
+**Rooms:** 8 total (4 affected, 4 unaffected) | **Photos:** 43 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Hallway; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring, Tile Flooring; resolution: Used Laminate Flooring and Tile Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Stairs; materials_array_flooring: Laminate Flooring, Tile Flooring, Hardwood Flooring; room_elements_flooring: Laminate Flooring, Tile Flooring, Hardwood Flooring (confirmed for treads); resolution: Task generation used all confirmed installed flooring types consistent with room elements; no artifact use.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 material mismatch(es) between room data sources.
+
+---
+
 
 ## 0557b65b6dab9c99d96baa7cf8c55618 -- 2026-03-11 -- v2026.09.3
 
