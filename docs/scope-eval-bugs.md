@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 17:16 UTC | **Traces with Issues:** 288 | **Total Issues:** 2348
+**Last Updated:** 2026-03-11 17:46 UTC | **Traces with Issues:** 291 | **Total Issues:** 2371
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 272dccb7d560efec3d70ef9efbd14027 | claudette.ryan@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (7/4) | 91 | 9 | 2 |
+| 2026-03-11 | 8fe11e3ff655ba9e00db50f2fc692015 | derek.kryjak@ca.belfor.com | 6 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 5 (2/3) | 0 | 1 | 2 |
+| 2026-03-11 | 6268177c16b9b2e88053cde9f99e7cde | melissa.cove@ca.belfor.com | 10 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (9/0) | 0 | 1 | 1 |
 | 2026-03-11 | cd2d51effd205df1160d004ccf039448 | bretlecroy09@gmail.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-11 | 67ac0fcf96e6c79e6bd97edde9269a28 | matthew.bishop@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (0/11) | 102 | 6 | 1 |
 | 2026-03-11 | 8d6a333104c58fa81209ff37b862d35d | jamesl@bluelinesolutions.net | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 26 | 4 | 0 |
@@ -299,6 +302,96 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 272dccb7d560efec3d70ef9efbd14027 -- 2026-03-11 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 4m 23s
+**Rooms:** 11 total (7 affected, 4 unaffected) | **Photos:** 91 | **Notes:** 9 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Discrepancy** (1):
+
+- [MODERATE] room_name: Recreation Room; description_material: Laminate Flooring; photo_material: Hardwood Flooring; moisture_material: None; resolution: Laminate Flooring used (tech notes and explicit demo instructions), though hardwood visible in photos—likely laminate over original hardwood.
+
+**Measurement Warning** (3):
+
+- After Carpet Removed has no measurements available - room dimensions required for complete scope.
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Recroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- After Carpet Removed
+- Entrance
+- Recroom
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 8fe11e3ff655ba9e00db50f2fc692015 -- 2026-03-11 -- v2026.09.3
+
+**User:** derek.kryjak@ca.belfor.com | **Time:** 1m 19s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Play Room has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Play Room
+- Stairs
+
+**Affected Room Without Photos** (2):
+
+- Play Room
+- Stairs
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 6268177c16b9b2e88053cde9f99e7cde -- 2026-03-11 -- v2026.09.3
+
+**User:** melissa.cove@ca.belfor.com | **Time:** 1m 48s
+**Rooms:** 9 total (9 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Total area discrepancy detected: floor plan total area (1311.5 SF) does not match sum of room areas (1077.0 SF). Please review floor plan for missing or overlapping spaces.
+
+**Affected Room Without Photos** (9):
+
+- Dining Area
+- Living Room
+- Kitchen
+- Bath
+- Hall
+- Laundry
+- Bedroom
+- Primary Bedroom
+- Closet
+
+### Assessment
+
+The system detected 10 data quality issue(s): 1 measurement validation warning(s); 9 affected room(s) without photos.
+
+---
+
 
 ## cd2d51effd205df1160d004ccf039448 -- 2026-03-11 -- v2026.09.3
 
