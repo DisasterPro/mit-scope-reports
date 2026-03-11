@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 10:43 UTC | **Traces with Issues:** 245 | **Total Issues:** 1968
+**Last Updated:** 2026-03-11 11:10 UTC | **Traces with Issues:** 246 | **Total Issues:** 1972
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | b59b521454557e6d9bc458f49f66eea1 | ben.coates@ca.belfor.com | 4 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 14 (4/10) | 187 | 19 | 1 |
 | 2026-03-11 | ceb55976647ec374245c551d7db24c7b | trey@atlassoo.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 16 (7/9) | 206 | 12 | 1 |
 | 2026-03-11 | 339693496216a617f5608b4948659bbe | chad.gerber@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 21 (8/13) | 94 | 12 | 2 |
 | 2026-03-11 | 581e527a21d91830cf9b956c56799170 | yahsef@impeccable-restoration.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 7 (5/2) | 9 | 9 | 0 |
@@ -256,6 +257,31 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## b59b521454557e6d9bc458f49f66eea1 -- 2026-03-11 -- v2026.09.3
+
+**User:** ben.coates@ca.belfor.com | **Time:** 4m 57s
+**Rooms:** 14 total (4 affected, 10 unaffected) | **Photos:** 187 | **Notes:** 19 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Family Room
+- Office
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## ceb55976647ec374245c551d7db24c7b -- 2026-03-11 -- v2026.09.3
 
