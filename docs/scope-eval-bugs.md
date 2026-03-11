@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 15:46 UTC | **Traces with Issues:** 278 | **Total Issues:** 2289
+**Last Updated:** 2026-03-11 16:14 UTC | **Traces with Issues:** 283 | **Total Issues:** 2318
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 319af12a2194e9c2bb09c3566a3d1fe1 | craig.dicks@ca.belfor.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (1/5) | 20 | 5 | 3 |
+| 2026-03-11 | 53e2326fd048a2eaa6d51e4a212a14af | craig.dicks@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (1/4) | 28 | 4 | 2 |
+| 2026-03-11 | 7d3f67c5c41261e437502b1ccb204070 | myles.kirkhammer@ca.belfor.com | 4 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (4/0) | 0 | 1 | 2 |
+| 2026-03-11 | fecc2065111be6e0fecbe022d925406d | tracey.paris@ca.belfor.com | 7 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 19 (14/5) | 0 | 1 | 1 |
+| 2026-03-11 | c482aaf2dc7f34eb0690a83c872872bb | myles.kirkhammer@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (3/0) | 116 | 4 | 0 |
 | 2026-03-11 | 6961563f934cc4a90744cbfa21522b6a | ron.korczynski@rfconstruction.dki.ca | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (1/1) | 22 | 3 | 0 |
 | 2026-03-11 | 720cf9efd54b3ed0ecd81a97b60d051f | tracey.paris@ca.belfor.com | 22 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (8/6) | 255 | 24 | 1 |
 | 2026-03-11 | 752b1d5c0e8ed312ad1e55ad91c69264 | harleen.harleen+hamilton@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (0/8) | 46 | 8 | 1 |
@@ -289,6 +294,130 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 319af12a2194e9c2bb09c3566a3d1fe1 -- 2026-03-11 -- v2026.09.3
+
+**User:** craig.dicks@ca.belfor.com | **Time:** 1m 25s
+**Rooms:** 6 total (1 affected, 5 unaffected) | **Photos:** 20 | **Notes:** 5 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Family Room
+- Dining Room
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 53e2326fd048a2eaa6d51e4a212a14af -- 2026-03-11 -- v2026.09.3
+
+**User:** craig.dicks@ca.belfor.com | **Time:** 1m 5s
+**Rooms:** 5 total (1 affected, 4 unaffected) | **Photos:** 28 | **Notes:** 4 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Utility Room
+- Basement
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 7d3f67c5c41261e437502b1ccb204070 -- 2026-03-11 -- v2026.09.3
+
+**User:** myles.kirkhammer@ca.belfor.com | **Time:** 1m 14s
+**Rooms:** 4 total (4 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (4):
+
+- Living Room
+- Hall
+- Angled Entry
+- Bathroom
+
+### Assessment
+
+The system detected 4 data quality issue(s): 4 affected room(s) without photos.
+
+---
+
+## fecc2065111be6e0fecbe022d925406d -- 2026-03-11 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 1m 32s
+**Rooms:** 19 total (14 affected, 5 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (7):
+
+- Living Room
+- Recreation Room
+- Bathroom
+- Bedroom 3
+- Bedroom 2
+- Bedroom
+- Furnace Room
+
+### Assessment
+
+The system detected 7 data quality issue(s): 7 affected room(s) without photos.
+
+---
+
+## c482aaf2dc7f34eb0690a83c872872bb -- 2026-03-11 -- v2026.09.3
+
+**User:** myles.kirkhammer@ca.belfor.com | **Time:** 2m 33s
+**Rooms:** 3 total (3 affected, 0 unaffected) | **Photos:** 116 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Shop- Smoke Side has no measurements available - room dimensions required for complete scope.
+- Shop - Fire Side has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Exterior
+- Shop- Smoke Side
+- Shop - Fire Side
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 6961563f934cc4a90744cbfa21522b6a -- 2026-03-11 -- v2026.09.3
 
