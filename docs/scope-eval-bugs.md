@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-10 23:39 UTC | **Traces with Issues:** 236 | **Total Issues:** 1889
+**Last Updated:** 2026-03-11 00:50 UTC | **Traces with Issues:** 237 | **Total Issues:** 1895
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | 92e9498e2af2fc7b967b045c79f53d8a | tammy.gemmill@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 20 (9/11) | 161 | 15 | 6 |
 | 2026-03-10 | c23d760ed8f73a87e692f3f87e621280 | tammy.gemmill@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (6/6) | 62 | 13 | 2 |
 | 2026-03-10 | 68615e889d09b97e6eab1b37dce7505e | tammy.gemmill@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 13 (5/8) | 62 | 13 | 2 |
 | 2026-03-10 | e9173b8bdf534654668eeea1256b3d39 | corey.benjamin@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (7/2) | 100 | 11 | 0 |
@@ -247,6 +248,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 92e9498e2af2fc7b967b045c79f53d8a -- 2026-03-11 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 4m 48s
+**Rooms:** 20 total (9 affected, 11 unaffected) | **Photos:** 161 | **Notes:** 15 | **Floor Plans:** 6
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Back Storage has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Family Room
+- Back Storage
+- Basement
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## c23d760ed8f73a87e692f3f87e621280 -- 2026-03-10 -- v2026.09.3
 
