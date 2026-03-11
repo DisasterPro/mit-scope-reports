@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 20:05 UTC | **Traces with Issues:** 307 | **Total Issues:** 2526
+**Last Updated:** 2026-03-11 20:43 UTC | **Traces with Issues:** 311 | **Total Issues:** 2568
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | e224a26f46cb48bca986021add573664 | tylerhelms@winmarkelowna.com | 13 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 5 (4/1) | 0 | 0 | 0 |
+| 2026-03-11 | b6dae23e94c32b8809ba88578fb64225 | steven.wallace@us.belfor.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (3/2) | 0 | 1 | 2 |
+| 2026-03-11 | 0dce5358900e0bb41833e70b2f3dc54e | bchristie+scopeai@encircleapp.com | 10 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 11 (4/7) | 0 | 1 | 1 |
+| 2026-03-11 | 88dd0a11c2e76f1d4291d2110d24011a | tracey.paris@ca.belfor.com | 10 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (8/2) | 104 | 12 | 2 |
 | 2026-03-11 | bda768efdb26fe81210d8e8f905082d4 | steven.wallace@us.belfor.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (2/3) | 0 | 1 | 1 |
 | 2026-03-11 | f3b4979af9bc7187d42f2bbcb7b7d534 | ryan.weitzman@us.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4 (2/2) | 108 | 5 | 2 |
 | 2026-03-11 | b8c4487fdab1f463d4b0b76da5080756 | scott.shizuru@us.belfor.com | 28 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 37 (37/0) | 0 | 0 | 0 |
@@ -318,6 +322,141 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e224a26f46cb48bca986021add573664 -- 2026-03-11 -- v2026.09.3
+
+**User:** tylerhelms@winmarkelowna.com | **Time:** 1m 26s
+**Rooms:** 5 total (4 affected, 1 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Pantry has no measurements available - room dimensions required for complete scope.
+- Unit 304 has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Kitchen
+- Dining Room
+- Hallway
+- Pantry
+- Unit 304
+
+**Affected Room Without Photos** (3):
+
+- Dining Room
+- Hallway
+- Pantry
+
+### Assessment
+
+The system detected 13 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
+## b6dae23e94c32b8809ba88578fb64225 -- 2026-03-11 -- v2026.09.3
+
+**User:** steven.wallace@us.belfor.com | **Time:** 2m 5s
+**Rooms:** 5 total (3 affected, 2 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Family Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Bathroom
+- Family Room
+
+**Affected Room Without Photos** (3):
+
+- Bathroom
+- Family Room
+- Living Room
+
+**Equipment Sizing Conflict** (2):
+
+- [MODERATE] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: Average; resolution: Using Average (conservative estimate) - compartmentalization observed due to multiple rooms and required containment; not an open concept layout.
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: Non-Beneficial; resolution: Using Non-Beneficial (values align with hydro assessment; no built-in HVAC identified).
+
+### Assessment
+
+The system detected 9 data quality issue(s): 2 equipment sizing conflict(s); 2 measurement validation warning(s); 2 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
+## 0dce5358900e0bb41833e70b2f3dc54e -- 2026-03-11 -- v2026.09.3
+
+**User:** bchristie+scopeai@encircleapp.com | **Time:** 2m 16s
+**Rooms:** 11 total (4 affected, 7 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- [Primary Bedroom]: floor plan shows 191.3 SF, description has no explicit area - using floor plan value.
+- [Bedroom 1]: floor plan shows 126.3 SF, description has no explicit area - using floor plan value.
+- [Bathroom]: floor plan shows 47.0 SF, description has no explicit area - using floor plan value.
+- [Hallway]: floor plan shows 27.6 SF, description has no explicit area - using floor plan value.
+
+**Affected Room Without Photos** (4):
+
+- Primary Bedroom
+- Bedroom 1
+- Bathroom
+- Hallway
+
+**Equipment Sizing Conflict** (2):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using non_beneficial (hydro value) - values agree, no conflict exists
+- [MINOR] factor: Weather + Envelope; hydro_assessment: Neutral + Moderate; structural_analysis: neutral_moderate; resolution: Using neutral_moderate (hydro value) - values agree, no conflict exists
+
+### Assessment
+
+The system detected 10 data quality issue(s): 2 equipment sizing conflict(s); 4 measurement validation warning(s); 4 affected room(s) without photos.
+
+---
+
+## 88dd0a11c2e76f1d4291d2110d24011a -- 2026-03-11 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 2m 38s
+**Rooms:** 10 total (8 affected, 2 unaffected) | **Photos:** 104 | **Notes:** 12 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Panel has no measurements available - room dimensions required for complete scope.
+- Cause has no measurements available - room dimensions required for complete scope.
+- 360 has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Stairs
+- Panel
+- Cause
+- 360
+- Exterior
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
 
 ## bda768efdb26fe81210d8e8f905082d4 -- 2026-03-11 -- v2026.09.3
 
