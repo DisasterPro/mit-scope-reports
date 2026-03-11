@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-11 10:10 UTC | **Total Traces:** 752 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-11 10:43 UTC | **Total Traces:** 753 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 4.0/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| ceb55976647ec374245c551d7db24c7b | v2026.09.3 | 2026-03-11 | trey@atlassoo.com | 2m 54s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 16 (7/9) | 206 | 12 | 1 |
 | 339693496216a617f5608b4948659bbe | v2026.09.3 | 2026-03-11 | chad.gerber@ca.belfor.com | 5m 15s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 21 (8/13) | 94 | 12 | 2 |
 | 581e527a21d91830cf9b956c56799170 | v2026.09.3 | 2026-03-11 | yahsef@impeccable-restoration.com | 2m 5s | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3.3/5 | 7 (5/2) | 9 | 9 | 0 |
 | 4904c7d0178deddd048c58b4f2ffc7c3 | v2026.09.3 | 2026-03-11 | andy.whitehead+vancouver@ca.belfor.com | 5m 24s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 24 (6/18) | 193 | 18 | 2 |
@@ -760,6 +761,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## ceb55976647ec374245c551d7db24c7b -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 2m 54s
+**Rooms:** 16 total (7 affected, 9 unaffected) | **Photos:** 206 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 16 rooms; 11 in app, 11 from notes |
+| Field Photos | Good | 206 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 12 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+206 field photos were submitted. Technician notes were provided (12 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 11 of 16 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 54s. No data quality issues were flagged.
+
+### Issue Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## 339693496216a617f5608b4948659bbe -- 2026-03-11 -- v2026.09.3
 

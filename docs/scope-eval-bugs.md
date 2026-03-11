@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 10:10 UTC | **Traces with Issues:** 244 | **Total Issues:** 1952
+**Last Updated:** 2026-03-11 10:43 UTC | **Traces with Issues:** 245 | **Total Issues:** 1968
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-11 | ceb55976647ec374245c551d7db24c7b | trey@atlassoo.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 16 (7/9) | 206 | 12 | 1 |
 | 2026-03-11 | 339693496216a617f5608b4948659bbe | chad.gerber@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 21 (8/13) | 94 | 12 | 2 |
 | 2026-03-11 | 581e527a21d91830cf9b956c56799170 | yahsef@impeccable-restoration.com | 9 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 7 (5/2) | 9 | 9 | 0 |
 | 2026-03-11 | bc4d5fb8031494747446919602a3caeb | giovanni@igkrenewandrestore.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (9/1) | 66 | 11 | 0 |
@@ -255,6 +256,43 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## ceb55976647ec374245c551d7db24c7b -- 2026-03-11 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 2m 54s
+**Rooms:** 16 total (7 affected, 9 unaffected) | **Photos:** 206 | **Notes:** 12 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Living has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Basement Storage 2 has no measurements available - room dimensions required for complete scope.
+- Closet has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Power has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Basement Bathroom
+- Basement Living
+- Utility Room
+- Storage
+- Basement Storage 2
+- Closet
+- Stairs
+- Power
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
 
 ## 339693496216a617f5608b4948659bbe -- 2026-03-11 -- v2026.09.3
 
