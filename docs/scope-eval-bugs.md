@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 19:44 UTC | **Traces with Issues:** 398 | **Total Issues:** 3386
+**Last Updated:** 2026-03-12 20:05 UTC | **Traces with Issues:** 401 | **Total Issues:** 3413
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | e3b0c818e955481336ec0878b393b0d8 | ben.coates@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 8 (4/4) | 79 | 9 | 1 |
+| 2026-03-12 | dcf92e3d1082c3f24199431b8163bda0 | joel@yourthingsmatter.com | 16 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 8 (0/8) | 3 | 1 | 0 |
+| 2026-03-12 | 4b60965b51a9a48f38dcaa440d9c5cc9 | patrick.madden@ca.belfor.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 0 | 1 | 1 |
 | 2026-03-12 | 5113dcb03f4e499a912281fe433741da | ben.coates@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (3/9) | 93 | 7 | 1 |
 | 2026-03-12 | 462a91f82f0c964f6a9d5207e7ca5544 | henrynoaharen@gmail.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 65 | 4 | 1 |
 | 2026-03-12 | 723b50baba66c603dbf7542788a90f0c | dbaggs@restopros.co | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 11 (1/10) | 43 | 8 | 1 |
@@ -409,6 +412,94 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e3b0c818e955481336ec0878b393b0d8 -- 2026-03-12 -- v2026.09.3
+
+**User:** ben.coates@ca.belfor.com | **Time:** 1m 29s
+**Rooms:** 8 total (4 affected, 4 unaffected) | **Photos:** 79 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Stair Way To Main Floor has no measurements available - room dimensions required for complete scope.
+- Furnace Room volume calculated using assumed 8 ft ceiling height.
+- Laundry Room volume calculated using assumed 8 ft ceiling height.
+- Recreation Room volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (1):
+
+- Stair Way To Main Floor
+
+### Assessment
+
+The system detected 5 data quality issue(s): 4 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## dcf92e3d1082c3f24199431b8163bda0 -- 2026-03-12 -- v2026.09.3
+
+**User:** joel@yourthingsmatter.com | **Time:** 0m 43s
+**Rooms:** 8 total (0 affected, 8 unaffected) | **Photos:** 3 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Garage has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Maintenance Room has no measurements available - room dimensions required for complete scope.
+- Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Workout Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Front Yard has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Garage
+- Storage
+- Maintenance Room
+- Mechanical Room
+- Office
+- Workout Room
+- Exterior
+- Front Yard
+
+### Assessment
+
+The system detected 16 data quality issue(s): 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
+## 4b60965b51a9a48f38dcaa440d9c5cc9 -- 2026-03-12 -- v2026.09.3
+
+**User:** patrick.madden@ca.belfor.com | **Time:** 1m 12s
+**Rooms:** 12 total (4 affected, 8 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Total area discrepancy: Floor plan sum differs from validated room area sum by 186.9 SF.
+- Dining Area has no damage documented - confirm unaffected status.
+- Bedroom and Living Room: Dimensions validated from floor plan.
+- All volumes calculated using standard 8 ft ceiling height.
+
+**Affected Room Without Photos** (2):
+
+- Bedroom
+- Living Room
+
+### Assessment
+
+The system detected 6 data quality issue(s): 4 measurement validation warning(s); 2 affected room(s) without photos.
+
+---
+
 
 ## 5113dcb03f4e499a912281fe433741da -- 2026-03-12 -- v2026.09.3
 
