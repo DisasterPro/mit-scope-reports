@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 06:45 UTC | **Traces with Issues:** 341 | **Total Issues:** 2876
+**Last Updated:** 2026-03-12 10:43 UTC | **Traces with Issues:** 343 | **Total Issues:** 2898
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 30006eb8dec1d95845f80a83324dd752 | roger.lough@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (7/8) | 59 | 8 | 2 |
+| 2026-03-12 | 10c8cdd622ed46ecd9a661d7920750d2 | yahsef@impeccable-restoration.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (5/3) | 37 | 10 | 0 |
 | 2026-03-12 | 872cd58aeb787b9091316bfa64c2e23d | todd.morgan@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (1/9) | 54 | 10 | 1 |
 | 2026-03-12 | 2b99b967a50ef05aebf33aca471db613 | todd.morgan@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (1/8) | 28 | 6 | 1 |
 | 2026-03-12 | 15773a592d59feb78405ef782977af00 | adonahoo+rescuepro@encircleapp.com | 14 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 5 | 2 | 0 |
@@ -352,6 +354,69 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 30006eb8dec1d95845f80a83324dd752 -- 2026-03-12 -- v2026.09.3
+
+**User:** roger.lough@ca.belfor.com | **Time:** 2m 26s
+**Rooms:** 15 total (7 affected, 8 unaffected) | **Photos:** 59 | **Notes:** 8 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Room has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Bedroom
+- Stairs
+- Hallway
+- Primary Bedroom
+- Room
+- Utility Room
+
+### Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
+## 10c8cdd622ed46ecd9a661d7920750d2 -- 2026-03-12 -- v2026.09.3
+
+**User:** yahsef@impeccable-restoration.com | **Time:** 2m 26s
+**Rooms:** 8 total (5 affected, 3 unaffected) | **Photos:** 37 | **Notes:** 10 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Crawl Space has no measurements available - room dimensions required for complete scope.
+- General, Equipment, Ppe has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Scoping Video has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Kitchen
+- Crawl Space
+- General, Equipment, Ppe
+- Living ps
+- Scoping Video
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
 
 ## 872cd58aeb787b9091316bfa64c2e23d -- 2026-03-12 -- v2026.09.3
 
