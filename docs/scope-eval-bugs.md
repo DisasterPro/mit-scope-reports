@@ -3,12 +3,17 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 17:18 UTC | **Traces with Issues:** 378 | **Total Issues:** 3255
+**Last Updated:** 2026-03-12 17:45 UTC | **Traces with Issues:** 383 | **Total Issues:** 3281
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | da3c232fd9a494d8571762a94dc3eb86 | matthew.bishop@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 19 (2/17) | 39 | 4 | 2 |
+| 2026-03-12 | 8d66382d6f84e642a094f4843a0cedea | joel.currington@firstgeneraledm.ca | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 30 | 9 | 1 |
+| 2026-03-12 | ba9bd66638fb0a0abc53fa7cd19f62aa | lincoln.lam@ca.belfor.com | 8 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 11 (7/4) | 0 | 1 | 1 |
+| 2026-03-12 | d9396cd5884c44bf2601d6ee8bf1464b | lesley.mele@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 4 (3/1) | 41 | 6 | 1 |
+| 2026-03-12 | ea1a860d1910906f29e5bfb5589590d0 | john.gilbraitti+vancouver@ca.belfor.com | 6 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (3/6) | 118 | 5 | 2 |
 | 2026-03-12 | c0ed0a48f8219047503d24d16a7b8784 | adonahoo+rescuepro@encircleapp.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (4/6) | 80 | 5 | 1 |
 | 2026-03-12 | 9ed4940e6c65f9094e8d0b78b201d721 | lesley.mele@ca.belfor.com | 3 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 33 | 6 | 1 |
 | 2026-03-12 | b3aacd266b153df4f9874a42c1ee16a6 | kay.cayuga+owensound@ca.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4 (1/3) | 36 | 2 | 2 |
@@ -389,6 +394,133 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## da3c232fd9a494d8571762a94dc3eb86 -- 2026-03-12 -- v2026.09.3
+
+**User:** matthew.bishop@ca.belfor.com | **Time:** 1m 25s
+**Rooms:** 19 total (2 affected, 17 unaffected) | **Photos:** 39 | **Notes:** 4 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Upstairs Bathroom has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Basement Bathroom
+- Upstairs Bathroom
+- Exterior
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Basement Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 8d66382d6f84e642a094f4843a0cedea -- 2026-03-12 -- v2026.09.3
+
+**User:** joel.currington@firstgeneraledm.ca | **Time:** 1m 9s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 30 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Basement Bedroom has no measurements available - room dimensions required for complete scope.
+- Master Ensuite has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Basement Bedroom
+- Master Ensuite
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## ba9bd66638fb0a0abc53fa7cd19f62aa -- 2026-03-12 -- v2026.09.3
+
+**User:** lincoln.lam@ca.belfor.com | **Time:** 1m 18s
+**Rooms:** 11 total (7 affected, 4 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+
+**Affected Room Without Photos** (7):
+
+- Kitchen
+- Family Room
+- Hallway
+- Dining Room
+- Primary Bedroom
+- Primary Closet
+- Primary Bathroom
+
+### Assessment
+
+The system detected 8 data quality issue(s): 1 measurement validation warning(s); 7 affected room(s) without photos.
+
+---
+
+## d9396cd5884c44bf2601d6ee8bf1464b -- 2026-03-12 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 1m 25s
+**Rooms:** 4 total (3 affected, 1 unaffected) | **Photos:** 41 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
+## ea1a860d1910906f29e5bfb5589590d0 -- 2026-03-12 -- v2026.09.3
+
+**User:** john.gilbraitti+vancouver@ca.belfor.com | **Time:** 2m 10s
+**Rooms:** 9 total (3 affected, 6 unaffected) | **Photos:** 118 | **Notes:** 5 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Basement Bathroom
+- Basement Hallway
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## c0ed0a48f8219047503d24d16a7b8784 -- 2026-03-12 -- v2026.09.3
 
