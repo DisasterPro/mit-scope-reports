@@ -3,12 +3,18 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 16:20 UTC | **Traces with Issues:** 372 | **Total Issues:** 3210
+**Last Updated:** 2026-03-12 17:18 UTC | **Traces with Issues:** 378 | **Total Issues:** 3255
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | c0ed0a48f8219047503d24d16a7b8784 | adonahoo+rescuepro@encircleapp.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (4/6) | 80 | 5 | 1 |
+| 2026-03-12 | 9ed4940e6c65f9094e8d0b78b201d721 | lesley.mele@ca.belfor.com | 3 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 33 | 6 | 1 |
+| 2026-03-12 | b3aacd266b153df4f9874a42c1ee16a6 | kay.cayuga+owensound@ca.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4 (1/3) | 36 | 2 | 2 |
+| 2026-03-12 | c5acf7800b739f7ca3fea0daa7935e1e | claudette.ryan@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 11 (1/10) | 54 | 10 | 1 |
+| 2026-03-12 | 18f669572fe7952ce7f70fa1f50b4e7a | office@restorationxperts.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 23 (5/18) | 206 | 13 | 1 |
+| 2026-03-12 | a2bd1608329a56d1c38306a7dab86057 | ryan.oneill@ca.belfor.com | 15 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 18 (7/11) | 133 | 16 | 2 |
 | 2026-03-12 | 09d17e25dbf6fbde760a2748722a33bf | tammy.gemmill@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (4/5) | 83 | 12 | 4 |
 | 2026-03-12 | c2a0650245675310845576079961acb0 | nate.r@restoration1.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 18 (10/8) | 111 | 11 | 2 |
 | 2026-03-12 | 12d3b191a20aebb403b46d66b3fb9424 | kristy.persson+hub@ca.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 3 (1/2) | 61 | 4 | 1 |
@@ -383,6 +389,172 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## c0ed0a48f8219047503d24d16a7b8784 -- 2026-03-12 -- v2026.09.3
+
+**User:** adonahoo+rescuepro@encircleapp.com | **Time:** 2m 8s
+**Rooms:** 10 total (4 affected, 6 unaffected) | **Photos:** 80 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- [Hallway]: floor plan shows 27.6 SF, description shows 28.0 SF - using floor plan value.
+- [Primary Bedroom]: floor plan shows 125.2 SF, description shows 200.0 SF - using floor plan value.
+- [Bedroom 1]: floor plan shows 125.2 SF, description shows 121.0 SF - using floor plan value.
+- [Bathroom]: floor plan shows 51.8 SF, description shows 43.0 SF - using floor plan value.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 4 measurement validation warning(s).
+
+---
+
+## 9ed4940e6c65f9094e8d0b78b201d721 -- 2026-03-12 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 1m 8s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 33 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Crawlspace volume calculated using area specified for pumping operations; full crawlspace measurements not provided.
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 3 data quality issue(s): 2 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## b3aacd266b153df4f9874a42c1ee16a6 -- 2026-03-12 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 0m 59s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 36 | **Notes:** 2 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Scope Conflict** (1):
+
+- [INFO] type: user_vs_iicrc_permanent_repair; description: User instruction requests full 'Remove and replace furnace'. IICRC S500 mitigation scope should only include removal of contaminated/damaged item, not replacement.; resolution: Included 'Remove furnace' as requested; flagged as deviation from mitigation-only scope per IICRC S500.; affected_rooms: ['Basement']; affected_materials: ['Furnace']
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 scope conflict(s) were identified.
+
+---
+
+## c5acf7800b739f7ca3fea0daa7935e1e -- 2026-03-12 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 1m 55s
+**Rooms:** 11 total (1 affected, 10 unaffected) | **Photos:** 54 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- [Entry] has no measurements available - room dimensions required for complete scope.
+- [Common Hallway] has no measurements available - room dimensions required for complete scope.
+- [Entry / Foyer] volume calculated using assumed 8 ft ceiling height.
+- [Hallway] volume calculated using assumed 8 ft ceiling height.
+- [Dining Area] volume calculated using assumed 8 ft ceiling height.
+- [Living Room] volume calculated using assumed 8 ft ceiling height.
+- [Kitchen] volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (2):
+
+- Entry
+- Common Hallway
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Hardwood is not installed, likely an artifact from adjacent area.
+
+### Assessment
+
+The system detected 10 data quality issue(s): 1 material mismatch(es) between room data sources; 7 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 18f669572fe7952ce7f70fa1f50b4e7a -- 2026-03-12 -- v2026.09.3
+
+**User:** office@restorationxperts.com | **Time:** 3m 33s
+**Rooms:** 23 total (5 affected, 18 unaffected) | **Photos:** 206 | **Notes:** 13 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Offsite Carpet Cleaning has no measurements available - room dimensions required for complete scope.
+- Packout has no measurements available - room dimensions required for complete scope.
+- Entryway has no measurements available - room dimensions required for complete scope.
+- First Living Room has no measurements available - room dimensions required for complete scope.
+- Front Guest Bath has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Offsite Carpet Cleaning
+- Packout
+- Entryway
+- First Living Room
+- Front Guest Bath
+- Kitchen
+
+### Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
+## a2bd1608329a56d1c38306a7dab86057 -- 2026-03-12 -- v2026.09.3
+
+**User:** ryan.oneill@ca.belfor.com | **Time:** 3m 44s
+**Rooms:** 18 total (7 affected, 11 unaffected) | **Photos:** 133 | **Notes:** 16 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [SIGNIFICANT] field: water_category; iicrc_recommended: 3; user_specified: 2; justification: Description assigned Category 2 due to monitoring nomenclature, but the cause of loss and photographic evidence confirm presence of sewage-contaminated (Category 3) water per IICRC S500.; source: Merge.jinja2 - category_class logic and photo review; impact: All mitigation tasks and containment protocols executed under Category 3—including full removal of porous materials, enhanced PPE, and specialty cleaning—as required for gross contamination.
+
+**Measurement Warning** (7):
+
+- Basement Rec Room has no measurements available - room dimensions required for complete scope.
+- Kitchenette has no measurements available - room dimensions required for complete scope.
+- Bedroom - Emergency has no measurements available - room dimensions required for complete scope.
+- Utility Room - Emergency has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Bathroom - Emergency has no measurements available - room dimensions required for complete scope.
+- Cellar has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Basement Rec Room
+- Kitchenette
+- Bedroom - Emergency
+- Utility Room - Emergency
+- Storage
+- Bathroom - Emergency
+- Cellar
+
+### Assessment
+
+The system detected 15 data quality issue(s): 1 IICRC standard deviation(s) were flagged; 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
 
 ## 09d17e25dbf6fbde760a2748722a33bf -- 2026-03-12 -- v2026.09.3
 
