@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 21:42 UTC | **Traces with Issues:** 410 | **Total Issues:** 3482
+**Last Updated:** 2026-03-12 22:04 UTC | **Traces with Issues:** 414 | **Total Issues:** 3543
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 7186a01bbc72a7c693c362bc8171075d | ndukes@nlsco.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 40 | 6 | 0 |
+| 2026-03-12 | 958a827fc529ec1b0ca9dcb8f69f447e | ndukes@nlsco.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (3/2) | 214 | 6 | 0 |
+| 2026-03-12 | ac668d1dfa403d822a2218f88c1aa0b8 | ndukes@nlsco.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (2/2) | 99 | 5 | 0 |
+| 2026-03-12 | 0cd23e29bbd5cc232be589394782f1af | ndukes@nlsco.com | 36 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 17 (16/1) | 366 | 18 | 0 |
 | 2026-03-12 | 983a994f1dfcdea339c0e3615e498cf4 | kevin@team5starrestore.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 13 (10/3) | 120 | 16 | 0 |
 | 2026-03-12 | bf8eff4a2c34f88390a3ec0660816db8 | andrew.jeoung@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 3 (2/1) | 22 | 4 | 0 |
 | 2026-03-12 | efb6eeaa92bd3c51ed947121ae05a9a2 | kristy.persson+hub@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (4/2) | 339 | 8 | 1 |
@@ -421,6 +425,137 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 7186a01bbc72a7c693c362bc8171075d -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 1m 9s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 40 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (3):
+
+- Exterior
+- Unaffected Bedroom
+- Unaffected Bedroom 201
+
+**Equipment Sizing Conflict** (2):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using non_beneficial (conservative estimate) - no built-in HVAC was observed or documented
+- [MINOR] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral_tight; resolution: Using neutral_tight (mapped composite value from hydro data and envelope assessment)
+
+### Assessment
+
+The system detected 5 data quality issue(s): 2 equipment sizing conflict(s); 3 room(s) with missing measurements.
+
+---
+
+## 958a827fc529ec1b0ca9dcb8f69f447e -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 1m 12s
+**Rooms:** 5 total (3 affected, 2 unaffected) | **Photos:** 214 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Inspection has no measurements available - room dimensions required for complete scope.
+- Garage has no measurements available - room dimensions required for complete scope.
+- Packback has no measurements available - room dimensions required for complete scope.
+- Completion Photos has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Inspection
+- Garage
+- Packback
+- Completion Photos
+- Laundry Room
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Inspection; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet, Laminate Flooring, Vinyl Flooring; resolution: Laminate Flooring, Vinyl Flooring, and Carpet all listed as installed surfaces in room elements. All included as affected materials for particulate contamination.
+- [INFO] room_name: Packback; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet, Laminate Flooring, Vinyl Flooring; resolution: Laminate Flooring, Vinyl Flooring, and Carpet all listed as installed surfaces in room elements. All included as affected materials for particulate contamination.
+
+### Assessment
+
+The system detected 12 data quality issue(s): 2 material mismatch(es) between room data sources; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## ac668d1dfa403d822a2218f88c1aa0b8 -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 2m 3s
+**Rooms:** 4 total (2 affected, 2 unaffected) | **Photos:** 99 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Unaffected Area (Dining Room/ Hallway) has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bedroom
+- Bedroom 2
+- Unaffected Area (Dining Room/ Hallway)
+- Exterior
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 0cd23e29bbd5cc232be589394782f1af -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 5m 43s
+**Rooms:** 17 total (16 affected, 1 unaffected) | **Photos:** 366 | **Notes:** 18 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (18):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Garage has no measurements available - room dimensions required for complete scope.
+- Office has no measurements available - room dimensions required for complete scope.
+- Sunroom has no measurements available - room dimensions required for complete scope.
+- Hallway 2 has no measurements available - room dimensions required for complete scope.
+- Crawlspace has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- ...and 8 more
+
+**Missing Measurements** (18):
+
+- Primary Bathroom
+- Laundry Room
+- Garage
+- Office
+- Sunroom
+- Hallway 2
+- Crawlspace
+- Living Room
+- Bedroom 3
+- Kitchen
+- ...and 8 more
+
+### Assessment
+
+The system detected 36 data quality issue(s): 18 measurement validation warning(s); 18 room(s) with missing measurements.
+
+---
+
 
 ## 983a994f1dfcdea339c0e3615e498cf4 -- 2026-03-12 -- v2026.09.3
 

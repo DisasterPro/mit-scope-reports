@@ -1,11 +1,15 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-12 21:42 UTC | **Total Traces:** 983 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 76%
+**Last Updated:** 2026-03-12 22:04 UTC | **Total Traces:** 987 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 76%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 7186a01bbc72a7c693c362bc8171075d | v2026.09.3 | 2026-03-12 | ndukes@nlsco.com | 1m 9s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 5 (2/3) | 40 | 6 | 0 |
+| 958a827fc529ec1b0ca9dcb8f69f447e | v2026.09.3 | 2026-03-12 | ndukes@nlsco.com | 1m 12s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 5 (3/2) | 214 | 6 | 0 |
+| ac668d1dfa403d822a2218f88c1aa0b8 | v2026.09.3 | 2026-03-12 | ndukes@nlsco.com | 2m 3s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 4 (2/2) | 99 | 5 | 0 |
+| 0cd23e29bbd5cc232be589394782f1af | v2026.09.3 | 2026-03-12 | ndukes@nlsco.com | 5m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 17 (16/1) | 366 | 18 | 0 |
 | 456e1fd3eafb0d1490de807e86c2abf9 | v2026.09.3 | 2026-03-12 | steve.millard@ca.belfor.com | 4m 34s | 1/5 Poor | 2/5 Significant | 5/5 Clean | 2.7/5 | 0 (0/0) | 0 | 0 | 0 |
 | 983a994f1dfcdea339c0e3615e498cf4 | v2026.09.3 | 2026-03-12 | kevin@team5starrestore.com | 2m 8s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 13 (10/3) | 120 | 16 | 0 |
 | bf8eff4a2c34f88390a3ec0660816db8 | v2026.09.3 | 2026-03-12 | andrew.jeoung@ca.belfor.com | 0m 54s | 4/5 Good | 4/5 Minor | 4/5 Minor | 4.0/5 | 3 (2/1) | 22 | 4 | 0 |
@@ -991,6 +995,154 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 7186a01bbc72a7c693c362bc8171075d -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 1m 9s
+**Rooms:** 5 total (2 affected, 3 unaffected) | **Photos:** 40 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 5 rooms; 5 in app, 5 from notes |
+| Field Photos | Good | 40 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 6 notes; 0 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+40 field photos were submitted. Technician notes were provided (6 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 9s. No data quality issues were flagged.
+
+### Issue Assessment
+
+The system detected 5 data quality issue(s): 2 equipment sizing conflict(s); 3 room(s) with missing measurements.
+
+### Recommendations
+
+1. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
+## 958a827fc529ec1b0ca9dcb8f69f447e -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 1m 12s
+**Rooms:** 5 total (3 affected, 2 unaffected) | **Photos:** 214 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 5 rooms; 5 in app, 5 from notes |
+| Field Photos | Good | 214 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 6 notes; 2 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+214 field photos were submitted. Technician notes were provided (6 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 12s. Data quality flags: 2 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 12 data quality issue(s): 2 material mismatch(es) between room data sources; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 2 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
+## ac668d1dfa403d822a2218f88c1aa0b8 -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 2m 3s
+**Rooms:** 4 total (2 affected, 2 unaffected) | **Photos:** 99 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 4 rooms; 4 in app, 4 from notes |
+| Field Photos | Good | 99 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 5 notes; 2 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+99 field photos were submitted. Technician notes were provided (5 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 3s. Data quality flags: 2 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 2 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
+## 0cd23e29bbd5cc232be589394782f1af -- 2026-03-12 -- v2026.09.3
+
+**User:** ndukes@nlsco.com | **Time:** 5m 43s
+**Rooms:** 17 total (16 affected, 1 unaffected) | **Photos:** 366 | **Notes:** 18 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 17 rooms; 17 in app, 16 from notes |
+| Field Photos | Good | 366 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 18 notes; 13 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+366 field photos were submitted. Technician notes were provided (18 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 5m 43s. Data quality flags: 13 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 36 data quality issue(s): 18 measurement validation warning(s); 18 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 13 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 456e1fd3eafb0d1490de807e86c2abf9 -- 2026-03-12 -- v2026.09.3
 
