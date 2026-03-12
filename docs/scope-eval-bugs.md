@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 23:04 UTC | **Traces with Issues:** 419 | **Total Issues:** 3580
+**Last Updated:** 2026-03-12 23:39 UTC | **Traces with Issues:** 421 | **Total Issues:** 3616
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 4152793dd150c58ddd01229a3e3d4864 | ian@atlassoo.com | 28 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 43 (21/22) | 426 | 26 | 2 |
+| 2026-03-12 | 2911bda360b41d6815c06eb8f2305f0e | fernando.alvarez@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 61 | 14 | 2 |
 | 2026-03-12 | 2e855cb576394823dde5f10a589aa7e6 | andrew.jeoung@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 36 | 5 | 1 |
 | 2026-03-12 | 09a9035af50e14582342afbff12a304e | arnie@renewsocal.com | 2 | 1/5 Poor | 2/5 Significant | 4/5 Minor | 2 (2/0) | 0 | 0 | 0 |
 | 2026-03-12 | 1229b296435ccc454716f02c98ff9139 | andrew@prp247.com | 15 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 215 | 9 | 0 |
@@ -430,6 +432,80 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 4152793dd150c58ddd01229a3e3d4864 -- 2026-03-12 -- v2026.09.3
+
+**User:** ian@atlassoo.com | **Time:** 4m 26s
+**Rooms:** 43 total (21 affected, 22 unaffected) | **Photos:** 426 | **Notes:** 26 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (14):
+
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Lower Bathroom 2 has no measurements available - room dimensions required for complete scope.
+- Back Entrance has no measurements available - room dimensions required for complete scope.
+- Downstairs Study has no measurements available - room dimensions required for complete scope.
+- Downstairs Laundry has no measurements available - room dimensions required for complete scope.
+- 2 Fl Master Bedroom has no measurements available - room dimensions required for complete scope.
+- 2 Fl Master Bathroom has no measurements available - room dimensions required for complete scope.
+- 2 Fl Hallway has no measurements available - room dimensions required for complete scope.
+- 2 Fl Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- 2 Fl Bathroom 2 has no measurements available - room dimensions required for complete scope.
+- ...and 4 more
+
+**Missing Measurements** (14):
+
+- Dining Room
+- Lower Bathroom 2
+- Back Entrance
+- Downstairs Study
+- Downstairs Laundry
+- 2 Fl Master Bedroom
+- 2 Fl Master Bathroom
+- 2 Fl Hallway
+- 2 Fl Bedroom 2
+- 2 Fl Bathroom 2
+- ...and 4 more
+
+### Assessment
+
+The system detected 28 data quality issue(s): 14 measurement validation warning(s); 14 room(s) with missing measurements.
+
+---
+
+## 2911bda360b41d6815c06eb8f2305f0e -- 2026-03-12 -- v2026.09.3
+
+**User:** fernando.alvarez@ca.belfor.com | **Time:** 1m 37s
+**Rooms:** 11 total (6 affected, 5 unaffected) | **Photos:** 61 | **Notes:** 14 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Foyer has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Stairs
+- Hallway
+- Foyer
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Tile Flooring; room_elements_flooring: Tile Flooring; resolution: Tile Flooring confirmed in both materials array and room elements.
+- [INFO] room_name: Furnace Room; materials_array_flooring: Concrete; room_elements_flooring: Concrete; resolution: Concrete confirmed in both materials array and room elements.
+
+### Assessment
+
+The system detected 8 data quality issue(s): 2 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 2e855cb576394823dde5f10a589aa7e6 -- 2026-03-12 -- v2026.09.3
 
