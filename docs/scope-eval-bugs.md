@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 18:12 UTC | **Traces with Issues:** 384 | **Total Issues:** 3295
+**Last Updated:** 2026-03-12 18:45 UTC | **Traces with Issues:** 386 | **Total Issues:** 3305
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | a5fbf442fec0dd4bc5f7133d728b3293 | henrynoaharen@gmail.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 55 | 3 | 1 |
+| 2026-03-12 | 850b71083cdde07b6627dbbfc3ebfb32 | henrynoaharen@gmail.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 0 | 1 | 1 |
 | 2026-03-12 | 43d32352cb1a3eda19004f23b60e84c8 | lesley.mele@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (7/0) | 157 | 18 | 0 |
 | 2026-03-12 | da3c232fd9a494d8571762a94dc3eb86 | matthew.bishop@ca.belfor.com | 7 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 19 (2/17) | 39 | 4 | 2 |
 | 2026-03-12 | 8d66382d6f84e642a094f4843a0cedea | joel.currington@firstgeneraledm.ca | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 30 | 9 | 1 |
@@ -395,6 +397,57 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a5fbf442fec0dd4bc5f7133d728b3293 -- 2026-03-12 -- v2026.09.3
+
+**User:** henrynoaharen@gmail.com | **Time:** 1m 13s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 55 | **Notes:** 3 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile is a meter setting, not installed material.
+- [INFO] room_name: Basement; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Basement; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 4 material mismatch(es) between room data sources.
+
+---
+
+## 850b71083cdde07b6627dbbfc3ebfb32 -- 2026-03-12 -- v2026.09.3
+
+**User:** henrynoaharen@gmail.com | **Time:** 1m 14s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Bathroom
+- Basement
+
+**Affected Room Without Photos** (2):
+
+- Bathroom
+- Basement
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
 
 ## 43d32352cb1a3eda19004f23b60e84c8 -- 2026-03-12 -- v2026.09.3
 
