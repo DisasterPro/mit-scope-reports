@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 11:10 UTC | **Traces with Issues:** 345 | **Total Issues:** 2913
+**Last Updated:** 2026-03-12 11:40 UTC | **Traces with Issues:** 347 | **Total Issues:** 2922
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 93cde51bfdc1a030326106b822bc8dda | trey@atlassoo.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 22 (11/11) | 197 | 13 | 2 |
+| 2026-03-12 | ea85dc4e44e7f734681d378c264f3e15 | ian@atlassoo.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 10 (5/5) | 94 | 9 | 1 |
 | 2026-03-12 | 5b606e18e4bcf3665f0359c1f7870298 | roger.lough@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (3/4) | 51 | 6 | 2 |
 | 2026-03-12 | b651221db311974b9b05c73c6964a882 | brett.mackenzie@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 13 (3/10) | 0 | 1 | 1 |
 | 2026-03-12 | 30006eb8dec1d95845f80a83324dd752 | roger.lough@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (7/8) | 59 | 8 | 2 |
@@ -356,6 +358,50 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 93cde51bfdc1a030326106b822bc8dda -- 2026-03-12 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 3m 4s
+**Rooms:** 22 total (11 affected, 11 unaffected) | **Photos:** 197 | **Notes:** 13 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Basement Storage Room: floor plan shows 181.8 SF, description shows no measurements - using floor plan value.
+- Kitchen: floor plan shows 127.7 SF, description shows no measurements - using floor plan value.
+- Hallway: floor plan shows 210.8 SF, description shows no measurements - using floor plan value.
+- Back Bathroom: floor plan shows 121.2 SF, description shows no measurements - using floor plan value.
+- Office: floor plan shows 248.0 SF, description shows no measurements - using floor plan value.
+- Office 2: floor plan shows 159.7 SF, description shows no measurements - using floor plan value.
+- Meeting Room: floor plan shows 312.1 SF, description shows no measurements - using floor plan value.
+
+### Assessment
+
+The system detected 7 data quality issue(s): 7 measurement validation warning(s).
+
+---
+
+## ea85dc4e44e7f734681d378c264f3e15 -- 2026-03-12 -- v2026.09.3
+
+**User:** ian@atlassoo.com | **Time:** 1m 47s
+**Rooms:** 10 total (5 affected, 5 unaffected) | **Photos:** 94 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (2):
+
+- Crawlspace
+- Exterior
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 room(s) with missing measurements.
+
+---
+
 
 ## 5b606e18e4bcf3665f0359c1f7870298 -- 2026-03-12 -- v2026.09.3
 
