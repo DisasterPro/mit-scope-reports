@@ -3,12 +3,19 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 13:25 UTC | **Traces with Issues:** 353 | **Total Issues:** 3000
+**Last Updated:** 2026-03-12 13:51 UTC | **Traces with Issues:** 360 | **Total Issues:** 3125
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 0b1a05ff3115e63d75b8249f0dcfa292 | tracey.paris@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 26 (14/12) | 100 | 20 | 1 |
+| 2026-03-12 | a8128fd9f46b67018da1f7a3e764693d | dbarrett@southeastrestoration.com | 11 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 18 (11/7) | 495 | 24 | 0 |
+| 2026-03-12 | 9b911ad62b5230b14b02eff78a2eb5d4 | dbarrett@southeastrestoration.com | 48 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 17 (17/0) | 0 | 2 | 0 |
+| 2026-03-12 | 45044229853f63a4966abcaca0038d66 | brittany.sides@restoration1.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 3 (2/1) | 26 | 5 | 0 |
+| 2026-03-12 | 1fdd1c67573c4a4ba4fb43d881741ce5 | tracey.paris@ca.belfor.com | 26 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 27 (15/12) | 100 | 20 | 1 |
+| 2026-03-12 | ea22f2f02d5a6e1514547ba635f8b819 | blake.goulding@ca.belfor.com | 24 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 29 (10/19) | 374 | 13 | 2 |
+| 2026-03-12 | 586c7b094dac0317734ac6cdce30d3e1 | jledbetter@encircleapp.com | 6 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 3 (3/0) | 0 | 1 | 0 |
 | 2026-03-12 | efbeaaf53c21137e5f48151923130080 | blake.goulding@ca.belfor.com | 11 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 11 (11/0) | 0 | 1 | 2 |
 | 2026-03-12 | a82c299fa5de509d13daca3c16201540 | claudette.ryan@ca.belfor.com | 28 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (15/10) | 100 | 19 | 1 |
 | 2026-03-12 | 9b4f1f4d8a6722560a645084928965fc | daniel.lockhart@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 48 | 2 | 0 |
@@ -364,6 +371,260 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 0b1a05ff3115e63d75b8249f0dcfa292 -- 2026-03-12 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 3m 9s
+**Rooms:** 26 total (14 affected, 12 unaffected) | **Photos:** 100 | **Notes:** 20 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Recroom has no measurements available - room dimensions required for complete scope.
+- Staff Tear Out has no measurements available - room dimensions required for complete scope.
+- Bedroom Tearout has no measurements available - room dimensions required for complete scope.
+- Ttl March 10 2026 has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Recroom
+- Staff Tear Out
+- Bedroom Tearout
+- Ttl March 10 2026
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Recroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room elements). Laminate is a meter setting, not installed material for Recroom.
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## a8128fd9f46b67018da1f7a3e764693d -- 2026-03-12 -- v2026.09.3
+
+**User:** dbarrett@southeastrestoration.com | **Time:** 5m 25s
+**Rooms:** 18 total (11 affected, 7 unaffected) | **Photos:** 495 | **Notes:** 24 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Foyer has no measurements available - room dimensions required for complete scope.
+- M.Bed has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Kitchen
+- Foyer
+- M.Bed
+
+**Equipment Sizing Conflict** (5):
+
+- [NONE] factor: Build-out Density; hydro_assessment: Average; structural_analysis: Average; resolution: Using Average (agreement between hydro and structural evidence)
+- [NONE] factor: Construction; hydro_assessment: Standard; structural_analysis: Standard; resolution: Using Standard (agreement between hydro and structural evidence)
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: Non-Beneficial; resolution: Using Non-Beneficial (agreement between hydro and structural evidence)
+- [NONE] factor: Weather; hydro_assessment: Neutral; structural_analysis: Neutral; resolution: Using Neutral (agreement between hydro and structural evidence)
+- [NONE] factor: Envelope Tightness; hydro_assessment: Moderate; structural_analysis: Moderate; resolution: Using Moderate (agreement between hydro and structural evidence)
+
+### Assessment
+
+The system detected 11 data quality issue(s): 5 equipment sizing conflict(s); 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 9b911ad62b5230b14b02eff78a2eb5d4 -- 2026-03-12 -- v2026.09.3
+
+**User:** dbarrett@southeastrestoration.com | **Time:** 5m 55s
+**Rooms:** 17 total (17 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (16):
+
+- Hall Bathroom has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Center Bedroom has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Upstairs Bathroom has no measurements available - room dimensions required for complete scope.
+- Unit 27 Rear Entrance has no measurements available - room dimensions required for complete scope.
+- Unit 25 Face Entry has no measurements available - room dimensions required for complete scope.
+- ...and 6 more
+
+**Missing Measurements** (16):
+
+- Hall Bathroom
+- Laundry Room
+- Primary Bedroom
+- Center Bedroom
+- Stairs
+- Kitchen
+- Living Room
+- Upstairs Bathroom
+- Unit 27 Rear Entrance
+- Unit 25 Face Entry
+- ...and 6 more
+
+**Affected Room Without Photos** (16):
+
+- Hall Bathroom
+- Laundry Room
+- Primary Bedroom
+- Center Bedroom
+- Stairs
+- Kitchen
+- Living Room
+- Upstairs Bathroom
+- Unit 27 Rear Entrance
+- Unit 25 Face Entry
+- ...and 6 more
+
+### Assessment
+
+The system detected 48 data quality issue(s): 16 measurement validation warning(s); 16 room(s) with missing measurements; 16 affected room(s) without photos.
+
+---
+
+## 45044229853f63a4966abcaca0038d66 -- 2026-03-12 -- v2026.09.3
+
+**User:** brittany.sides@restoration1.com | **Time:** 1m 38s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 26 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
+## 1fdd1c67573c4a4ba4fb43d881741ce5 -- 2026-03-12 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 3m 12s
+**Rooms:** 27 total (15 affected, 12 unaffected) | **Photos:** 100 | **Notes:** 20 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (13):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Sitting Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Sump Pump has no measurements available - room dimensions required for complete scope.
+- Understairs has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom Tearout has no measurements available - room dimensions required for complete scope.
+- Recroom has no measurements available - room dimensions required for complete scope.
+- ...and 3 more
+
+**Missing Measurements** (13):
+
+- Bedroom
+- Sitting Room
+- Hallway
+- Recreation Room
+- Utility Room
+- Sump Pump
+- Understairs
+- Bathroom
+- Bedroom Tearout
+- Recroom
+- ...and 3 more
+
+### Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+---
+
+## ea22f2f02d5a6e1514547ba635f8b819 -- 2026-03-12 -- v2026.09.3
+
+**User:** blake.goulding@ca.belfor.com | **Time:** 15m 0s
+**Rooms:** 29 total (10 affected, 19 unaffected) | **Photos:** 374 | **Notes:** 13 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (12):
+
+- Basement Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- Basement Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Basement Hallway has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Hallway Closet has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bathroom 2 has no measurements available - room dimensions required for complete scope.
+- Basement Kitchenette has no measurements available - room dimensions required for complete scope.
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- ...and 2 more
+
+**Missing Measurements** (12):
+
+- Basement Bedroom 1
+- Basement Bedroom 2
+- Basement Hallway
+- Hallway
+- Hallway Closet
+- Laundry Room
+- Bathroom
+- Bathroom 2
+- Basement Kitchenette
+- Basement Bathroom
+- ...and 2 more
+
+### Assessment
+
+The system detected 24 data quality issue(s): 12 measurement validation warning(s); 12 room(s) with missing measurements.
+
+---
+
+## 586c7b094dac0317734ac6cdce30d3e1 -- 2026-03-12 -- v2026.09.3
+
+**User:** jledbetter@encircleapp.com | **Time:** 1m 31s
+**Rooms:** 3 total (3 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Garage has no measurements available - room dimensions required for complete scope.
+- Garage volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (1):
+
+- Garage
+
+**Affected Room Without Photos** (3):
+
+- Primary Bathroom
+- Primary Bedroom
+- Garage
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 1 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
 
 ## efbeaaf53c21137e5f48151923130080 -- 2026-03-12 -- v2026.09.3
 

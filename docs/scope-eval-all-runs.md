@@ -1,11 +1,18 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-12 13:25 UTC | **Total Traces:** 893 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-12 13:51 UTC | **Total Traces:** 900 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 0b1a05ff3115e63d75b8249f0dcfa292 | v2026.09.3 | 2026-03-12 | tracey.paris@ca.belfor.com | 3m 9s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 26 (14/12) | 100 | 20 | 1 |
+| a8128fd9f46b67018da1f7a3e764693d | v2026.09.3 | 2026-03-12 | dbarrett@southeastrestoration.com | 5m 25s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 18 (11/7) | 495 | 24 | 0 |
+| 9b911ad62b5230b14b02eff78a2eb5d4 | v2026.09.3 | 2026-03-12 | dbarrett@southeastrestoration.com | 5m 55s | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 2.7/5 | 17 (17/0) | 0 | 2 | 0 |
+| 45044229853f63a4966abcaca0038d66 | v2026.09.3 | 2026-03-12 | brittany.sides@restoration1.com | 1m 38s | 4/5 Good | 4/5 Minor | 4/5 Minor | 4.0/5 | 3 (2/1) | 26 | 5 | 0 |
+| 1fdd1c67573c4a4ba4fb43d881741ce5 | v2026.09.3 | 2026-03-12 | tracey.paris@ca.belfor.com | 3m 12s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 27 (15/12) | 100 | 20 | 1 |
+| ea22f2f02d5a6e1514547ba635f8b819 | v2026.09.3 | 2026-03-12 | blake.goulding@ca.belfor.com | 15m 0s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 29 (10/19) | 374 | 13 | 2 |
+| 586c7b094dac0317734ac6cdce30d3e1 | v2026.09.3 | 2026-03-12 | jledbetter@encircleapp.com | 1m 31s | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 2.7/5 | 3 (3/0) | 0 | 1 | 0 |
 | efbeaaf53c21137e5f48151923130080 | v2026.09.3 | 2026-03-12 | blake.goulding@ca.belfor.com | 2m 53s | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 2.7/5 | 11 (11/0) | 0 | 1 | 2 |
 | a82c299fa5de509d13daca3c16201540 | v2026.09.3 | 2026-03-12 | claudette.ryan@ca.belfor.com | 3m 18s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (15/10) | 100 | 19 | 1 |
 | 9b4f1f4d8a6722560a645084928965fc | v2026.09.3 | 2026-03-12 | daniel.lockhart@ca.belfor.com | 1m 13s | 4/5 Good | 4/5 Minor | 4/5 Minor | 4.0/5 | 1 (1/0) | 48 | 2 | 0 |
@@ -901,6 +908,267 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 0b1a05ff3115e63d75b8249f0dcfa292 -- 2026-03-12 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 3m 9s
+**Rooms:** 26 total (14 affected, 12 unaffected) | **Photos:** 100 | **Notes:** 20 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 26 rooms; 14 in app, 14 from notes |
+| Field Photos | Good | 100 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 20 notes; 11 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+100 field photos were submitted. Technician notes were provided (20 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 14 of 26 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 3m 9s. Data quality flags: 11 affected room(s) had no technician notes; the floor plan area differs from room areas by 1324 SF.
+
+### Issue Assessment
+
+The system detected 9 data quality issue(s): 1 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 11 room(s) missing them. Even brief notes about damage type and extent help.
+
+---
+
+## a8128fd9f46b67018da1f7a3e764693d -- 2026-03-12 -- v2026.09.3
+
+**User:** dbarrett@southeastrestoration.com | **Time:** 5m 25s
+**Rooms:** 18 total (11 affected, 7 unaffected) | **Photos:** 495 | **Notes:** 24 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 18 rooms; 18 in app, 18 from notes |
+| Field Photos | Good | 495 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 24 notes; 2 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+495 field photos were submitted. Technician notes were provided (24 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 5m 25s. Data quality flags: 2 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 11 data quality issue(s): 5 equipment sizing conflict(s); 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 2 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
+## 9b911ad62b5230b14b02eff78a2eb5d4 -- 2026-03-12 -- v2026.09.3
+
+**User:** dbarrett@southeastrestoration.com | **Time:** 5m 55s
+**Rooms:** 17 total (17 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 17 rooms; 0 in app, 17 from notes |
+| Field Photos | None | 0 photos; 17 rooms without photos |
+| Technician Notes | Minimal | 2 notes; 4 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+No field photos were submitted for this scope. Notes were provided for some rooms (2 notes across 17 affected rooms), but not all rooms had written descriptions of the damage. No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 5m 55s. Data quality flags: 17 affected room(s) had no photos; 4 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 48 data quality issue(s): 16 measurement validation warning(s); 16 room(s) with missing measurements; 16 affected room(s) without photos.
+
+### Recommendations
+
+1. Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.
+2. Add notes for the 4 room(s) missing them. Even brief notes about damage type and extent help.
+3. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+4. Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.
+
+---
+
+## 45044229853f63a4966abcaca0038d66 -- 2026-03-12 -- v2026.09.3
+
+**User:** brittany.sides@restoration1.com | **Time:** 1m 38s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 26 | **Notes:** 5 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 3 rooms; 3 in app, 3 from notes |
+| Field Photos | Good | 26 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 5 notes; 1 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+26 field photos were submitted. Technician notes were provided (5 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 38s. Data quality flags: 1 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 1 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
+## 1fdd1c67573c4a4ba4fb43d881741ce5 -- 2026-03-12 -- v2026.09.3
+
+**User:** tracey.paris@ca.belfor.com | **Time:** 3m 12s
+**Rooms:** 27 total (15 affected, 12 unaffected) | **Photos:** 100 | **Notes:** 20 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 27 rooms; 15 in app, 15 from notes |
+| Field Photos | Good | 100 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 20 notes; 12 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+100 field photos were submitted. Technician notes were provided (20 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 15 of 27 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 3m 12s. Data quality flags: 12 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 12 room(s) missing them. Even brief notes about damage type and extent help.
+
+---
+
+## ea22f2f02d5a6e1514547ba635f8b819 -- 2026-03-12 -- v2026.09.3
+
+**User:** blake.goulding@ca.belfor.com | **Time:** 15m 0s
+**Rooms:** 29 total (10 affected, 19 unaffected) | **Photos:** 374 | **Notes:** 13 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 29 rooms; 12 in app, 12 from notes |
+| Field Photos | Good | 374 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 13 notes; 10 rooms without notes |
+| Floor Plans | Partial | 2 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+374 field photos were submitted. Technician notes were provided (13 notes). 2 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 12 of 29 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 15m 0s. Data quality flags: 10 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 24 data quality issue(s): 12 measurement validation warning(s); 12 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 10 room(s) missing them. Even brief notes about damage type and extent help.
+
+---
+
+## 586c7b094dac0317734ac6cdce30d3e1 -- 2026-03-12 -- v2026.09.3
+
+**User:** jledbetter@encircleapp.com | **Time:** 1m 31s
+**Rooms:** 3 total (3 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 3 rooms; 0 in app, 3 from notes |
+| Field Photos | None | 0 photos; 3 rooms without photos |
+| Technician Notes | Minimal | 1 notes; 1 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+No field photos were submitted for this scope. Notes were provided for some rooms (1 notes across 3 affected rooms), but not all rooms had written descriptions of the damage. No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 31s. Data quality flags: 3 affected room(s) had no photos; 1 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 1 room(s) with missing measurements; 3 affected room(s) without photos.
+
+### Recommendations
+
+1. Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.
+2. Add notes for the 1 room(s) missing them. Even brief notes about damage type and extent help.
+3. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+4. Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.
+
+---
+
 
 ## efbeaaf53c21137e5f48151923130080 -- 2026-03-12 -- v2026.09.3
 
