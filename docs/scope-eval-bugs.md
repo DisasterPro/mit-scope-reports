@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 20:05 UTC | **Traces with Issues:** 401 | **Total Issues:** 3413
+**Last Updated:** 2026-03-12 20:43 UTC | **Traces with Issues:** 405 | **Total Issues:** 3465
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 4138ab1f9eab1536b05500df8165015f | kristy.persson+hub@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (4/6) | 339 | 8 | 1 |
+| 2026-03-12 | 72bca7d5edae7ac37a8a47cb6ad725fb | reece@heatrestoration.com | 14 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 23 (4/19) | 221 | 6 | 2 |
+| 2026-03-12 | f48ba49ed506fa492a03da17c8bd086f | paul@rockemergency.com | 28 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (14/0) | 74 | 15 | 0 |
+| 2026-03-12 | 7e463a65e13956195b4fd18895b8625f | kim@atlas-ce.com | 2 | 3/5 Adequate | 3/5 Moderate | 4/5 Minor | 14 (1/13) | 9 | 2 | 3 |
 | 2026-03-12 | e3b0c818e955481336ec0878b393b0d8 | ben.coates@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 8 (4/4) | 79 | 9 | 1 |
 | 2026-03-12 | dcf92e3d1082c3f24199431b8163bda0 | joel@yourthingsmatter.com | 16 | 2/5 Minimal | 5/5 Healthy | 3/5 Moderate | 8 (0/8) | 3 | 1 | 0 |
 | 2026-03-12 | 4b60965b51a9a48f38dcaa440d9c5cc9 | patrick.madden@ca.belfor.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 0 | 1 | 1 |
@@ -412,6 +416,136 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 4138ab1f9eab1536b05500df8165015f -- 2026-03-12 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 53s
+**Rooms:** 10 total (4 affected, 6 unaffected) | **Photos:** 339 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Cold Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Recreation Room
+- Bathroom
+- Utility Room
+- Cold Room
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 72bca7d5edae7ac37a8a47cb6ad725fb -- 2026-03-12 -- v2026.09.3
+
+**User:** reece@heatrestoration.com | **Time:** 1m 55s
+**Rooms:** 23 total (4 affected, 19 unaffected) | **Photos:** 221 | **Notes:** 6 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Initial - Source Of Leak has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Primary Bathroom
+- Basement
+- Exterior
+- Initial - Source Of Leak
+- Laundry Room
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Kitchen; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Kitchen; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Primary Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Laminate Flooring/Hardwood Flooring (from room note; both with water stain, processed per room notes); resolution: Both Laminate and Hardwood present; water damage confirmed by description (multiple flooring types, area-specific; no measurement to separate, so both listed in affected_materials).
+- [INFO] room_name: Basement; materials_array_flooring: Carpet, Concrete; room_elements_flooring: Carpet (from elements, concrete only for utility/foundation, not installed surface); resolution: Used Carpet only for extraction tasks; concrete listed as structural, not installed floor covering.
+
+### Assessment
+
+The system detected 14 data quality issue(s): 4 material mismatch(es) between room data sources; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## f48ba49ed506fa492a03da17c8bd086f -- 2026-03-12 -- v2026.09.3
+
+**User:** paul@rockemergency.com | **Time:** 2m 24s
+**Rooms:** 14 total (14 affected, 0 unaffected) | **Photos:** 74 | **Notes:** 15 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (14):
+
+- Men'S Restroom has no measurements available - room dimensions required for complete scope.
+- Woman'S Restroom has no measurements available - room dimensions required for complete scope.
+- Breakroom has no measurements available - room dimensions required for complete scope.
+- Corner Office has no measurements available - room dimensions required for complete scope.
+- Michael Office has no measurements available - room dimensions required for complete scope.
+- Rock Office has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Office 1 has no measurements available - room dimensions required for complete scope.
+- Machine Area has no measurements available - room dimensions required for complete scope.
+- Office Cluggish has no measurements available - room dimensions required for complete scope.
+- ...and 4 more
+
+**Missing Measurements** (14):
+
+- Men'S Restroom
+- Woman'S Restroom
+- Breakroom
+- Corner Office
+- Michael Office
+- Rock Office
+- Storage
+- Office 1
+- Machine Area
+- Office Cluggish
+- ...and 4 more
+
+### Assessment
+
+The system detected 28 data quality issue(s): 14 measurement validation warning(s); 14 room(s) with missing measurements.
+
+---
+
+## 7e463a65e13956195b4fd18895b8625f -- 2026-03-12 -- v2026.09.3
+
+**User:** kim@atlas-ce.com | **Time:** 0m 49s
+**Rooms:** 14 total (1 affected, 13 unaffected) | **Photos:** 9 | **Notes:** 2 | **Floor Plans:** 3
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Bathroom
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## e3b0c818e955481336ec0878b393b0d8 -- 2026-03-12 -- v2026.09.3
 
