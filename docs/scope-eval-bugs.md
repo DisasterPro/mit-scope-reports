@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 15:46 UTC | **Traces with Issues:** 369 | **Total Issues:** 3199
+**Last Updated:** 2026-03-12 16:20 UTC | **Traces with Issues:** 372 | **Total Issues:** 3210
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 09d17e25dbf6fbde760a2748722a33bf | tammy.gemmill@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (4/5) | 83 | 12 | 4 |
+| 2026-03-12 | c2a0650245675310845576079961acb0 | nate.r@restoration1.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 18 (10/8) | 111 | 11 | 2 |
+| 2026-03-12 | 12d3b191a20aebb403b46d66b3fb9424 | kristy.persson+hub@ca.belfor.com | 1 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 3 (1/2) | 61 | 4 | 1 |
 | 2026-03-12 | 9004ac05db95b2e1e291d75273634c94 | travis.baker@restoration1.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (6/3) | 70 | 9 | 1 |
 | 2026-03-12 | f94e029bd5e14ef3d42ba5f1d0568ba3 | greg.janse@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 15 | 3 | 0 |
 | 2026-03-12 | 8ebd3920ccc716eeeba9b953ea9ae19b | claudette.ryan@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (4/9) | 37 | 9 | 1 |
@@ -380,6 +383,72 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 09d17e25dbf6fbde760a2748722a33bf -- 2026-03-12 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 2m 13s
+**Rooms:** 9 total (4 affected, 5 unaffected) | **Photos:** 83 | **Notes:** 12 | **Floor Plans:** 4
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Mismatch** (5):
+
+- [INFO] room_name: Recreation Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Recreation Room; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Tile Flooring is not the installed surface (not mentioned in elements).
+- [INFO] room_name: Sitting Area; materials_array_flooring: Tile Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Tile Flooring is not the installed surface (not mentioned in elements).
+- [INFO] room_name: Play Room; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl is not primary installed floor (transition only, per elements).
+- [INFO] room_name: Play Room; materials_array_flooring: Tile Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Tile Flooring is not installed (elements mention only as fractional mats).
+
+### Assessment
+
+The system detected 5 data quality issue(s): 5 material mismatch(es) between room data sources.
+
+---
+
+## c2a0650245675310845576079961acb0 -- 2026-03-12 -- v2026.09.3
+
+**User:** nate.r@restoration1.com | **Time:** 2m 7s
+**Rooms:** 18 total (10 affected, 8 unaffected) | **Photos:** 111 | **Notes:** 11 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- [Room] has no measurements available - room dimensions required for complete scope.
+- [Bathroom] volume calculated using assumed 8 ft ceiling height.
+- [Up Stairs Bed Room] volume calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (2):
+
+- Hall
+- Foyer
+
+### Assessment
+
+The system detected 5 data quality issue(s): 3 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## 12d3b191a20aebb403b46d66b3fb9424 -- 2026-03-12 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 1m 20s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 61 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Source
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
 
 ## 9004ac05db95b2e1e291d75273634c94 -- 2026-03-12 -- v2026.09.3
 
