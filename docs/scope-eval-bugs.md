@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 15:16 UTC | **Traces with Issues:** 367 | **Total Issues:** 3195
+**Last Updated:** 2026-03-12 15:46 UTC | **Traces with Issues:** 369 | **Total Issues:** 3199
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 9004ac05db95b2e1e291d75273634c94 | travis.baker@restoration1.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 9 (6/3) | 70 | 9 | 1 |
+| 2026-03-12 | f94e029bd5e14ef3d42ba5f1d0568ba3 | greg.janse@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 15 | 3 | 0 |
 | 2026-03-12 | 8ebd3920ccc716eeeba9b953ea9ae19b | claudette.ryan@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (4/9) | 37 | 9 | 1 |
 | 2026-03-12 | 3f2f8d9e7d96de74ec5b2d5dc4ab16aa | kristy.persson+hub@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (8/1) | 82 | 10 | 1 |
 | 2026-03-12 | 7ae1c0bf5baeb3fc12028666113ac0b1 | claudette.ryan@ca.belfor.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (4/8) | 37 | 9 | 1 |
@@ -378,6 +380,51 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 9004ac05db95b2e1e291d75273634c94 -- 2026-03-12 -- v2026.09.3
+
+**User:** travis.baker@restoration1.com | **Time:** 2m 25s
+**Rooms:** 9 total (6 affected, 3 unaffected) | **Photos:** 70 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Mid
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
+## f94e029bd5e14ef3d42ba5f1d0568ba3 -- 2026-03-12 -- v2026.09.3
+
+**User:** greg.janse@ca.belfor.com | **Time:** 0m 53s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 15 | **Notes:** 3 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Contents has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Contents
+
+**Affected Room Without Photos** (1):
+
+- Contents
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
 
 ## 8ebd3920ccc716eeeba9b953ea9ae19b -- 2026-03-12 -- v2026.09.3
 
