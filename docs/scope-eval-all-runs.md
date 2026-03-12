@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-12 01:31 UTC | **Total Traces:** 864 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-12 05:21 UTC | **Total Traces:** 865 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 15773a592d59feb78405ef782977af00 | v2026.09.3 | 2026-03-12 | adonahoo+rescuepro@encircleapp.com | 1m 7s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 5 (5/0) | 5 | 2 | 0 |
 | 80d4a4536b44518ef78fd2383c9d4740 | v2026.09.3 | 2026-03-12 | chad.gerber@ca.belfor.com | 1m 15s | 4/5 Good | 3/5 Moderate | 4/5 Minor | 3.7/5 | 4 (1/3) | 25 | 5 | 1 |
 | 224fa5c85db9227b289f3aae160e8ac6 | v2026.09.3 | 2026-03-12 | mary.hernandez@ca.belfor.com | 6m 58s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 24 (9/15) | 349 | 17 | 3 |
 | 6b82ecb2a7728c2bd3e9ee3e654cac23 | v2026.09.3 | 2026-03-12 | tammy.gemmill@ca.belfor.com | 2m 56s | 4/5 Good | 3/5 Moderate | 5/5 Clean | 4.0/5 | 12 (2/10) | 194 | 10 | 3 |
@@ -872,6 +873,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 15773a592d59feb78405ef782977af00 -- 2026-03-12 -- v2026.09.3
+
+**User:** adonahoo+rescuepro@encircleapp.com | **Time:** 1m 7s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 5 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 5 rooms; 1 in app, 5 from notes |
+| Field Photos | Adequate | 5 photos; 4 rooms without photos |
+| Technician Notes | Minimal | 2 notes; 0 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+5 field photos were submitted. Notes were provided for some rooms (2 notes across 5 affected rooms), but not all rooms had written descriptions of the damage. No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. 1 of 5 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 7s. Data quality flags: 4 affected room(s) had no photos.
+
+### Issue Assessment
+
+The system detected 14 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements; 4 affected room(s) without photos.
+
+### Recommendations
+
+1. Add photos for the 4 room(s) that are missing them. Each room should have at least a few photos showing the damage.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 80d4a4536b44518ef78fd2383c9d4740 -- 2026-03-12 -- v2026.09.3
 
