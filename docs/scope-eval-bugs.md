@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 10:43 UTC | **Traces with Issues:** 343 | **Total Issues:** 2898
+**Last Updated:** 2026-03-12 11:10 UTC | **Traces with Issues:** 345 | **Total Issues:** 2913
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 5b606e18e4bcf3665f0359c1f7870298 | roger.lough@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (3/4) | 51 | 6 | 2 |
+| 2026-03-12 | b651221db311974b9b05c73c6964a882 | brett.mackenzie@ca.belfor.com | 11 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 13 (3/10) | 0 | 1 | 1 |
 | 2026-03-12 | 30006eb8dec1d95845f80a83324dd752 | roger.lough@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (7/8) | 59 | 8 | 2 |
 | 2026-03-12 | 10c8cdd622ed46ecd9a661d7920750d2 | yahsef@impeccable-restoration.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (5/3) | 37 | 10 | 0 |
 | 2026-03-12 | 872cd58aeb787b9091316bfa64c2e23d | todd.morgan@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (1/9) | 54 | 10 | 1 |
@@ -354,6 +356,68 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5b606e18e4bcf3665f0359c1f7870298 -- 2026-03-12 -- v2026.09.3
+
+**User:** roger.lough@ca.belfor.com | **Time:** 2m 7s
+**Rooms:** 7 total (3 affected, 4 unaffected) | **Photos:** 51 | **Notes:** 6 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Discrepancy** (2):
+
+- [MINOR] room_name: Recreation Room; description_material: Vinyl Flooring; photo_material: Laminate Flooring; moisture_material: None; resolution: Using both Vinyl and Laminate Flooring as photo evidence shows multiple flooring types; flooring type varies by area.
+- [MINOR] room_name: Bedroom; description_material: Vinyl Flooring; photo_material: Laminate Flooring; moisture_material: None; resolution: Using both Vinyl and Laminate Flooring due to mixed observations in technician notes and photos.
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Recreation Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 material discrepancy(ies) between photos and descriptions; 2 material mismatch(es) between room data sources.
+
+---
+
+## b651221db311974b9b05c73c6964a882 -- 2026-03-12 -- v2026.09.3
+
+**User:** brett.mackenzie@ca.belfor.com | **Time:** 1m 37s
+**Rooms:** 13 total (3 affected, 10 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Conference Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Conference Room
+- Hallway
+
+**Affected Room Without Photos** (3):
+
+- Conference Room
+- Hallway
+- Reception
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Hydro and structural assessment agree on build-out density.
+- [NONE] factor: Construction; hydro_assessment: Standard; structural_analysis: standard; resolution: Hydro and structural assessment agree on construction quality.
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Hydro and structural assessment agree on HVAC impact.
+- [NONE] factor: Weather/Envelope; hydro_assessment: Neutral/Moderate; structural_analysis: neutral_moderate; resolution: Hydro and structural assessment agree on weather/envelope.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 4 equipment sizing conflict(s); 2 measurement validation warning(s); 2 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
 
 ## 30006eb8dec1d95845f80a83324dd752 -- 2026-03-12 -- v2026.09.3
 
