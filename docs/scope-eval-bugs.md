@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 12:45 UTC | **Traces with Issues:** 351 | **Total Issues:** 2961
+**Last Updated:** 2026-03-12 13:25 UTC | **Traces with Issues:** 353 | **Total Issues:** 3000
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | efbeaaf53c21137e5f48151923130080 | blake.goulding@ca.belfor.com | 11 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 11 (11/0) | 0 | 1 | 2 |
+| 2026-03-12 | a82c299fa5de509d13daca3c16201540 | claudette.ryan@ca.belfor.com | 28 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (15/10) | 100 | 19 | 1 |
 | 2026-03-12 | 9b4f1f4d8a6722560a645084928965fc | daniel.lockhart@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 48 | 2 | 0 |
 | 2026-03-12 | a2db74b168acdc2d8a343e809b9e12f2 | greg.janse@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (5/10) | 81 | 11 | 1 |
 | 2026-03-12 | 6e3236406e423a62f513f3d0914b8fa9 | rick.higgins@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3 (3/0) | 0 | 1 | 1 |
@@ -362,6 +364,77 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## efbeaaf53c21137e5f48151923130080 -- 2026-03-12 -- v2026.09.3
+
+**User:** blake.goulding@ca.belfor.com | **Time:** 2m 53s
+**Rooms:** 11 total (11 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (11):
+
+- Bath
+- Hall
+- Primary Bedroom
+- Entry
+- Eat-in Kitchen
+- Bedroom 1
+- Bathroom
+- Hall
+- Bedroom 2
+- Living Room
+- ...and 1 more
+
+### Assessment
+
+The system detected 11 data quality issue(s): 11 affected room(s) without photos.
+
+---
+
+## a82c299fa5de509d13daca3c16201540 -- 2026-03-12 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 3m 18s
+**Rooms:** 25 total (15 affected, 10 unaffected) | **Photos:** 100 | **Notes:** 19 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (14):
+
+- Understairs has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Recroom has no measurements available - room dimensions required for complete scope.
+- Sump Room has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Lower Foyer has no measurements available - room dimensions required for complete scope.
+- Bedroom Tearout has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- ...and 4 more
+
+**Missing Measurements** (14):
+
+- Understairs
+- Bathroom
+- Furnace Room
+- Recroom
+- Sump Room
+- Utility Room
+- Lower Foyer
+- Bedroom Tearout
+- Bedroom
+- Hallway
+- ...and 4 more
+
+### Assessment
+
+The system detected 28 data quality issue(s): 14 measurement validation warning(s); 14 room(s) with missing measurements.
+
+---
+
 
 ## 9b4f1f4d8a6722560a645084928965fc -- 2026-03-12 -- v2026.09.3
 
