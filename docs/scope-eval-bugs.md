@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 00:47 UTC | **Traces with Issues:** 335 | **Total Issues:** 2823
+**Last Updated:** 2026-03-12 01:31 UTC | **Traces with Issues:** 338 | **Total Issues:** 2843
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 80d4a4536b44518ef78fd2383c9d4740 | chad.gerber@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 4 (1/3) | 25 | 5 | 1 |
+| 2026-03-12 | 224fa5c85db9227b289f3aae160e8ac6 | mary.hernandez@ca.belfor.com | 14 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 24 (9/15) | 349 | 17 | 3 |
+| 2026-03-12 | ea91b30bc9d67ce69496f16f3645bad6 | greg.janse@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (3/7) | 49 | 7 | 1 |
 | 2026-03-12 | c380b7a8d24af2f7c92ad3b160c5daf7 | fusionxp2@gmail.com | 30 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (5/4) | 86 | 12 | 0 |
 | 2026-03-11 | 4bfcdf9bc380795a2c8be949a9c08e8d | corey.benjamin@ca.belfor.com | 17 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 42 | 7 | 1 |
 | 2026-03-11 | cda8fa6309fb3228b0e66ce9c53da6f8 | corey.benjamin@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 27 | 3 | 0 |
@@ -346,6 +349,85 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 80d4a4536b44518ef78fd2383c9d4740 -- 2026-03-12 -- v2026.09.3
+
+**User:** chad.gerber@ca.belfor.com | **Time:** 1m 15s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 25 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Stairs has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Stairs
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 224fa5c85db9227b289f3aae160e8ac6 -- 2026-03-12 -- v2026.09.3
+
+**User:** mary.hernandez@ca.belfor.com | **Time:** 6m 58s
+**Rooms:** 24 total (9 affected, 15 unaffected) | **Photos:** 349 | **Notes:** 17 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (13):
+
+- Living Room: floor plan shows 140.8 SF, description shows no measurements - using floor plan value.
+- Kitchen: floor plan shows 95.7 SF, description shows no measurements - using floor plan value.
+- Hallway: floor plan shows 91.2 SF, description shows no measurements - using floor plan value.
+- Bedroom 2: floor plan shows 100.4 SF, description shows no measurements - using floor plan value.
+- Bedroom 3: floor plan shows 87.0 SF, description shows no measurements - using floor plan value.
+- Primary Bedroom: floor plan shows 121.2 SF, description shows no measurements - using floor plan value.
+- Solarium: floor plan shows 130.2 SF, description shows no measurements - using floor plan value.
+- Stairs: floor plan shows 42.6 SF, description shows no measurements - using floor plan value.
+- Entry / Foyer: floor plan shows 30.0 SF, description shows no measurements - using floor plan value.
+- 2Nd Floor Hallway: floor plan shows 91.2 SF, description shows no measurements - using floor plan value.
+- ...and 3 more
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 14 data quality issue(s): 13 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## ea91b30bc9d67ce69496f16f3645bad6 -- 2026-03-12 -- v2026.09.3
+
+**User:** greg.janse@ca.belfor.com | **Time:** 2m 13s
+**Rooms:** 10 total (3 affected, 7 unaffected) | **Photos:** 49 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Discrepancy** (2):
+
+- [MINOR] room_name: Recreation Room; description_material: Carpet; photo_material: Cork Flooring; moisture_material: None; resolution: Using Carpet (Description and multiple photos show primary flooring); Cork Flooring also listed due to partial/photo evidence. Technicians and images identify both materials, so both included. Severity: minor flooring transition.
+- [MINOR] room_name: Utility Room; description_material: Carpet; photo_material: Vinyl Flooring; moisture_material: None; resolution: Using Carpet (primary per technician notes and photo evidence for large portion); Vinyl Flooring visible toward utility wall area. Both included due to partial area coverage observed. Severity: minor flooring transition.
+
+**Missing Measurements** (2):
+
+- Entrance
+- Front Of Loss
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 material discrepancy(ies) between photos and descriptions; 2 room(s) with missing measurements.
+
+---
+
 
 ## c380b7a8d24af2f7c92ad3b160c5daf7 -- 2026-03-12 -- v2026.09.3
 
