@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 20:43 UTC | **Traces with Issues:** 405 | **Total Issues:** 3465
+**Last Updated:** 2026-03-12 21:07 UTC | **Traces with Issues:** 408 | **Total Issues:** 3476
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | efb6eeaa92bd3c51ed947121ae05a9a2 | kristy.persson+hub@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (4/2) | 339 | 8 | 1 |
+| 2026-03-12 | 426739c2c70d44c4a363904c8c2fdfd0 | greg.janse@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (2/7) | 46 | 6 | 1 |
+| 2026-03-12 | e4e4d1c5bb23472c881dcdaf659d50ad | joel.currington@firstgeneraledm.ca | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 17 | 6 | 0 |
 | 2026-03-12 | 4138ab1f9eab1536b05500df8165015f | kristy.persson+hub@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (4/6) | 339 | 8 | 1 |
 | 2026-03-12 | 72bca7d5edae7ac37a8a47cb6ad725fb | reece@heatrestoration.com | 14 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 23 (4/19) | 221 | 6 | 2 |
 | 2026-03-12 | f48ba49ed506fa492a03da17c8bd086f | paul@rockemergency.com | 28 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (14/0) | 74 | 15 | 0 |
@@ -416,6 +419,78 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## efb6eeaa92bd3c51ed947121ae05a9a2 -- 2026-03-12 -- v2026.09.3
+
+**User:** kristy.persson+hub@ca.belfor.com | **Time:** 2m 1s
+**Rooms:** 6 total (4 affected, 2 unaffected) | **Photos:** 339 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Wet Bar has no damage documented - room marked as unaffected by technician assessment.
+- Hall has no damage documented - room marked as unaffected by technician assessment.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 measurement validation warning(s).
+
+---
+
+## 426739c2c70d44c4a363904c8c2fdfd0 -- 2026-03-12 -- v2026.09.3
+
+**User:** greg.janse@ca.belfor.com | **Time:** 1m 5s
+**Rooms:** 9 total (2 affected, 7 unaffected) | **Photos:** 46 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Front Of Loss has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Furnace Room
+- Front Of Loss
+
+**Affected Room Without Photos** (1):
+
+- Furnace Room
+
+### Assessment
+
+The system detected 5 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## e4e4d1c5bb23472c881dcdaf659d50ad -- 2026-03-12 -- v2026.09.3
+
+**User:** joel.currington@firstgeneraledm.ca | **Time:** 1m 6s
+**Rooms:** 3 total (1 affected, 2 unaffected) | **Photos:** 17 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Deck has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Exterior
+- Deck
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 4138ab1f9eab1536b05500df8165015f -- 2026-03-12 -- v2026.09.3
 
