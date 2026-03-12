@@ -3,12 +3,18 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 19:20 UTC | **Traces with Issues:** 392 | **Total Issues:** 3351
+**Last Updated:** 2026-03-12 19:44 UTC | **Traces with Issues:** 398 | **Total Issues:** 3386
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 5113dcb03f4e499a912281fe433741da | ben.coates@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (3/9) | 93 | 7 | 1 |
+| 2026-03-12 | 462a91f82f0c964f6a9d5207e7ca5544 | henrynoaharen@gmail.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 65 | 4 | 1 |
+| 2026-03-12 | 723b50baba66c603dbf7542788a90f0c | dbaggs@restopros.co | 8 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 11 (1/10) | 43 | 8 | 1 |
+| 2026-03-12 | 4012ebfb723f3a3706566668a75ec3a6 | e.goettling@ncricat.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 21 (6/15) | 440 | 11 | 3 |
+| 2026-03-12 | 0bef54ed3c00b20bf2ba6d8a0aa9c588 | chad.wickens@ca.belfor.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 7 (1/6) | 0 | 1 | 1 |
+| 2026-03-12 | d63b3f1061fc36d6a276002b1958e5b5 | terence.dunphy@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 13 (7/6) | 170 | 9 | 1 |
 | 2026-03-12 | 61df65a76d77ee8a0e9c3e04137ce4e1 | terence.dunphy@ca.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 193 | 7 | 0 |
 | 2026-03-12 | d184a9967f589a02c48242d4810b8275 | mikelhutchko@gmail.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 26 (7/19) | 722 | 30 | 3 |
 | 2026-03-12 | 503e8f63a70b16200b168bf89e12ca64 | skeane@restopros.co | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 0 | 1 | 1 |
@@ -403,6 +409,174 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5113dcb03f4e499a912281fe433741da -- 2026-03-12 -- v2026.09.3
+
+**User:** ben.coates@ca.belfor.com | **Time:** 1m 27s
+**Rooms:** 12 total (3 affected, 9 unaffected) | **Photos:** 93 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Flooring has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Furnace Room
+- Flooring
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 462a91f82f0c964f6a9d5207e7ca5544 -- 2026-03-12 -- v2026.09.3
+
+**User:** henrynoaharen@gmail.com | **Time:** 1m 16s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 65 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Storage has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Storage
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Basement; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Basement; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bathroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 4 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 723b50baba66c603dbf7542788a90f0c -- 2026-03-12 -- v2026.09.3
+
+**User:** dbaggs@restopros.co | **Time:** 1m 11s
+**Rooms:** 11 total (1 affected, 10 unaffected) | **Photos:** 43 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Basement
+- Primary Bedroom
+- Bedroom 1
+- Bedroom 2
+- Kitchen
+- Bathroom
+- Living Room
+
+### Assessment
+
+The system detected 8 data quality issue(s): 1 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## 4012ebfb723f3a3706566668a75ec3a6 -- 2026-03-12 -- v2026.09.3
+
+**User:** e.goettling@ncricat.com | **Time:** 3m 9s
+**Rooms:** 21 total (6 affected, 15 unaffected) | **Photos:** 440 | **Notes:** 11 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Guest Bedroom Closet has no measurements available - room dimensions required for complete scope.
+- Garage has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Guest Bedroom Closet
+- Garage
+- Exterior
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using fairly_open (hydro value) - agreements do not require conflict entry
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 equipment sizing conflict(s); 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 0bef54ed3c00b20bf2ba6d8a0aa9c588 -- 2026-03-12 -- v2026.09.3
+
+**User:** chad.wickens@ca.belfor.com | **Time:** 0m 50s
+**Rooms:** 7 total (1 affected, 6 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Hallway
+
+**Affected Room Without Photos** (1):
+
+- Hallway
+
+**Material Mismatch** (3):
+
+- [INFO] room_name: Hallway; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in elements). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Hallway; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in elements). Vinyl is a meter setting, not installed material.
+- [INFO] room_name: Hallway; materials_array_flooring: Concrete; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in elements). Concrete is subfloor, not primary installed flooring.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## d63b3f1061fc36d6a276002b1958e5b5 -- 2026-03-12 -- v2026.09.3
+
+**User:** terence.dunphy@ca.belfor.com | **Time:** 2m 24s
+**Rooms:** 13 total (7 affected, 6 unaffected) | **Photos:** 170 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Cellar has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Cellar
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 61df65a76d77ee8a0e9c3e04137ce4e1 -- 2026-03-12 -- v2026.09.3
 
