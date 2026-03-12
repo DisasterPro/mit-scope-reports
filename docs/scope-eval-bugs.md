@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 22:40 UTC | **Traces with Issues:** 418 | **Total Issues:** 3574
+**Last Updated:** 2026-03-12 23:04 UTC | **Traces with Issues:** 419 | **Total Issues:** 3580
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 2e855cb576394823dde5f10a589aa7e6 | andrew.jeoung@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 36 | 5 | 1 |
 | 2026-03-12 | 09a9035af50e14582342afbff12a304e | arnie@renewsocal.com | 2 | 1/5 Poor | 2/5 Significant | 4/5 Minor | 2 (2/0) | 0 | 0 | 0 |
 | 2026-03-12 | 1229b296435ccc454716f02c98ff9139 | andrew@prp247.com | 15 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 215 | 9 | 0 |
 | 2026-03-12 | c40e7f0f608c97507db84bb23d07cc11 | sandyrehaume@winmarkelowna.com | 10 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 16 (4/12) | 0 | 1 | 2 |
@@ -429,6 +430,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 2e855cb576394823dde5f10a589aa7e6 -- 2026-03-12 -- v2026.09.3
+
+**User:** andrew.jeoung@ca.belfor.com | **Time:** 1m 8s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 36 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Entry has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Entry
+- Bathroom
+- Kitchen
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 09a9035af50e14582342afbff12a304e -- 2026-03-12 -- v2026.09.3
 
