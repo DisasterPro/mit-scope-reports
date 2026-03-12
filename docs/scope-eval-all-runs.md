@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-12 06:45 UTC | **Total Traces:** 876 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-12 10:11 UTC | **Total Traces:** 877 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 18227115e8bb258b09d133f2dc71107a | v2026.09.3 | 2026-03-12 | trey@atlassoo.com | 1m 0s | 4/5 Good | 5/5 Healthy | 5/5 Clean | 4.7/5 | 2 (1/1) | 20 | 2 | 1 |
 | 872cd58aeb787b9091316bfa64c2e23d | v2026.09.3 | 2026-03-12 | todd.morgan@ca.belfor.com | 2m 15s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 10 (1/9) | 54 | 10 | 1 |
 | 2b99b967a50ef05aebf33aca471db613 | v2026.09.3 | 2026-03-12 | todd.morgan@ca.belfor.com | 1m 45s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 9 (1/8) | 28 | 6 | 1 |
 | 664e0e32d4fd2a2c1fea755a35ae0bfd | v2026.09.3 | 2026-03-12 | adonahoo+rescuepro@encircleapp.com | 1m 35s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 5 (5/0) | 69 | 6 | 0 |
@@ -884,6 +885,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 18227115e8bb258b09d133f2dc71107a -- 2026-03-12 -- v2026.09.3
+
+**User:** trey@atlassoo.com | **Time:** 1m 0s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 20 | **Notes:** 2 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 5/5 Clean | **Overall:** 4.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 2 rooms; 1 in app, 1 from notes |
+| Field Photos | Good | 20 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 2 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+20 field photos were submitted. Technician notes were provided (2 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 1 of 2 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 0s. No data quality issues were flagged.
+
+### Issue Assessment
+
+No data quality issues were detected in this scope.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## 872cd58aeb787b9091316bfa64c2e23d -- 2026-03-12 -- v2026.09.3
 
