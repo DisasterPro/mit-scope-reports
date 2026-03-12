@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 05:45 UTC | **Traces with Issues:** 340 | **Total Issues:** 2867
+**Last Updated:** 2026-03-12 06:45 UTC | **Traces with Issues:** 341 | **Total Issues:** 2876
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 872cd58aeb787b9091316bfa64c2e23d | todd.morgan@ca.belfor.com | 9 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (1/9) | 54 | 10 | 1 |
 | 2026-03-12 | 2b99b967a50ef05aebf33aca471db613 | todd.morgan@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (1/8) | 28 | 6 | 1 |
 | 2026-03-12 | 15773a592d59feb78405ef782977af00 | adonahoo+rescuepro@encircleapp.com | 14 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 5 | 2 | 0 |
 | 2026-03-12 | 80d4a4536b44518ef78fd2383c9d4740 | chad.gerber@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 4 (1/3) | 25 | 5 | 1 |
@@ -351,6 +352,39 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 872cd58aeb787b9091316bfa64c2e23d -- 2026-03-12 -- v2026.09.3
+
+**User:** todd.morgan@ca.belfor.com | **Time:** 2m 15s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 54 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Material Discrepancy** (1):
+
+- [MODERATE] room_name: Bathroom; description_material: Ceramic Tile; photo_material: Tile Flooring; moisture_material: None; resolution: Using Tile Flooring (photo evidence) for flooring; Ceramic Tile (technician notes) marked as wall finish.
+
+**Measurement Warning** (4):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Entry / Foyer has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Common Hallway has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bathroom
+- Entry / Foyer
+- Hallway
+- Common Hallway
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## 2b99b967a50ef05aebf33aca471db613 -- 2026-03-12 -- v2026.09.3
 

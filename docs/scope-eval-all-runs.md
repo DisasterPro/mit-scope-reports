@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-12 05:46 UTC | **Total Traces:** 875 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-12 06:45 UTC | **Total Traces:** 876 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 872cd58aeb787b9091316bfa64c2e23d | v2026.09.3 | 2026-03-12 | todd.morgan@ca.belfor.com | 2m 15s | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 3.3/5 | 10 (1/9) | 54 | 10 | 1 |
 | 2b99b967a50ef05aebf33aca471db613 | v2026.09.3 | 2026-03-12 | todd.morgan@ca.belfor.com | 1m 45s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 9 (1/8) | 28 | 6 | 1 |
 | 664e0e32d4fd2a2c1fea755a35ae0bfd | v2026.09.3 | 2026-03-12 | adonahoo+rescuepro@encircleapp.com | 1m 35s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 5 (5/0) | 69 | 6 | 0 |
 | c983454047ed0e65c079729c9fc11e30 | v2026.09.3 | 2026-03-12 | brendan.macdonald@ca.belfor.com | 2m 15s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 9 (4/5) | 74 | 10 | 0 |
@@ -883,6 +884,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 872cd58aeb787b9091316bfa64c2e23d -- 2026-03-12 -- v2026.09.3
+
+**User:** todd.morgan@ca.belfor.com | **Time:** 2m 15s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 54 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 10 rooms; 4 in app, 4 from notes |
+| Field Photos | Good | 54 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 10 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Issues | 6 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+54 field photos were submitted. Technician notes were provided (10 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 floor plan room(s) could not be matched to claim rooms because the names didn't match. Make sure floor plan room labels match claim room names before running the scope. 4 of 10 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 15s. Data quality flags: the floor plan area differs from room areas by 296 SF; 6 floor plan room(s) could not be matched to claim rooms.
+
+### Issue Assessment
+
+The system detected 9 data quality issue(s): 1 material discrepancy(ies) between photos and descriptions; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+### Recommendations
+
+1. Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.
+
+---
+
 
 ## 2b99b967a50ef05aebf33aca471db613 -- 2026-03-12 -- v2026.09.3
 
