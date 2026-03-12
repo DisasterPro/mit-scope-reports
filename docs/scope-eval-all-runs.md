@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-11 23:38 UTC | **Total Traces:** 859 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
+**Last Updated:** 2026-03-12 00:47 UTC | **Total Traces:** 860 | **Avg Input Score:** 3.4/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 78%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| c380b7a8d24af2f7c92ad3b160c5daf7 | v2026.09.3 | 2026-03-12 | fusionxp2@gmail.com | 2m 9s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 9 (5/4) | 86 | 12 | 0 |
 | 4bfcdf9bc380795a2c8be949a9c08e8d | v2026.09.3 | 2026-03-11 | corey.benjamin@ca.belfor.com | 1m 46s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 11 (6/5) | 42 | 7 | 1 |
 | cda8fa6309fb3228b0e66ce9c53da6f8 | v2026.09.3 | 2026-03-11 | corey.benjamin@ca.belfor.com | 1m 19s | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4.3/5 | 1 (1/0) | 27 | 3 | 0 |
 | 9652b08969e94b8c04d09bf629819889 | v2026.09.3 | 2026-03-11 | tristan.randolph@rs1967.com | 3m 5s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 9 (6/3) | 108 | 10 | 1 |
@@ -867,6 +868,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## c380b7a8d24af2f7c92ad3b160c5daf7 -- 2026-03-12 -- v2026.09.3
+
+**User:** fusionxp2@gmail.com | **Time:** 2m 9s
+**Rooms:** 9 total (5 affected, 4 unaffected) | **Photos:** 86 | **Notes:** 12 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 9 rooms; 9 in app, 6 from notes |
+| Field Photos | Good | 86 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 12 notes; 0 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+86 field photos were submitted. Technician notes were provided (12 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 9s. No data quality issues were flagged.
+
+### Issue Assessment
+
+The system detected 30 data quality issue(s): 9 material mismatch(es) between room data sources; 9 measurement validation warning(s); 9 room(s) with missing measurements; 3 affected room(s) without photos.
+
+### Recommendations
+
+1. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 4bfcdf9bc380795a2c8be949a9c08e8d -- 2026-03-11 -- v2026.09.3
 

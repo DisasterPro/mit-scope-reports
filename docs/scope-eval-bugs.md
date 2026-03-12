@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-11 23:38 UTC | **Traces with Issues:** 334 | **Total Issues:** 2793
+**Last Updated:** 2026-03-12 00:47 UTC | **Traces with Issues:** 335 | **Total Issues:** 2823
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | c380b7a8d24af2f7c92ad3b160c5daf7 | fusionxp2@gmail.com | 30 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (5/4) | 86 | 12 | 0 |
 | 2026-03-11 | 4bfcdf9bc380795a2c8be949a9c08e8d | corey.benjamin@ca.belfor.com | 17 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 42 | 7 | 1 |
 | 2026-03-11 | cda8fa6309fb3228b0e66ce9c53da6f8 | corey.benjamin@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 1 (1/0) | 27 | 3 | 0 |
 | 2026-03-11 | 9652b08969e94b8c04d09bf629819889 | tristan.randolph@rs1967.com | 5 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (6/3) | 108 | 10 | 1 |
@@ -345,6 +346,63 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## c380b7a8d24af2f7c92ad3b160c5daf7 -- 2026-03-12 -- v2026.09.3
+
+**User:** fusionxp2@gmail.com | **Time:** 2m 9s
+**Rooms:** 9 total (5 affected, 4 unaffected) | **Photos:** 86 | **Notes:** 12 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (9):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Play Room has no measurements available - room dimensions required for complete scope.
+- Mechanical Room has no measurements available - room dimensions required for complete scope.
+- Unfinished Storage has no measurements available - room dimensions required for complete scope.
+- Basment Bedroom has no measurements available - room dimensions required for complete scope.
+- Basement Bathroom has no measurements available - room dimensions required for complete scope.
+- Basement Initial Video has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (9):
+
+- Bathroom
+- Bedroom
+- Play Room
+- Mechanical Room
+- Unfinished Storage
+- Basment Bedroom
+- Basement Bathroom
+- Basement Initial Video
+- Entry
+
+**Affected Room Without Photos** (3):
+
+- Bathroom
+- Mechanical Room
+- Unfinished Storage
+
+**Material Mismatch** (9):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet/Vinyl Flooring (confirmed from elements).; resolution: Laminate Flooring is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Carpet/Vinyl Flooring (confirmed from elements).; resolution: Both are present (zone distinction); tasks only generated for flooring types confirmed via elements.
+- [INFO] room_name: Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet/Vinyl Flooring (confirmed from elements).; resolution: Hardwood not installed, present as meter setting.
+- [INFO] room_name: Play Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet (saturated), Laminate (adjacent), Vinyl (zone separation - refer to site plan and elements); resolution: Laminate and Vinyl are both present as per technician note; only task generated for primary installed carpet (saturated), with laminate/vinyl for adjacent or entry area as described.
+- [INFO] room_name: Play Room; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Carpet (saturated), Laminate (adjacent), Vinyl (zone separation - refer to site plan and elements); resolution: Vinyl and Laminate both present per elements as zone separation; tasks generated verify only one extraction task per surface, priority to carpet (installed in main play space).
+- [INFO] room_name: Play Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Carpet (installed), Laminate/Vinyl (zone separation - refer to site plan and elements); resolution: Hardwood not present as installed flooring; ignored as meter setting artifact.
+- [INFO] room_name: Mechanical Room; materials_array_flooring: Concrete; room_elements_flooring: Concrete; resolution: Concrete confirmed as only installed floor; no conflict.
+- [INFO] room_name: Basement Bathroom; materials_array_flooring: Tile Flooring; room_elements_flooring: Vinyl/Laminate/Tile may all be referenced for entry/adjacent area separation; tasks only generated for installed flooring type per room zone.; resolution: Non-installed floorings (vinyl/laminate) ignored in this zone; if multiple zones in description, tasks derived for each zone as described.
+
+### Assessment
+
+The system detected 30 data quality issue(s): 9 material mismatch(es) between room data sources; 9 measurement validation warning(s); 9 room(s) with missing measurements; 3 affected room(s) without photos.
+
+---
+
 
 ## 4bfcdf9bc380795a2c8be949a9c08e8d -- 2026-03-11 -- v2026.09.3
 
