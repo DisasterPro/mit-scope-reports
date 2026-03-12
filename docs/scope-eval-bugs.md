@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 21:07 UTC | **Traces with Issues:** 408 | **Total Issues:** 3476
+**Last Updated:** 2026-03-12 21:42 UTC | **Traces with Issues:** 410 | **Total Issues:** 3482
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 983a994f1dfcdea339c0e3615e498cf4 | kevin@team5starrestore.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 13 (10/3) | 120 | 16 | 0 |
+| 2026-03-12 | bf8eff4a2c34f88390a3ec0660816db8 | andrew.jeoung@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 3 (2/1) | 22 | 4 | 0 |
 | 2026-03-12 | efb6eeaa92bd3c51ed947121ae05a9a2 | kristy.persson+hub@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (4/2) | 339 | 8 | 1 |
 | 2026-03-12 | 426739c2c70d44c4a363904c8c2fdfd0 | greg.janse@ca.belfor.com | 5 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 9 (2/7) | 46 | 6 | 1 |
 | 2026-03-12 | e4e4d1c5bb23472c881dcdaf659d50ad | joel.currington@firstgeneraledm.ca | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3 (1/2) | 17 | 6 | 0 |
@@ -419,6 +421,53 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 983a994f1dfcdea339c0e3615e498cf4 -- 2026-03-12 -- v2026.09.3
+
+**User:** kevin@team5starrestore.com | **Time:** 2m 8s
+**Rooms:** 13 total (10 affected, 3 unaffected) | **Photos:** 120 | **Notes:** 16 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Shop has no measurements available - room dimensions required for complete scope.
+- Exterior And Videos has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Shop
+- Exterior And Videos
+
+**Equipment Sizing Conflict** (1):
+
+- [NONE] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: very_open; resolution: Using very_open (agreement between hydro and structural analysis)
+
+### Assessment
+
+The system detected 5 data quality issue(s): 1 equipment sizing conflict(s); 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## bf8eff4a2c34f88390a3ec0660816db8 -- 2026-03-12 -- v2026.09.3
+
+**User:** andrew.jeoung@ca.belfor.com | **Time:** 0m 54s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 22 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
 
 ## efb6eeaa92bd3c51ed947121ae05a9a2 -- 2026-03-12 -- v2026.09.3
 
