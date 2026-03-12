@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 22:04 UTC | **Traces with Issues:** 414 | **Total Issues:** 3543
+**Last Updated:** 2026-03-12 22:40 UTC | **Traces with Issues:** 418 | **Total Issues:** 3574
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 09a9035af50e14582342afbff12a304e | arnie@renewsocal.com | 2 | 1/5 Poor | 2/5 Significant | 4/5 Minor | 2 (2/0) | 0 | 0 | 0 |
+| 2026-03-12 | 1229b296435ccc454716f02c98ff9139 | andrew@prp247.com | 15 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (7/0) | 215 | 9 | 0 |
+| 2026-03-12 | c40e7f0f608c97507db84bb23d07cc11 | sandyrehaume@winmarkelowna.com | 10 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 16 (4/12) | 0 | 1 | 2 |
+| 2026-03-12 | 98e1f9f9667302be5e4cf14111a8f053 | jackie.knight@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 1 (1/0) | 66 | 4 | 0 |
 | 2026-03-12 | 7186a01bbc72a7c693c362bc8171075d | ndukes@nlsco.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (2/3) | 40 | 6 | 0 |
 | 2026-03-12 | 958a827fc529ec1b0ca9dcb8f69f447e | ndukes@nlsco.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (3/2) | 214 | 6 | 0 |
 | 2026-03-12 | ac668d1dfa403d822a2218f88c1aa0b8 | ndukes@nlsco.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (2/2) | 99 | 5 | 0 |
@@ -425,6 +429,121 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 09a9035af50e14582342afbff12a304e -- 2026-03-12 -- v2026.09.3
+
+**User:** arnie@renewsocal.com | **Time:** 0m 29s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 4/5 Minor | **Overall:** 2.3/5
+
+### Issues Found
+
+**Affected Room Without Photos** (2):
+
+- Bedroom
+- Garage
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 affected room(s) without photos.
+
+---
+
+## 1229b296435ccc454716f02c98ff9139 -- 2026-03-12 -- v2026.09.3
+
+**User:** andrew@prp247.com | **Time:** 3m 38s
+**Rooms:** 7 total (7 affected, 0 unaffected) | **Photos:** 215 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**IICRC Standard Deviation** (1):
+
+- [SIGNIFICANT] field: water_category; iicrc_recommended: 3; user_specified: 2; justification: Water category initially assigned to 2 based on mixed water/waste sources but hazard detection and IICRC guidance require Category 3 for active sewage/waste sources. Category elevated for compliance.; source: Merge.jinja2 hazard validation and IICRC alignment check; impact: Category 3 protocols (mandatory porous material removal, enhanced PPE, containment) applied instead of Category 2 procedures. Increases remediation scope, safety controls, and disposal requirements.
+
+**Measurement Warning** (7):
+
+- Entry/Kitchen has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Crawlspace has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Entry/Kitchen
+- Living Room
+- Hallway
+- Bathroom
+- Bedroom
+- Bedroom 2
+- Crawlspace
+
+### Assessment
+
+The system detected 15 data quality issue(s): 1 IICRC standard deviation(s) were flagged; 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
+## c40e7f0f608c97507db84bb23d07cc11 -- 2026-03-12 -- v2026.09.3
+
+**User:** sandyrehaume@winmarkelowna.com | **Time:** 1m 27s
+**Rooms:** 16 total (4 affected, 12 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- [Dining Area] has no damage reported - marked unaffected.
+- [Primary Bedroom] has no damage reported - marked unaffected.
+- [Bedroom 1] has no damage reported - marked unaffected.
+- [Bedroom 2] has no damage reported - marked unaffected.
+- [Storage] has no damage reported - marked unaffected.
+- [Foyer] has no damage reported - marked unaffected.
+
+**Affected Room Without Photos** (4):
+
+- Kitchen
+- Living Room
+- Hallway
+- Living Tried Room
+
+### Assessment
+
+The system detected 10 data quality issue(s): 6 measurement validation warning(s); 4 affected room(s) without photos.
+
+---
+
+## 98e1f9f9667302be5e4cf14111a8f053 -- 2026-03-12 -- v2026.09.3
+
+**User:** jackie.knight@ca.belfor.com | **Time:** 1m 43s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 66 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Basement; materials_array_flooring: Laminate Flooring; room_elements_flooring: LVP Flooring; resolution: Used LVP Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Basement; materials_array_flooring: Vinyl Flooring; room_elements_flooring: LVP Flooring; resolution: Used LVP Flooring (confirmed in room). Vinyl Flooring is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 7186a01bbc72a7c693c362bc8171075d -- 2026-03-12 -- v2026.09.3
 
