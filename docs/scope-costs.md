@@ -98,6 +98,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-11 (Daily)
+**Generated:** 2026-03-12 05:28 UTC | **Period:** 1d (2026-03-11 to 2026-03-12) | **Traces:** 125
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.57 | 165.1s |
+| Median | $0.43 | 124.2s |
+| P75 | $0.67 | 190.5s |
+| P95 | $1.40 | 416.5s |
+| Min | $0.11 | 32.3s |
+| Max | $2.76 | 1017.1s |
+
+**Top Cost Users:** scott.shizuru@us.belfor.com ($2.70), marek.chabrowski@firstgeneraledm.ca ($1.85), claire@restoration1.com ($1.42)
+
+**Top Latency Users:** scott.shizuru@us.belfor.com (1006s), mary.hernandez@ca.belfor.com (512s), brad.emond@highland.dki.ca (358s)
+
+---
+
 ### 2026-03-10 (Daily)
 **Generated:** 2026-03-11 05:27 UTC | **Period:** 1d (2026-03-10 to 2026-03-11) | **Traces:** 136
 

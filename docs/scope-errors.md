@@ -95,6 +95,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-11 (Daily)
+**Generated:** 2026-03-12 05:28 UTC | **Period:** 1d (2026-03-11 to 2026-03-12)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 125 |
+| Error Traces | 3 (2.4%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| DataProcessingError | Standards | 1 | -- |
+| ImageProcessingError | MeasurementImagesValidator | 1 | -- |
+| ContentFilterCompletion | Merge | 1 | Sexual |
+
+**Affected Users:** ryan.smith@restoration1.com (1x DataProcessingError), ghackbarth@brookstonecompanies.com (1x ImageProcessingError), robert@eproresponse.com (1x ContentFilterCompletion)
+
+---
+
 ### 2026-03-10 (Daily)
 **Generated:** 2026-03-11 05:27 UTC | **Period:** 1d (2026-03-10 to 2026-03-11)
 
