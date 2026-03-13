@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 16:08 UTC | **Traces with Issues:** 458 | **Total Issues:** 3979
+**Last Updated:** 2026-03-13 16:44 UTC | **Traces with Issues:** 462 | **Total Issues:** 4012
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 84cd7e9962403965576b5290f186200a | e.goettling@ncricat.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 2 (1/1) | 106 | 5 | 1 |
+| 2026-03-13 | a320728679303c85faf03d31a70f9649 | jenn.kirk@smcalgary.com | 9 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4 (1/3) | 68 | 7 | 0 |
+| 2026-03-13 | d1c7b7ac214e395608e9ef6a522b9af7 | jim.beveridge@ca.belfor.com | 4 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 10 (1/9) | 23 | 6 | 1 |
+| 2026-03-13 | 9c3d81268cd6c47fd31b7b874c7ed227 | claudette.ryan@ca.belfor.com | 19 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (1/14) | 94 | 11 | 2 |
 | 2026-03-13 | 9cbed34a86f39a5e72aadad19aa4cedd | claudette.ryan@ca.belfor.com | 21 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 16 (1/15) | 94 | 11 | 2 |
 | 2026-03-13 | 806ef71d173b349a7a3a7bda92ea95ff | patty.mcculloch+collingwood@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 14 (7/7) | 49 | 12 | 1 |
 | 2026-03-13 | e367115d10e7e3dd2d495bbd1f75ce45 | ashley.platt@ca.belfor.com | 3 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (1/6) | 72 | 3 | 1 |
@@ -469,6 +473,123 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 84cd7e9962403965576b5290f186200a -- 2026-03-13 -- v2026.09.3
+
+**User:** e.goettling@ncricat.com | **Time:** 1m 13s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 106 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (hydro value) – values agree with structural layout and chamber grouping.
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 equipment sizing conflict(s).
+
+---
+
+## a320728679303c85faf03d31a70f9649 -- 2026-03-13 -- v2026.09.3
+
+**User:** jenn.kirk@smcalgary.com | **Time:** 1m 3s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 68 | **Notes:** 7 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Age Of Home has no measurements available - room dimensions required for complete scope.
+- Col has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bedroom
+- Age Of Home
+- Col
+- Exterior
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 9 data quality issue(s): 1 material mismatch(es) between room data sources; 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## d1c7b7ac214e395608e9ef6a522b9af7 -- 2026-03-13 -- v2026.09.3
+
+**User:** jim.beveridge@ca.belfor.com | **Time:** 1m 26s
+**Rooms:** 10 total (1 affected, 9 unaffected) | **Photos:** 23 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Bathroom
+- Main Area
+- Exterior
+
+### Assessment
+
+The system detected 4 data quality issue(s): 1 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 9c3d81268cd6c47fd31b7b874c7ed227 -- 2026-03-13 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 7m 22s
+**Rooms:** 15 total (1 affected, 14 unaffected) | **Photos:** 94 | **Notes:** 11 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (8):
+
+- Storage Room (Beside Bthrm) has no measurements available - room dimensions required for complete scope.
+- Pottery /Basment (Left Of Bthrm) has no measurements available - room dimensions required for complete scope.
+- Bedroom(Above Bathroom) has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Cause Of Loss has no measurements available - room dimensions required for complete scope.
+- Exterior Wall Of Bathroom has no measurements available - room dimensions required for complete scope.
+- Recroom- Non Affected has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (8):
+
+- Storage Room (Beside Bthrm)
+- Pottery /Basment (Left Of Bthrm)
+- Bedroom(Above Bathroom)
+- Entry
+- Exterior
+- Cause Of Loss
+- Exterior Wall Of Bathroom
+- Recroom- Non Affected
+
+**Equipment Sizing Conflict** (3):
+
+- [MINOR] factor: Build-out Density; hydro_assessment: VeryOpen; structural_analysis: average; resolution: Using VeryOpen (hydro value) - minor 1-level difference validated against structural assessment
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: beneficial; resolution: Using No (hydro value) - minor 1-level difference validated against structural assessment
+- [MINOR] factor: Weather; hydro_assessment: Unfavorable + Moderate; structural_analysis: neutral_moderate; resolution: Using Unfavorable + Moderate (hydro value) - minor climate difference validated against property location and age
+
+### Assessment
+
+The system detected 19 data quality issue(s): 3 equipment sizing conflict(s); 8 measurement validation warning(s); 8 room(s) with missing measurements.
+
+---
+
 
 ## 9cbed34a86f39a5e72aadad19aa4cedd -- 2026-03-13 -- v2026.09.3
 
