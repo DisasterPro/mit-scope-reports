@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 17:44 UTC | **Traces with Issues:** 470 | **Total Issues:** 4067
+**Last Updated:** 2026-03-13 18:06 UTC | **Traces with Issues:** 474 | **Total Issues:** 4127
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | e24f951bac47a7c4e7bf9f53f83a0767 | brendan.macdonald@ca.belfor.com | 15 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (6/5) | 82 | 9 | 1 |
+| 2026-03-13 | ef37782edf56b9b477a4988f99756263 | fernando.alvarez@ca.belfor.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 9 (9/0) | 0 | 1 | 2 |
+| 2026-03-13 | e241cb900570d275f1700c2c765d5904 | tanya.leite@ca.belfor.com | 18 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 12 (6/6) | 0 | 1 | 1 |
+| 2026-03-13 | e408d9f99bb27dd81ac1b8ca35b2b169 | tanya.leite@ca.belfor.com | 18 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 12 (6/6) | 0 | 1 | 1 |
 | 2026-03-13 | 01b329f1fa1135153a780640d1c6f2d1 | claudette.ryan@ca.belfor.com | 4 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 2 (1/1) | 0 | 0 | 0 |
 | 2026-03-13 | 0af7f4fb77d45c48e8ac2f2bcdc9d6a5 | e.goettling@ncricat.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 106 | 5 | 1 |
 | 2026-03-13 | a64b05c85cfa6aaebdc9b08e886e74d2 | ftl@rainbownova.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 104 | 9 | 0 |
@@ -481,6 +485,153 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e24f951bac47a7c4e7bf9f53f83a0767 -- 2026-03-13 -- v2026.09.3
+
+**User:** brendan.macdonald@ca.belfor.com | **Time:** 1m 53s
+**Rooms:** 11 total (6 affected, 5 unaffected) | **Photos:** 82 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Stair Landing / Hall Area has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Equipment has no measurements available - room dimensions required for complete scope.
+- Source has no measurements available - room dimensions required for complete scope.
+- Policyholder Photos & Videos has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Recreation Room
+- Bedroom
+- Stair Landing / Hall Area
+- Utility Room
+- Equipment
+- Source
+- Policyholder Photos & Videos
+
+**Affected Room Without Photos** (1):
+
+- Stair Landing / Hall Area
+
+### Assessment
+
+The system detected 15 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements; 1 affected room(s) without photos.
+
+---
+
+## ef37782edf56b9b477a4988f99756263 -- 2026-03-13 -- v2026.09.3
+
+**User:** fernando.alvarez@ca.belfor.com | **Time:** 1m 53s
+**Rooms:** 9 total (9 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (9):
+
+- Sitting Room
+- Dining Room
+- Kitchen
+- Living Room
+- Foyer
+- Hallway
+- Stairs
+- Basement Landing
+- Rec. Room
+
+### Assessment
+
+The system detected 9 data quality issue(s): 9 affected room(s) without photos.
+
+---
+
+## e241cb900570d275f1700c2c765d5904 -- 2026-03-13 -- v2026.09.3
+
+**User:** tanya.leite@ca.belfor.com | **Time:** 1m 35s
+**Rooms:** 12 total (6 affected, 6 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Bar has no measurements available - room dimensions required for complete scope.
+- Landing has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Bedroom
+- Recreation Room
+- Bathroom
+- Storage
+- Bar
+- Landing
+
+**Affected Room Without Photos** (6):
+
+- Bedroom
+- Recreation Room
+- Bathroom
+- Storage
+- Bar
+- Landing
+
+### Assessment
+
+The system detected 18 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements; 6 affected room(s) without photos.
+
+---
+
+## e408d9f99bb27dd81ac1b8ca35b2b169 -- 2026-03-13 -- v2026.09.3
+
+**User:** tanya.leite@ca.belfor.com | **Time:** 1m 12s
+**Rooms:** 12 total (6 affected, 6 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Bar has no measurements available - room dimensions required for complete scope.
+- Landing has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Bedroom
+- Recreation Room
+- Bathroom
+- Storage
+- Bar
+- Landing
+
+**Affected Room Without Photos** (6):
+
+- Bedroom
+- Recreation Room
+- Bathroom
+- Storage
+- Bar
+- Landing
+
+### Assessment
+
+The system detected 18 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements; 6 affected room(s) without photos.
+
+---
+
 
 ## 01b329f1fa1135153a780640d1c6f2d1 -- 2026-03-13 -- v2026.09.3
 
