@@ -49,15 +49,15 @@ def _render_usage_md(
     """Render a single usage report entry as markdown."""
     is_weekly = period == "weekly"
     label = "Weekly" if is_weekly else "Daily"
-    days = "7d" if is_weekly else "1d"
-    period_str = (
-        f"{usage.period_start:%Y-%m-%d} to {usage.period_end:%Y-%m-%d}"
-    )
+    if is_weekly:
+        period_str = f"7d ({usage.period_start:%Y-%m-%d} to {usage.period_end:%Y-%m-%d})"
+    else:
+        period_str = f"{usage.period_start:%Y-%m-%d}"
 
     lines = [
         f"### {usage.period_start:%Y-%m-%d} ({label})",
         f"**Generated:** {generated_at:%Y-%m-%d %H:%M} UTC | "
-        f"**Period:** {days} ({period_str})",
+        f"**Period:** {period_str}",
         "",
         "| Metric | Value |",
         "|---|---|",
@@ -105,15 +105,15 @@ def _render_costs_md(
     """Render a single cost/latency report entry as markdown."""
     is_weekly = period == "weekly"
     label = "Weekly" if is_weekly else "Daily"
-    days = "7d" if is_weekly else "1d"
-    period_str = (
-        f"{usage.period_start:%Y-%m-%d} to {usage.period_end:%Y-%m-%d}"
-    )
+    if is_weekly:
+        period_str = f"7d ({usage.period_start:%Y-%m-%d} to {usage.period_end:%Y-%m-%d})"
+    else:
+        period_str = f"{usage.period_start:%Y-%m-%d}"
 
     lines = [
         f"### {usage.period_start:%Y-%m-%d} ({label})",
         f"**Generated:** {generated_at:%Y-%m-%d %H:%M} UTC | "
-        f"**Period:** {days} ({period_str}) | "
+        f"**Period:** {period_str} | "
         f"**Traces:** {costs.total_traces:,}",
         "",
         "| Metric | Cost | Latency |",
@@ -156,15 +156,15 @@ def _render_errors_md(
     """Render a single error report entry as markdown."""
     is_weekly = period == "weekly"
     label = "Weekly" if is_weekly else "Daily"
-    days = "7d" if is_weekly else "1d"
-    period_str = (
-        f"{usage.period_start:%Y-%m-%d} to {usage.period_end:%Y-%m-%d}"
-    )
+    if is_weekly:
+        period_str = f"7d ({usage.period_start:%Y-%m-%d} to {usage.period_end:%Y-%m-%d})"
+    else:
+        period_str = f"{usage.period_start:%Y-%m-%d}"
 
     lines = [
         f"### {usage.period_start:%Y-%m-%d} ({label})",
         f"**Generated:** {generated_at:%Y-%m-%d %H:%M} UTC | "
-        f"**Period:** {days} ({period_str})",
+        f"**Period:** {period_str}",
         "",
         "| Metric | Value |",
         "|---|---|",
@@ -803,3 +803,4 @@ def _recompute_bug_stats(doc: str) -> str:
     )
 
     return doc
+
