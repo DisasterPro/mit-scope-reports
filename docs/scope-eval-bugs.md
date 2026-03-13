@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-12 23:39 UTC | **Traces with Issues:** 421 | **Total Issues:** 3616
+**Last Updated:** 2026-03-13 00:04 UTC | **Traces with Issues:** 422 | **Total Issues:** 3630
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-12 | 7dc77c9a6815d09e99e7c118900218c3 | chad.gerber@ca.belfor.com | 14 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (6/7) | 73 | 9 | 1 |
 | 2026-03-12 | 4152793dd150c58ddd01229a3e3d4864 | ian@atlassoo.com | 28 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 43 (21/22) | 426 | 26 | 2 |
 | 2026-03-12 | 2911bda360b41d6815c06eb8f2305f0e | fernando.alvarez@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 61 | 14 | 2 |
 | 2026-03-12 | 2e855cb576394823dde5f10a589aa7e6 | andrew.jeoung@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 36 | 5 | 1 |
@@ -432,6 +433,41 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 7dc77c9a6815d09e99e7c118900218c3 -- 2026-03-12 -- v2026.09.3
+
+**User:** chad.gerber@ca.belfor.com | **Time:** 1m 58s
+**Rooms:** 13 total (6 affected, 7 unaffected) | **Photos:** 73 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Pump Room has no measurements available - room dimensions required for complete scope.
+- Cause has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Bedroom 1
+- Bedroom 2
+- Hallway
+- Bathroom
+- Stairs
+- Pump Room
+- Cause
+
+### Assessment
+
+The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
 
 ## 4152793dd150c58ddd01229a3e3d4864 -- 2026-03-12 -- v2026.09.3
 
