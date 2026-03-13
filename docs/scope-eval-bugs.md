@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 00:53 UTC | **Traces with Issues:** 425 | **Total Issues:** 3637
+**Last Updated:** 2026-03-13 02:53 UTC | **Traces with Issues:** 426 | **Total Issues:** 3655
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 93ce5bf5797963443cfcddac647db443 | scott.shizuru@us.belfor.com | 18 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 38 (38/0) | 668 | 18 | 9 |
 | 2026-03-13 | 83afe5c5ea3bd15898ba61e27fafc61a | michelle.wetheral@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 13 (2/11) | 55 | 4 | 2 |
 | 2026-03-13 | 08bba5a08a10c2967cad19fcb6b04a80 | tammy.gemmill@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 18 (6/12) | 316 | 20 | 3 |
 | 2026-03-13 | 3b3702f371db25510e060a89f8d0570e | tammy.gemmill@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 20 (8/12) | 316 | 20 | 3 |
@@ -436,6 +437,45 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 93ce5bf5797963443cfcddac647db443 -- 2026-03-13 -- v2026.09.3
+
+**User:** scott.shizuru@us.belfor.com | **Time:** 6m 28s
+**Rooms:** 38 total (38 affected, 0 unaffected) | **Photos:** 668 | **Notes:** 18 | **Floor Plans:** 9
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (9):
+
+- Basement Hall has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Gym has no measurements available - room dimensions required for complete scope.
+- Bedroom 4 has no measurements available - room dimensions required for complete scope.
+- Bedroom 3 has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Bathroom 3 has no measurements available - room dimensions required for complete scope.
+- Bathroom 5 has no measurements available - room dimensions required for complete scope.
+- Floor 3 has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (9):
+
+- Basement Hall
+- Laundry Room
+- Gym
+- Bedroom 4
+- Bedroom 3
+- Bedroom 2
+- Bathroom 3
+- Bathroom 5
+- Floor 3
+
+### Assessment
+
+The system detected 18 data quality issue(s): 9 measurement validation warning(s); 9 room(s) with missing measurements.
+
+---
+
 
 ## 83afe5c5ea3bd15898ba61e27fafc61a -- 2026-03-13 -- v2026.09.3
 
