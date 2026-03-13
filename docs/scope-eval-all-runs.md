@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-13 22:04 UTC | **Total Traces:** 1104 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-13 22:09 UTC | **Total Traces:** 1105 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 8b3cae76057f9adcd36d20ba47600d22 | v2026.09.3 | 2026-03-13 | baldeep.dhillon@ca.belfor.com | 1m 1s | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 3.7/5 | 1 (1/0) | 2 | 2 | 0 |
 | 05aa91e803693b3a53fde4aa3412d4c9 | v2026.09.3 | 2026-03-13 | ryan.oneill@ca.belfor.com | 1m 53s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 13 (3/10) | 91 | 10 | 1 |
 | bb3d914af292a24a8e80898e297980aa | v2026.09.3 | 2026-03-13 | ssmyrski@servicemasterbc.ca | 1m 9s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 2 (2/0) | 63 | 3 | 0 |
 | bb1d58e1fe3631682944f6d8b7e062c1 | v2026.09.3 | 2026-03-13 | john.gilbraitti+vancouver@ca.belfor.com | 2m 2s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 15 (2/13) | 116 | 6 | 1 |
@@ -1112,6 +1113,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 8b3cae76057f9adcd36d20ba47600d22 -- 2026-03-13 -- v2026.09.3
+
+**User:** baldeep.dhillon@ca.belfor.com | **Time:** 1m 1s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 2 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 1 rooms; 1 in app, 1 from notes |
+| Field Photos | Minimal | 2 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 2 notes; 1 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+Only 2 photos were submitted, which limits the system's ability to verify damage in each room. Technician notes were provided (2 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 1s. Data quality flags: 1 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 1 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 05aa91e803693b3a53fde4aa3412d4c9 -- 2026-03-13 -- v2026.09.3
 
