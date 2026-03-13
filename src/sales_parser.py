@@ -242,33 +242,30 @@ class SalesDataBuilder:
                 f'Langfuse Trace: {escape(trace.trace_id)}</h4>'
             )
 
-            # 1. Narrative assessments — Pipeline + Issue
-            for heading in ("### Pipeline Assessment", "### Issue Assessment"):
-                text = self._extract_after(section, heading)
-                if text:
-                    label = heading.replace("### ", "")
-                    html_parts.append(f"<h4>{escape(label)}</h4><p>{escape(text.strip())}</p>")
-
-            # 2. What Was Provided table
+            # 1. What Was Provided table
             provided_section = self._extract_after(section, "### What Was Provided")
             if provided_section:
                 html_parts.append(self._markdown_table_to_html(provided_section, "What Was Provided"))
 
-            # 3. Input Assessment narrative
+            # 2. Input Assessment
             input_text = self._extract_after(section, "### Input Assessment")
             if input_text:
                 html_parts.append(f"<h4>Input Assessment</h4><p>{escape(input_text.strip())}</p>")
+
+            # 3. Issue Assessment
+            issue_text = self._extract_after(section, "### Issue Assessment")
+            if issue_text:
+                html_parts.append(f"<h4>Issue Assessment</h4><p>{escape(issue_text.strip())}</p>")
 
             # 4. Recommendations
             rec_section = self._extract_after(section, "### Recommendations")
             if rec_section:
                 html_parts.append(self._recommendations_to_html(rec_section))
 
-            # 5. Bug Assessment table (enhanced traces only)
-            if trace.is_enhanced:
-                bug_section = self._extract_after(section, "### Bug Assessment")
-                if bug_section:
-                    html_parts.append(self._markdown_table_to_html(bug_section, "Bug Assessment"))
+            # 5. Pipeline Assessment
+            pipeline_text = self._extract_after(section, "### Pipeline Assessment")
+            if pipeline_text:
+                html_parts.append(f"<h4>Pipeline Assessment</h4><p>{escape(pipeline_text.strip())}</p>")
 
             trace.narrative_html = "\n".join(html_parts)
 
