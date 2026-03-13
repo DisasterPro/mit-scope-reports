@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 00:04 UTC | **Traces with Issues:** 422 | **Total Issues:** 3630
+**Last Updated:** 2026-03-13 00:53 UTC | **Traces with Issues:** 425 | **Total Issues:** 3637
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 83afe5c5ea3bd15898ba61e27fafc61a | michelle.wetheral@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 13 (2/11) | 55 | 4 | 2 |
+| 2026-03-13 | 08bba5a08a10c2967cad19fcb6b04a80 | tammy.gemmill@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 18 (6/12) | 316 | 20 | 3 |
+| 2026-03-13 | 3b3702f371db25510e060a89f8d0570e | tammy.gemmill@ca.belfor.com | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 20 (8/12) | 316 | 20 | 3 |
 | 2026-03-12 | 7dc77c9a6815d09e99e7c118900218c3 | chad.gerber@ca.belfor.com | 14 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (6/7) | 73 | 9 | 1 |
 | 2026-03-12 | 4152793dd150c58ddd01229a3e3d4864 | ian@atlassoo.com | 28 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 43 (21/22) | 426 | 26 | 2 |
 | 2026-03-12 | 2911bda360b41d6815c06eb8f2305f0e | fernando.alvarez@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 61 | 14 | 2 |
@@ -433,6 +436,68 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 83afe5c5ea3bd15898ba61e27fafc61a -- 2026-03-13 -- v2026.09.3
+
+**User:** michelle.wetheral@ca.belfor.com | **Time:** 1m 54s
+**Rooms:** 13 total (2 affected, 11 unaffected) | **Photos:** 55 | **Notes:** 4 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 1 data quality issue(s): 1 room(s) with missing measurements.
+
+---
+
+## 08bba5a08a10c2967cad19fcb6b04a80 -- 2026-03-13 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 2m 47s
+**Rooms:** 18 total (6 affected, 12 unaffected) | **Photos:** 316 | **Notes:** 20 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Unit 4 Bedroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Unit 3 Entry; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 material mismatch(es) between room data sources.
+
+---
+
+## 3b3702f371db25510e060a89f8d0570e -- 2026-03-13 -- v2026.09.3
+
+**User:** tammy.gemmill@ca.belfor.com | **Time:** 3m 18s
+**Rooms:** 20 total (8 affected, 12 unaffected) | **Photos:** 316 | **Notes:** 20 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Hallway
+- Exterior
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 7dc77c9a6815d09e99e7c118900218c3 -- 2026-03-12 -- v2026.09.3
 
