@@ -8,6 +8,22 @@ This is the Claude-side complement to the 30-minute `trace-eval.yml` GitHub Acti
 
 `$ARGUMENTS` is optional. Defaults to enhancing all unprocessed traces.
 
+## Processing Order & Deduplication
+
+**Newest first, always.** Process traces in reverse chronological order:
+1. Today's traces first (most recent hours first)
+2. Yesterday's traces next
+3. Continue backwards through older dates until all traces are enhanced
+
+This ensures the most recent production scopes get narrative enhancement and bug detection first. Older traces are backfilled over subsequent nightly runs until the full history is covered. Once all traces are enhanced, subsequent runs only process newly synced traces (maintenance mode).
+
+**Deduplication rules:**
+- Before processing a trace, check if its trace_id already exists in `2_scope-eval-all-runs.md`. Each trace_id (32-char hex) must appear exactly ONCE as a `## <trace_id>` section header.
+- If `pull-reports.sh` merges in a remote trace that already exists locally with enhanced narratives (has `### Bug Assessment`), the merge logic preserves the local version. Do NOT re-enhance already-enhanced traces.
+- If a trace_id appears more than once in the file, remove the duplicate (keep the enhanced version if one exists, otherwise keep the more recent one).
+- When writing results, always search for the existing section by trace_id and REPLACE it in-place. Never append a second copy.
+- The index table must also have exactly one row per trace_id. After any write, verify no duplicate rows exist.
+
 ## Document Flow
 
 This skill writes to exactly TWO files:
