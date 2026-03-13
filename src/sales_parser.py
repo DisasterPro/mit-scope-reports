@@ -192,10 +192,22 @@ class SalesDataBuilder:
             # Check trace detail section for flag signals
             trace_section = self._get_trace_section(content, trace.trace_id)
             if trace_section:
-                # Floor plan issues: room names don't match floor plan labels
                 provided = self._extract_after(trace_section, "### What Was Provided")
-                if provided and re.search(r"Room Name Matching\s*\|\s*Issues", provided):
-                    flags.append("FLOOR PLAN")
+                if provided:
+                    # Floor plan trigger 1: room names don't match floor plan labels
+                    if re.search(r"Room Name Matching\s*\|\s*Issues", provided):
+                        flags.append("FLOOR PLAN")
+
+                    # Floor plan trigger 2: plans uploaded but no measurements extracted
+                    if "FLOOR PLAN" not in flags:
+                        if re.search(r"Floor Plans\s*\|\s*Partial", provided) and "0 rooms with measurements" in provided:
+                            flags.append("FLOOR PLAN")
+
+                # Floor plan trigger 3: measurement validation warnings
+                if "FLOOR PLAN" not in flags:
+                    issue_text = self._extract_after(trace_section, "### Issue Assessment")
+                    if issue_text and "measurement validation warning" in issue_text:
+                        flags.append("FLOOR PLAN")
 
                 trace.is_enhanced = "### Bug Assessment" in trace_section
 
