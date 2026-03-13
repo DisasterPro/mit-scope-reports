@@ -189,22 +189,18 @@ class SalesDataBuilder:
                 if trace.photos == 0 or trace.notes == 0:
                     flags.append("NO DATA")
 
-            # Floor plan issues: no plans but many rooms
-            if trace.plans == 0 and self._room_count(trace.rooms) > 5:
-                flags.append("FLOOR PLAN")
-
-            # Check Bug Assessment for this trace
+            # Check trace detail section for flag signals
             trace_section = self._get_trace_section(content, trace.trace_id)
             if trace_section:
+                # Floor plan issues: room names don't match floor plan labels
+                provided = self._extract_after(trace_section, "### What Was Provided")
+                if provided and re.search(r"Room Name Matching\s*\|\s*Issues", provided):
+                    flags.append("FLOOR PLAN")
+
                 trace.is_enhanced = "### Bug Assessment" in trace_section
 
                 if trace.is_enhanced:
                     bug_table = self._extract_after(trace_section, "### Bug Assessment")
-
-                    # room_integrity FAIL
-                    if re.search(r"room_integrity.*\*\*FAIL\*\*", bug_table):
-                        if "FLOOR PLAN" not in flags:
-                            flags.append("FLOOR PLAN")
 
                     # hallucination FAIL with fabricated/orphaned
                     hall_match = re.search(
