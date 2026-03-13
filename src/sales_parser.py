@@ -228,26 +228,47 @@ class SalesDataBuilder:
     def _extract_narratives(
         self, traces: list[SalesTrace], content: str
     ) -> list[SalesTrace]:
-        """Extract narrative HTML for enhanced traces."""
+        """Extract narrative HTML for all traces (not just enhanced)."""
         for trace in traces:
-            if not trace.is_enhanced:
-                continue
-
             section = self._get_trace_section(content, trace.trace_id)
             if not section:
                 continue
 
             html_parts: list[str] = []
 
-            # Bug Assessment table
-            bug_section = self._extract_after(section, "### Bug Assessment")
-            if bug_section:
-                html_parts.append(self._markdown_table_to_html(bug_section, "Bug Assessment"))
+            # Trace ID header
+            html_parts.append(
+                f'<h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">'
+                f'Langfuse Trace: {escape(trace.trace_id)}</h4>'
+            )
 
-            # Recommendations
+            # 1. Narrative assessments — Pipeline + Issue
+            for heading in ("### Pipeline Assessment", "### Issue Assessment"):
+                text = self._extract_after(section, heading)
+                if text:
+                    label = heading.replace("### ", "")
+                    html_parts.append(f"<h4>{escape(label)}</h4><p>{escape(text.strip())}</p>")
+
+            # 2. What Was Provided table
+            provided_section = self._extract_after(section, "### What Was Provided")
+            if provided_section:
+                html_parts.append(self._markdown_table_to_html(provided_section, "What Was Provided"))
+
+            # 3. Input Assessment narrative
+            input_text = self._extract_after(section, "### Input Assessment")
+            if input_text:
+                html_parts.append(f"<h4>Input Assessment</h4><p>{escape(input_text.strip())}</p>")
+
+            # 4. Recommendations
             rec_section = self._extract_after(section, "### Recommendations")
             if rec_section:
                 html_parts.append(self._recommendations_to_html(rec_section))
+
+            # 5. Bug Assessment table (enhanced traces only)
+            if trace.is_enhanced:
+                bug_section = self._extract_after(section, "### Bug Assessment")
+                if bug_section:
+                    html_parts.append(self._markdown_table_to_html(bug_section, "Bug Assessment"))
 
             trace.narrative_html = "\n".join(html_parts)
 
