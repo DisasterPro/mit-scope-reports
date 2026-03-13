@@ -17,6 +17,17 @@ from .models import TraceData
 
 logger = logging.getLogger(__name__)
 
+# Internal domains excluded from all reports (internal testing)
+EXCLUDED_DOMAINS = {"encircleapp.com"}
+
+
+def _is_internal_user(user_id: str | None) -> bool:
+    """Check if a user belongs to an excluded internal domain."""
+    if not user_id:
+        return False
+    domain = user_id.rsplit("@", 1)[-1].lower()
+    return domain in EXCLUDED_DOMAINS
+
 
 class LangfuseDataFetcher:
     """Fetches production traces from Langfuse for a given time window."""
@@ -80,6 +91,13 @@ class LangfuseDataFetcher:
 
             page += 1
             time.sleep(0.1)  # Rate limit courtesy
+
+        # Exclude internal test users
+        before_filter = len(all_traces)
+        all_traces = [t for t in all_traces if not _is_internal_user(t.user_id)]
+        excluded = before_filter - len(all_traces)
+        if excluded:
+            logger.info("Excluded %d internal traces", excluded)
 
         logger.info("Total production traces fetched: %d", len(all_traces))
         return all_traces
@@ -159,3 +177,4 @@ class LangfuseDataFetcher:
         except Exception:
             logger.exception("Failed to fetch observations for trace %s", trace_id)
             return []
+
