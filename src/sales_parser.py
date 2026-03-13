@@ -24,9 +24,9 @@ logger = logging.getLogger(__name__)
 EXCLUDED_DOMAINS = {"encircleapp.com"}
 
 
-def fetch_github_file(repo: str, path: str, token: str) -> str | None:
+def fetch_github_file(repo: str, path: str, token: str, ref: str = "main") -> str | None:
     """Fetch a file from GitHub API and return its decoded content."""
-    url = f"https://api.github.com/repos/{repo}/contents/{path}"
+    url = f"https://api.github.com/repos/{repo}/contents/{path}?ref={ref}"
     req = urllib.request.Request(
         url,
         headers={
