@@ -368,12 +368,24 @@ class SalesDataBuilder:
     @staticmethod
     def _recommendations_to_html(md_recs: str) -> str:
         """Convert markdown recommendations to HTML list."""
+        # Try bold-wrapped format first: "1. **Title**. Body"
         items = re.findall(r"\d+\.\s+\*\*(.*?)\*\*\.?\s*(.*?)(?=\n\d+\.|\Z)", md_recs, re.DOTALL)
-        if not items:
-            return ""
+        if items:
+            html = "<h4>Recommendations</h4><ol>"
+            for title, body in items:
+                html += f"<li><strong>{escape(title)}.</strong> {escape(body.strip())}</li>"
+            html += "</ol>"
+            return html
 
-        html = "<h4>Recommendations</h4><ol>"
-        for title, body in items:
-            html += f"<li><strong>{escape(title)}.</strong> {escape(body.strip())}</li>"
-        html += "</ol>"
-        return html
+        # Plain numbered list: "1. Some recommendation text"
+        plain_items = re.findall(r"\d+\.\s+(.*?)(?=\n\d+\.|\n---|\Z)", md_recs, re.DOTALL)
+        if plain_items:
+            html = "<h4>Recommendations</h4><ol>"
+            for item in plain_items:
+                text = item.strip()
+                if text:
+                    html += f"<li>{escape(text)}</li>"
+            html += "</ol>"
+            return html
+
+        return ""
