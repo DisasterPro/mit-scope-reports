@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 04:30 UTC | **Traces with Issues:** 431 | **Total Issues:** 3694
+**Last Updated:** 2026-03-13 10:07 UTC | **Traces with Issues:** 432 | **Total Issues:** 3696
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | c2e4934fa8091a8ce609cb19d6c63531 | paul@structuredrestoration.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 14 | 2 | 0 |
 | 2026-03-13 | e9444662e832283d735e80e4d599249d | nick@cleanresponse.com | 20 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (10/0) | 319 | 11 | 0 |
 | 2026-03-13 | 4b384dd6c19947217b9b6be21e112148 | baldeep.dhillon@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (3/3) | 10 | 4 | 1 |
 | 2026-03-13 | 6dc90b1488f9160c11e22be98fc4e22d | baldeep.dhillon@ca.belfor.com | 2 | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 1 (1/0) | 2 | 2 | 0 |
@@ -442,6 +443,29 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## c2e4934fa8091a8ce609cb19d6c63531 -- 2026-03-13 -- v2026.09.3
+
+**User:** paul@structuredrestoration.com | **Time:** 1m 0s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 14 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## e9444662e832283d735e80e4d599249d -- 2026-03-13 -- v2026.09.3
 
