@@ -19,6 +19,7 @@ from .index_builder import build_index_page
 from .langfuse_client import LangfuseDataFetcher
 from .markdown_writer import write_markdown_reports, write_trace_eval_report
 from .renderer import render_report
+from .sales_parser import SalesDataBuilder, fetch_github_file
 from .slack import post_to_slack
 
 logging.basicConfig(
@@ -40,8 +41,14 @@ def main() -> None:
     )
     period = os.environ.get("REPORT_PERIOD", "daily").lower()
 
+    phase = os.environ.get("REPORT_PHASE", "full").lower()
+
     if period not in ("daily", "weekly"):
         logger.error("REPORT_PERIOD must be 'daily' or 'weekly', got '%s'", period)
+        sys.exit(1)
+
+    if phase not in ("full", "reports-only", "sales-only"):
+        logger.error("REPORT_PHASE must be 'full', 'reports-only', or 'sales-only', got '%s'", phase)
         sys.exit(1)
 
     if not public_key or not secret_key:
@@ -49,12 +56,18 @@ def main() -> None:
         sys.exit(1)
 
     is_weekly = period == "weekly"
-    days = 7 if is_weekly else 1
 
-    # 2. Calculate time window
-    now = datetime.now(timezone.utc)
-    to_ts = now
-    from_ts = to_ts - timedelta(days=days)
+    # 2. Calculate time window — exact UTC calendar day boundaries
+    now_utc = datetime.now(timezone.utc)
+    if is_weekly:
+        end_date = now_utc.date() - timedelta(days=1)
+        start_date = end_date - timedelta(days=6)
+    else:
+        end_date = now_utc.date() - timedelta(days=1)
+        start_date = end_date
+
+    from_ts = datetime.combine(start_date, datetime.min.time(), tzinfo=timezone.utc)
+    to_ts = datetime.combine(end_date + timedelta(days=1), datetime.min.time(), tzinfo=timezone.utc)
 
     logger.info(
         "%s report period: %s to %s",
@@ -63,57 +76,104 @@ def main() -> None:
         to_ts.isoformat(),
     )
 
-    # 3. Fetch traces
-    fetcher = LangfuseDataFetcher(host, public_key, secret_key)
-    traces = fetcher.fetch_all_production_traces(from_ts, to_ts)
-
-    if not traces:
-        logger.warning("No production traces found for the period")
-
-    logger.info("Fetched %d production traces", len(traces))
-
-    # 4. Run analyzers
-    logger.info("Running usage analysis...")
-    usage = analyze_usage(traces, from_ts, to_ts)
-
-    logger.info("Running cost analysis...")
-    costs = analyze_costs(traces)
-
-    logger.info("Running error analysis...")
-    errors = analyze_errors(traces, fetcher)
-
-    # 4b. Run trace evaluations (lightweight per-trace evals)
-    logger.info("Running trace evaluations...")
-    llm_client = None
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
-    if anthropic_key:
-        try:
-            import anthropic
-            llm_client = anthropic.Anthropic(api_key=anthropic_key)
-        except ImportError:
-            logger.warning("anthropic package not installed, skipping LLM narratives")
-    else:
-        logger.info("ANTHROPIC_API_KEY not set, using template-based narratives")
-
-    trace_evals = analyze_trace_evals(traces, fetcher, llm_client)
-    logger.info("Evaluated %d traces", len(trace_evals))
-
-    # 5. Render HTML
-    logger.info("Rendering HTML report...")
     project_root = Path(__file__).resolve().parent.parent
     template_dir = project_root / "templates"
-    html = render_report(usage, costs, errors, now, template_dir, period=period)
-
-    # 6. Write output files
     reports_dir = project_root / "reports"
     reports_dir.mkdir(exist_ok=True)
+    docs_dir = project_root / "docs"
 
-    # Latest report (overwrites index.html — always the most recent run)
+    usage = None
+    costs = None
+    errors = None
+    trace_evals = []
+    sales = None
+
+    # 3. Fetch traces and run analyzers (skip for sales-only phase)
+    if phase in ("full", "reports-only"):
+        fetcher = LangfuseDataFetcher(host, public_key, secret_key)
+        traces = fetcher.fetch_all_production_traces(from_ts, to_ts)
+
+        if not traces:
+            logger.warning("No production traces found for the period")
+
+        logger.info("Fetched %d production traces", len(traces))
+
+        # 4. Run analyzers
+        logger.info("Running usage analysis...")
+        usage = analyze_usage(traces, from_ts, to_ts)
+
+        logger.info("Running cost analysis...")
+        costs = analyze_costs(traces)
+
+        logger.info("Running error analysis...")
+        errors = analyze_errors(traces, fetcher)
+
+        # 4b. Run trace evaluations (lightweight per-trace evals)
+        logger.info("Running trace evaluations...")
+        llm_client = None
+        anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+        if anthropic_key:
+            try:
+                import anthropic
+                llm_client = anthropic.Anthropic(api_key=anthropic_key)
+            except ImportError:
+                logger.warning("anthropic package not installed, skipping LLM narratives")
+        else:
+            logger.info("ANTHROPIC_API_KEY not set, using template-based narratives")
+
+        trace_evals = analyze_trace_evals(traces, fetcher, llm_client)
+        logger.info("Evaluated %d traces", len(trace_evals))
+
+        # 7. Update markdown report docs
+        logger.info("Updating markdown reports...")
+        write_markdown_reports(docs_dir, usage, costs, errors, now_utc, period)
+
+        # 7b. Write trace evaluation report
+        if trace_evals:
+            eval_report_path = docs_dir / "scope-eval-all-runs.md"
+            write_trace_eval_report(eval_report_path, trace_evals)
+            logger.info("Wrote trace eval report to %s", eval_report_path)
+
+    # 4c. Build Sales data (for sales-only or full phase)
+    if phase in ("full", "sales-only"):
+        gh_token = os.environ.get("GH_TOKEN") or os.environ.get("AI_SERVICES_PAT")
+        if gh_token:
+            logger.info("Fetching scope-eval-all-runs.md for Sales page...")
+            eval_content = fetch_github_file(
+                repo="EncircleInc/ai-services",
+                path="services/mitigation-scope/joe/evals/traces/2_scope-eval-all-runs.md",
+                token=gh_token,
+            )
+            if eval_content:
+                builder = SalesDataBuilder()
+                sales = builder.build(eval_content, from_ts, to_ts)
+                logger.info("Sales data: %d traces, %d flagged", sales.total_traces, sales.total_flagged)
+            else:
+                logger.warning("Could not fetch scope-eval-all-runs.md, skipping Sales page")
+        else:
+            logger.warning("GH_TOKEN/AI_SERVICES_PAT not set, skipping Sales page")
+
+    # 5. Render HTML (always — use whatever data we have)
+    logger.info("Rendering HTML report...")
+
+    # For sales-only phase, load existing report data if available
+    if phase == "sales-only" and usage is None:
+        # Re-read existing markdown reports to reconstruct minimal data for the 3-tab render
+        # The HTML will show stale data for other tabs but fresh Sales data
+        fetcher = LangfuseDataFetcher(host, public_key, secret_key)
+        traces = fetcher.fetch_all_production_traces(from_ts, to_ts)
+        logger.info("Fetched %d traces for HTML rendering", len(traces))
+        usage = analyze_usage(traces, from_ts, to_ts)
+        costs = analyze_costs(traces)
+        errors = analyze_errors(traces, fetcher)
+
+    html = render_report(usage, costs, errors, sales, now_utc, template_dir, period=period)
+
+    # 6. Write output files
     index_path = reports_dir / "index.html"
     index_path.write_text(html, encoding="utf-8")
     logger.info("Wrote %s", index_path)
 
-    # Archive with date and period type
     archive_dir = reports_dir / "archive"
     archive_dir.mkdir(exist_ok=True)
     date_str = from_ts.strftime("%Y-%m-%d")
@@ -122,22 +182,10 @@ def main() -> None:
     archive_path.write_text(html, encoding="utf-8")
     logger.info("Wrote %s", archive_path)
 
-    # Build the archive index page (lists all reports chronologically)
     build_index_page(archive_dir, reports_dir / "history.html")
 
-    # 7. Update markdown report docs
-    logger.info("Updating markdown reports...")
-    docs_dir = project_root / "docs"
-    write_markdown_reports(docs_dir, usage, costs, errors, now, period)
-
-    # 7b. Write trace evaluation report
-    if trace_evals:
-        eval_report_path = docs_dir / "scope-eval-all-runs.md"
-        write_trace_eval_report(eval_report_path, trace_evals)
-        logger.info("Wrote trace eval report to %s", eval_report_path)
-
-    # 8. Post to Slack (if configured)
-    if slack_webhook_url:
+    # 8. Post to Slack (if configured, skip for sales-only)
+    if slack_webhook_url and phase != "sales-only":
         logger.info("Posting to Slack...")
         post_to_slack(
             webhook_url=slack_webhook_url,
@@ -149,12 +197,14 @@ def main() -> None:
             period=period,
         )
     else:
-        logger.info("SLACK_WEBHOOK_URL not set, skipping notification")
+        logger.info("Slack notification skipped")
 
     logger.info(
-        "Done! %s report covers %d scopes.", period.capitalize(), usage.total_scopes
+        "Done! %s report (%s phase) covers %d scopes.",
+        period.capitalize(), phase, usage.total_scopes if usage else 0,
     )
 
 
 if __name__ == "__main__":
     main()
+
