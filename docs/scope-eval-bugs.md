@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 17:42 UTC | **Traces with Issues:** 469 | **Total Issues:** 4063
+**Last Updated:** 2026-03-13 17:44 UTC | **Traces with Issues:** 470 | **Total Issues:** 4067
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 01b329f1fa1135153a780640d1c6f2d1 | claudette.ryan@ca.belfor.com | 4 | 1/5 Poor | 2/5 Significant | 3/5 Moderate | 2 (1/1) | 0 | 0 | 0 |
 | 2026-03-13 | 0af7f4fb77d45c48e8ac2f2bcdc9d6a5 | e.goettling@ncricat.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 106 | 5 | 1 |
 | 2026-03-13 | a64b05c85cfa6aaebdc9b08e886e74d2 | ftl@rainbownova.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 104 | 9 | 0 |
 | 2026-03-13 | 4c9655897e8ca9fb1c31705c7f15d83b | kristy.persson+hub@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 11 (10/1) | 120 | 17 | 1 |
@@ -480,6 +481,31 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 01b329f1fa1135153a780640d1c6f2d1 -- 2026-03-13 -- v2026.09.3
+
+**User:** claudette.ryan@ca.belfor.com | **Time:** 0m 57s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 3/5 Moderate | **Overall:** 2.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Garage has no measurements available - room dimensions required for complete scope.
+- Attic has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Garage
+- Attic
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
 
 ## 0af7f4fb77d45c48e8ac2f2bcdc9d6a5 -- 2026-03-13 -- v2026.09.3
 
