@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 14:13 UTC | **Traces with Issues:** 441 | **Total Issues:** 3769
+**Last Updated:** 2026-03-13 14:44 UTC | **Traces with Issues:** 445 | **Total Issues:** 3857
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 90ed8cdea055873e8be0fd765860c6e7 | lesley.mele@ca.belfor.com | 10 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 10 (5/5) | 52 | 10 | 1 |
+| 2026-03-13 | 32caadb7a56a7251ded838921e66a2cb | dave@rockemergency.com | 26 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (13/0) | 69 | 14 | 0 |
+| 2026-03-13 | f579791db2bb9c3eb91b8dfd7bfec8e0 | dave@rockemergency.com | 26 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (13/0) | 69 | 14 | 0 |
+| 2026-03-13 | 2ba42441a5705066f85e6aedb8dffbcb | dave@rockemergency.com | 26 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (13/0) | 69 | 14 | 0 |
 | 2026-03-13 | 1f0253c3c1b4d3a6bd1ab0c70a6342ed | kay.cayuga+owensound@ca.belfor.com | 3 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (1/1) | 21 | 3 | 1 |
 | 2026-03-13 | 6b2feaea326a08caa7473ffcd10a1288 | daniel.lockhart@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (4/1) | 202 | 11 | 3 |
 | 2026-03-13 | 9189ce227378250610c453e4399a16b4 | darrell.thompson@ungerman.net | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 27 (3/24) | 170 | 7 | 3 |
@@ -452,6 +456,163 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 90ed8cdea055873e8be0fd765860c6e7 -- 2026-03-13 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 2m 29s
+**Rooms:** 10 total (5 affected, 5 unaffected) | **Photos:** 52 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Under Stairs has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Recreation Room
+- Bathroom
+- Under Stairs
+- Storage
+- Furnace Room
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 32caadb7a56a7251ded838921e66a2cb -- 2026-03-13 -- v2026.09.3
+
+**User:** dave@rockemergency.com | **Time:** 2m 41s
+**Rooms:** 13 total (13 affected, 0 unaffected) | **Photos:** 69 | **Notes:** 14 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (13):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Rear Living Room has no measurements available - room dimensions required for complete scope.
+- Foyer has no measurements available - room dimensions required for complete scope.
+- Storage Off Dining Room has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Upstairs Hallway has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- ...and 3 more
+
+**Missing Measurements** (13):
+
+- Kitchen
+- Living Room
+- Dining Room
+- Rear Living Room
+- Foyer
+- Storage Off Dining Room
+- Stairs
+- Upstairs Hallway
+- Bedroom 2
+- Bedroom 1
+- ...and 3 more
+
+### Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+---
+
+## f579791db2bb9c3eb91b8dfd7bfec8e0 -- 2026-03-13 -- v2026.09.3
+
+**User:** dave@rockemergency.com | **Time:** 3m 44s
+**Rooms:** 13 total (13 affected, 0 unaffected) | **Photos:** 69 | **Notes:** 14 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (13):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Rear Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Storage Off Dining Room has no measurements available - room dimensions required for complete scope.
+- Foyer has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- ...and 3 more
+
+**Missing Measurements** (13):
+
+- Kitchen
+- Living Room
+- Rear Living Room
+- Dining Room
+- Storage Off Dining Room
+- Foyer
+- Stairs
+- Basement
+- Bathroom
+- Bedroom 1
+- ...and 3 more
+
+### Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+---
+
+## 2ba42441a5705066f85e6aedb8dffbcb -- 2026-03-13 -- v2026.09.3
+
+**User:** dave@rockemergency.com | **Time:** 2m 32s
+**Rooms:** 13 total (13 affected, 0 unaffected) | **Photos:** 69 | **Notes:** 14 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (13):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+- Rear Living Room has no measurements available - room dimensions required for complete scope.
+- Foyer has no measurements available - room dimensions required for complete scope.
+- Storage Off Dining Room has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom 1 has no measurements available - room dimensions required for complete scope.
+- Bedroom 2 has no measurements available - room dimensions required for complete scope.
+- ...and 3 more
+
+**Missing Measurements** (13):
+
+- Kitchen
+- Living Room
+- Dining Room
+- Rear Living Room
+- Foyer
+- Storage Off Dining Room
+- Stairs
+- Bathroom
+- Bedroom 1
+- Bedroom 2
+- ...and 3 more
+
+### Assessment
+
+The system detected 26 data quality issue(s): 13 measurement validation warning(s); 13 room(s) with missing measurements.
+
+---
+
 
 ## 1f0253c3c1b4d3a6bd1ab0c70a6342ed -- 2026-03-13 -- v2026.09.3
 
