@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 22:09 UTC | **Traces with Issues:** 494 | **Total Issues:** 4337
+**Last Updated:** 2026-03-13 22:28 UTC | **Traces with Issues:** 495 | **Total Issues:** 4343
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 3b1791ef1cf20026df53b7f12ff9b2fe | m.cohn@si-restoration.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 90 | 6 | 2 |
 | 2026-03-13 | 8b3cae76057f9adcd36d20ba47600d22 | baldeep.dhillon@ca.belfor.com | 2 | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 1 (1/0) | 2 | 2 | 0 |
 | 2026-03-13 | 05aa91e803693b3a53fde4aa3412d4c9 | ryan.oneill@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (3/10) | 91 | 10 | 1 |
 | 2026-03-13 | bb3d914af292a24a8e80898e297980aa | ssmyrski@servicemasterbc.ca | 4 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 63 | 3 | 0 |
@@ -505,6 +506,33 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 3b1791ef1cf20026df53b7f12ff9b2fe -- 2026-03-13 -- v2026.09.3
+
+**User:** m.cohn@si-restoration.com | **Time:** 1m 25s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 90 | **Notes:** 6 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Loss Video has no measurements available - room dimensions required for complete scope.
+- Equipment Needed has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Loss Video
+- Equipment Needed
+- Exterior
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 8b3cae76057f9adcd36d20ba47600d22 -- 2026-03-13 -- v2026.09.3
 

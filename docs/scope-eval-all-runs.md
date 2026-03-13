@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-13 22:09 UTC | **Total Traces:** 1105 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-13 22:28 UTC | **Total Traces:** 1106 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 3b1791ef1cf20026df53b7f12ff9b2fe | v2026.09.3 | 2026-03-13 | m.cohn@si-restoration.com | 1m 25s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 8 (2/6) | 90 | 6 | 2 |
 | 8b3cae76057f9adcd36d20ba47600d22 | v2026.09.3 | 2026-03-13 | baldeep.dhillon@ca.belfor.com | 1m 1s | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 3.7/5 | 1 (1/0) | 2 | 2 | 0 |
 | 05aa91e803693b3a53fde4aa3412d4c9 | v2026.09.3 | 2026-03-13 | ryan.oneill@ca.belfor.com | 1m 53s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 13 (3/10) | 91 | 10 | 1 |
 | bb3d914af292a24a8e80898e297980aa | v2026.09.3 | 2026-03-13 | ssmyrski@servicemasterbc.ca | 1m 9s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 2 (2/0) | 63 | 3 | 0 |
@@ -1113,6 +1114,43 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 3b1791ef1cf20026df53b7f12ff9b2fe -- 2026-03-13 -- v2026.09.3
+
+**User:** m.cohn@si-restoration.com | **Time:** 1m 25s
+**Rooms:** 8 total (2 affected, 6 unaffected) | **Photos:** 90 | **Notes:** 6 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 8 rooms; 5 in app, 5 from notes |
+| Field Photos | Good | 90 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 6 notes; 0 rooms without notes |
+| Floor Plans | Partial | 2 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+90 field photos were submitted. Technician notes were provided (6 notes). 2 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 5 of 8 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 25s. Data quality flags: the floor plan area differs from room areas by 835 SF.
+
+### Issue Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
 
 ## 8b3cae76057f9adcd36d20ba47600d22 -- 2026-03-13 -- v2026.09.3
 
