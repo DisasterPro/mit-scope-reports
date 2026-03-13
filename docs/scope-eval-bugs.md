@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 22:28 UTC | **Traces with Issues:** 495 | **Total Issues:** 4343
+**Last Updated:** 2026-03-13 23:30 UTC | **Traces with Issues:** 496 | **Total Issues:** 4345
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 5431799db702e088d915cc74acbb3785 | hcohn@si-restoration.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (2/4) | 94 | 8 | 2 |
 | 2026-03-13 | 3b1791ef1cf20026df53b7f12ff9b2fe | m.cohn@si-restoration.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 90 | 6 | 2 |
 | 2026-03-13 | 8b3cae76057f9adcd36d20ba47600d22 | baldeep.dhillon@ca.belfor.com | 2 | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 1 (1/0) | 2 | 2 | 0 |
 | 2026-03-13 | 05aa91e803693b3a53fde4aa3412d4c9 | ryan.oneill@ca.belfor.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 13 (3/10) | 91 | 10 | 1 |
@@ -506,6 +507,26 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 5431799db702e088d915cc74acbb3785 -- 2026-03-13 -- v2026.09.3
+
+**User:** hcohn@si-restoration.com | **Time:** 1m 7s
+**Rooms:** 6 total (2 affected, 4 unaffected) | **Photos:** 94 | **Notes:** 8 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Dining Area has no damage reported; measurements from floor plan used for reference.
+- Bedroom volume calculated using claim data measurements only.
+
+### Assessment
+
+The system detected 2 data quality issue(s): 2 measurement validation warning(s).
+
+---
+
 
 ## 3b1791ef1cf20026df53b7f12ff9b2fe -- 2026-03-13 -- v2026.09.3
 
