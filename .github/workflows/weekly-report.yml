@@ -101,6 +101,31 @@ jobs:
             git push
           }
 
+
+      - name: Sync docs to joe-sandbox repo
+        env:
+          AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
+        if: env.AI_SERVICES_PAT != ''
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse \
+            "https://x-access-token:${AI_SERVICES_PAT}@github.com/EncircleInc/joe-sandbox.git" \
+            /tmp/joe-sandbox
+          cd /tmp/joe-sandbox
+          git sparse-checkout set docs
+
+          cp "${{ github.workspace }}/docs/scope-usage.md" docs/scope-usage.md
+          cp "${{ github.workspace }}/docs/scope-costs.md" docs/scope-costs.md
+          cp "${{ github.workspace }}/docs/scope-errors.md" docs/scope-errors.md
+          cp "${{ github.workspace }}/docs/scope-eval-all-runs.md" docs/scope-eval-all-runs.md 2>/dev/null || true
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/scope-*.md
+          git diff --cached --quiet || {
+            git commit -m "Mirror scope reports from DisasterPro [skip ci]"
+            git push
+          }
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
