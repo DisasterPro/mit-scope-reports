@@ -136,22 +136,41 @@ def main() -> None:
 
     # 4c. Build Sales data (for sales-only or full phase)
     if phase in ("full", "sales-only"):
-        gh_token = os.environ.get("GH_TOKEN") or os.environ.get("AI_SERVICES_PAT")
-        if gh_token:
-            logger.info("Fetching scope-eval-all-runs.md for Sales page...")
-            eval_content = fetch_github_file(
-                repo="EncircleInc/ai-services",
-                path="services/mitigation-scope/joe/evals/traces/2_scope-eval-all-runs.md",
-                token=gh_token,
-            )
-            if eval_content:
-                builder = SalesDataBuilder()
-                sales = builder.build(eval_content, from_ts, to_ts)
-                logger.info("Sales data: %d traces, %d flagged", sales.total_traces, sales.total_flagged)
+        eval_content = None
+
+        # Try local docs file first (available during full phase after trace evals)
+        local_eval_path = docs_dir / "scope-eval-all-runs.md"
+        if local_eval_path.exists():
+            logger.info("Reading local %s for Sales page...", local_eval_path)
+            eval_content = local_eval_path.read_text(encoding="utf-8")
+
+        # Fall back to fetching from GitHub (for sales-only phase or if local missing)
+        if not eval_content:
+            gh_token = os.environ.get("GH_TOKEN") or os.environ.get("AI_SERVICES_PAT")
+            if gh_token:
+                logger.info("Fetching scope-eval-all-runs.md from GitHub for Sales page...")
+                eval_content = fetch_github_file(
+                    repo="EncircleInc/ai-services",
+                    path="services/mitigation-scope/joe/evals/traces/2_scope-eval-all-runs.md",
+                    token=gh_token,
+                    ref="MitScopeV29.3",
+                )
+                # Fall back to docs path in same repo
+                if not eval_content:
+                    eval_content = fetch_github_file(
+                        repo="DisasterPro/mit-scope-reports",
+                        path="docs/scope-eval-all-runs.md",
+                        token=gh_token,
+                    )
             else:
-                logger.warning("Could not fetch scope-eval-all-runs.md, skipping Sales page")
+                logger.warning("GH_TOKEN/AI_SERVICES_PAT not set")
+
+        if eval_content:
+            builder = SalesDataBuilder()
+            sales = builder.build(eval_content, from_ts, to_ts)
+            logger.info("Sales data: %d traces, %d flagged", sales.total_traces, sales.total_flagged)
         else:
-            logger.warning("GH_TOKEN/AI_SERVICES_PAT not set, skipping Sales page")
+            logger.warning("No eval data available, skipping Sales page")
 
     # 5. Render HTML (always — use whatever data we have)
     logger.info("Rendering HTML report...")
