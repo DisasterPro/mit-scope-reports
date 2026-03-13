@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 17:10 UTC | **Traces with Issues:** 467 | **Total Issues:** 4038
+**Last Updated:** 2026-03-13 17:42 UTC | **Traces with Issues:** 469 | **Total Issues:** 4063
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 0af7f4fb77d45c48e8ac2f2bcdc9d6a5 | e.goettling@ncricat.com | 9 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 106 | 5 | 1 |
+| 2026-03-13 | a64b05c85cfa6aaebdc9b08e886e74d2 | ftl@rainbownova.com | 16 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 7 (2/5) | 104 | 9 | 0 |
 | 2026-03-13 | 4c9655897e8ca9fb1c31705c7f15d83b | kristy.persson+hub@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 11 (10/1) | 120 | 17 | 1 |
 | 2026-03-13 | 58cc6f20ccdb2b6a4a9363bdeb2f72da | tanya.leite@ca.belfor.com | 2 | 2/5 Minimal | 3/5 Moderate | 4/5 Minor | 4 (2/2) | 0 | 1 | 1 |
 | 2026-03-13 | 3e00151c60c009d1228888f858f71035 | darren.ball+chatham@ca.belfor.com | 14 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 13 (5/8) | 69 | 8 | 1 |
@@ -478,6 +480,78 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 0af7f4fb77d45c48e8ac2f2bcdc9d6a5 -- 2026-03-13 -- v2026.09.3
+
+**User:** e.goettling@ncricat.com | **Time:** 1m 12s
+**Rooms:** 4 total (1 affected, 3 unaffected) | **Photos:** 106 | **Notes:** 5 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Cause Of Loss has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Basement volume calculated using assumed 7 ft ceiling height.
+
+**Missing Measurements** (2):
+
+- Cause Of Loss
+- Exterior
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using fairly_open (hydro value) - values agree
+- [NONE] factor: Construction; hydro_assessment: Standard; structural_analysis: standard; resolution: Using standard (hydro value) - values agree
+- [NONE] factor: HVAC; hydro_assessment: Yes; structural_analysis: beneficial; resolution: Using beneficial (hydro value) - values agree
+- [NONE] factor: Weather/Envelope; hydro_assessment: Neutral/Moderate; structural_analysis: neutral_moderate; resolution: Using neutral_moderate (hydro value) - values agree
+
+### Assessment
+
+The system detected 9 data quality issue(s): 4 equipment sizing conflict(s); 3 measurement validation warning(s); 2 room(s) with missing measurements.
+
+---
+
+## a64b05c85cfa6aaebdc9b08e886e74d2 -- 2026-03-13 -- v2026.09.3
+
+**User:** ftl@rainbownova.com | **Time:** 1m 26s
+**Rooms:** 7 total (2 affected, 5 unaffected) | **Photos:** 104 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway To The Bathroom has no measurements available - room dimensions required for complete scope.
+- Hallway To The Bedrooms has no measurements available - room dimensions required for complete scope.
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Primary Bathroom has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Bathroom
+- Hallway To The Bathroom
+- Hallway To The Bedrooms
+- Kitchen
+- Primary Bathroom
+- Primary Bedroom
+- Bedroom
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+- [INFO] room_name: Hallway To The Bathroom; materials_array_flooring: Laminate Flooring; room_elements_flooring: Tile Flooring; resolution: Used Tile Flooring (confirmed in room). Laminate is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 16 data quality issue(s): 2 material mismatch(es) between room data sources; 7 measurement validation warning(s); 7 room(s) with missing measurements.
+
+---
+
 
 ## 4c9655897e8ca9fb1c31705c7f15d83b -- 2026-03-13 -- v2026.09.3
 
