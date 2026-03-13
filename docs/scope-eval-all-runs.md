@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-13 21:07 UTC | **Total Traces:** 1102 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-13 21:42 UTC | **Total Traces:** 1103 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| bb3d914af292a24a8e80898e297980aa | v2026.09.3 | 2026-03-13 | ssmyrski@servicemasterbc.ca | 1m 9s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 2 (2/0) | 63 | 3 | 0 |
 | bb1d58e1fe3631682944f6d8b7e062c1 | v2026.09.3 | 2026-03-13 | john.gilbraitti+vancouver@ca.belfor.com | 2m 2s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 15 (2/13) | 116 | 6 | 1 |
 | 51dddf6f5aacc674bb653b602d8c1598 | v2026.09.3 | 2026-03-13 | jacob.allwood@ca.belfor.com | 0m 37s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 2 (2/0) | 0 | 1 | 1 |
 | fceec941bde69609c8ff61134f1a1474 | v2026.09.3 | 2026-03-13 | jacob.allwood@ca.belfor.com | 0m 39s | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 2.7/5 | 2 (1/1) | 0 | 1 | 1 |
@@ -1110,6 +1111,45 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## bb3d914af292a24a8e80898e297980aa -- 2026-03-13 -- v2026.09.3
+
+**User:** ssmyrski@servicemasterbc.ca | **Time:** 1m 9s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 63 | **Notes:** 3 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 2 rooms; 0 in app, 2 from notes |
+| Field Photos | Good | 63 photos; 2 rooms without photos |
+| Technician Notes | Detailed | 3 notes; 0 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+63 field photos were submitted. Technician notes were provided (3 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 9s. Data quality flags: 2 affected room(s) had no photos.
+
+### Issue Assessment
+
+The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add photos for the 2 room(s) that are missing them. Each room should have at least a few photos showing the damage.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+3. Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.
+
+---
+
 
 ## bb1d58e1fe3631682944f6d8b7e062c1 -- 2026-03-13 -- v2026.09.3
 
