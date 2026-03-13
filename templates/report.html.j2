@@ -55,6 +55,22 @@ tr:hover td{background:#fafbfc}
 .err-detail h4{font-size:.82rem;font-weight:700;margin-bottom:.25rem}
 .err-detail p{font-size:.78rem;color:var(--txt2);margin-bottom:.35rem}
 .ft{text-align:center;padding:1.5rem;font-size:.72rem;color:var(--txt3)}
+.flag-chip{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600;margin-right:4px}
+.flag-chip.floor-plan{background:#fef3c7;color:#92400e}
+.flag-chip.low-score{background:#fee2e2;color:#991b1b}
+.flag-chip.org-rooms{background:#fce7f3;color:#9d174d}
+.flag-chip.pipeline{background:#fee2e2;color:#991b1b}
+.flag-chip.no-data{background:#f3f4f6;color:#374151}
+.flagged-row{border-left:3px solid var(--enc)}
+.sub-card{margin:0 0 8px 24px}
+.sub-card .card-hdr{font-size:.9rem;background:#f8fafc}
+.trace-detail{padding:12px 16px;background:#f8fafc;border-top:1px solid var(--bdr);font-size:.85rem}
+.trace-detail h4{margin:8px 0 4px;font-size:.85rem;color:var(--txt2)}
+.trace-detail table{margin-bottom:8px}
+.trace-detail ol{padding-left:1.2rem;font-size:.82rem}
+.trace-detail li{margin-bottom:4px}
+.muted-row{opacity:.6}
+.card-body.sales-body{max-height:none;overflow-y:visible}
 </style>
 </head>
 <body>
@@ -69,6 +85,7 @@ tr:hover td{background:#fafbfc}
 <div class="tab active" onclick="showPage('usage',this)">Usage Report</div>
 <div class="tab" onclick="showPage('errors',this)">Error Report</div>
 <div class="tab" onclick="showPage('cost',this)">Cost &amp; Latency</div>
+{% if sales %}<div class="tab" onclick="showPage('sales',this)">Sales</div>{% endif %}
 </div>
 
 {# ════════════════════════════════════════════════════════════════════ #}
@@ -304,6 +321,75 @@ tr:hover td{background:#fafbfc}
 
 </div>
 
+{% if sales %}
+{# ════════════════════════════════════════════════════════════════════ #}
+{# PAGE 4 — SALES                                                      #}
+{# ════════════════════════════════════════════════════════════════════ #}
+<div id="page-sales" class="pg">
+
+<div class="kpi-row">
+<div class="kpi"><div class="val">{{ sales.total_traces }}</div><div class="lbl">Total Traces</div></div>
+<div class="kpi"><div class="val" style="color:#dc2626">{{ sales.total_flagged }}</div><div class="lbl">Flagged for Outreach</div></div>
+<div class="kpi"><div class="val">{{ sales.total_orgs }}</div><div class="lbl">Organizations</div></div>
+<div class="kpi"><div class="val">{{ sales.total_users }}</div><div class="lbl">Unique Users</div></div>
+</div>
+
+{% if sales.orgs %}
+{% for org in sales.orgs %}
+<div class="card">
+<div class="card-hdr{% if org.flagged_count > 0 %} open{% endif %}" onclick="toggle(this)">
+<h3>{{ org.name }} &mdash; {{ org.trace_count }} trace{{ 's' if org.trace_count != 1 else '' }}{% if org.flagged_count > 0 %}, <span style="color:#dc2626">{{ org.flagged_count }} flagged</span>{% endif %}</h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body{% if org.flagged_count > 0 %} open{% endif %}">
+
+{% for user in org.users %}
+<div class="sub-card">
+<div class="card-hdr{% if user.flagged_count > 0 %} open{% endif %}" onclick="toggle(this)">
+<h3>{{ user.email }} &mdash; {{ user.trace_count }} trace{{ 's' if user.trace_count != 1 else '' }}{% if user.flagged_count > 0 %}, <span style="color:#dc2626">{{ user.flagged_count }} flagged</span>{% endif %}</h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body{% if user.flagged_count > 0 %} open{% endif %}">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+{% for t in user.traces %}
+<tr class="{% if t.flags %}flagged-row{% else %}muted-row{% endif %}"{% if t.is_enhanced %} onclick="toggleDetail('d-{{ t.trace_id[:8] }}')" style="cursor:pointer"{% endif %}>
+<td>{% if t.flags %}{% for f in t.flags %}<span class="flag-chip {% if f == 'FLOOR PLAN' %}floor-plan{% elif f == 'LOW SCORE' %}low-score{% elif f == 'ORG ROOMS' %}org-rooms{% elif f == 'PIPELINE' %}pipeline{% else %}no-data{% endif %}">{{ f }}</span>{% endfor %}{% else %}--{% endif %}</td>
+<td>{{ t.date }}</td>
+<td{% if t.flags %} style="font-weight:700"{% endif %}>{{ t.overall_score }}</td>
+<td>{{ t.input_score }}</td>
+<td>{{ t.rooms }}</td>
+<td>{{ t.photos }}</td>
+<td>{{ t.notes }}</td>
+<td>{{ t.plans }}</td>
+<td>{{ t.time }}</td>
+</tr>
+{% if t.is_enhanced and t.narrative_html %}
+<tr id="d-{{ t.trace_id[:8] }}" style="display:none">
+<td colspan="9"><div class="trace-detail">{{ t.narrative_html|safe }}</div></td>
+</tr>
+{% endif %}
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+{% endfor %}
+{% else %}
+<div class="card" style="padding:2rem;text-align:center;color:var(--txt3)">No scope evaluation data available for this period.</div>
+{% endif %}
+
+</div>
+{% endif %}
+
 <div class="ft">MitScope Production Report — Encircle &copy; 2026 — Generated {{ generated_at.strftime('%b %d, %Y') }}</div>
 
 <script>
@@ -318,6 +404,10 @@ function toggle(hdr){
   hdr.classList.toggle('open');
   var body=hdr.nextElementSibling;
   body.classList.toggle('open');
+}
+function toggleDetail(id){
+  var el=document.getElementById(id);
+  if(el) el.style.display=el.style.display==='none'?'table-row':'none';
 }
 
 // Sortable tables
@@ -345,3 +435,4 @@ document.querySelectorAll('table.sortable thead th').forEach(function(th){
 </script>
 </body>
 </html>
+
