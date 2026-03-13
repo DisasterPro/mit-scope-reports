@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-13 03:44 UTC | **Total Traces:** 1009 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 76%
+**Last Updated:** 2026-03-13 04:30 UTC | **Total Traces:** 1010 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 76%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| e9444662e832283d735e80e4d599249d | v2026.09.3 | 2026-03-13 | nick@cleanresponse.com | 3m 42s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 10 (10/0) | 319 | 11 | 0 |
 | 4b384dd6c19947217b9b6be21e112148 | v2026.09.3 | 2026-03-13 | baldeep.dhillon@ca.belfor.com | 1m 26s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 6 (3/3) | 10 | 4 | 1 |
 | 6dc90b1488f9160c11e22be98fc4e22d | v2026.09.3 | 2026-03-13 | baldeep.dhillon@ca.belfor.com | 1m 1s | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 3.7/5 | 1 (1/0) | 2 | 2 | 0 |
 | 927a1987af9dd85e8915516936e40620 | v2026.09.3 | 2026-03-13 | ccastillo@rrtfl.com | 0m 55s | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3.0/5 | 3 (2/1) | 0 | 6 | 0 |
@@ -1017,6 +1018,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e9444662e832283d735e80e4d599249d -- 2026-03-13 -- v2026.09.3
+
+**User:** nick@cleanresponse.com | **Time:** 3m 42s
+**Rooms:** 10 total (10 affected, 0 unaffected) | **Photos:** 319 | **Notes:** 11 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 10 rooms; 10 in app, 10 from notes |
+| Field Photos | Good | 319 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 11 notes; 1 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+319 field photos were submitted. Technician notes were provided (11 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 3m 42s. Data quality flags: 1 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 20 data quality issue(s): 10 measurement validation warning(s); 10 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 1 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 4b384dd6c19947217b9b6be21e112148 -- 2026-03-13 -- v2026.09.3
 
