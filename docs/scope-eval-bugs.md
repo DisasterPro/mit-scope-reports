@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 19:41 UTC | **Traces with Issues:** 487 | **Total Issues:** 4287
+**Last Updated:** 2026-03-13 20:27 UTC | **Traces with Issues:** 488 | **Total Issues:** 4298
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 068822a7e753deb9fc5eb83ba8408b66 | ryan.smith@restoration1.com | 11 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (3/5) | 43 | 10 | 0 |
 | 2026-03-13 | 13bd1563f8e49b2752a25f73aca7cc0d | patty.mcculloch+collingwood@ca.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 54 | 13 | 0 |
 | 2026-03-13 | fc749bacb2fa30b1dd7dcb274753c851 | mikelhutchko@gmail.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 17 (6/11) | 0 | 1 | 3 |
 | 2026-03-13 | b80841b0d109771915857cf91b2eb5bf | brett.mackenzie@ca.belfor.com | 7 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 12 (1/11) | 0 | 1 | 1 |
@@ -498,6 +499,41 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 068822a7e753deb9fc5eb83ba8408b66 -- 2026-03-13 -- v2026.09.3
+
+**User:** ryan.smith@restoration1.com | **Time:** 2m 24s
+**Rooms:** 8 total (3 affected, 5 unaffected) | **Photos:** 43 | **Notes:** 10 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Basement Stairs has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Entry has no measurements available - room dimensions required for complete scope.
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Living Room
+- Basement Stairs
+- Hallway
+- Entry
+- Basement
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Laundry Room; materials_array_flooring: Laminate Flooring, Vinyl Flooring; room_elements_flooring: Laminate/Vinyl Flooring (stick down tile); resolution: Used Laminate Flooring and Vinyl Flooring due to ambiguous stick down tile reference in elements. Both removed to ensure all affected materials addressed.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 1 material mismatch(es) between room data sources; 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
 
 ## 13bd1563f8e49b2752a25f73aca7cc0d -- 2026-03-13 -- v2026.09.3
 
