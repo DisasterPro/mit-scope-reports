@@ -258,8 +258,7 @@ class SalesDataBuilder:
         org_map: dict[str, dict[str, list[SalesTrace]]] = defaultdict(lambda: defaultdict(list))
 
         for trace in traces:
-            domain = trace.user_email.rsplit("@", 1)[-1].lower() if trace.user_email else "unknown"
-            org_name = resolve_org(domain)
+            org_name = resolve_org(trace.user_email) if trace.user_email else "unknown"
             org_map[org_name][trace.user_email].append(trace)
 
         orgs: list[SalesOrg] = []
