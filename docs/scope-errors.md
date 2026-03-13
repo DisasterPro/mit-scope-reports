@@ -96,6 +96,23 @@
 ## Daily Reports (24h)
 
 ### 2026-03-12 (Daily)
+**Generated:** 2026-03-13 18:44 UTC | **Period:** 2026-03-12
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 140 |
+| Error Traces | 18 (12.9%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| ImageProcessingError | MeasurementImagesValidator | 17 | -- |
+| Unknown | Unknown | 1 | -- |
+
+**Affected Users:** mandrew@servicemasterbc.ca (15x ImageProcessingError (15)), sandyrehaume@winmarkelowna.com (2x ImageProcessingError (2)), ccollins@dryunow.pro (1x Unknown)
+
+---
+
+### 2026-03-12 (Daily)
 **Generated:** 2026-03-13 17:51 UTC | **Period:** 2026-03-12
 
 | Metric | Value |
