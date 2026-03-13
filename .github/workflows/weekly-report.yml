@@ -96,6 +96,7 @@ jobs:
           git push
 
       - name: Sync docs to ai-services repo
+        continue-on-error: true
         env:
           AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
         if: env.AI_SERVICES_PAT != '' && steps.period.outputs.phase != 'sales-only'
@@ -125,6 +126,7 @@ jobs:
 
 
       - name: Sync docs to joe-sandbox repo
+        continue-on-error: true
         env:
           AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
         if: env.AI_SERVICES_PAT != '' && steps.period.outputs.phase != 'sales-only'
