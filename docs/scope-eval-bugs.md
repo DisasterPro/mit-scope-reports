@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 02:53 UTC | **Traces with Issues:** 426 | **Total Issues:** 3655
+**Last Updated:** 2026-03-13 03:44 UTC | **Traces with Issues:** 430 | **Total Issues:** 3674
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 4b384dd6c19947217b9b6be21e112148 | baldeep.dhillon@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (3/3) | 10 | 4 | 1 |
+| 2026-03-13 | 6dc90b1488f9160c11e22be98fc4e22d | baldeep.dhillon@ca.belfor.com | 2 | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 1 (1/0) | 2 | 2 | 0 |
+| 2026-03-13 | 927a1987af9dd85e8915516936e40620 | ccastillo@rrtfl.com | 6 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 3 (2/1) | 0 | 6 | 0 |
+| 2026-03-13 | 41fa40f7b871a391ad66ea3bbfb45df2 | scott.mcpherson@ca.belfor.com | 5 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 5 (5/0) | 0 | 1 | 1 |
 | 2026-03-13 | 93ce5bf5797963443cfcddac647db443 | scott.shizuru@us.belfor.com | 18 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 38 (38/0) | 668 | 18 | 9 |
 | 2026-03-13 | 83afe5c5ea3bd15898ba61e27fafc61a | michelle.wetheral@ca.belfor.com | 1 | 4/5 Good | 4/5 Minor | 4/5 Minor | 13 (2/11) | 55 | 4 | 2 |
 | 2026-03-13 | 08bba5a08a10c2967cad19fcb6b04a80 | tammy.gemmill@ca.belfor.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 18 (6/12) | 316 | 20 | 3 |
@@ -437,6 +441,106 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 4b384dd6c19947217b9b6be21e112148 -- 2026-03-13 -- v2026.09.3
+
+**User:** baldeep.dhillon@ca.belfor.com | **Time:** 1m 26s
+**Rooms:** 6 total (3 affected, 3 unaffected) | **Photos:** 10 | **Notes:** 4 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Shed has no measurements available - room dimensions required for complete scope.
+- House Exterior has no measurements available - room dimensions required for complete scope.
+- Dining Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Shed
+- House Exterior
+- Dining Room
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 6dc90b1488f9160c11e22be98fc4e22d -- 2026-03-13 -- v2026.09.3
+
+**User:** baldeep.dhillon@ca.belfor.com | **Time:** 1m 1s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 2 | **Notes:** 2 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Exterior has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Exterior
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 927a1987af9dd85e8915516936e40620 -- 2026-03-13 -- v2026.09.3
+
+**User:** ccastillo@rrtfl.com | **Time:** 0m 55s
+**Rooms:** 3 total (2 affected, 1 unaffected) | **Photos:** 0 | **Notes:** 6 | **Floor Plans:** 0
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (2):
+
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Family Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (2):
+
+- Hallway
+- Family Room
+
+**Affected Room Without Photos** (2):
+
+- Bathroom
+- Hallway
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements; 2 affected room(s) without photos.
+
+---
+
+## 41fa40f7b871a391ad66ea3bbfb45df2 -- 2026-03-13 -- v2026.09.3
+
+**User:** scott.mcpherson@ca.belfor.com | **Time:** 1m 3s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (5):
+
+- Basement
+- Bedroom
+- Primary Bedroom
+- Bath
+- Hall
+
+### Assessment
+
+The system detected 5 data quality issue(s): 5 affected room(s) without photos.
+
+---
+
 
 ## 93ce5bf5797963443cfcddac647db443 -- 2026-03-13 -- v2026.09.3
 
