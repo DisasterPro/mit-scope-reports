@@ -3,12 +3,15 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 20:27 UTC | **Traces with Issues:** 488 | **Total Issues:** 4298
+**Last Updated:** 2026-03-13 21:07 UTC | **Traces with Issues:** 491 | **Total Issues:** 4315
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | bb1d58e1fe3631682944f6d8b7e062c1 | john.gilbraitti+vancouver@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 15 (2/13) | 116 | 6 | 1 |
+| 2026-03-13 | 51dddf6f5aacc674bb653b602d8c1598 | jacob.allwood@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 2 (2/0) | 0 | 1 | 1 |
+| 2026-03-13 | fceec941bde69609c8ff61134f1a1474 | jacob.allwood@ca.belfor.com | 6 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 2 (1/1) | 0 | 1 | 1 |
 | 2026-03-13 | 068822a7e753deb9fc5eb83ba8408b66 | ryan.smith@restoration1.com | 11 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 8 (3/5) | 43 | 10 | 0 |
 | 2026-03-13 | 13bd1563f8e49b2752a25f73aca7cc0d | patty.mcculloch+collingwood@ca.belfor.com | 14 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 54 | 13 | 0 |
 | 2026-03-13 | fc749bacb2fa30b1dd7dcb274753c851 | mikelhutchko@gmail.com | 9 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 17 (6/11) | 0 | 1 | 3 |
@@ -499,6 +502,84 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## bb1d58e1fe3631682944f6d8b7e062c1 -- 2026-03-13 -- v2026.09.3
+
+**User:** john.gilbraitti+vancouver@ca.belfor.com | **Time:** 2m 2s
+**Rooms:** 15 total (2 affected, 13 unaffected) | **Photos:** 116 | **Notes:** 6 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+- Utility Room has no measurements available - room dimensions required for complete scope.
+- Exterior has no measurements available - room dimensions required for complete scope.
+- Hvac has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Basement
+- Utility Room
+- Exterior
+- Hvac
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
+## 51dddf6f5aacc674bb653b602d8c1598 -- 2026-03-13 -- v2026.09.3
+
+**User:** jacob.allwood@ca.belfor.com | **Time:** 0m 37s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (1):
+
+- Sunroof
+
+**Equipment Sizing Conflict** (2):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: Non-Beneficial; resolution: Using non_beneficial (hydro value) - minor 1-level difference validated against structural assessment
+- [MINOR] factor: Weather + Envelope; hydro_assessment: Unfavorable + Moderate; structural_analysis: Unfavorable + Moderate; resolution: Using unfavorable_moderate (hydro value) - values agree
+
+### Assessment
+
+The system detected 3 data quality issue(s): 2 equipment sizing conflict(s); 1 affected room(s) without photos.
+
+---
+
+## fceec941bde69609c8ff61134f1a1474 -- 2026-03-13 -- v2026.09.3
+
+**User:** jacob.allwood@ca.belfor.com | **Time:** 0m 39s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (1):
+
+- Sunroof Area
+
+**Equipment Sizing Conflict** (5):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: Non-Beneficial; resolution: Using Non-Beneficial (hydro value) - matches operability and absence of built-in system as confirmed in property description
+- [MINOR] factor: Weather; hydro_assessment: Unfavorable; structural_analysis: Unfavorable; resolution: Using Unfavorable (hydro value) - matches weather entry and building envelope characteristics
+- [MINOR] factor: Envelope Tightness; hydro_assessment: Moderate; structural_analysis: Moderate; resolution: Using Moderate (hydro value) - aligns with property construction and materials
+- [MINOR] factor: Build-out Density; hydro_assessment: Average; structural_analysis: Average; resolution: Using Average (hydro value) - matches structural assessment
+- [MINOR] factor: Construction; hydro_assessment: Standard; structural_analysis: Standard; resolution: Using Standard (hydro value) - confirmed by material descriptions and finishes
+
+### Assessment
+
+The system detected 6 data quality issue(s): 5 equipment sizing conflict(s); 1 affected room(s) without photos.
+
+---
+
 
 ## 068822a7e753deb9fc5eb83ba8408b66 -- 2026-03-13 -- v2026.09.3
 
