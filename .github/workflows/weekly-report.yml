@@ -2,8 +2,10 @@ name: MitScope Report
 
 on:
   schedule:
-    # Daily at midnight Eastern Time (05:00 UTC)
-    - cron: '0 5 * * *'
+    # Daily at 00:35 UTC — 35-min buffer after midnight for late trace ingestion
+    - cron: '35 0 * * *'
+    # Daily at 07:00 UTC — Sales page update (after overnight eval enhancement)
+    - cron: '0 7 * * *'
   workflow_dispatch:
     inputs:
       period:
@@ -14,6 +16,15 @@ on:
         options:
           - daily
           - weekly
+      phase:
+        description: 'Report phase'
+        required: false
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - reports-only
+          - sales-only
 
 permissions:
   contents: write
@@ -33,11 +44,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Determine report period
+      - name: Determine report period and phase
         id: period
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "period=${{ github.event.inputs.period }}" >> "$GITHUB_OUTPUT"
+            echo "phase=${{ github.event.inputs.phase }}" >> "$GITHUB_OUTPUT"
           else
             # Cron: Sunday = weekly, all other days = daily
             DOW=$(date -u +%u)
@@ -45,6 +57,13 @@ jobs:
               echo "period=weekly" >> "$GITHUB_OUTPUT"
             else
               echo "period=daily" >> "$GITHUB_OUTPUT"
+            fi
+            # Determine phase from cron schedule
+            HOUR=$(date -u +%H)
+            if [ "$HOUR" -ge 5 ]; then
+              echo "phase=sales-only" >> "$GITHUB_OUTPUT"
+            else
+              echo "phase=full" >> "$GITHUB_OUTPUT"
             fi
           fi
 
@@ -55,11 +74,14 @@ jobs:
           LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.AI_SERVICES_PAT }}
           REPORT_BASE_URL: https://disasterpro.github.io/mit-scope-reports
           REPORT_PERIOD: ${{ steps.period.outputs.period }}
+          REPORT_PHASE: ${{ steps.period.outputs.phase }}
         run: python -m src
 
       - name: Commit markdown docs
+        if: steps.period.outputs.phase != 'sales-only'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -76,7 +98,7 @@ jobs:
       - name: Sync docs to ai-services repo
         env:
           AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
-        if: env.AI_SERVICES_PAT != ''
+        if: env.AI_SERVICES_PAT != '' && steps.period.outputs.phase != 'sales-only'
         run: |
           git clone --depth 1 --filter=blob:none --sparse \
             "https://x-access-token:${AI_SERVICES_PAT}@github.com/EncircleInc/ai-services.git" \
@@ -105,7 +127,7 @@ jobs:
       - name: Sync docs to joe-sandbox repo
         env:
           AI_SERVICES_PAT: ${{ secrets.AI_SERVICES_PAT }}
-        if: env.AI_SERVICES_PAT != ''
+        if: env.AI_SERVICES_PAT != '' && steps.period.outputs.phase != 'sales-only'
         run: |
           git clone --depth 1 --filter=blob:none --sparse \
             "https://x-access-token:${AI_SERVICES_PAT}@github.com/EncircleInc/joe-sandbox.git" \
@@ -126,9 +148,21 @@ jobs:
             git push
           }
 
+      - name: Commit HTML reports (sales-only)
+        if: steps.period.outputs.phase == 'sales-only'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git diff --cached --quiet && { echo "No changes to commit"; exit 0; }
+          git commit -m "Update Sales page [skip ci]"
+          git pull --no-rebase -X ours origin main
+          git push
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./reports
           keep_files: true
+
