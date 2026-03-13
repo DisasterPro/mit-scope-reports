@@ -98,6 +98,24 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-12 (Daily)
+**Generated:** 2026-03-13 05:27 UTC | **Period:** 1d (2026-03-12 to 2026-03-13) | **Traces:** 149
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.60 | 135.9s |
+| Median | $0.41 | 97.7s |
+| P75 | $0.66 | 146.2s |
+| P95 | $1.72 | 350.9s |
+| Min | $0.08 | 14.1s |
+| Max | $3.78 | 900.9s |
+
+**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), mikelhutchko@gmail.com ($2.81), scott.shizuru@us.belfor.com ($2.57)
+
+**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), michelle.wetheral@ca.belfor.com (401s), scott.shizuru@us.belfor.com (389s)
+
+---
+
 ### 2026-03-11 (Daily)
 **Generated:** 2026-03-12 05:28 UTC | **Period:** 1d (2026-03-11 to 2026-03-12) | **Traces:** 125
 
