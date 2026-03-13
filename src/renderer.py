@@ -7,13 +7,14 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
-from .models import CostReport, ErrorReport, UsageReport
+from .models import CostReport, ErrorReport, SalesReport, UsageReport
 
 
 def render_report(
     usage: UsageReport,
     costs: CostReport,
     errors: ErrorReport,
+    sales: SalesReport | None,
     generated_at: datetime,
     template_dir: str | Path = "templates",
     period: str = "weekly",
@@ -28,6 +29,7 @@ def render_report(
         usage=usage,
         costs=costs,
         errors=errors,
+        sales=sales,
         generated_at=generated_at,
         period=period,
     )
