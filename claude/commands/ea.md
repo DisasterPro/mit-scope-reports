@@ -2,7 +2,7 @@
 
 Enhance trace evaluations with Claude-powered narratives, run 8 eval rules for bug detection, and log findings.
 
-This is the Claude-side complement to the 30-minute `trace-eval.yml` GitHub Actions workflow. The workflow (in `EncircleInc/joe-sandbox`) does Python-based scoring and template narratives, committing results to joe-sandbox. This skill pulls the latest data via `gh api` (Step 0), then enhances it with AI narratives and rule-based bug detection.
+This is the Claude-side complement to the 30-minute `trace-eval.yml` GitHub Actions workflow. The workflow (in `DisasterPro/mit-scope-reports`) does Python-based scoring and template narratives, committing results to mit-scope-reports. This skill pulls the latest data via `pull-reports.sh` (Step 0), then enhances it with AI narratives and rule-based bug detection.
 
 ## Arguments
 
@@ -56,9 +56,9 @@ Agents MUST understand the pipeline before writing assessments or detecting bugs
 
 ## Step 0: Pull Latest Data
 
-Run `joe/scripts/pull-reports.sh` via Bash to fetch the latest scope-eval-all-runs.md from joe-sandbox. This uses `gh api` to read from the private EncircleInc/joe-sandbox repo (no PAT needed -- uses the codespace's gh auth). The script merges new GitHub data while preserving locally enhanced traces (Bug Assessment sections survive the merge).
+Run `joe/scripts/pull-reports.sh` via Bash to fetch the latest scope-eval-all-runs.md from DisasterPro/mit-scope-reports. The script merges new remote data while preserving locally enhanced traces (Bug Assessment sections survive the merge).
 
-If the pull fails (e.g., gh not authenticated, network error), log the warning and continue with existing local data -- stale data is better than no data.
+If the pull fails (e.g., credentials unavailable, network error), log the warning and continue with existing local data -- stale data is better than no data.
 
 ## Step 1: Check for New Traces
 
@@ -97,18 +97,20 @@ This verification is critical because stale template data cascades into wrong na
 - New: `## <trace_id> -- YYYY-MM-DD HH:MM UTC -- version`
 - **CRITICAL:** The HH:MM UTC time MUST come from the Langfuse trace `timestamp` field (when the scope actually ran in production). Do NOT use the current time, the enhancement time, or the sync time. The Langfuse timestamp is the authoritative source. Parse the timestamp from the Langfuse API response and convert to UTC if needed. The time shown in scope-eval-all-runs.md must match what Langfuse displays for that trace.
 
-**Update the What Was Provided table** -- full 11-row set, always in this order:
+**Update the What Was Provided table** -- full 13-row set, always in this order:
 
 ```
 | Category | Status | Details |
 |----------|--------|---------|
-| Structures | Clean/Mixed/Org-heavy | 12 total; 8 real rooms, 4 organizational (Initial Visit, Cause of Loss, Data, Checklist) |
+| Structures | Clean/Mixed/Org-heavy | 12 total; 8 structural, 4 organizational (Initial Visit, Cause of Loss, Data, Checklist) |
+| Rooms | Good | 5 total; 2 affected, 3 unaffected; 0 organizational |
 | Room Setup | Good | 5 rooms; 5 in app, 3 from notes |
 | Field Photos | Good | 40 photos; 0 rooms without photos |
-| Technician Notes | Detailed | 6 notes; 5 with rooms, 1 without rooms |
-| Video Transcripts | 3 found | 3 room video transcripts |
 | Thermal Images | None | 0 thermal/FLIR/IR images detected |
 | 360 Photos | None | 0 panoramic/360° images detected |
+| Video Transcripts | None | 0 room video transcripts |
+| General Notes | None | No general notes section |
+| Technician Notes | Detailed | 6 notes; 5 with rooms, 1 without rooms |
 | Floor Plans | None | 0 plans; 0 rooms with measurements |
 | Room Name Matching | N/A | 0 unmatched floor plan rooms |
 | Moisture Data | None | -- |
@@ -117,47 +119,124 @@ This verification is critical because stale template data cascades into wrong na
 
 Row definitions (detect from Langfuse trace data):
 
-- **Structures** -- All structures (rooms + org items) submitted in the job. Status: `Clean` (all real rooms), `Mixed` (some org items present), `Org-heavy` (majority org items). Details: `X total; Y real rooms, Z organizational (list org item names)`. Org patterns: "Initial Visit", "Cause of Loss", "Data", "Checklist", "Documentation", "Admin", "Photo", "Video".
+- **Structures** -- All structures submitted in the job. Status: `Clean` (all structural), `Mixed` (some org items present), `Org-heavy` (majority org items). Details: `X total; Y structural, Z organizational (list org item names)`. Org patterns: "Initial Visit", "Cause of Loss", "Data", "Checklist", "Documentation", "Admin", "Photo", "Video", "Phase", "Contents", "Pack Out", "Inspection", "Pre Existing Issues".
+- **Rooms** -- Room counts from RoomsWithId output. Status: `Good` (all classified), `Issues` (misclassified rooms). Details: `X total; Y affected, Z unaffected; N organizational`.
 - **Room Setup** -- Rooms configured in app vs rooms found in tech notes. Status: `Good` (all rooms set up), `Partial` (some missing), `Poor` (few set up). Details: `X rooms; Y in app, Z from notes`.
 - **Field Photos** -- Photo coverage across rooms. Status: `Good` (all rooms have photos), `Partial` (some without), `None` (no photos). Details: `X photos; Y rooms without photos`.
-- **Technician Notes** -- Written notes only (NOT video transcripts). Count `<NOTE>` tags in trace.input.description. Status: `Detailed` (3+ notes, good coverage), `Adequate` (some notes), `Limited` (1-2 notes), `None` (0 notes). Details: `X notes; Y with rooms, Z without rooms` where Z = orphan notes not attached to any room structure.
-- **Video Transcripts** -- Room video transcripts. Count `<ROOM_VIDEO>` tags in trace.input.description. Status: `N found` or `None`. Details: `X room video transcripts`. Update the header `**Notes:** N` to reflect `<NOTE>` count only (not `<NOTE>` + `<ROOM_VIDEO>`).
 - **Thermal Images** -- Scan `trace.input.property_images` filenames/metadata for: "thermal", "FLIR", "IR", "infrared", "heat". Status: `N found` or `None`. Details: count detected.
 - **360 Photos** -- Scan `trace.input.property_images` for: "360", "pano", "panoramic", "equirectangular", "sphere". Status: `N found` or `None`. Details: count detected.
+- **Video Transcripts** -- Room video transcripts. Count `<ROOM_VIDEO>` tags in trace.input.description. Status: `N found` or `None`. Details: `X room video transcripts`.
+- **General Notes** -- Check for `## General Notes` section in trace.input.description (distinct from per-room technician notes). Status: `Present` or `None`.
+- **Technician Notes** -- Written notes only (NOT video transcripts). Count `<NOTE>` tags in trace.input.description. Status: `Detailed` (3+ notes, good coverage), `Adequate` (some notes), `Limited` (1-2 notes), `None` (0 notes). Details: `X notes; Y with rooms, Z without rooms` where Z = orphan notes not attached to any room structure.
 - **Floor Plans** -- Measurement images count. Status: `Good` (present), `None`. Details: `X plans; Y rooms with measurements`.
 - **Room Name Matching** -- Floor plan room names vs claim room names. Status: `Good`, `Issues`, `N/A` (no floor plans). Details: `X unmatched floor plan rooms`.
 - **Moisture Data** -- Moisture readings in input. Status: `Present` or `None`. Details if present.
 - **Guidelines** -- User guidelines/instructions. Status: `Present` or `None`. Details if present.
 
-**Rewrite the four narrative sections:**
+**Rewrite the narrative sections in this exact order:**
 
-### Input Assessment (1-2 paragraphs)
-- What was provided and how well organized
-- Specific gaps (rooms without photos, rooms without notes, etc.)
-- Room name matching issues if any (floor plan names vs claim names)
+All narrative sections must be:
+- **Bulleted** -- use bullet points, not paragraphs
+- **Simple, scannable** -- a technician should be able to glance at it and understand
+- **Specific to THIS trace** -- no generic filler, no restating the loss narrative
+- **No fabrication** -- only state what the data shows
+- **No internal system names** -- say "the system" or "the scope", never "Assembly", "Merge", "RoomsWithId"
+
+---
+
+### Input Assessment
+
+Bullet points covering what was provided and what's missing:
+- What data was submitted (rooms, photos, notes, floor plans, video, moisture, etc.)
+- Quality of what was submitted (good photo coverage? detailed notes? complete room setup?)
+- Gaps or missing data (rooms without photos, rooms without notes, no floor plans, etc.)
 - Note if structures include organizational items that aren't real rooms
-- Be specific about THIS trace's data, not generic
+- Room name matching issues if floor plans were included
 
-### Pipeline Assessment (1 paragraph)
-- Processing time and whether it completed successfully
-- Any data quality issues the system detected (missing measurements, photo-damage mismatches, organizational rooms)
-- Note if organizational structures were correctly filtered or incorrectly scoped
-- Do NOT mention cost or pricing
+Example:
+```
+### Input Assessment
+- 5 rooms submitted with 40 field photos and 6 technician notes
+- All rooms have photo coverage; notes are detailed with damage descriptions
+- No floor plans provided -- all room dimensions will show as TBD
+- 2 organizational structures found (Initial Visit, Cause of Loss) -- correctly excluded from scope
+```
 
-### Issue Assessment (1-2 paragraphs)
-- Summarize each data quality issue found (standard violations, material conflicts, scope conflicts, equipment sizing issues, missing measurements)
-- Group by type and describe in plain language
-- Distinguish between input-caused issues and system-caused issues
-- If no issues found, say "No data quality issues were detected."
+---
 
-### Recommendations (numbered list, 3-5 items)
-- Specific to THIS scope's gaps (not generic advice)
-- Written for a field technician, plain language
-- Explain WHY each step matters
-- Do NOT mention cost, pricing, or internal system names
-- **Floor plan + room mismatch rule:** Any time a floor plan is included but room names could not be matched (unmatched floor plan rooms > 0, or measurements not assigned), ALWAYS include a recommendation to verify that floor plan room names match the claim room names before running the scope. Explain that mismatched names prevent the system from assigning measurements to rooms.
+### Issue Assessment
 
-**Important:** Keep the scores line and metadata unchanged. Only rewrite the header (add time), What Was Provided table (add Structures row), and the four narrative sections.
+Bullet points for each data quality issue found. Group by type:
+- Standard violations (wrong water category, wrong class, etc.)
+- Material conflicts (mismatched materials between sources)
+- Scope conflicts (removal vs dry-in-place disagreements)
+- Equipment issues (sizing problems, missing equipment)
+- Missing measurement handling
+- Distinguish input-caused issues from system-caused issues
+
+If no issues: single bullet "No data quality issues detected."
+
+Example:
+```
+### Issue Assessment
+- Water category set to Cat 1 (clean) but source is toilet overflow -- should be Cat 2 per IICRC S500 10.4.1
+- Kitchen and Bathroom have conflicting flooring materials between app setup and technician notes
+- 2 rooms missing measurements -- system correctly flagged with TBD quantities
+```
+
+---
+
+### Recommendations
+
+Numbered list, 3-5 items. Written for a field technician:
+- Specific to THIS scope's gaps, not generic advice
+- Plain language, explain WHY each step matters
+- No cost, pricing, or internal system references
+- **Floor plan + room name mismatch is always #1 when detected:** Any time a floor plan is included but room names could not be matched (unmatched floor plan rooms > 0, or measurements not assigned), the FIRST recommendation MUST be to verify floor plan room names match the claim room names. This is the single most common issue technicians face and the easiest to fix.
+
+Example (with floor plan mismatch):
+```
+### Recommendations
+1. **Verify floor plan room names match claim room names.** The floor plan has rooms that don't match the claim setup (e.g., "BR1" vs "Bedroom 1"). Edit the room names on the floor plan to match, then re-run the scope -- this will assign measurements to rooms automatically.
+2. **Add photos for the Hallway.** This room has no photo evidence, which limits damage verification.
+3. **Confirm water category with adjuster.** Toilet overflow should be Cat 2 -- updating this will change the task list (adds containment and stronger antimicrobial).
+```
+
+Example (no floor plan issues):
+```
+### Recommendations
+1. **Consider adding a floor plan.** Without measurements, room dimensions show as TBD in the scope. A quick floor plan sketch with room sizes would fill in all quantities.
+2. **Add technician notes for the Garage.** This room has photos but no written description of damage.
+3. **Verify carpet pad material in Living Room.** Notes say foam pad but photos show fiber -- this affects removal vs drying decisions.
+```
+
+---
+
+### Pipeline Assessment
+
+Brief bullet points on how the system processed this scope:
+- Processing time and completion status
+- Data quality issues the system detected (missing measurements, mismatches, organizational rooms filtered)
+- Any noteworthy system behavior (correct handling of edge cases, etc.)
+
+Example:
+```
+### Pipeline Assessment
+- Completed in 1m 12s with no errors
+- System correctly identified 2 organizational structures and excluded them from scope
+- Missing measurements flagged for 3 rooms -- TBD quantities shown as expected
+- Material conflict between app setup and notes detected and logged in data quality section
+```
+
+---
+
+### Bug Assessment
+
+(Written by Step 3 -- see below. Placed LAST in the section order.)
+
+---
+
+**Important:** Keep the scores line and metadata unchanged. Only rewrite the header (add time), What Was Provided table (full 13 rows), and the four narrative sections in order: Input Assessment → Issue Assessment → Recommendations → Pipeline Assessment.
 
 ## Step 3: Bug Detection
 
@@ -194,7 +273,7 @@ Data needed: Description output, Merge output, Tasks output, Equipment output, D
 - Return for each rule: RULE_NAME, RESULT (PASS or **FAIL**), DETAILS (one sentence explaining the violation or "--" for PASS)
 - Only flag **FAIL** when the pipeline output clearly violates the rule. Data quality gaps (missing photos, missing notes) are NOT bugs.
 
-3. Write the Bug Assessment section after Recommendations. Assign EA numbers (EA-1, EA-2, ...) sequentially within the trace for each FAIL. PASS rows use `--` in the EA # column.
+3. Write the Bug Assessment section LAST (after Pipeline Assessment). Assign EA numbers (EA-1, EA-2, ...) sequentially within the trace for each FAIL. PASS rows use `--` in the EA # column.
 
 **Priority rules:**
 - **CRITICAL** = safety/IICRC violation causing wrong output (e.g., water_category wrong -- could cause mold)
@@ -253,8 +332,8 @@ For each pipeline error found, update `joe/evals/traces/3_additional-items-to-ch
 1. Update `joe/evals/traces/2_scope-eval-all-runs.md`:
    - Enhanced narratives replacing template text
    - Updated headers with **Langfuse trace timestamp** (NOT enhancement/sync time)
-   - Structures row in What Was Provided tables
-   - Bug Assessment sections
+   - Full 13-row What Was Provided tables
+   - Narrative sections in order: Input Assessment → Issue Assessment → Recommendations → Pipeline Assessment → Bug Assessment
    - Updated index table Bugs column values
 2. Update `joe/evals/traces/3_additional-items-to-change.md` if BUGs or PEs were found.
 3. **Update the Bug Summary section** at the top of `joe/evals/traces/2_scope-eval-all-runs.md`:
