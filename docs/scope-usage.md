@@ -104,6 +104,25 @@
 ## Daily Reports (24h)
 
 ### 2026-03-12 (Daily)
+**Generated:** 2026-03-13 22:11 UTC | **Period:** 2026-03-12
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 140 |
+| Unique Organizations | 31 |
+| Unique Users | 70 |
+| Total Cost | $83.75 |
+| Average Cost / Scope | $0.60 |
+
+**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
+
+**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
+
+**Cost Outliers:** 9 users with avg > $1.00/scope
+
+---
+
+### 2026-03-12 (Daily)
 **Generated:** 2026-03-13 21:51 UTC | **Period:** 2026-03-12
 
 | Metric | Value |
