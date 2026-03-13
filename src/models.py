@@ -206,3 +206,65 @@ class TraceEvalReport:
     pipeline_assessment: str = ""
     issue_assessment: str = ""
     recommendations: str = ""
+
+
+# ── Sales Report Models ──────────────────────────────────────────
+
+
+@dataclass
+class SalesTrace:
+    """Per-trace data for the Sales page."""
+
+    trace_id: str
+    date: str
+    version: str
+    user_email: str
+    time: str
+    input_score: str
+    pipeline_score: str
+    issue_score: str
+    overall_score: str
+    overall_numeric: float
+    rooms: str
+    photos: int
+    notes: int
+    plans: int
+    flags: list[str] = field(default_factory=list)
+    is_enhanced: bool = False
+    bug_summary: str = ""
+    narrative_html: str = ""
+
+
+@dataclass
+class SalesUser:
+    """Per-user aggregation for the Sales page."""
+
+    email: str
+    trace_count: int
+    flagged_count: int
+    traces: list[SalesTrace] = field(default_factory=list)
+
+
+@dataclass
+class SalesOrg:
+    """Per-organization aggregation for the Sales page."""
+
+    name: str
+    user_count: int
+    trace_count: int
+    flagged_count: int
+    users: list[SalesUser] = field(default_factory=list)
+
+
+@dataclass
+class SalesReport:
+    """Full Sales report data for the 4th tab."""
+
+    period_start: datetime
+    period_end: datetime
+    total_traces: int
+    total_flagged: int
+    total_orgs: int
+    total_users: int
+    orgs: list[SalesOrg] = field(default_factory=list)
+
