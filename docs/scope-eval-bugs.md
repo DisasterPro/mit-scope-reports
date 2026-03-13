@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 12:05 UTC | **Traces with Issues:** 435 | **Total Issues:** 3732
+**Last Updated:** 2026-03-13 12:46 UTC | **Traces with Issues:** 439 | **Total Issues:** 3760
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 9189ce227378250610c453e4399a16b4 | darrell.thompson@ungerman.net | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 27 (3/24) | 170 | 7 | 3 |
+| 2026-03-13 | d29eed608b1a1d510e20e0afd0c4e8ab | miroslav.marojkin@servicemasterofbrantford.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (3/4) | 166 | 9 | 0 |
+| 2026-03-13 | a1aa77fcc452b17987a381c45efdc43a | demetrius.smith@restoration1.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (5/1) | 108 | 11 | 0 |
+| 2026-03-13 | 153dc5140aa85b3731a0305c3b9e8e01 | kay.cayuga+owensound@ca.belfor.com | 11 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 13 (6/7) | 196 | 7 | 1 |
 | 2026-03-13 | 7ca25b47f5e2424213fac33545b7b147 | rick.deckert@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (3/7) | 55 | 10 | 1 |
 | 2026-03-13 | ad6b4b89cac794b2ca12035b1a779035 | terence.dunphy@ca.belfor.com | 10 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 8 (6/2) | 69 | 10 | 2 |
 | 2026-03-13 | 218f179671a875dfd538d50ae090c488 | terence.dunphy@ca.belfor.com | 16 | 4/5 Good | 3/5 Moderate | 3/5 Moderate | 11 (6/5) | 193 | 7 | 1 |
@@ -446,6 +450,124 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 9189ce227378250610c453e4399a16b4 -- 2026-03-13 -- v2026.09.3
+
+**User:** darrell.thompson@ungerman.net | **Time:** 2m 25s
+**Rooms:** 27 total (3 affected, 24 unaffected) | **Photos:** 170 | **Notes:** 7 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Floor Protection has no measurements available - room dimensions required for complete scope.
+- Front Of House has no measurements available - room dimensions required for complete scope.
+- Source Of Loss has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Floor Protection
+- Front Of House
+- Source Of Loss
+
+**Material Mismatch** (1):
+
+- [INFO] room_name: Laundry Room; materials_array_flooring: Laminate Flooring; room_elements_flooring: Vinyl Flooring; resolution: Used Vinyl Flooring and Laminate Flooring (both confirmed installed and wet per description and elements). No conflict; both receive tasks for limited affected areas only. 
+
+### Assessment
+
+The system detected 7 data quality issue(s): 1 material mismatch(es) between room data sources; 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## d29eed608b1a1d510e20e0afd0c4e8ab -- 2026-03-13 -- v2026.09.3
+
+**User:** miroslav.marojkin@servicemasterofbrantford.com | **Time:** 1m 56s
+**Rooms:** 7 total (3 affected, 4 unaffected) | **Photos:** 166 | **Notes:** 9 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (4):
+
+- Kitchen
+- Non-Salvageable Content At The Shop
+- Hvac Inspection
+- Stairs
+
+**Equipment Sizing Conflict** (2):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using Non-Beneficial (conservative estimate) - photos confirm HVAC presence but no beneficial impact on drying expected for basement water loss.
+- [MINOR] factor: Weather; hydro_assessment: Unfavorable; structural_analysis: unfavorable_tight; resolution: Using Unfavorable Tight (hydro value) - matches structural envelope tightness and climate impact on basement drying.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 2 equipment sizing conflict(s); 4 room(s) with missing measurements.
+
+---
+
+## a1aa77fcc452b17987a381c45efdc43a -- 2026-03-13 -- v2026.09.3
+
+**User:** demetrius.smith@restoration1.com | **Time:** 2m 46s
+**Rooms:** 6 total (5 affected, 1 unaffected) | **Photos:** 108 | **Notes:** 11 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Material Discrepancy** (2):
+
+- [MODERATE] room_name: Bedroom B; description_material: Hardwood Flooring; photo_material: Laminate Flooring; moisture_material: None; resolution: Using Hardwood Flooring (technician and majority visual evidence). Laminate seen in localized area—likely transition or overlay. Hardwood is dominant material and aligns with moisture readings and loss description.
+- [MODERATE] room_name: Bedroom B; description_material: Hardwood Flooring; photo_material: Vinyl Flooring; moisture_material: None; resolution: Using Hardwood Flooring (technician and majority visual evidence). Vinyl seen in a small area, not indicated as dominant flooring for the room.
+
+**Measurement Warning** (1):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Kitchen
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 material discrepancy(ies) between photos and descriptions; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## 153dc5140aa85b3731a0305c3b9e8e01 -- 2026-03-13 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 3m 0s
+**Rooms:** 13 total (6 affected, 7 unaffected) | **Photos:** 196 | **Notes:** 7 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Back Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Storage has no measurements available - room dimensions required for complete scope.
+- Back Room, Bathroom, Storage volumes calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (3):
+
+- Back Room
+- Bathroom
+- Storage
+
+**Material Mismatch** (4):
+
+- [INFO] room_name: Kitchen; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Dining Room/Living Room; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Storage; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+
+### Assessment
+
+The system detected 11 data quality issue(s): 4 material mismatch(es) between room data sources; 4 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 7ca25b47f5e2424213fac33545b7b147 -- 2026-03-13 -- v2026.09.3
 
