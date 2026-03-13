@@ -3,12 +3,16 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 15:13 UTC | **Traces with Issues:** 450 | **Total Issues:** 3882
+**Last Updated:** 2026-03-13 15:44 UTC | **Traces with Issues:** 454 | **Total Issues:** 3925
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | d0d5c92881e23882da7ee5167a52a443 | lesley.mele@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (4/6) | 30 | 9 | 1 |
+| 2026-03-13 | 74dcb89e64962f914d0608ba1b72b465 | julie.mceachern@ca.belfor.com | 10 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 9 (7/2) | 90 | 8 | 1 |
+| 2026-03-13 | 185dd826fd86338f4695834618103546 | darren.ball+chatham@ca.belfor.com | 12 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 12 (6/6) | 69 | 8 | 1 |
+| 2026-03-13 | a7b4762bea170769716670795e00098a | adonahoo+rescuepro@encircleapp.com | 15 | 1/5 Poor | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 0 | 1 | 0 |
 | 2026-03-13 | 2bd202b9a1fbdeead8ec20a5110950d0 | sandyrehaume@winmarkelowna.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 5 (3/2) | 142 | 8 | 0 |
 | 2026-03-13 | e206b9fab52ff1eabc44cdd6af0cc94c | steven.wallace@us.belfor.com | 8 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-13 | d641c860840f97a2c13d91260b46109c | dcrimando@concraft.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (6/5) | 265 | 15 | 1 |
@@ -461,6 +465,133 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## d0d5c92881e23882da7ee5167a52a443 -- 2026-03-13 -- v2026.09.3
+
+**User:** lesley.mele@ca.belfor.com | **Time:** 1m 40s
+**Rooms:** 10 total (4 affected, 6 unaffected) | **Photos:** 30 | **Notes:** 9 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (3):
+
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Crawlspace has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (3):
+
+- Laundry Room
+- Bathroom
+- Crawlspace
+
+### Assessment
+
+The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
+## 74dcb89e64962f914d0608ba1b72b465 -- 2026-03-13 -- v2026.09.3
+
+**User:** julie.mceachern@ca.belfor.com | **Time:** 1m 48s
+**Rooms:** 9 total (7 affected, 2 unaffected) | **Photos:** 90 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Tv Room has no measurements available - room dimensions required for complete scope.
+- Stairs has no measurements available - room dimensions required for complete scope.
+- Make Up Room has no measurements available - room dimensions required for complete scope.
+- Work Out Area has no measurements available - room dimensions required for complete scope.
+- Cause has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Tv Room
+- Stairs
+- Make Up Room
+- Work Out Area
+- Cause
+
+### Assessment
+
+The system detected 10 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements.
+
+---
+
+## 185dd826fd86338f4695834618103546 -- 2026-03-13 -- v2026.09.3
+
+**User:** darren.ball+chatham@ca.belfor.com | **Time:** 2m 20s
+**Rooms:** 12 total (6 affected, 6 unaffected) | **Photos:** 69 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (6):
+
+- Storage has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Living Room has no measurements available - room dimensions required for complete scope.
+- Landing has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (6):
+
+- Storage
+- Furnace Room
+- Bedroom
+- Laundry Room
+- Living Room
+- Landing
+
+### Assessment
+
+The system detected 12 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements.
+
+---
+
+## a7b4762bea170769716670795e00098a -- 2026-03-13 -- v2026.09.3
+
+**User:** adonahoo+rescuepro@encircleapp.com | **Time:** 1m 31s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Measurement Warning** (5):
+
+- Kitchen has no measurements available - room dimensions required for complete scope.
+- Primary Bedroom has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (5):
+
+- Kitchen
+- Primary Bedroom
+- Hallway
+- Bathroom
+- Bedroom
+
+**Affected Room Without Photos** (5):
+
+- Kitchen
+- Primary Bedroom
+- Hallway
+- Bathroom
+- Bedroom
+
+### Assessment
+
+The system detected 15 data quality issue(s): 5 measurement validation warning(s); 5 room(s) with missing measurements; 5 affected room(s) without photos.
+
+---
+
 
 ## 2bd202b9a1fbdeead8ec20a5110950d0 -- 2026-03-13 -- v2026.09.3
 
