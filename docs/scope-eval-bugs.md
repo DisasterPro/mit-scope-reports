@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 12:46 UTC | **Traces with Issues:** 439 | **Total Issues:** 3760
+**Last Updated:** 2026-03-13 14:13 UTC | **Traces with Issues:** 441 | **Total Issues:** 3769
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 1f0253c3c1b4d3a6bd1ab0c70a6342ed | kay.cayuga+owensound@ca.belfor.com | 3 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 2 (1/1) | 21 | 3 | 1 |
+| 2026-03-13 | 6b2feaea326a08caa7473ffcd10a1288 | daniel.lockhart@ca.belfor.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 5 (4/1) | 202 | 11 | 3 |
 | 2026-03-13 | 9189ce227378250610c453e4399a16b4 | darrell.thompson@ungerman.net | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 27 (3/24) | 170 | 7 | 3 |
 | 2026-03-13 | d29eed608b1a1d510e20e0afd0c4e8ab | miroslav.marojkin@servicemasterofbrantford.com | 6 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 7 (3/4) | 166 | 9 | 0 |
 | 2026-03-13 | a1aa77fcc452b17987a381c45efdc43a | demetrius.smith@restoration1.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 6 (5/1) | 108 | 11 | 0 |
@@ -450,6 +452,53 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 1f0253c3c1b4d3a6bd1ab0c70a6342ed -- 2026-03-13 -- v2026.09.3
+
+**User:** kay.cayuga+owensound@ca.belfor.com | **Time:** 1m 1s
+**Rooms:** 2 total (1 affected, 1 unaffected) | **Photos:** 21 | **Notes:** 3 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Missing Measurements** (1):
+
+- Exterior
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Basement; materials_array_flooring: Stone Flooring; room_elements_flooring: Hard Surface Flooring; resolution: Used Hard Surface Flooring (confirmed in room). Stone is a possible surface finish of hard surface flooring; only one installed floor task generated.
+- [INFO] room_name: Basement; materials_array_flooring: Concrete; room_elements_flooring: Hard Surface Flooring; resolution: Used Hard Surface Flooring (confirmed in room). Concrete is the substrate below the installed hard surface floor.
+
+### Assessment
+
+The system detected 3 data quality issue(s): 2 material mismatch(es) between room data sources; 1 room(s) with missing measurements.
+
+---
+
+## 6b2feaea326a08caa7473ffcd10a1288 -- 2026-03-13 -- v2026.09.3
+
+**User:** daniel.lockhart@ca.belfor.com | **Time:** 2m 28s
+**Rooms:** 5 total (4 affected, 1 unaffected) | **Photos:** 202 | **Notes:** 11 | **Floor Plans:** 3
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Material Mismatch** (6):
+
+- [INFO] room_name: Bedroom; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Hallway; materials_array_flooring: Hardwood Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Hardwood is a meter setting, not installed material.
+- [INFO] room_name: Bedroom; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl is a minor area, not installed floor.
+- [INFO] room_name: Hallway; materials_array_flooring: Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Vinyl is a minor area, not installed floor.
+- [INFO] room_name: Living Room; materials_array_flooring: Sheet Vinyl Flooring; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Sheet Vinyl is present only in entry transition, not main installed flooring.
+- [INFO] room_name: Living Room; materials_array_flooring: Carpet Pad; room_elements_flooring: Laminate Flooring; resolution: Used Laminate Flooring (confirmed in room). Carpet Pad is a meter setting or rare remnant, not installed throughout.
+
+### Assessment
+
+The system detected 6 data quality issue(s): 6 material mismatch(es) between room data sources.
+
+---
+
 
 ## 9189ce227378250610c453e4399a16b4 -- 2026-03-13 -- v2026.09.3
 
