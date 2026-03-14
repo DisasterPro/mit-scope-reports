@@ -267,8 +267,22 @@ class SalesDataBuilder:
 
             # 4. Recommendations
             rec_section = self._extract_after(section, "### Recommendations")
-            if rec_section:
-                html_parts.append(self._recommendations_to_html(rec_section))
+            rec_html = self._recommendations_to_html(rec_section) if rec_section else ""
+
+            # Inject floor plan recommendation when FLOOR PLAN flag is set
+            if "FLOOR PLAN" in (trace.flags or []) and "floor plan" not in rec_html.lower():
+                fp_li = (
+                    "<li><strong>Review floor plan room names.</strong> "
+                    "This scope was flagged for floor plan issues — verify that room names "
+                    "on the floor plan match the claim room names and that measurements are legible.</li>"
+                )
+                if "<ol>" in rec_html:
+                    rec_html = rec_html.replace("<ol>", f"<ol>{fp_li}", 1)
+                else:
+                    rec_html = f"<h4>Recommendations</h4><ol>{fp_li}</ol>"
+
+            if rec_html:
+                html_parts.append(rec_html)
 
             # 5. Pipeline Assessment
             pipeline_text = self._extract_after(section, "### Pipeline Assessment")
