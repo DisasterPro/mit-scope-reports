@@ -1,11 +1,13 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-14 14:06 UTC | **Total Traces:** 1120 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-14 15:04 UTC | **Total Traces:** 1122 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| 342e11d36bea1ddf6ccf4a66eafd31db | v2026.09.3 | 2026-03-14 | patty.mcculloch+collingwood@ca.belfor.com | 2m 20s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 9 (2/7) | 91 | 10 | 1 |
+| c176a248c01c160dc99f4b91d7d2b9bc | v2026.09.3 | 2026-03-14 | matthew.bishop@ca.belfor.com | 2m 22s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 11 (5/6) | 87 | 11 | 1 |
 | a3a977e6a04df85b530a2aa1811ce4e4 | v2026.09.3 | 2026-03-14 | melissa.martins@ca.belfor.com | 1m 2s | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 2.7/5 | 12 (6/6) | 3 | 1 | 1 |
 | e60486644550cd1b3c837b3fa9c4ada0 | v2026.09.3 | 2026-03-14 | jamie.traverse@ca.belfor.com | 0m 51s | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4.3/5 | 2 (2/0) | 51 | 4 | 0 |
 | ca5c257d5b120ce875703fc8285f040c | unknown | 2026-03-14 | jamie.traverse@ca.belfor.com | 1m 40s | 1/5 Poor | 5/5 Healthy | 5/5 Clean | 3.7/5 | 0 (0/0) | 0 | 0 | 0 |
@@ -1128,6 +1130,79 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 342e11d36bea1ddf6ccf4a66eafd31db -- 2026-03-14 -- v2026.09.3
+
+**User:** patty.mcculloch+collingwood@ca.belfor.com | **Time:** 2m 20s
+**Rooms:** 9 total (2 affected, 7 unaffected) | **Photos:** 91 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Good | 9 rooms; 7 in app, 7 from notes |
+| Field Photos | Good | 91 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 10 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Good | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+91 field photos were submitted. Technician notes were provided (10 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 7 of 9 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 20s. No data quality issues were flagged.
+
+### Issue Assessment
+
+The system detected 4 data quality issue(s): 2 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+### Recommendations
+
+This scope had good input data and no significant issues. Continue providing detailed notes, photos, and floor plans for consistent results.
+
+---
+
+## c176a248c01c160dc99f4b91d7d2b9bc -- 2026-03-14 -- v2026.09.3
+
+**User:** matthew.bishop@ca.belfor.com | **Time:** 2m 22s
+**Rooms:** 11 total (5 affected, 6 unaffected) | **Photos:** 87 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 11 rooms; 5 in app, 5 from notes |
+| Field Photos | Good | 87 photos; 0 rooms without photos |
+| Technician Notes | Detailed | 11 notes; 0 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Issues | 6 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+87 field photos were submitted. Technician notes were provided (11 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 floor plan room(s) could not be matched to claim rooms because the names didn't match. Make sure floor plan room labels match claim room names before running the scope. 5 of 11 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 2m 22s. Data quality flags: 6 floor plan room(s) could not be matched to claim rooms.
+
+### Issue Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+### Recommendations
+
+1. Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.
+
+---
+
 
 ## a3a977e6a04df85b530a2aa1811ce4e4 -- 2026-03-14 -- v2026.09.3
 

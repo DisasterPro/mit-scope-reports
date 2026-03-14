@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 14:06 UTC | **Traces with Issues:** 506 | **Total Issues:** 4419
+**Last Updated:** 2026-03-14 15:04 UTC | **Traces with Issues:** 508 | **Total Issues:** 4431
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | 342e11d36bea1ddf6ccf4a66eafd31db | patty.mcculloch+collingwood@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (2/7) | 91 | 10 | 1 |
+| 2026-03-14 | c176a248c01c160dc99f4b91d7d2b9bc | matthew.bishop@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (5/6) | 87 | 11 | 1 |
 | 2026-03-14 | a3a977e6a04df85b530a2aa1811ce4e4 | melissa.martins@ca.belfor.com | 16 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 12 (6/6) | 3 | 1 | 1 |
 | 2026-03-14 | e60486644550cd1b3c837b3fa9c4ada0 | jamie.traverse@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 2 (2/0) | 51 | 4 | 0 |
 | 2026-03-14 | 3fc60a7963ffce8d32e820dd7c7dac5a | greg.janse@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (3/7) | 43 | 8 | 1 |
@@ -517,6 +519,62 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 342e11d36bea1ddf6ccf4a66eafd31db -- 2026-03-14 -- v2026.09.3
+
+**User:** patty.mcculloch+collingwood@ca.belfor.com | **Time:** 2m 20s
+**Rooms:** 9 total (2 affected, 7 unaffected) | **Photos:** 91 | **Notes:** 10 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Bedroom has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Bedroom
+
+**Material Mismatch** (2):
+
+- [INFO] room_name: Recreation Room; materials_array_flooring: Hard Surface Flooring; room_elements_flooring: Carpet; resolution: Used Carpet (saturated) as installed flooring for extract/remove tasks. Hard Surface Flooring included only as confirmed affected by elements; Laminate and Cork Flooring ignored as not present in Recreation Room elements.
+- [INFO] room_name: Bedroom; materials_array_flooring: Carpet Pad, Laminate Flooring, Cork Flooring; room_elements_flooring: Cork Laminate Flooring; resolution: Used Laminate Flooring (cork laminate) as installed flooring per elements; Carpet Pad also confirmed wet and removed per elements. 'Vinyl', 'Hard Surface', or other non-mentioned flooring types ignored.
+
+### Assessment
+
+The system detected 4 data quality issue(s): 2 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
+## c176a248c01c160dc99f4b91d7d2b9bc -- 2026-03-14 -- v2026.09.3
+
+**User:** matthew.bishop@ca.belfor.com | **Time:** 2m 22s
+**Rooms:** 11 total (5 affected, 6 unaffected) | **Photos:** 87 | **Notes:** 11 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Bathroom has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Kitchen/Dining Room has no measurements available - room dimensions required for complete scope.
+- Appliances has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Bathroom
+- Bedroom
+- Kitchen/Dining Room
+- Appliances
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## a3a977e6a04df85b530a2aa1811ce4e4 -- 2026-03-14 -- v2026.09.3
 
