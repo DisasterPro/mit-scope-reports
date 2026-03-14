@@ -99,6 +99,24 @@
 ## Daily Reports (24h)
 
 ### 2026-03-13 (Daily)
+**Generated:** 2026-03-14 02:50 UTC | **Period:** 2026-03-13 | **Traces:** 101
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.58 | 156.1s |
+| Median | $0.45 | 113.5s |
+| P75 | $0.61 | 161.5s |
+| P95 | $1.40 | 559.8s |
+| Min | $0.09 | 14.6s |
+| Max | $3.33 | 919.2s |
+
+**Top Cost Users:** christiaan@insightrestoration.com ($3.05), scott.shizuru@us.belfor.com ($2.57), nick@cleanresponse.com ($1.45)
+
+**Top Latency Users:** christiaan@insightrestoration.com (544s), ryan.smith@restoration1.com (463s), nick@cleanresponse.com (460s)
+
+---
+
+### 2026-03-13 (Daily)
 **Generated:** 2026-03-14 00:59 UTC | **Period:** 2026-03-13 | **Traces:** 101
 
 | Metric | Cost | Latency |
