@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-13 23:30 UTC | **Traces with Issues:** 496 | **Total Issues:** 4345
+**Last Updated:** 2026-03-14 00:04 UTC | **Traces with Issues:** 497 | **Total Issues:** 4347
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-13 | 7dbf0e6496300f6cf28dfc32822fd5cd | dalesee@icloud.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 11 | 4 | 0 |
 | 2026-03-13 | 5431799db702e088d915cc74acbb3785 | hcohn@si-restoration.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (2/4) | 94 | 8 | 2 |
 | 2026-03-13 | 3b1791ef1cf20026df53b7f12ff9b2fe | m.cohn@si-restoration.com | 6 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 8 (2/6) | 90 | 6 | 2 |
 | 2026-03-13 | 8b3cae76057f9adcd36d20ba47600d22 | baldeep.dhillon@ca.belfor.com | 2 | 3/5 Adequate | 4/5 Minor | 4/5 Minor | 1 (1/0) | 2 | 2 | 0 |
@@ -507,6 +508,29 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 7dbf0e6496300f6cf28dfc32822fd5cd -- 2026-03-13 -- v2026.09.3
+
+**User:** dalesee@icloud.com | **Time:** 0m 48s
+**Rooms:** 1 total (1 affected, 0 unaffected) | **Photos:** 11 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 4/5 Minor | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Basement has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Basement
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 5431799db702e088d915cc74acbb3785 -- 2026-03-13 -- v2026.09.3
 
