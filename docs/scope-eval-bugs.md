@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 02:46 UTC | **Traces with Issues:** 498 | **Total Issues:** 4350
+**Last Updated:** 2026-03-14 04:30 UTC | **Traces with Issues:** 499 | **Total Issues:** 4355
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | ccb6ef485c5ffc08f6893acce3bff292 | jonathan.watson@ca.belfor.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 12 (6/6) | 392 | 8 | 2 |
 | 2026-03-14 | 68ca45857038ae7e7d18c8cbd19f6bb9 | lincoln.lam@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-13 | 7dbf0e6496300f6cf28dfc32822fd5cd | dalesee@icloud.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 11 | 4 | 0 |
 | 2026-03-13 | 5431799db702e088d915cc74acbb3785 | hcohn@si-restoration.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 6 (2/4) | 94 | 8 | 2 |
@@ -509,6 +510,32 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## ccb6ef485c5ffc08f6893acce3bff292 -- 2026-03-14 -- v2026.09.3
+
+**User:** jonathan.watson@ca.belfor.com | **Time:** 3m 15s
+**Rooms:** 12 total (6 affected, 6 unaffected) | **Photos:** 392 | **Notes:** 8 | **Floor Plans:** 2
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 3/5 Moderate | **Overall:** 4.0/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- [Hall] has no measurements available - room dimensions required for complete scope.
+
+**Equipment Sizing Conflict** (4):
+
+- [NONE] factor: Build-out Density; hydro_assessment: FairlyOpen; structural_analysis: fairly_open; resolution: Using Fairly Open (hydro value) - values agree.
+- [NONE] factor: Construction; hydro_assessment: Standard; structural_analysis: standard; resolution: Using Standard (hydro value) - values agree.
+- [NONE] factor: HVAC; hydro_assessment: No; structural_analysis: non_beneficial; resolution: Using Non-Beneficial (hydro value) - values agree.
+- [NONE] factor: Weather; hydro_assessment: Neutral; structural_analysis: neutral_moderate; resolution: Using Neutral Moderate (mapped from Neutral hydro value and Moderate envelope tightness) - values agree.
+
+### Assessment
+
+The system detected 5 data quality issue(s): 4 equipment sizing conflict(s); 1 measurement validation warning(s).
+
+---
+
 
 ## 68ca45857038ae7e7d18c8cbd19f6bb9 -- 2026-03-14 -- v2026.09.3
 
