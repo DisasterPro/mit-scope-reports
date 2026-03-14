@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-14 12:03 UTC | **Total Traces:** 1119 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-14 14:06 UTC | **Total Traces:** 1120 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| a3a977e6a04df85b530a2aa1811ce4e4 | v2026.09.3 | 2026-03-14 | melissa.martins@ca.belfor.com | 1m 2s | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 2.7/5 | 12 (6/6) | 3 | 1 | 1 |
 | e60486644550cd1b3c837b3fa9c4ada0 | v2026.09.3 | 2026-03-14 | jamie.traverse@ca.belfor.com | 0m 51s | 4/5 Good | 5/5 Healthy | 4/5 Minor | 4.3/5 | 2 (2/0) | 51 | 4 | 0 |
 | ca5c257d5b120ce875703fc8285f040c | unknown | 2026-03-14 | jamie.traverse@ca.belfor.com | 1m 40s | 1/5 Poor | 5/5 Healthy | 5/5 Clean | 3.7/5 | 0 (0/0) | 0 | 0 | 0 |
 | 136c56ef7acfd20595311ff979ed812c | unknown | 2026-03-14 | jamie.traverse@ca.belfor.com | 1m 15s | 1/5 Poor | 5/5 Healthy | 5/5 Clean | 3.7/5 | 0 (0/0) | 0 | 0 | 0 |
@@ -1127,6 +1128,46 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## a3a977e6a04df85b530a2aa1811ce4e4 -- 2026-03-14 -- v2026.09.3
+
+**User:** melissa.martins@ca.belfor.com | **Time:** 1m 2s
+**Rooms:** 12 total (6 affected, 6 unaffected) | **Photos:** 3 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 12 rooms; 0 in app, 4 from notes |
+| Field Photos | Minimal | 3 photos; 4 rooms without photos |
+| Technician Notes | Minimal | 1 notes; 4 rooms without notes |
+| Floor Plans | Partial | 1 plans; 0 rooms with measurements |
+| Room Name Matching | Issues | 6 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+Only 3 photos were submitted, which limits the system's ability to verify damage in each room. Notes were provided for some rooms (1 notes across 6 affected rooms), but not all rooms had written descriptions of the damage. 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 floor plan room(s) could not be matched to claim rooms because the names didn't match. Make sure floor plan room labels match claim room names before running the scope. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 1m 2s. Data quality flags: 4 affected room(s) had no photos; 4 affected room(s) had no technician notes; 6 floor plan room(s) could not be matched to claim rooms.
+
+### Issue Assessment
+
+The system detected 16 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements; 4 affected room(s) without photos.
+
+### Recommendations
+
+1. Add photos for the 4 room(s) that are missing them. Each room should have at least a few photos showing the damage.
+2. Add notes for the 4 room(s) missing them. Even brief notes about damage type and extent help.
+3. Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.
+4. Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.
+
+---
+
 
 ## e60486644550cd1b3c837b3fa9c4ada0 -- 2026-03-14 -- v2026.09.3
 
