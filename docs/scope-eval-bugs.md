@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 17:05 UTC | **Traces with Issues:** 509 | **Total Issues:** 4433
+**Last Updated:** 2026-03-14 21:39 UTC | **Traces with Issues:** 510 | **Total Issues:** 4436
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | 943e7e80cc68e6a0dad15d050490e424 | nick.wood@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
 | 2026-03-14 | 75ff59656cd670bc30fe4c5393eb3d9f | patty.mcculloch+collingwood@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 5 (3/2) | 30 | 8 | 1 |
 | 2026-03-14 | 342e11d36bea1ddf6ccf4a66eafd31db | patty.mcculloch+collingwood@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (2/7) | 91 | 10 | 1 |
 | 2026-03-14 | c176a248c01c160dc99f4b91d7d2b9bc | matthew.bishop@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (5/6) | 87 | 11 | 1 |
@@ -520,6 +521,30 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 943e7e80cc68e6a0dad15d050490e424 -- 2026-03-14 -- v2026.09.3
+
+**User:** nick.wood@ca.belfor.com | **Time:** 1m 20s
+**Rooms:** 6 total (6 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (2):
+
+- Bedroom
+- Office
+
+**Equipment Sizing Conflict** (1):
+
+- [MINOR] factor: HVAC; hydro_assessment: No; structural_analysis: Non-Beneficial; resolution: Using Non-Beneficial (hydro value) - visual assessment and loss description confirm built-in system is not beneficial for drying.
+
+### Assessment
+
+The system detected 3 data quality issue(s): 1 equipment sizing conflict(s); 2 affected room(s) without photos.
+
+---
+
 
 ## 75ff59656cd670bc30fe4c5393eb3d9f -- 2026-03-14 -- v2026.09.3
 
