@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 10:41 UTC | **Traces with Issues:** 503 | **Total Issues:** 4394
+**Last Updated:** 2026-03-14 11:36 UTC | **Traces with Issues:** 504 | **Total Issues:** 4401
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | 3fc60a7963ffce8d32e820dd7c7dac5a | greg.janse@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (3/7) | 43 | 8 | 1 |
 | 2026-03-14 | 6e88d2bf0214b1b9caef7b4c36b775fc | steve.millard@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 0 | 1 | 1 |
 | 2026-03-14 | ea07fef88b6a914cdd2c9578bd1af1d6 | nick.wood@ca.belfor.com | 7 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (7/2) | 0 | 1 | 2 |
 | 2026-03-14 | 4a483ed2df0829ee025a912e99e41289 | nick.wood@ca.belfor.com | 21 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 17 (7/10) | 0 | 1 | 2 |
@@ -514,6 +515,34 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 3fc60a7963ffce8d32e820dd7c7dac5a -- 2026-03-14 -- v2026.09.3
+
+**User:** greg.janse@ca.belfor.com | **Time:** 1m 34s
+**Rooms:** 10 total (3 affected, 7 unaffected) | **Photos:** 43 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Recreation Room has no measurements available - room dimensions required for complete scope.
+- Entrance has no measurements available - room dimensions required for complete scope.
+- Front Of Loss has no measurements available - room dimensions required for complete scope.
+- Kitchen, Bathroom, Utility Room volumes calculated using assumed 8 ft ceiling height.
+
+**Missing Measurements** (3):
+
+- Recreation Room
+- Entrance
+- Front Of Loss
+
+### Assessment
+
+The system detected 7 data quality issue(s): 4 measurement validation warning(s); 3 room(s) with missing measurements.
+
+---
+
 
 ## 6e88d2bf0214b1b9caef7b4c36b775fc -- 2026-03-14 -- v2026.09.3
 
