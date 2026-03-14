@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 21:39 UTC | **Traces with Issues:** 510 | **Total Issues:** 4436
+**Last Updated:** 2026-03-14 22:01 UTC | **Traces with Issues:** 511 | **Total Issues:** 4441
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | e3264980c773d6ebb946b73aef0e6922 | jf.raymond@steamatic.ca | 5 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
 | 2026-03-14 | 943e7e80cc68e6a0dad15d050490e424 | nick.wood@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 6 (6/0) | 0 | 1 | 1 |
 | 2026-03-14 | 75ff59656cd670bc30fe4c5393eb3d9f | patty.mcculloch+collingwood@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 5 (3/2) | 30 | 8 | 1 |
 | 2026-03-14 | 342e11d36bea1ddf6ccf4a66eafd31db | patty.mcculloch+collingwood@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (2/7) | 91 | 10 | 1 |
@@ -521,6 +522,29 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e3264980c773d6ebb946b73aef0e6922 -- 2026-03-14 -- v2026.09.3
+
+**User:** jf.raymond@steamatic.ca | **Time:** 1m 4s
+**Rooms:** 6 total (6 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 1
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Affected Room Without Photos** (5):
+
+- Recreation Room
+- Utility
+- Hall
+- Stair
+- Stairway
+
+### Assessment
+
+The system detected 5 data quality issue(s): 5 affected room(s) without photos.
+
+---
+
 
 ## 943e7e80cc68e6a0dad15d050490e424 -- 2026-03-14 -- v2026.09.3
 
