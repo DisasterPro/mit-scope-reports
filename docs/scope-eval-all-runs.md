@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-14 00:04 UTC | **Total Traces:** 1109 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-14 01:30 UTC | **Total Traces:** 1110 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| e2ae8570031fd80c542de56b3fad54d1 | v2026.09.3 | 2026-03-14 | alex.armstrong@servicemasterofbelleville.com | 1m 27s | 1/5 Poor | 2/5 Significant | 5/5 Clean | 2.7/5 | 0 (0/0) | 0 | 0 | 0 |
 | 4decdd9f1b83560a5c365e14a1d5e7cc | v2026.09.3 | 2026-03-14 | dalesee@icloud.com | 0m 40s | 4/5 Good | 5/5 Healthy | 5/5 Clean | 4.7/5 | 1 (1/0) | 12 | 3 | 1 |
 | 7dbf0e6496300f6cf28dfc32822fd5cd | v2026.09.3 | 2026-03-13 | dalesee@icloud.com | 0m 48s | 4/5 Good | 4/5 Minor | 4/5 Minor | 4.0/5 | 1 (1/0) | 11 | 4 | 0 |
 | 5431799db702e088d915cc74acbb3785 | v2026.09.3 | 2026-03-13 | hcohn@si-restoration.com | 1m 7s | 4/5 Good | 4/5 Minor | 4/5 Minor | 4.0/5 | 6 (2/4) | 94 | 8 | 2 |
@@ -1117,6 +1118,45 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e2ae8570031fd80c542de56b3fad54d1 -- 2026-03-14 -- v2026.09.3
+
+**User:** alex.armstrong@servicemasterofbelleville.com | **Time:** 1m 27s
+**Rooms:** 0 total (0 affected, 0 unaffected) | **Photos:** 0 | **Notes:** 0 | **Floor Plans:** 0
+**Input Quality:** 1/5 Poor | **Pipeline Health:** 2/5 Significant | **Issue Score:** 5/5 Clean | **Overall:** 2.7/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Poor | 0 rooms; 0 in app, 0 from notes |
+| Field Photos | None | 0 photos; 0 rooms without photos |
+| Technician Notes | None | 0 notes; 0 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+No field photos were submitted for this scope. No technician notes were included, so the scope relied entirely on photos and floor plans for damage details. No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually.
+
+### Pipeline Assessment
+
+The scope failed after 1m 27s. 3 of 14 processing steps completed before the failure.
+
+### Issue Assessment
+
+No data quality issues were detected in this scope.
+
+### Recommendations
+
+1. Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.
+2. Add technician notes describing the damage in each room. Notes provide details that photos alone cannot capture, like the source of water or hidden damage.
+3. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## 4decdd9f1b83560a5c365e14a1d5e7cc -- 2026-03-14 -- v2026.09.3
 
