@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 11:36 UTC | **Traces with Issues:** 504 | **Total Issues:** 4401
+**Last Updated:** 2026-03-14 12:03 UTC | **Traces with Issues:** 505 | **Total Issues:** 4403
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | e60486644550cd1b3c837b3fa9c4ada0 | jamie.traverse@ca.belfor.com | 2 | 4/5 Good | 5/5 Healthy | 4/5 Minor | 2 (2/0) | 51 | 4 | 0 |
 | 2026-03-14 | 3fc60a7963ffce8d32e820dd7c7dac5a | greg.janse@ca.belfor.com | 7 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 10 (3/7) | 43 | 8 | 1 |
 | 2026-03-14 | 6e88d2bf0214b1b9caef7b4c36b775fc | steve.millard@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 4 (1/3) | 0 | 1 | 1 |
 | 2026-03-14 | ea07fef88b6a914cdd2c9578bd1af1d6 | nick.wood@ca.belfor.com | 7 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (7/2) | 0 | 1 | 2 |
@@ -515,6 +516,29 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## e60486644550cd1b3c837b3fa9c4ada0 -- 2026-03-14 -- v2026.09.3
+
+**User:** jamie.traverse@ca.belfor.com | **Time:** 0m 51s
+**Rooms:** 2 total (2 affected, 0 unaffected) | **Photos:** 51 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 4/5 Good | **Pipeline Health:** 5/5 Healthy | **Issue Score:** 4/5 Minor | **Overall:** 4.3/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Roof has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Roof
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 3fc60a7963ffce8d32e820dd7c7dac5a -- 2026-03-14 -- v2026.09.3
 
