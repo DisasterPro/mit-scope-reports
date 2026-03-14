@@ -3,12 +3,14 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 05:01 UTC | **Traces with Issues:** 500 | **Total Issues:** 4363
+**Last Updated:** 2026-03-14 09:06 UTC | **Traces with Issues:** 502 | **Total Issues:** 4391
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | ea07fef88b6a914cdd2c9578bd1af1d6 | nick.wood@ca.belfor.com | 7 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 9 (7/2) | 0 | 1 | 2 |
+| 2026-03-14 | 4a483ed2df0829ee025a912e99e41289 | nick.wood@ca.belfor.com | 21 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 17 (7/10) | 0 | 1 | 2 |
 | 2026-03-14 | d92a64ca16165aa5c3f668194c1ce133 | jonathan.watson@ca.belfor.com | 8 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 94 | 4 | 0 |
 | 2026-03-14 | ccb6ef485c5ffc08f6893acce3bff292 | jonathan.watson@ca.belfor.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 12 (6/6) | 392 | 8 | 2 |
 | 2026-03-14 | 68ca45857038ae7e7d18c8cbd19f6bb9 | lincoln.lam@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
@@ -511,6 +513,75 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## ea07fef88b6a914cdd2c9578bd1af1d6 -- 2026-03-14 -- v2026.09.3
+
+**User:** nick.wood@ca.belfor.com | **Time:** 1m 9s
+**Rooms:** 9 total (7 affected, 2 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 3/5 Moderate | **Overall:** 2.7/5
+
+### Issues Found
+
+**Affected Room Without Photos** (7):
+
+- Storage
+- Bedroom
+- Family Room
+- Laundry Room
+- Furnace Room
+- Hallway
+- Under The Stairs
+
+### Assessment
+
+The system detected 7 data quality issue(s): 7 affected room(s) without photos.
+
+---
+
+## 4a483ed2df0829ee025a912e99e41289 -- 2026-03-14 -- v2026.09.3
+
+**User:** nick.wood@ca.belfor.com | **Time:** 1m 39s
+**Rooms:** 17 total (7 affected, 10 unaffected) | **Photos:** 0 | **Notes:** 1 | **Floor Plans:** 2
+**Input Quality:** 2/5 Minimal | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.0/5
+
+### Issues Found
+
+**Measurement Warning** (7):
+
+- Storage has no measurements available - room dimensions required for complete scope.
+- Bedroom has no measurements available - room dimensions required for complete scope.
+- Under The Stairs has no measurements available - room dimensions required for complete scope.
+- Hallway has no measurements available - room dimensions required for complete scope.
+- Family Room has no measurements available - room dimensions required for complete scope.
+- Laundry Room has no measurements available - room dimensions required for complete scope.
+- Furnace Room has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (7):
+
+- Storage
+- Bedroom
+- Under The Stairs
+- Hallway
+- Family Room
+- Laundry Room
+- Furnace Room
+
+**Affected Room Without Photos** (7):
+
+- Storage
+- Bedroom
+- Under The Stairs
+- Hallway
+- Family Room
+- Laundry Room
+- Furnace Room
+
+### Assessment
+
+The system detected 21 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements; 7 affected room(s) without photos.
+
+---
+
 
 ## d92a64ca16165aa5c3f668194c1ce133 -- 2026-03-14 -- v2026.09.3
 
