@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 15:04 UTC | **Traces with Issues:** 508 | **Total Issues:** 4431
+**Last Updated:** 2026-03-14 17:05 UTC | **Traces with Issues:** 509 | **Total Issues:** 4433
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | 75ff59656cd670bc30fe4c5393eb3d9f | patty.mcculloch+collingwood@ca.belfor.com | 2 | 4/5 Good | 3/5 Moderate | 4/5 Minor | 5 (3/2) | 30 | 8 | 1 |
 | 2026-03-14 | 342e11d36bea1ddf6ccf4a66eafd31db | patty.mcculloch+collingwood@ca.belfor.com | 4 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 9 (2/7) | 91 | 10 | 1 |
 | 2026-03-14 | c176a248c01c160dc99f4b91d7d2b9bc | matthew.bishop@ca.belfor.com | 8 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 11 (5/6) | 87 | 11 | 1 |
 | 2026-03-14 | a3a977e6a04df85b530a2aa1811ce4e4 | melissa.martins@ca.belfor.com | 16 | 2/5 Minimal | 3/5 Moderate | 3/5 Moderate | 12 (6/6) | 3 | 1 | 1 |
@@ -519,6 +520,29 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## 75ff59656cd670bc30fe4c5393eb3d9f -- 2026-03-14 -- v2026.09.3
+
+**User:** patty.mcculloch+collingwood@ca.belfor.com | **Time:** 1m 53s
+**Rooms:** 5 total (3 affected, 2 unaffected) | **Photos:** 30 | **Notes:** 8 | **Floor Plans:** 1
+**Input Quality:** 4/5 Good | **Pipeline Health:** 3/5 Moderate | **Issue Score:** 4/5 Minor | **Overall:** 3.7/5
+
+### Issues Found
+
+**Measurement Warning** (1):
+
+- Ataff Tear Out has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (1):
+
+- Ataff Tear Out
+
+### Assessment
+
+The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.
+
+---
+
 
 ## 342e11d36bea1ddf6ccf4a66eafd31db -- 2026-03-14 -- v2026.09.3
 
