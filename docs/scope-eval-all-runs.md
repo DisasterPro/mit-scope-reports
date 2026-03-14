@@ -1,11 +1,12 @@
 # Scope Trace Evaluations
 
-**Last Updated:** 2026-03-14 04:30 UTC | **Total Traces:** 1111 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
+**Last Updated:** 2026-03-14 05:01 UTC | **Total Traces:** 1112 | **Avg Input Score:** 3.3/5 | **Avg Pipeline Score:** 3.9/5 | **Avg Issue Score:** 3.5/5 | **Avg Overall:** 3.6/5 | **Success Rate:** 75%
 
 ## Index
 
 | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
 |-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| d92a64ca16165aa5c3f668194c1ce133 | v2026.09.3 | 2026-03-14 | jonathan.watson@ca.belfor.com | 7m 21s | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 3.3/5 | 5 (5/0) | 94 | 4 | 0 |
 | ccb6ef485c5ffc08f6893acce3bff292 | v2026.09.3 | 2026-03-14 | jonathan.watson@ca.belfor.com | 3m 15s | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 4.0/5 | 12 (6/6) | 392 | 8 | 2 |
 | 7dbf0e6496300f6cf28dfc32822fd5cd | v2026.09.3 | 2026-03-13 | dalesee@icloud.com | 0m 48s | 4/5 Good | 4/5 Minor | 4/5 Minor | 4.0/5 | 1 (1/0) | 11 | 4 | 0 |
 | 95f25b874fddfae90cd833ad64f2224f | v2026.09.3 | 2026-03-14 | jonathan.watson@ca.belfor.com | 0m 1s | 1/5 Poor | 2/5 Significant | 5/5 Clean | 2.7/5 | 0 (0/0) | 0 | 0 | 0 |
@@ -1119,6 +1120,44 @@
 | e4fd1e8d0600957fd4e4a65e21f4baac | v2026.09.3 | 2026-03-06 | ashley.platt@ca.belfor.com | 4m 43s | 4/5 Good | 4/5 Minor | 3/5 Moderate | 3.7/5 | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## d92a64ca16165aa5c3f668194c1ce133 -- 2026-03-14 -- v2026.09.3
+
+**User:** jonathan.watson@ca.belfor.com | **Time:** 7m 21s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 94 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### What Was Provided
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Room Setup | Fair | 5 rooms; 1 in app, 1 from notes |
+| Field Photos | Good | 94 photos; 0 rooms without photos |
+| Technician Notes | Adequate | 4 notes; 3 rooms without notes |
+| Floor Plans | None | 0 plans; 0 rooms with measurements |
+| Room Name Matching | N/A | 0 unmatched floor plan rooms |
+| Moisture Data | None | -- |
+| Guidelines | None | -- |
+
+### Input Assessment
+
+94 field photos were submitted. Notes were provided for some rooms (4 notes across 5 affected rooms), but not all rooms had written descriptions of the damage. No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. 1 of 5 rooms were set up in the app beforehand. No moisture monitoring data was submitted.
+
+### Pipeline Assessment
+
+The scope completed successfully in 7m 21s. Data quality flags: 3 affected room(s) had no technician notes.
+
+### Issue Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+### Recommendations
+
+1. Add notes for the 3 room(s) missing them. Even brief notes about damage type and extent help.
+2. Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.
+
+---
+
 
 ## ccb6ef485c5ffc08f6893acce3bff292 -- 2026-03-14 -- v2026.09.3
 

@@ -3,12 +3,13 @@
 Bugs and data quality issues discovered by the automated trace evaluation.
 Only traces with issue_score < 5 (i.e. at least one data quality problem) are logged here.
 
-**Last Updated:** 2026-03-14 04:30 UTC | **Traces with Issues:** 499 | **Total Issues:** 4355
+**Last Updated:** 2026-03-14 05:01 UTC | **Traces with Issues:** 500 | **Total Issues:** 4363
 
 ## Index
 
 | Date | Trace | User | Issues | Input | Pipeline | Issue Score | Rooms | Photos | Notes | Plans |
 |------|-------|------|--------|-------|----------|-------------|-------|--------|-------|-------|
+| 2026-03-14 | d92a64ca16165aa5c3f668194c1ce133 | jonathan.watson@ca.belfor.com | 8 | 3/5 Adequate | 4/5 Minor | 3/5 Moderate | 5 (5/0) | 94 | 4 | 0 |
 | 2026-03-14 | ccb6ef485c5ffc08f6893acce3bff292 | jonathan.watson@ca.belfor.com | 5 | 4/5 Good | 5/5 Healthy | 3/5 Moderate | 12 (6/6) | 392 | 8 | 2 |
 | 2026-03-14 | 68ca45857038ae7e7d18c8cbd19f6bb9 | lincoln.lam@ca.belfor.com | 3 | 2/5 Minimal | 4/5 Minor | 3/5 Moderate | 1 (1/0) | 0 | 1 | 0 |
 | 2026-03-13 | 7dbf0e6496300f6cf28dfc32822fd5cd | dalesee@icloud.com | 2 | 4/5 Good | 4/5 Minor | 4/5 Minor | 1 (1/0) | 11 | 4 | 0 |
@@ -510,6 +511,35 @@ Only traces with issue_score < 5 (i.e. at least one data quality problem) are lo
 | 2026-03-06 | e4fd1e8d0600957fd4e4a65e21f4baac | ashley.platt@ca.belfor.com | 18 | 4/5 Good | 4/5 Minor | 3/5 Moderate | 25 (25/0) | 349 | 17 | 3 |
 
 ---
+
+## d92a64ca16165aa5c3f668194c1ce133 -- 2026-03-14 -- v2026.09.3
+
+**User:** jonathan.watson@ca.belfor.com | **Time:** 7m 21s
+**Rooms:** 5 total (5 affected, 0 unaffected) | **Photos:** 94 | **Notes:** 4 | **Floor Plans:** 0
+**Input Quality:** 3/5 Adequate | **Pipeline Health:** 4/5 Minor | **Issue Score:** 3/5 Moderate | **Overall:** 3.3/5
+
+### Issues Found
+
+**Measurement Warning** (4):
+
+- Deck has no measurements available - room dimensions required for complete scope.
+- Deck Area has no measurements available - room dimensions required for complete scope.
+- Under Deck has no measurements available - room dimensions required for complete scope.
+- Crawl Space has no measurements available - room dimensions required for complete scope.
+
+**Missing Measurements** (4):
+
+- Deck
+- Deck Area
+- Under Deck
+- Crawl Space
+
+### Assessment
+
+The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.
+
+---
+
 
 ## ccb6ef485c5ffc08f6893acce3bff292 -- 2026-03-14 -- v2026.09.3
 
