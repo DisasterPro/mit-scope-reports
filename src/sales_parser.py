@@ -344,6 +344,12 @@ class SalesDataBuilder:
                         if unmatched_m and int(unmatched_m.group(1)) > 0:
                             flags.append("FP MISMATCH")
 
+                    # OR when floor plans exist but some rooms are missing measurements
+                    if "FP MISMATCH" not in flags:
+                        missing_m = re.search(r"(\d+)\s+missing", provided)
+                        if missing_m and int(missing_m.group(1)) > 0:
+                            flags.append("FP MISMATCH")
+
             # No plan flag (informational — no floor plan provided at all)
             if trace.plans == 0 and "FP MISMATCH" not in flags:
                 flags.append("NO PLAN")

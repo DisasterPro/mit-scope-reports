@@ -462,7 +462,9 @@ def _render_trace_eval_section(
         ),
         (
             f"| Floor Plans | {fp_status} | {e.floor_plan_count} plans; "
-            f"{e.rooms_with_measurements} rooms with measurements |"
+            f"{e.rooms_with_measurements} rooms with measurements"
+            + (f"; {e.rooms_with_missing_measurements} missing" if e.rooms_with_missing_measurements > 0 else "")
+            + " |"
         ),
         (
             f"| Room Name Matching | {matching_status} | "

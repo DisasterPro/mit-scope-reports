@@ -194,6 +194,7 @@ class TraceEvalReport:
     floor_plan_discrepancy_sf: float = 0.0
     rooms_may_be_missing: bool = False
     unmatched_floor_plan_rooms: int = 0
+    rooms_with_missing_measurements: int = 0
 
     # Version
     version: str = ""
