@@ -247,37 +247,19 @@ _EVAL_SKELETON = """\
 
 ## Index
 
-| Flags | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
-|-------|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
+| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |
+|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|
 
 ---
 """
 
-_EVAL_INDEX_HEADER = "| Flags | Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |"
-_EVAL_INDEX_SEP = "|-------|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|"
+_EVAL_INDEX_HEADER = "| Trace | Version | Date | User | Time | Input | Pipeline | Issues | Overall | Rooms | Photos | Notes | Plans |"
+_EVAL_INDEX_SEP = "|-------|---------|------|------|------|-------|----------|--------|---------|-------|--------|-------|-------|"
 
 # Old formats for backwards compat
 _EVAL_INDEX_SEP_V3 = "|-------|---------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
 _EVAL_INDEX_SEP_V2 = "|-------|------|------|------|-------|----------|--------|-------|--------|-------|-------|"
 _EVAL_INDEX_SEP_V1 = "|-------|------|------|------|-------|----------|-------|--------|-------|-------|"
-
-
-def _compute_flags(e: TraceEvalReport, overall: float) -> str:
-    """Compute flag strings for a trace index row."""
-    flags = []
-    if overall < 3.0:
-        flags.append("LOW SCORE")
-    if e.pipeline_score <= 2:
-        flags.append("PIPELINE")
-    if e.photo_count == 0 and e.note_count == 0 and e.floor_plan_count == 0:
-        flags.append("NO DATA")
-    if getattr(e, "is_initial_scope", False):
-        flags.append("INITIAL SCOPE")
-    if e.floor_plan_count > 0 and e.unmatched_floor_plan_rooms > 0:
-        flags.append("FP MISMATCH")
-    elif e.floor_plan_count == 0:
-        flags.append("NO PLAN")
-    return ", ".join(flags) if flags else "--"
 
 
 def write_trace_eval_report(
@@ -321,9 +303,7 @@ def write_trace_eval_report(
 
         ver = e.version or "unknown"
         overall = round((e.input_score + e.pipeline_score + e.issue_score) / 3, 1)
-        flags = _compute_flags(e, overall)
         row = (
-            f"| {flags} "
             f"| {tid} | {ver} | {date_str} | {user} | {time_str} "
             f"| {e.input_score}/5 {e.input_label} "
             f"| {e.pipeline_score}/5 {e.pipeline_label} "
@@ -496,15 +476,10 @@ def _render_trace_eval_section(
 
 def _recompute_eval_stats(doc: str) -> str:
     """Recompute the summary stats lines at the top of the eval doc."""
-    # Extract all index rows -- match rows starting with flags or trace IDs
+    # Extract all index rows (skip header and separator) -- match both full and short trace IDs
     rows = re.findall(
-        r"^\|[^|]*\| [a-f0-9]{8,32} \|.*$", doc, re.MULTILINE,
+        r"^\| [a-f0-9]{8,32} \|.*$", doc, re.MULTILINE,
     )
-    # Also match old format (no flags column)
-    if not rows:
-        rows = re.findall(
-            r"^\| [a-f0-9]{8,32} \|.*$", doc, re.MULTILINE,
-        )
 
     total = len(rows)
     if total == 0:
@@ -588,17 +563,11 @@ def _recompute_eval_stats(doc: str) -> str:
         f"| **Avg Pipeline Score:** {avg_pipeline:.1f}/5 "
         f"| **Avg Issue Score:** {avg_issue:.1f}/5 "
         f"| **Avg Overall:** {avg_overall:.1f}/5 "
-        f"| **Success Rate:** {success_rate:.0f}%\n"
-        f"**Low Score:** {flag_counts['LOW SCORE']} "
-        f"| **Pipeline Issues:** {flag_counts['PIPELINE']} "
-        f"| **No Data:** {flag_counts['NO DATA']} "
-        f"| **No Plan:** {flag_counts['NO PLAN']} "
-        f"| **FP Mismatch:** {flag_counts['FP MISMATCH']} "
-        f"| **Initial Scope:** {flag_counts['INITIAL SCOPE']}"
+        f"| **Success Rate:** {success_rate:.0f}%"
     )
 
     doc = re.sub(
-        r"\*\*Last Updated:\*\*.*?\*\*Success Rate:\*\*\s*\S+(?:\n\*\*Low Score:\*\*.*?\*\*Initial Scope:\*\*\s*\d+)?",
+        r"\*\*Last Updated:\*\*.*?\*\*Success Rate:\*\*\s*\S+",
         new_stats,
         doc,
         count=1,

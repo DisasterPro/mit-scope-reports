@@ -99,6 +99,42 @@
 ## Daily Reports (24h)
 
 ### 2026-03-14 (Daily)
+**Generated:** 2026-03-15 15:22 UTC | **Period:** 2026-03-14 | **Traces:** 25
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.54 | 110.3s |
+| Median | $0.43 | 80.0s |
+| P75 | $0.59 | 131.6s |
+| P95 | $1.50 | 278.7s |
+| Min | $0.17 | 22.9s |
+| Max | $1.61 | 441.9s |
+
+**Top Cost Users:** alex.armstrong@servicemasterofbelleville.com ($1.61), jonathan.watson@ca.belfor.com ($1.16), matthew.bishop@ca.belfor.com ($0.60)
+
+**Top Latency Users:** alex.armstrong@servicemasterofbelleville.com (300s), jonathan.watson@ca.belfor.com (237s), matthew.bishop@ca.belfor.com (143s)
+
+---
+
+### 2026-03-14 (Daily)
+**Generated:** 2026-03-15 15:15 UTC | **Period:** 2026-03-14 | **Traces:** 25
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.54 | 110.3s |
+| Median | $0.43 | 80.0s |
+| P75 | $0.59 | 131.6s |
+| P95 | $1.50 | 278.7s |
+| Min | $0.17 | 22.9s |
+| Max | $1.61 | 441.9s |
+
+**Top Cost Users:** alex.armstrong@servicemasterofbelleville.com ($1.61), jonathan.watson@ca.belfor.com ($1.16), matthew.bishop@ca.belfor.com ($0.60)
+
+**Top Latency Users:** alex.armstrong@servicemasterofbelleville.com (300s), jonathan.watson@ca.belfor.com (237s), matthew.bishop@ca.belfor.com (143s)
+
+---
+
+### 2026-03-14 (Daily)
 **Generated:** 2026-03-15 15:06 UTC | **Period:** 2026-03-14 | **Traces:** 25
 
 | Metric | Cost | Latency |
