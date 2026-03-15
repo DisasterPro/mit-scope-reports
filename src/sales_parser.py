@@ -282,11 +282,17 @@ class SalesDataBuilder:
 
             input_label = INPUT_LABELS.get(input_val, "Poor")
 
-            # Parse pipeline and issue scores (keep existing)
+            # Parse pipeline and issue scores
             pip_m = re.match(r"(\d)", trace.pipeline_score)
             pipeline_val = int(pip_m.group(1)) if pip_m else input_val
             iss_m = re.match(r"(\d)", trace.issue_score)
             issues_val = int(iss_m.group(1)) if iss_m else input_val
+
+            # When input is truly zero, pipeline/issues scores shouldn't inflate overall
+            # A 5/5 "Clean" issue score is meaningless when there was no data to evaluate
+            if input_val == 1 and trace.photos == 0 and trace.notes == 0 and trace.plans == 0:
+                pipeline_val = min(pipeline_val, input_val)
+                issues_val = min(issues_val, input_val)
 
             overall = round((input_val + pipeline_val + issues_val) / 3, 1)
 
