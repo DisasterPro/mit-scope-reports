@@ -207,7 +207,7 @@ class SalesDataBuilder:
 
             # Check trace detail section for flag signals
             trace_section = self._get_trace_section(content, trace.trace_id)
-            if trace_section:
+            if trace_section and trace.plans > 0:
                 provided = self._extract_after(trace_section, "### What Was Provided")
                 if provided:
                     # Floor plan mismatch: room names don't match floor plan labels
@@ -229,6 +229,8 @@ class SalesDataBuilder:
             if trace.plans == 0 and "FP MISMATCH" not in flags:
                 flags.append("NO PLAN")
 
+            # Bug assessment (needs trace_section, not gated by plans)
+            if trace_section:
                 trace.is_enhanced = "### Bug Assessment" in trace_section
 
                 if trace.is_enhanced:
