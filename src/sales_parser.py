@@ -53,6 +53,7 @@ class SalesDataBuilder:
         traces = self._parse_index_table(eval_content)
         traces = self._filter_date_range(traces, from_ts, to_ts)
         traces = self._exclude_internal(traces)
+        traces = self._rescore(traces, eval_content)
         traces = self._apply_flags(traces, eval_content)
         traces = self._extract_narratives(traces, eval_content)
         orgs = self._group_by_org_and_user(traces)
@@ -178,6 +179,123 @@ class SalesDataBuilder:
         if excluded:
             logger.info("Excluded %d internal traces", excluded)
         return filtered
+
+    def _rescore(
+        self, traces: list[SalesTrace], content: str
+    ) -> list[SalesTrace]:
+        """Recompute input and overall scores using the new points-based formula.
+
+        This ensures scores are consistent regardless of when the trace was
+        originally evaluated (old formula vs new formula).
+        """
+        INPUT_LABELS = {1: "Poor", 2: "Minimal", 3: "Adequate", 4: "Good", 5: "Excellent"}
+
+        for trace in traces:
+            # Extract additional data from trace section for richer scoring
+            section = self._get_trace_section(content, trace.trace_id)
+            has_moisture = False
+            has_video = False
+            has_general_notes = False
+            thermal_count = 0
+            pano_count = 0
+            rooms_without_photos = 0
+            rooms_without_notes = 0
+            rooms_from_app = 0
+            total_rooms = 0
+            affected_rooms = 0
+
+            if section:
+                provided = self._extract_after(section, "### What Was Provided") or ""
+                has_moisture = "Moisture Data | Present" in provided or "Moisture Data | Yes" in provided
+                has_general_notes = "General Notes | Present" in provided
+
+                # Parse thermal/video/360 counts
+                thermal_m = re.search(r"Thermal.*?\|\s*(\d+)\s+found", provided)
+                if thermal_m:
+                    thermal_count = int(thermal_m.group(1))
+                video_m = re.search(r"Video.*?\|\s*(\d+)\s+found", provided)
+                if video_m:
+                    has_video = True
+                pano_m = re.search(r"360.*?\|\s*(\d+)\s+found", provided)
+                if pano_m:
+                    pano_count = int(pano_m.group(1))
+
+                # Parse rooms without photos/notes
+                rwp_m = re.search(r"(\d+)\s+rooms?\s+without\s+photos", provided)
+                if rwp_m:
+                    rooms_without_photos = int(rwp_m.group(1))
+                rwn_m = re.search(r"(\d+)\s+rooms?\s+without\s+notes", provided)
+                if rwn_m:
+                    rooms_without_notes = int(rwn_m.group(1))
+
+                # Parse rooms from app
+                rfa_m = re.search(r"(\d+)\s+in\s+app", provided)
+                if rfa_m:
+                    rooms_from_app = int(rfa_m.group(1))
+
+            # Parse room counts from index
+            rooms_m = re.match(r"(\d+)", trace.rooms)
+            if rooms_m:
+                total_rooms = int(rooms_m.group(1))
+            aff_m = re.search(r"\((\d+)/", trace.rooms)
+            if aff_m:
+                affected_rooms = int(aff_m.group(1))
+
+            # Points-based input scoring
+            is_initial_scope = (
+                trace.notes >= 1
+                and trace.photos == 0
+                and trace.plans == 0
+                and not has_video
+                and not has_moisture
+            )
+
+            points = 0.0
+            if trace.photos >= 15:      points += 2.0
+            elif trace.photos >= 5:     points += 1.5
+            elif trace.photos > 0:      points += 1.0
+
+            if trace.notes >= 3:        points += 1.5
+            elif trace.notes >= 1:      points += 1.0
+
+            if has_general_notes:       points += 0.25
+            if trace.plans > 0:         points += 1.0
+            if rooms_from_app > 0:      points += 0.5
+            if has_moisture:            points += 0.5
+            if has_video:               points += 0.25
+            if thermal_count > 0:       points += 0.25
+            if pano_count > 0:          points += 0.25
+
+            # Penalties
+            if affected_rooms > 0:
+                if rooms_without_photos > 0 and trace.photos > 0:
+                    gap_pct = rooms_without_photos / max(affected_rooms, 1)
+                    points -= gap_pct * 0.5
+                if rooms_without_notes > 0 and trace.notes > 0:
+                    gap_pct = rooms_without_notes / max(affected_rooms, 1)
+                    points -= gap_pct * 0.25
+
+            scaled = 1 + (points / 7.5) * 4
+            input_val = max(1, min(5, round(scaled)))
+            if is_initial_scope and trace.notes >= 1:
+                input_val = max(input_val, 3)
+
+            input_label = INPUT_LABELS.get(input_val, "Poor")
+
+            # Parse pipeline and issue scores (keep existing)
+            pip_m = re.match(r"(\d)", trace.pipeline_score)
+            pipeline_val = int(pip_m.group(1)) if pip_m else input_val
+            iss_m = re.match(r"(\d)", trace.issue_score)
+            issues_val = int(iss_m.group(1)) if iss_m else input_val
+
+            overall = round((input_val + pipeline_val + issues_val) / 3, 1)
+
+            # Update trace
+            trace.input_score = f"{input_val}/5 {input_label}"
+            trace.overall_score = f"{overall}/5"
+            trace.overall_numeric = overall
+
+        return traces
 
     def _apply_flags(
         self, traces: list[SalesTrace], content: str
