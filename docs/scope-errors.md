@@ -95,6 +95,35 @@
 
 ## Daily Reports (24h)
 
+### 2026-03-13 (Daily)
+**Generated:** 2026-03-14 05:00 UTC | **Period:** 2026-03-13
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 101 |
+| Error Traces | 4 (4.0%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| ImageProcessingError | MeasurementImagesValidator | 3 | -- |
+| Other | Assembly | 1 | -- |
+
+**Affected Users:** simon@servicemasterbc.ca (1x Other), christiaan@insightrestoration.com (1x ImageProcessingError), kristy.persson+hub@ca.belfor.com (1x ImageProcessingError), oalarcon@apolloconstructioncorp.com (1x ImageProcessingError)
+
+---
+
+### 2026-03-14 (Daily)
+**Generated:** 2026-03-15 15:35 UTC | **Period:** 2026-03-14
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 25 |
+| Error Traces | 0 (0.0%) |
+
+No errors detected this period.
+
+---
+
 ### 2026-03-14 (Daily)
 **Generated:** 2026-03-15 15:22 UTC | **Period:** 2026-03-14
 
