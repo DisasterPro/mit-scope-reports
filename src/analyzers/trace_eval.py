@@ -198,6 +198,14 @@ def _evaluate_single_trace(
         note_count=input_stats.get("note_count", 0),
         has_guidelines=input_stats.get("has_guidelines", False),
         has_moisture=input_stats.get("has_moisture", False),
+        thermal_count=input_stats.get("thermal_count", 0),
+        pano_count=input_stats.get("pano_count", 0),
+        video_count=input_stats.get("video_count", 0),
+        has_general_notes=input_stats.get("has_general_notes", False),
+        total_structures=room_stats.get("total_structures", 0),
+        structural_count=room_stats.get("structural_count", 0),
+        org_count=room_stats.get("org_count", 0),
+        org_names=room_stats.get("org_names", []),
         rooms_without_photos=room_stats.get("rooms_without_photos", 0),
         rooms_without_notes=room_stats.get("rooms_without_notes", 0),
         rooms_with_few_photos=room_stats.get("rooms_with_few_photos", 0),
@@ -273,12 +281,33 @@ def _extract_input_stats(trace) -> dict:
     inp = trace.input if isinstance(trace.input, dict) else {}
     description = inp.get("description", "") or ""
 
+    # Scan property images for thermal/360
+    prop_images = inp.get("property_images", []) or []
+    thermal_count = 0
+    pano_count = 0
+    for img in prop_images:
+        fname = ""
+        if isinstance(img, dict):
+            fname = str(img.get("filename", "")) + str(img.get("context", ""))
+        elif isinstance(img, str):
+            fname = img
+        fname_lower = fname.lower()
+        if any(kw in fname_lower for kw in ("thermal", "flir", "infrared", "ir_")):
+            thermal_count += 1
+        if any(kw in fname_lower for kw in ("360", "pano", "panoramic", "equirectangular")):
+            pano_count += 1
+
     return {
-        "photo_count": len(inp.get("property_images", []) or []),
+        "photo_count": len(prop_images),
         "floor_plan_count": len(inp.get("measurement_images", []) or []),
         "note_count": description.count("<NOTE>"),
+        "video_count": description.count("<ROOM_VIDEO>"),
         "has_guidelines": bool(inp.get("guidelines")),
-        "has_moisture": "moisture_monitoring" in description.lower(),
+        "has_moisture": "moisture_monitoring" in description.lower()
+            or "drying chamber" in description.lower(),
+        "has_general_notes": "## General Notes" in description,
+        "thermal_count": thermal_count,
+        "pano_count": pano_count,
         "description_snippet": description[:500],
         "note_snippets": _extract_note_snippets(description),
     }
@@ -323,11 +352,33 @@ def _extract_room_stats(observations: dict) -> dict:
         for r in rooms
     ]
 
-    # Merge data quality for room matching
+    # Merge data quality for room matching + structures
     merge_obs = observations.get("Merge")
     merge_dq = {}
+    structures: dict[int, str] = {}
     if merge_obs and merge_obs.output and isinstance(merge_obs.output, dict):
         merge_dq = merge_obs.output.get("data_quality", {})
+        merge_rooms = merge_obs.output.get("rooms", [])
+        for r in (merge_rooms or []):
+            if isinstance(r, dict):
+                sid = r.get("structure_id", 0)
+                sname = r.get("structure_name", "Main Structure")
+                if sid not in structures:
+                    structures[sid] = sname
+
+    _ORG_PATTERNS = [
+        "initial visit", "cause of loss", "data", "checklist", "documentation",
+        "admin", "photo", "video", "phase", "contents", "pack out", "inspection",
+        "pre existing", "sketch", "scope", "emergency", "repair", "content",
+        "moisture reading",
+    ]
+    def _is_org(name):
+        name_lower = str(name).lower().strip() if name else ""
+        return any(pat in name_lower for pat in _ORG_PATTERNS)
+
+    structural_count = sum(1 for s in structures.values() if not _is_org(s))
+    org_count = sum(1 for s in structures.values() if _is_org(s))
+    org_names = [s for s in structures.values() if _is_org(s)]
 
     return {
         "total": metrics.get("total_room_count", len(rooms)),
@@ -363,6 +414,10 @@ def _extract_room_stats(observations: dict) -> dict:
         ),
         "material_conflicts": merge_dq.get("material_conflicts", []),
         "org_room_findings": [],
+        "total_structures": len(structures),
+        "structural_count": structural_count,
+        "org_count": org_count,
+        "org_names": org_names,
     }
 
 

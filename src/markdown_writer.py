@@ -384,7 +384,18 @@ def _render_trace_eval_section(
         "",
     ]
 
-    # What Was Provided table
+    # What Was Provided table — full 13-row version
+    # Structure status
+    if e.org_count == 0:
+        struct_status = "Clean"
+    elif e.org_count > e.structural_count:
+        struct_status = "Org-heavy"
+    else:
+        struct_status = "Mixed"
+    struct_details = f"{e.total_structures} total; {e.structural_count} structural, {e.org_count} organizational"
+    if e.org_names:
+        struct_details += f" ({', '.join(e.org_names[:4])})"
+
     room_setup_status = "Good" if e.rooms_from_app > e.total_rooms * 0.5 else (
         "Fair" if e.rooms_from_app > 0 else "Poor"
     )
@@ -395,8 +406,8 @@ def _render_trace_eval_section(
     )
     note_status = (
         "None" if e.note_count == 0 else
-        "Minimal" if e.note_count < e.affected_rooms * 0.5 else
-        "Adequate" if e.note_count < e.affected_rooms else "Detailed"
+        "Minimal" if e.note_count < max(e.affected_rooms * 0.5, 1) else
+        "Adequate" if e.note_count < max(e.affected_rooms, 1) else "Detailed"
     )
     fp_status = (
         "None" if e.floor_plan_count == 0 else
@@ -412,6 +423,11 @@ def _render_trace_eval_section(
         "",
         "| Category | Status | Details |",
         "|----------|--------|---------|",
+        f"| Structures | {struct_status} | {struct_details} |",
+        (
+            f"| Rooms | Good | {e.total_rooms} total; "
+            f"{e.affected_rooms} affected, {e.unaffected_rooms} unaffected |"
+        ),
         (
             f"| Room Setup | {room_setup_status} | {e.total_rooms} rooms; "
             f"{e.rooms_from_app} in app, {e.rooms_from_description} from notes |"
@@ -419,6 +435,26 @@ def _render_trace_eval_section(
         (
             f"| Field Photos | {photo_status} | {e.photo_count} photos; "
             f"{e.rooms_without_photos} rooms without photos |"
+        ),
+        (
+            f"| Thermal Images | "
+            f"{'%d found' % e.thermal_count if e.thermal_count else 'None'} | "
+            f"{e.thermal_count} thermal/FLIR images detected |"
+        ),
+        (
+            f"| 360 Photos | "
+            f"{'%d found' % e.pano_count if e.pano_count else 'None'} | "
+            f"{e.pano_count} panoramic/360 images detected |"
+        ),
+        (
+            f"| Video Transcripts | "
+            f"{'%d found' % e.video_count if e.video_count else 'None'} | "
+            f"{e.video_count} room video transcripts |"
+        ),
+        (
+            f"| General Notes | "
+            f"{'Present' if e.has_general_notes else 'None'} | "
+            f"{'General notes section found' if e.has_general_notes else 'No general notes section'} |"
         ),
         (
             f"| Technician Notes | {note_status} | {e.note_count} notes; "

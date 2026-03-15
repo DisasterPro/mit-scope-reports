@@ -334,20 +334,15 @@ class SalesDataBuilder:
             if trace_section and trace.plans > 0:
                 provided = self._extract_after(trace_section, "### What Was Provided")
                 if provided:
-                    # Floor plan mismatch: room names don't match floor plan labels
+                    # FP MISMATCH: only when Room Name Matching explicitly shows Issues
                     if re.search(r"Room Name Matching\s*\|\s*Issues", provided):
                         flags.append("FP MISMATCH")
 
-                    # Floor plan partial: plans uploaded but no measurements extracted
+                    # OR when there are actual unmatched floor plan rooms > 0
                     if "FP MISMATCH" not in flags:
-                        if re.search(r"Floor Plans\s*\|\s*Partial", provided) and "0 rooms with measurements" in provided:
+                        unmatched_m = re.search(r"(\d+)\s+unmatched\s+floor\s+plan\s+rooms", provided)
+                        if unmatched_m and int(unmatched_m.group(1)) > 0:
                             flags.append("FP MISMATCH")
-
-                # Floor plan mismatch: measurement validation warnings
-                if "FP MISMATCH" not in flags:
-                    issue_text = self._extract_after(trace_section, "### Issue Assessment")
-                    if issue_text and "measurement validation warning" in issue_text:
-                        flags.append("FP MISMATCH")
 
             # No plan flag (informational — no floor plan provided at all)
             if trace.plans == 0 and "FP MISMATCH" not in flags:
@@ -415,8 +410,8 @@ class SalesDataBuilder:
             rec_section = self._extract_after(section, "### Recommendations")
             rec_html = self._recommendations_to_html(rec_section) if rec_section else ""
 
-            # Inject floor plan recommendation when FLOOR PLAN flag is set
-            if "FLOOR PLAN" in (trace.flags or []) and "floor plan" not in rec_html.lower():
+            # Inject floor plan recommendation when FP MISMATCH flag is set
+            if "FP MISMATCH" in (trace.flags or []) and "floor plan" not in rec_html.lower():
                 fp_li = (
                     "<li><strong>Review floor plan room names.</strong> "
                     "This scope was flagged for floor plan issues — verify that room names "

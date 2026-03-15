@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MitScope Daily Report — Mar 14, 2026</title>
+<style>
+:root{--enc:#f26522;--enc-dk:#d9551a;--bg:#f4f5f7;--card:#fff;--txt:#1e293b;--txt2:#475569;--txt3:#94a3b8;--bdr:#e2e8f0;--r:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5}
+.hdr{background:linear-gradient(135deg,#1e293b 0%,#334155 100%);color:#fff;padding:1.25rem 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hdr h1{font-size:1.3rem;font-weight:700;letter-spacing:-.02em}
+.hdr .pill{background:var(--enc);padding:.2rem .7rem;border-radius:20px;font-size:.75rem;font-weight:600}
+.hdr .period{margin-left:auto;font-size:.8rem;opacity:.7}
+.tabs{display:flex;background:#1e293b;padding:0 2rem;gap:.25rem;position:sticky;top:56px;z-index:99}
+.tab{padding:.65rem 1.2rem;color:#94a3b8;cursor:pointer;font-size:.85rem;font-weight:600;border-bottom:3px solid transparent;transition:all .15s}
+.tab:hover{color:#cbd5e1}
+.tab.active{color:var(--enc);border-bottom-color:var(--enc)}
+.pg{display:none;padding:1.5rem 2rem 3rem;max-width:1200px;margin:0 auto}
+.pg.active{display:block}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin-bottom:1.5rem}
+.kpi{background:var(--card);border-radius:var(--r);padding:1rem;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center}
+.kpi .val{font-size:1.6rem;font-weight:700;color:var(--enc)}
+.kpi .lbl{font-size:.75rem;color:var(--txt2);text-transform:uppercase;letter-spacing:.04em;margin-top:.15rem}
+.card{background:var(--card);border-radius:var(--r);box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:1rem;overflow:hidden}
+.card-hdr{padding:.75rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;border-bottom:1px solid var(--bdr)}
+.card-hdr h3{font-size:.9rem;font-weight:700;color:var(--txt)}
+.card-hdr .arrow{font-size:.7rem;color:var(--txt3);transition:transform .2s}
+.card-hdr.open .arrow{transform:rotate(180deg)}
+.card-body{display:none;padding:.5rem 1rem 1rem;max-height:500px;overflow-y:auto}
+.card-body.open{display:block}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{background:#f8fafc;padding:.5rem .6rem;text-align:left;font-weight:600;color:var(--txt2);position:sticky;top:0;z-index:1;border-bottom:2px solid var(--bdr);cursor:pointer;user-select:none}
+th:hover{background:#e2e8f0}
+th.sort-asc::after{content:' \u25B2';font-size:.65rem}
+th.sort-desc::after{content:' \u25BC';font-size:.65rem}
+td{padding:.45rem .6rem;border-bottom:1px solid var(--bdr)}
+tr:hover td{background:#fafbfc}
+.mo{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.78rem}
+.tc{text-align:center}
+.tr{text-align:right}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:12px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.badge-s{background:#fef2f2;color:#dc2626}
+.badge-a{background:#fffbeb;color:#d97706}
+.badge-r{background:#fef2f2;color:#be123c}
+.badge-x{background:#f1f5f9;color:#64748b}
+.badge-ok{background:#f0fdf4;color:#16a34a}
+.bar-wrap{display:flex;align-items:center;gap:.5rem}
+.bar{height:18px;background:var(--enc);border-radius:3px;min-width:2px;opacity:.85}
+.bar-lbl{font-size:.72rem;color:var(--txt2);white-space:nowrap;min-width:44px;text-align:right}
+.heat{display:grid;grid-template-columns:repeat(24,1fr);gap:2px;margin:.5rem 0}
+.heat-cell{aspect-ratio:1;border-radius:3px;position:relative;cursor:default}
+.heat-cell:hover::after{content:attr(data-tip);position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:2px 6px;border-radius:4px;font-size:.65rem;white-space:nowrap;z-index:10}
+.err-detail{background:#fafbfc;border-radius:6px;padding:.75rem;margin-bottom:.75rem;border-left:3px solid var(--enc)}
+.err-detail h4{font-size:.82rem;font-weight:700;margin-bottom:.25rem}
+.err-detail p{font-size:.78rem;color:var(--txt2);margin-bottom:.35rem}
+.ft{text-align:center;padding:1.5rem;font-size:.72rem;color:var(--txt3)}
+.flag-chip{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600;margin-right:4px}
+.flag-chip.fp-mismatch{background:#fef3c7;color:#92400e}
+.flag-chip.low-score{background:#fee2e2;color:#991b1b}
+.flag-chip.org-rooms{background:#fce7f3;color:#9d174d}
+.flag-chip.pipeline{background:#fee2e2;color:#991b1b}
+.flag-chip.no-data{background:#f3f4f6;color:#374151}
+.flag-chip.no-plan{background:#e0f2fe;color:#0369a1}
+.flag-chip.initial-scope{background:#e0f2fe;color:#0369a1}
+.flagged-row{border-left:3px solid var(--enc)}
+.sub-card{margin:0 0 8px 24px}
+.sub-card .card-hdr{font-size:.9rem;background:#f8fafc}
+.trace-detail{padding:12px 16px;background:#f8fafc;border-top:1px solid var(--bdr);font-size:.85rem}
+.trace-detail h4{margin:8px 0 4px;font-size:.85rem;color:var(--txt2)}
+.trace-detail table{margin-bottom:8px}
+.trace-detail ol{padding-left:1.2rem;font-size:.82rem}
+.trace-detail li{margin-bottom:4px}
+.muted-row{opacity:.6}
+.card-body.sales-body{max-height:none;overflow-y:visible}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+<h1>MitScope Production Report</h1>
+<span class="pill">DAILY</span>
+<span class="period">Mar 14, 2026 &nbsp;|&nbsp; Generated Mar 15, 2026</span>
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="showPage('usage',this)">Usage Report</div>
+<div class="tab" onclick="showPage('errors',this)">Error Report</div>
+<div class="tab" onclick="showPage('cost',this)">Cost &amp; Latency</div>
+<div class="tab" onclick="showPage('sales',this)">Sales</div>
+</div>
+
+
+
+
+<div id="page-usage" class="pg active">
+
+<div class="kpi-row">
+<div class="kpi"><div class="val">25</div><div class="lbl">Production Scopes</div></div>
+<div class="kpi"><div class="val">4</div><div class="lbl">Organizations</div></div>
+<div class="kpi"><div class="val">14</div><div class="lbl">Unique Users</div></div>
+<div class="kpi"><div class="val">$13.62</div><div class="lbl">Total Cost</div></div>
+<div class="kpi"><div class="val">$0.54</div><div class="lbl">Avg Cost / Scope</div></div>
+</div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Top Users by Volume</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>User</th><th class="tc">Scopes</th><th class="tr">Avg Cost</th><th class="tr">Total Cost</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">jonathan.watson@ca.belfor.com</td><td class="tc">4</td><td class="tr">$1.16</td><td class="tr">$4.63</td></tr>
+
+<tr><td class="mo">nick.wood@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.40</td><td class="tr">$1.20</td></tr>
+
+<tr><td class="mo">patty.mcculloch+collingwood@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.50</td><td class="tr">$1.51</td></tr>
+
+<tr><td class="mo">jamie.traverse@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.40</td><td class="tr">$1.21</td></tr>
+
+<tr><td class="mo">steve.millard@ca.belfor.com</td><td class="tc">2</td><td class="tr">$0.24</td><td class="tr">$0.47</td></tr>
+
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Cost Outliers (Avg &gt; $1.00/scope)</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body">
+
+<table class="sortable">
+<thead><tr><th>User</th><th class="tc">Scopes</th><th class="tr">Avg Cost</th><th class="tr">Total Cost</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">alex.armstrong@servicemasterofbelleville.com</td><td class="tc">1</td><td class="tr">$1.61</td><td class="tr">$1.61</td></tr>
+
+<tr><td class="mo">jonathan.watson@ca.belfor.com</td><td class="tc">4</td><td class="tr">$1.16</td><td class="tr">$4.63</td></tr>
+
+</tbody></table>
+
+</div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Activity Patterns</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body">
+<h4 style="font-size:.82rem;font-weight:700;margin-bottom:.5rem">By Day of Week</h4>
+
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Mon</span><div class="bar" style="width:0.0%"></div><span class="bar-lbl">0 (0.0%)</span></div>
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Tue</span><div class="bar" style="width:0.0%"></div><span class="bar-lbl">0 (0.0%)</span></div>
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Wed</span><div class="bar" style="width:0.0%"></div><span class="bar-lbl">0 (0.0%)</span></div>
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Thu</span><div class="bar" style="width:0.0%"></div><span class="bar-lbl">0 (0.0%)</span></div>
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Fri</span><div class="bar" style="width:0.0%"></div><span class="bar-lbl">0 (0.0%)</span></div>
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Sat</span><div class="bar" style="width:100.0%"></div><span class="bar-lbl">25 (100.0%)</span></div>
+
+<div class="bar-wrap"><span style="width:30px;font-size:.78rem;font-weight:600">Sun</span><div class="bar" style="width:0.0%"></div><span class="bar-lbl">0 (0.0%)</span></div>
+
+
+<h4 style="font-size:.82rem;font-weight:700;margin:.75rem 0 .35rem">By Hour (UTC)</h4>
+
+<div class="heat">
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="00:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,1.00)" data-tip="01:00 — 5 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.40)" data-tip="02:00 — 2 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="03:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.40)" data-tip="04:00 — 2 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="05:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="06:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="07:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="08:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="09:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="10:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.80)" data-tip="11:00 — 4 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="12:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="13:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.40)" data-tip="14:00 — 2 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="15:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.20)" data-tip="16:00 — 1 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="17:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="18:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="19:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="20:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.40)" data-tip="21:00 — 2 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="22:00 — 0 scopes"></div>
+
+
+
+
+<div class="heat-cell" style="background:rgba(242,101,34,0.08)" data-tip="23:00 — 0 scopes"></div>
+
+</div>
+<div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--txt3)"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span></div>
+<p style="font-size:.75rem;color:var(--txt2);margin-top:.5rem"><strong>Peak:</strong> Sat (25 scopes, 100.0%). 00:00-03:00 UTC (8 scopes).</p>
+</div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>By Organization (4 total)</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>Organization</th><th class="tc">Scopes</th><th class="tc">Employees</th><th class="tr">Avg Cost</th><th class="tr">Total Cost</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">BELFOR Canada</td><td class="tc">22</td><td class="tc">11</td><td class="tr">$0.52</td><td class="tr">$11.46</td></tr>
+
+<tr><td class="mo">Steamatic</td><td class="tc">1</td><td class="tc">1</td><td class="tr">$0.30</td><td class="tr">$0.30</td></tr>
+
+<tr><td class="mo">Servicemasterofbelleville</td><td class="tc">1</td><td class="tc">1</td><td class="tr">$1.61</td><td class="tr">$1.61</td></tr>
+
+<tr><td class="mo">dalesee@icloud.com</td><td class="tc">1</td><td class="tc">1</td><td class="tr">$0.25</td><td class="tr">$0.25</td></tr>
+
+<tr style="font-weight:700;border-top:2px solid var(--bdr)"><td>TOTAL</td><td class="tc">25</td><td class="tc">14</td><td class="tr">$0.54</td><td class="tr">$13.62</td></tr>
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>By User (14 total)</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>User</th><th class="tc">Scopes</th><th class="tr">Avg Cost</th><th class="tr">Total Cost</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">jonathan.watson@ca.belfor.com</td><td class="tc">4</td><td class="tr">$1.16</td><td class="tr">$4.63</td></tr>
+
+<tr><td class="mo">nick.wood@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.40</td><td class="tr">$1.20</td></tr>
+
+<tr><td class="mo">patty.mcculloch+collingwood@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.50</td><td class="tr">$1.51</td></tr>
+
+<tr><td class="mo">jamie.traverse@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.40</td><td class="tr">$1.21</td></tr>
+
+<tr><td class="mo">steve.millard@ca.belfor.com</td><td class="tc">2</td><td class="tr">$0.24</td><td class="tr">$0.47</td></tr>
+
+<tr><td class="mo">brendan.macdonald@ca.belfor.com</td><td class="tc">2</td><td class="tr">$0.18</td><td class="tr">$0.37</td></tr>
+
+<tr><td class="mo">jf.raymond@steamatic.ca</td><td class="tc">1</td><td class="tr">$0.30</td><td class="tr">$0.30</td></tr>
+
+<tr><td class="mo">matthew.bishop@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.60</td><td class="tr">$0.60</td></tr>
+
+<tr><td class="mo">melissa.martins@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.34</td><td class="tr">$0.34</td></tr>
+
+<tr><td class="mo">greg.janse@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.52</td><td class="tr">$0.52</td></tr>
+
+<tr><td class="mo">lincoln.lam@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.18</td><td class="tr">$0.18</td></tr>
+
+<tr><td class="mo">rick.valerio@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.43</td><td class="tr">$0.43</td></tr>
+
+<tr><td class="mo">alex.armstrong@servicemasterofbelleville.com</td><td class="tc">1</td><td class="tr">$1.61</td><td class="tr">$1.61</td></tr>
+
+<tr><td class="mo">dalesee@icloud.com</td><td class="tc">1</td><td class="tr">$0.25</td><td class="tr">$0.25</td></tr>
+
+<tr style="font-weight:700;border-top:2px solid var(--bdr)"><td>TOTAL</td><td class="tc">25</td><td class="tr">$0.54</td><td class="tr">$13.62</td></tr>
+</tbody></table></div></div>
+
+</div>
+
+
+
+
+<div id="page-errors" class="pg">
+
+<div class="kpi-row">
+<div class="kpi"><div class="val">25</div><div class="lbl">Total Scopes</div></div>
+<div class="kpi"><div class="val">0</div><div class="lbl">Error Traces</div></div>
+<div class="kpi"><div class="val" style="color:#dc2626">0.0%</div><div class="lbl">Error Rate</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="card" style="padding:2rem;text-align:center;color:var(--txt3)">No errors detected this period.</div>
+
+
+</div>
+
+
+
+
+<div id="page-cost" class="pg">
+
+<div class="kpi-row">
+<div class="kpi"><div class="val">25</div><div class="lbl">Total Traces</div></div>
+<div class="kpi"><div class="val">$0.54</div><div class="lbl">Avg Cost</div></div>
+<div class="kpi"><div class="val">$0.43</div><div class="lbl">Median Cost</div></div>
+<div class="kpi"><div class="val">110.3s</div><div class="lbl">Avg Latency</div></div>
+<div class="kpi"><div class="val">80.0s</div><div class="lbl">Median Latency</div></div>
+</div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Cost Distribution</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table>
+<thead><tr><th>Metric</th><th class="tr">Value</th></tr></thead>
+<tbody>
+<tr><td>Average</td><td class="tr">$0.54</td></tr>
+<tr><td>Median</td><td class="tr">$0.43</td></tr>
+<tr><td>Min / Max</td><td class="tr">$0.17 / $1.61</td></tr>
+<tr><td>P75</td><td class="tr">$0.59</td></tr>
+<tr><td>P95</td><td class="tr">$1.50</td></tr>
+<tr><td>Std Dev</td><td class="tr">$0.41</td></tr>
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Latency Distribution</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table>
+<thead><tr><th>Metric</th><th class="tr">Value</th></tr></thead>
+<tbody>
+<tr><td>Average</td><td class="tr">110.3s</td></tr>
+<tr><td>Median</td><td class="tr">80.0s</td></tr>
+<tr><td>P75</td><td class="tr">131.6s</td></tr>
+<tr><td>P95</td><td class="tr">278.7s</td></tr>
+<tr><td>Min / Max</td><td class="tr">22.9s / 441.9s</td></tr>
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Top 10 Users by Avg Cost</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>User</th><th class="tc">Scopes</th><th class="tr">Avg Cost</th><th class="tr">Total Cost</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">alex.armstrong@servicemasterofbelleville.com</td><td class="tc">1</td><td class="tr">$1.61</td><td class="tr">$1.61</td></tr>
+
+<tr><td class="mo">jonathan.watson@ca.belfor.com</td><td class="tc">4</td><td class="tr">$1.16</td><td class="tr">$4.63</td></tr>
+
+<tr><td class="mo">matthew.bishop@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.60</td><td class="tr">$0.60</td></tr>
+
+<tr><td class="mo">greg.janse@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.52</td><td class="tr">$0.52</td></tr>
+
+<tr><td class="mo">patty.mcculloch+collingwood@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.50</td><td class="tr">$1.51</td></tr>
+
+<tr><td class="mo">rick.valerio@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.43</td><td class="tr">$0.43</td></tr>
+
+<tr><td class="mo">jamie.traverse@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.40</td><td class="tr">$1.21</td></tr>
+
+<tr><td class="mo">nick.wood@ca.belfor.com</td><td class="tc">3</td><td class="tr">$0.40</td><td class="tr">$1.20</td></tr>
+
+<tr><td class="mo">melissa.martins@ca.belfor.com</td><td class="tc">1</td><td class="tr">$0.34</td><td class="tr">$0.34</td></tr>
+
+<tr><td class="mo">jf.raymond@steamatic.ca</td><td class="tc">1</td><td class="tr">$0.30</td><td class="tr">$0.30</td></tr>
+
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Top 10 Users by Avg Latency</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>User</th><th class="tc">Scopes</th><th class="tr">Avg Latency</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">alex.armstrong@servicemasterofbelleville.com</td><td class="tc">1</td><td class="tr">299.6s</td></tr>
+
+<tr><td class="mo">jonathan.watson@ca.belfor.com</td><td class="tc">4</td><td class="tr">236.9s</td></tr>
+
+<tr><td class="mo">matthew.bishop@ca.belfor.com</td><td class="tc">1</td><td class="tr">142.7s</td></tr>
+
+<tr><td class="mo">patty.mcculloch+collingwood@ca.belfor.com</td><td class="tc">3</td><td class="tr">107.5s</td></tr>
+
+<tr><td class="mo">rick.valerio@ca.belfor.com</td><td class="tc">1</td><td class="tr">103.7s</td></tr>
+
+<tr><td class="mo">greg.janse@ca.belfor.com</td><td class="tc">1</td><td class="tr">94.4s</td></tr>
+
+<tr><td class="mo">nick.wood@ca.belfor.com</td><td class="tc">3</td><td class="tr">83.0s</td></tr>
+
+<tr><td class="mo">jamie.traverse@ca.belfor.com</td><td class="tc">3</td><td class="tr">75.5s</td></tr>
+
+<tr><td class="mo">jf.raymond@steamatic.ca</td><td class="tc">1</td><td class="tr">64.1s</td></tr>
+
+<tr><td class="mo">melissa.martins@ca.belfor.com</td><td class="tc">1</td><td class="tr">62.0s</td></tr>
+
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Top 10 Organizations by Avg Cost</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>Organization</th><th class="tc">Scopes</th><th class="tr">Avg Cost</th><th class="tr">Total Cost</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">Servicemasterofbelleville</td><td class="tc">1</td><td class="tr">$1.61</td><td class="tr">$1.61</td></tr>
+
+<tr><td class="mo">BELFOR Canada</td><td class="tc">22</td><td class="tr">$0.52</td><td class="tr">$11.46</td></tr>
+
+<tr><td class="mo">Steamatic</td><td class="tc">1</td><td class="tr">$0.30</td><td class="tr">$0.30</td></tr>
+
+<tr><td class="mo">dalesee@icloud.com</td><td class="tc">1</td><td class="tr">$0.25</td><td class="tr">$0.25</td></tr>
+
+</tbody></table></div></div>
+
+
+<div class="card"><div class="card-hdr" onclick="toggle(this)"><h3>Top 10 Organizations by Avg Latency</h3><span class="arrow">&#9660;</span></div>
+<div class="card-body"><table class="sortable">
+<thead><tr><th>Organization</th><th class="tc">Scopes</th><th class="tr">Avg Latency</th></tr></thead>
+<tbody>
+
+<tr><td class="mo">Servicemasterofbelleville</td><td class="tc">1</td><td class="tr">299.6s</td></tr>
+
+<tr><td class="mo">BELFOR Canada</td><td class="tc">22</td><td class="tr">107.0s</td></tr>
+
+<tr><td class="mo">Steamatic</td><td class="tc">1</td><td class="tr">64.1s</td></tr>
+
+<tr><td class="mo">dalesee@icloud.com</td><td class="tc">1</td><td class="tr">40.0s</td></tr>
+
+</tbody></table></div></div>
+
+</div>
+
+
+
+
+
+<div id="page-sales" class="pg">
+
+<div class="kpi-row">
+<div class="kpi"><div class="val">25</div><div class="lbl">Total Traces</div></div>
+<div class="kpi"><div class="val" style="color:#dc2626">25</div><div class="lbl">Flagged for Outreach</div></div>
+<div class="kpi"><div class="val">4</div><div class="lbl">Organizations</div></div>
+<div class="kpi"><div class="val">14</div><div class="lbl">Unique Users</div></div>
+</div>
+<div class="kpi-row" style="margin-top:.5rem">
+<div class="kpi"><div class="val" style="color:#991b1b;font-size:1.5rem">2</div><div class="lbl"><span class="flag-chip low-score">LOW SCORE</span></div></div>
+<div class="kpi"><div class="val" style="color:#991b1b;font-size:1.5rem">0</div><div class="lbl"><span class="flag-chip pipeline">PIPELINE</span></div></div>
+<div class="kpi"><div class="val" style="color:#374151;font-size:1.5rem">0</div><div class="lbl"><span class="flag-chip no-data">NO DATA</span></div></div>
+<div class="kpi"><div class="val" style="color:#0369a1;font-size:1.5rem">0</div><div class="lbl"><span class="flag-chip no-plan">NO PLAN</span></div></div>
+<div class="kpi"><div class="val" style="color:#92400e;font-size:1.5rem">25</div><div class="lbl"><span class="flag-chip fp-mismatch">FP MISMATCH</span></div></div>
+<div class="kpi"><div class="val" style="color:#0369a1;font-size:1.5rem">1</div><div class="lbl"><span class="flag-chip initial-scope">INITIAL SCOPE</span></div></div>
+</div>
+
+
+
+<div class="card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>BELFOR Canada &mdash; 22 traces, <span style="color:#dc2626">22 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>brendan.macdonald@ca.belfor.com &mdash; 2 traces, <span style="color:#dc2626">2 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-c1aafe62')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>3 (3/0)</td>
+<td>28</td>
+<td>4</td>
+<td>0</td>
+<td>1m 1s</td>
+</tr>
+
+<tr id="d-c1aafe62" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: c1aafe62c14f63fd0cdec818eabc744e</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>3 rooms; 3 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>28 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>4 notes; 3 rooms without notes</td></tr><tr><td>Floor Plans</td><td>None</td><td>0 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>N/A</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>28 field photos were submitted. Technician notes were provided (4 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Add notes for the 3 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 1s. Data quality flags: 3 affected room(s) had no technician notes.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-f9d0ccb0')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.7/5</td>
+<td>3/5 Adequate</td>
+<td>2 (1/1)</td>
+<td>15</td>
+<td>7</td>
+<td>0</td>
+<td>1m 0s</td>
+</tr>
+
+<tr id="d-f9d0ccb0" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: f9d0ccb033828b49a1de42d77fff25db</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>2 rooms; 2 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>15 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>7 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>None</td><td>0 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>N/A</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>15 field photos were submitted. Technician notes were provided (7 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 0s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>greg.janse@ca.belfor.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-3fc60a79')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>10 (3/7)</td>
+<td>43</td>
+<td>8</td>
+<td>1</td>
+<td>1m 34s</td>
+</tr>
+
+<tr id="d-3fc60a79" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 3fc60a7963ffce8d32e820dd7c7dac5a</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>10 rooms; 6 in app, 3 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>43 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>8 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>43 field photos were submitted. Technician notes were provided (8 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 of 10 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 7 data quality issue(s): 4 measurement validation warning(s); 3 room(s) with missing measurements.</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 34s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>jamie.traverse@ca.belfor.com &mdash; 3 traces, <span style="color:#dc2626">3 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-e6048664')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">4.0/5</td>
+<td>3/5 Adequate</td>
+<td>2 (2/0)</td>
+<td>51</td>
+<td>4</td>
+<td>0</td>
+<td>0m 51s</td>
+</tr>
+
+<tr id="d-e6048664" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: e60486644550cd1b3c837b3fa9c4ada0</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>2 rooms; 2 in app, 2 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>51 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>4 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>None</td><td>0 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>N/A</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>51 field photos were submitted. Technician notes were provided (4 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 0m 51s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-ca5c257d')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>8 (5/3)</td>
+<td>100</td>
+<td>8</td>
+<td>1</td>
+<td>1m 40s</td>
+</tr>
+
+<tr id="d-ca5c257d" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: ca5c257d5b120ce875703fc8285f040c</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>8 rooms; 5 in app, 5 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>100 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>8 notes; 5 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>100 field photos were submitted. Technician notes were provided (8 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 5 of 8 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 3 data quality issue(s): 3 measurement validation warning(s).</p>
+<h4>Recommendations</h4><ol><li>Add notes for the 5 room(s) missing them. Even brief notes about damage type and extent help.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 40s. Data quality flags: 5 affected room(s) had no technician notes.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-136c56ef')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>3/5 Adequate</td>
+<td>8 (4/4)</td>
+<td>39</td>
+<td>5</td>
+<td>1</td>
+<td>1m 15s</td>
+</tr>
+
+<tr id="d-136c56ef" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 136c56ef7acfd20595311ff979ed812c</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Fair</td><td>8 rooms; 4 in app, 4 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>39 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>5 notes; 3 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Issues</td><td>4 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>39 field photos were submitted. Technician notes were provided (5 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 4 floor plan room(s) could not be matched to claim rooms because the names didn&#x27;t match. Make sure floor plan room labels match claim room names before running the scope. 4 of 8 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 6 data quality issue(s): 3 measurement validation warning(s); 3 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Add notes for the 3 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 15s. Data quality flags: 3 affected room(s) had no technician notes; the floor plan area differs from room areas by 762 SF; 4 floor plan room(s) could not be matched to claim rooms.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>jonathan.watson@ca.belfor.com &mdash; 4 traces, <span style="color:#dc2626">4 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-d92a64ca')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>5 (5/0)</td>
+<td>94</td>
+<td>4</td>
+<td>0</td>
+<td>7m 21s</td>
+</tr>
+
+<tr id="d-d92a64ca" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: d92a64ca16165aa5c3f668194c1ce133</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Fair</td><td>5 rooms; 1 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>94 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Adequate</td><td>4 notes; 3 rooms without notes</td></tr><tr><td>Floor Plans</td><td>None</td><td>0 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>N/A</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>94 field photos were submitted. Notes were provided for some rooms (4 notes across 5 affected rooms), but not all rooms had written descriptions of the damage. No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. 1 of 5 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Add notes for the 3 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 7m 21s. Data quality flags: 3 affected room(s) had no technician notes.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-ccb6ef48')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.7/5</td>
+<td>3/5 Adequate</td>
+<td>12 (6/6)</td>
+<td>392</td>
+<td>8</td>
+<td>2</td>
+<td>3m 15s</td>
+</tr>
+
+<tr id="d-ccb6ef48" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: ccb6ef485c5ffc08f6893acce3bff292</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>12 rooms; 7 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>392 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>8 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>2 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>392 field photos were submitted. Technician notes were provided (8 notes). 2 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 7 of 12 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 5 data quality issue(s): 4 equipment sizing conflict(s); 1 measurement validation warning(s).</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 3m 15s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-95f25b87')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>8 (5/3)</td>
+<td>335</td>
+<td>8</td>
+<td>1</td>
+<td>2m 58s</td>
+</tr>
+
+<tr id="d-95f25b87" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 95f25b874fddfae90cd833ad64f2224f</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>8 rooms; 7 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>335 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>8 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>335 field photos were submitted. Technician notes were provided (8 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 7 of 8 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 2m 58s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-21a3d2d3')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.7/5</td>
+<td>3/5 Adequate</td>
+<td>14 (6/8)</td>
+<td>300</td>
+<td>8</td>
+<td>1</td>
+<td>2m 11s</td>
+</tr>
+
+<tr id="d-21a3d2d3" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 21a3d2d3f329297f14d9e9bb86bd56c2</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Fair</td><td>14 rooms; 7 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>300 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>8 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>300 field photos were submitted. Technician notes were provided (8 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 7 of 14 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 1 data quality issue(s): 1 room(s) with missing measurements.</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 2m 11s. Data quality flags: the floor plan area differs from room areas by 1153 SF.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>lincoln.lam@ca.belfor.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-68ca4585')" style="cursor:pointer">
+<td><span class="flag-chip initial-scope">INITIAL SCOPE</span><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>1 (1/0)</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0m 22s</td>
+</tr>
+
+<tr id="d-68ca4585" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 68ca45857038ae7e7d18c8cbd19f6bb9</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>1 rooms; 0 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 1 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>1 notes; 1 rooms without notes</td></tr><tr><td>Floor Plans</td><td>None</td><td>0 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>N/A</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Technician notes were provided (1 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Add notes for the 1 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 0m 22s. Data quality flags: 1 affected room(s) had no photos; 1 affected room(s) had no technician notes.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>matthew.bishop@ca.belfor.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-c176a248')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>11 (5/6)</td>
+<td>87</td>
+<td>11</td>
+<td>1</td>
+<td>2m 22s</td>
+</tr>
+
+<tr id="d-c176a248" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: c176a248c01c160dc99f4b91d7d2b9bc</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Fair</td><td>11 rooms; 5 in app, 5 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>87 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>11 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Issues</td><td>6 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>87 field photos were submitted. Technician notes were provided (11 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 floor plan room(s) could not be matched to claim rooms because the names didn&#x27;t match. Make sure floor plan room labels match claim room names before running the scope. 5 of 11 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 8 data quality issue(s): 4 measurement validation warning(s); 4 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 2m 22s. Data quality flags: 6 floor plan room(s) could not be matched to claim rooms.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>melissa.martins@ca.belfor.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-a3a977e6')" style="cursor:pointer">
+<td><span class="flag-chip low-score">LOW SCORE</span><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">2.7/5</td>
+<td>2/5 Minimal</td>
+<td>12 (6/6)</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1m 2s</td>
+</tr>
+
+<tr id="d-a3a977e6" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: a3a977e6a04df85b530a2aa1811ce4e4</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>12 rooms; 0 in app, 4 from notes</td></tr><tr><td>Field Photos</td><td>Minimal</td><td>3 photos; 4 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Minimal</td><td>1 notes; 4 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Issues</td><td>6 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>Only 3 photos were submitted, which limits the system&#x27;s ability to verify damage in each room. Notes were provided for some rooms (1 notes across 6 affected rooms), but not all rooms had written descriptions of the damage. 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 floor plan room(s) could not be matched to claim rooms because the names didn&#x27;t match. Make sure floor plan room labels match claim room names before running the scope. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 16 data quality issue(s): 6 measurement validation warning(s); 6 room(s) with missing measurements; 4 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Add photos for the 4 room(s) that are missing them. Each room should have at least a few photos showing the damage.</li><li>Add notes for the 4 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 2s. Data quality flags: 4 affected room(s) had no photos; 4 affected room(s) had no technician notes; 6 floor plan room(s) could not be matched to claim rooms.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>nick.wood@ca.belfor.com &mdash; 3 traces, <span style="color:#dc2626">3 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-943e7e80')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>2/5 Minimal</td>
+<td>6 (6/0)</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1m 20s</td>
+</tr>
+
+<tr id="d-943e7e80" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 943e7e80cc68e6a0dad15d050490e424</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>6 rooms; 0 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 6 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Minimal</td><td>1 notes; 5 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Notes were provided for some rooms (1 notes across 6 affected rooms), but not all rooms had written descriptions of the damage. 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 3 data quality issue(s): 1 equipment sizing conflict(s); 2 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Add notes for the 5 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 20s. Data quality flags: 6 affected room(s) had no photos; 5 affected room(s) had no technician notes.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-ea07fef8')" style="cursor:pointer">
+<td><span class="flag-chip low-score">LOW SCORE</span><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">2.7/5</td>
+<td>2/5 Minimal</td>
+<td>9 (7/2)</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1m 9s</td>
+</tr>
+
+<tr id="d-ea07fef8" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: ea07fef88b6a914cdd2c9578bd1af1d6</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>9 rooms; 0 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 7 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Minimal</td><td>1 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>2 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Issues</td><td>1 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Notes were provided for some rooms (1 notes across 7 affected rooms), but not all rooms had written descriptions of the damage. 2 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 1 floor plan room(s) could not be matched to claim rooms because the names didn&#x27;t match. Make sure floor plan room labels match claim room names before running the scope. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 7 data quality issue(s): 7 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Check that floor plan room labels match the room names in your claim. Mismatched names prevent measurements from being assigned.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 9s. Data quality flags: 7 affected room(s) had no photos; 1 floor plan room(s) could not be matched to claim rooms.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-4a483ed2')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>2/5 Minimal</td>
+<td>17 (7/10)</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1m 39s</td>
+</tr>
+
+<tr id="d-4a483ed2" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 4a483ed2df0829ee025a912e99e41289</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>17 rooms; 0 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 7 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Minimal</td><td>1 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>2 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Notes were provided for some rooms (1 notes across 7 affected rooms), but not all rooms had written descriptions of the damage. 2 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 21 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements; 7 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 39s. Data quality flags: 7 affected room(s) had no photos.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>patty.mcculloch+collingwood@ca.belfor.com &mdash; 3 traces, <span style="color:#dc2626">3 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-75ff5965')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>5 (3/2)</td>
+<td>30</td>
+<td>8</td>
+<td>1</td>
+<td>1m 53s</td>
+</tr>
+
+<tr id="d-75ff5965" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 75ff59656cd670bc30fe4c5393eb3d9f</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>5 rooms; 3 in app, 3 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>30 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>8 notes; 2 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>30 field photos were submitted. Technician notes were provided (8 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 3 of 5 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 2 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Add notes for the 2 room(s) missing them. Even brief notes about damage type and extent help.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 53s. Data quality flags: 2 affected room(s) had no technician notes; the floor plan area differs from room areas by 1667 SF.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-fb686658')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>3/5 Adequate</td>
+<td>8 (3/5)</td>
+<td>27</td>
+<td>9</td>
+<td>1</td>
+<td>1m 9s</td>
+</tr>
+
+<tr id="d-fb686658" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: fb68665849d22897398ca916e3f57927</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>8 rooms; 6 in app, 6 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>27 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>9 notes; 2 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>27 field photos were submitted. Technician notes were provided (9 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 6 of 8 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 14 data quality issue(s): 7 measurement validation warning(s); 7 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Add notes for the 2 room(s) missing them. Even brief notes about damage type and extent help.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 9s. Data quality flags: 2 affected room(s) had no technician notes; the floor plan area differs from room areas by 497 SF.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-342e11d3')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.7/5</td>
+<td>3/5 Adequate</td>
+<td>9 (2/7)</td>
+<td>91</td>
+<td>10</td>
+<td>1</td>
+<td>2m 20s</td>
+</tr>
+
+<tr id="d-342e11d3" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 342e11d36bea1ddf6ccf4a66eafd31db</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>9 rooms; 7 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>91 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>10 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>91 field photos were submitted. Technician notes were provided (10 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 7 of 9 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 4 data quality issue(s): 2 material mismatch(es) between room data sources; 1 measurement validation warning(s); 1 room(s) with missing measurements.</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 2m 20s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>rick.valerio@ca.belfor.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-6f6dc75a')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.3/5</td>
+<td>3/5 Adequate</td>
+<td>10 (1/9)</td>
+<td>60</td>
+<td>9</td>
+<td>1</td>
+<td>1m 43s</td>
+</tr>
+
+<tr id="d-6f6dc75a" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 6f6dc75ab0151e5e8c4e4d8173902c9f</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>10 rooms; 7 in app, 7 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>60 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>9 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>60 field photos were submitted. Technician notes were provided (9 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. 7 of 10 rooms were set up in the app beforehand. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 4 data quality issue(s): 2 measurement validation warning(s); 2 room(s) with missing measurements.</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 43s. Data quality flags: the floor plan area differs from room areas by 231 SF.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>steve.millard@ca.belfor.com &mdash; 2 traces, <span style="color:#dc2626">2 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-52c8498d')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>2/5 Minimal</td>
+<td>4 (1/3)</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0m 31s</td>
+</tr>
+
+<tr id="d-52c8498d" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 52c8498d5fcc0265e66b51d6df95cccc</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>4 rooms; 0 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 1 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>1 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Technician notes were provided (1 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 5 data quality issue(s): 2 equipment sizing conflict(s); 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 0m 31s. Data quality flags: 1 affected room(s) had no photos.</p></div></td>
+</tr>
+
+
+<tr class="flagged-row" onclick="toggleDetail('d-6e88d2bf')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>2/5 Minimal</td>
+<td>4 (1/3)</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0m 29s</td>
+</tr>
+
+<tr id="d-6e88d2bf" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 6e88d2bf0214b1b9caef7b4c36b775fc</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>4 rooms; 0 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 1 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>1 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Technician notes were provided (1 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 3 data quality issue(s): 1 measurement validation warning(s); 1 room(s) with missing measurements; 1 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 0m 29s. Data quality flags: 1 affected room(s) had no photos.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>Servicemasterofbelleville &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>alex.armstrong@servicemasterofbelleville.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-e2ae8570')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.7/5</td>
+<td>3/5 Adequate</td>
+<td>12 (10/2)</td>
+<td>417</td>
+<td>14</td>
+<td>0</td>
+<td>4m 59s</td>
+</tr>
+
+<tr id="d-e2ae8570" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: e2ae8570031fd80c542de56b3fad54d1</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>12 rooms; 12 in app, 12 from notes</td></tr><tr><td>Field Photos</td><td>Good</td><td>417 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>14 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>None</td><td>0 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>N/A</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>417 field photos were submitted. Technician notes were provided (14 notes). No floor plans were uploaded, so room measurements are not available and task quantities will need to be filled in manually. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 4 data quality issue(s): 1 equipment sizing conflict(s); 2 measurement validation warning(s); 1 room(s) with missing measurements.</p>
+<h4>Recommendations</h4><ol><li>Upload a floor plan with room measurements. Without measurements, task quantities cannot be calculated and must be filled in manually.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 4m 59s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>Steamatic &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>jf.raymond@steamatic.ca &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-e3264980')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">3.0/5</td>
+<td>2/5 Minimal</td>
+<td>6 (6/0)</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1m 4s</td>
+</tr>
+
+<tr id="d-e3264980" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: e3264980c773d6ebb946b73aef0e6922</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Poor</td><td>6 rooms; 0 in app, 2 from notes</td></tr><tr><td>Field Photos</td><td>None</td><td>0 photos; 6 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Minimal</td><td>1 notes; 5 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>No field photos were submitted for this scope. Notes were provided for some rooms (1 notes across 6 affected rooms), but not all rooms had written descriptions of the damage. 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. Rooms were not set up in the app before running the scope, which means they will not sync back to the field application. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>The system detected 5 data quality issue(s): 5 affected room(s) without photos.</p>
+<h4>Recommendations</h4><ol><li>Take photos of each affected room before running the scope. Photos help verify damage type and extent in each room.</li><li>Add notes for the 5 room(s) missing them. Even brief notes about damage type and extent help.</li><li>Set up rooms in the app before running the scope. Rooms created in the app sync back to your field application; rooms inferred from notes do not.</li></ol>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 1m 4s. Data quality flags: 6 affected room(s) had no photos; 5 affected room(s) had no technician notes.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>dalesee@icloud.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+
+
+<div class="sub-card">
+<div class="card-hdr" onclick="toggle(this)">
+<h3>dalesee@icloud.com &mdash; 1 trace, <span style="color:#dc2626">1 flagged</span></h3>
+<span class="arrow">&#9660;</span>
+</div>
+<div class="card-body sales-body">
+<table class="sortable">
+<thead><tr>
+<th>Flags</th><th>Date</th><th>Overall</th><th>Input</th>
+<th>Rooms</th><th>Photos</th><th>Notes</th><th>Plans</th><th>Time</th>
+</tr></thead>
+<tbody>
+
+<tr class="flagged-row" onclick="toggleDetail('d-4decdd9f')" style="cursor:pointer">
+<td><span class="flag-chip fp-mismatch">FP MISMATCH</span></td>
+<td>2026-03-14</td>
+<td style="font-weight:700">4.3/5</td>
+<td>3/5 Adequate</td>
+<td>1 (1/0)</td>
+<td>12</td>
+<td>3</td>
+<td>1</td>
+<td>0m 40s</td>
+</tr>
+
+<tr id="d-4decdd9f" style="display:none">
+<td colspan="9"><div class="trace-detail"><h4 style="font-family:monospace;font-size:.78rem;color:var(--txt3)">Langfuse Trace: 4decdd9f1b83560a5c365e14a1d5e7cc</h4>
+<h4>What Was Provided</h4><table><thead><tr><th>Category</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td>Room Setup</td><td>Good</td><td>1 rooms; 1 in app, 1 from notes</td></tr><tr><td>Field Photos</td><td>Adequate</td><td>12 photos; 0 rooms without photos</td></tr><tr><td>Technician Notes</td><td>Detailed</td><td>3 notes; 0 rooms without notes</td></tr><tr><td>Floor Plans</td><td>Partial</td><td>1 plans; 0 rooms with measurements</td></tr><tr><td>Room Name Matching</td><td>Good</td><td>0 unmatched floor plan rooms</td></tr><tr><td>Moisture Data</td><td>None</td><td>--</td></tr><tr><td>Guidelines</td><td>None</td><td>--</td></tr></tbody></table>
+<h4>Input Assessment</h4><p>12 field photos were submitted. Technician notes were provided (3 notes). 1 floor plan(s) were uploaded but room labels could not be matched, so measurements could not be assigned to specific rooms. No moisture monitoring data was submitted.</p>
+<h4>Issue Assessment</h4><p>No data quality issues were detected in this scope.</p>
+<h4>Pipeline Assessment</h4><p>The scope completed successfully in 0m 40s. No data quality issues were flagged.</p></div></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+</div>
+
+
+<div class="ft">MitScope Production Report — Encircle &copy; 2026 — Generated Mar 15, 2026</div>
+
+<script>
+function showPage(p,b){
+  document.querySelectorAll('.pg').forEach(function(e){e.classList.remove('active')});
+  document.querySelectorAll('.tab').forEach(function(e){e.classList.remove('active')});
+  document.getElementById('page-'+p).classList.add('active');
+  b.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggle(hdr){
+  hdr.classList.toggle('open');
+  var body=hdr.nextElementSibling;
+  body.classList.toggle('open');
+}
+function toggleDetail(id){
+  var el=document.getElementById(id);
+  if(el) el.style.display=el.style.display==='none'?'table-row':'none';
+}
+
+// Sortable tables
+document.querySelectorAll('table.sortable thead th').forEach(function(th){
+  th.addEventListener('click',function(){
+    var table=th.closest('table');
+    var tbody=table.querySelector('tbody');
+    var idx=Array.from(th.parentNode.children).indexOf(th);
+    var rows=Array.from(tbody.querySelectorAll('tr')).filter(function(r){return !r.style.fontWeight||r.style.fontWeight!=='700'});
+    var totalRow=Array.from(tbody.querySelectorAll('tr')).filter(function(r){return r.style.fontWeight==='700'})[0];
+    var dir=th.classList.contains('sort-asc')?'desc':'asc';
+    th.parentNode.querySelectorAll('th').forEach(function(h){h.classList.remove('sort-asc','sort-desc')});
+    th.classList.add('sort-'+dir);
+    rows.sort(function(a,b){
+      var aVal=(a.children[idx]?a.children[idx].textContent:'').trim().replace(/[$,s%]/g,'');
+      var bVal=(b.children[idx]?b.children[idx].textContent:'').trim().replace(/[$,s%]/g,'');
+      var aNum=parseFloat(aVal),bNum=parseFloat(bVal);
+      if(!isNaN(aNum)&&!isNaN(bNum))return dir==='asc'?aNum-bNum:bNum-aNum;
+      return dir==='asc'?aVal.localeCompare(bVal):bVal.localeCompare(aVal);
+    });
+    rows.forEach(function(r){tbody.appendChild(r)});
+    if(totalRow)tbody.appendChild(totalRow);
+  });
+});
+</script>
+</body>
+</html>

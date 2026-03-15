@@ -178,6 +178,14 @@ class TraceEvalReport:
     note_count: int = 0
     has_guidelines: bool = False
     has_moisture: bool = False
+    thermal_count: int = 0
+    pano_count: int = 0
+    video_count: int = 0
+    has_general_notes: bool = False
+    total_structures: int = 0
+    structural_count: int = 0
+    org_count: int = 0
+    org_names: list[str] = field(default_factory=list)
 
     # Data quality flags
     rooms_without_photos: int = 0

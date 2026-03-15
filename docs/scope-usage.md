@@ -123,6 +123,44 @@
 ---
 
 ### 2026-03-14 (Daily)
+**Generated:** 2026-03-15 16:02 UTC | **Period:** 2026-03-14
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 25 |
+| Unique Organizations | 4 |
+| Unique Users | 14 |
+| Total Cost | $13.62 |
+| Average Cost / Scope | $0.54 |
+
+**Top Users:** jonathan.watson@ca.belfor.com (4), nick.wood@ca.belfor.com (3), patty.mcculloch+collingwood@ca.belfor.com (3), jamie.traverse@ca.belfor.com (3), steve.millard@ca.belfor.com (2)
+
+**Top Orgs:** BELFOR Canada (22), Steamatic (1), Servicemasterofbelleville (1), dalesee@icloud.com (1)
+
+**Cost Outliers:** 2 users with avg > $1.00/scope
+
+---
+
+### 2026-03-13 (Daily)
+**Generated:** 2026-03-14 05:00 UTC | **Period:** 2026-03-13
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 101 |
+| Unique Organizations | 26 |
+| Unique Users | 59 |
+| Total Cost | $58.34 |
+| Average Cost / Scope | $0.58 |
+
+**Top Users:** darren.ball+chatham@ca.belfor.com (5), patty.mcculloch+collingwood@ca.belfor.com (4), kay.cayuga+owensound@ca.belfor.com (4), kristy.persson+hub@ca.belfor.com (4), tanya.leite@ca.belfor.com (4)
+
+**Top Orgs:** BELFOR Canada (62), Restoration 1 (5), Servicemasterbc (3), Rockemergency (3), Si-restoration (2)
+
+**Cost Outliers:** 4 users with avg > $1.00/scope
+
+---
+
+### 2026-03-14 (Daily)
 **Generated:** 2026-03-15 15:35 UTC | **Period:** 2026-03-14
 
 | Metric | Value |
