@@ -82,25 +82,6 @@
 
 ## Weekly Reports (7d)
 
-### 2026-03-08 (Weekly)
-**Generated:** 2026-03-15 01:03 UTC | **Period:** 7d (2026-03-08 to 2026-03-15)
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 638 |
-| Unique Organizations | 87 |
-| Unique Users | 193 |
-| Total Cost | $379.54 |
-| Average Cost / Scope | $0.59 |
-
-**Top Users:** kay.cayuga+owensound@ca.belfor.com (20), trey@atlassoo.com (18), tracey.paris@ca.belfor.com (17), kristy.persson+hub@ca.belfor.com (16), mandrew@servicemasterbc.ca (15)
-
-**Top Orgs:** BELFOR Canada (365), Servicemasterbc (23), BELFOR US (20), Atlassoo (20), Restoration 1 (18)
-
-**Cost Outliers:** 24 users with avg > $1.00/scope
-
----
-
 ### 2026-03-01 (Weekly)
 **Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08)
 
@@ -122,193 +103,20 @@
 
 ## Daily Reports (24h)
 
-### 2026-03-13 (Daily)
-**Generated:** 2026-03-14 02:50 UTC | **Period:** 2026-03-13
+### 2026-03-14 (Daily)
+**Generated:** 2026-03-15 15:02 UTC | **Period:** 1d (2026-03-14 to 2026-03-15)
 
 | Metric | Value |
 |---|---|
-| Total Production Scopes | 101 |
-| Unique Organizations | 26 |
-| Unique Users | 59 |
-| Total Cost | $58.34 |
-| Average Cost / Scope | $0.58 |
+| Total Production Scopes | 7 |
+| Unique Organizations | 3 |
+| Unique Users | 5 |
+| Total Cost | $3.52 |
+| Average Cost / Scope | $0.50 |
 
-**Top Users:** darren.ball+chatham@ca.belfor.com (5), patty.mcculloch+collingwood@ca.belfor.com (4), kay.cayuga+owensound@ca.belfor.com (4), kristy.persson+hub@ca.belfor.com (4), tanya.leite@ca.belfor.com (4)
+**Top Users:** jledbetter@encircleapp.com (2), patty.mcculloch+collingwood@ca.belfor.com (2), brendan.macdonald@ca.belfor.com (1), jf.raymond@steamatic.ca (1), nick.wood@ca.belfor.com (1)
 
-**Top Orgs:** BELFOR Canada (62), Restoration 1 (5), Servicemasterbc (3), Rockemergency (3), Si-restoration (2)
-
-**Cost Outliers:** 4 users with avg > $1.00/scope
-
----
-
-### 2026-03-13 (Daily)
-**Generated:** 2026-03-14 00:59 UTC | **Period:** 2026-03-13
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 101 |
-| Unique Organizations | 26 |
-| Unique Users | 59 |
-| Total Cost | $58.34 |
-| Average Cost / Scope | $0.58 |
-
-**Top Users:** darren.ball+chatham@ca.belfor.com (5), patty.mcculloch+collingwood@ca.belfor.com (4), kay.cayuga+owensound@ca.belfor.com (4), kristy.persson+hub@ca.belfor.com (4), tanya.leite@ca.belfor.com (4)
-
-**Top Orgs:** BELFOR Canada (62), Restoration 1 (5), Servicemasterbc (3), Rockemergency (3), Si-restoration (2)
-
-**Cost Outliers:** 4 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 23:14 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 22:31 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 22:11 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 21:51 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 20:12 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 18:44 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 17:51 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 17:23 UTC | **Period:** 2026-03-12
-
-| Metric | Value |
-|---|---|
-| Total Production Scopes | 140 |
-| Unique Organizations | 31 |
-| Unique Users | 70 |
-| Total Cost | $83.75 |
-| Average Cost / Scope | $0.60 |
-
-**Top Users:** mandrew@servicemasterbc.ca (15), terence.dunphy@ca.belfor.com (9), claudette.ryan@ca.belfor.com (6), kristy.persson+hub@ca.belfor.com (5), tracey.paris@ca.belfor.com (5)
-
-**Top Orgs:** BELFOR Canada (76), Servicemasterbc (15), Restoration 1 (5), Atlassoo (4), Nlsco (4)
-
-**Cost Outliers:** 9 users with avg > $1.00/scope
+**Top Orgs:** BELFOR Canada (4), Encircle (internal) (2), Steamatic (1)
 
 ---
 

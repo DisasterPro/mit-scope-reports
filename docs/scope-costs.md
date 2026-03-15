@@ -78,24 +78,6 @@
 
 ## Weekly Reports (7d)
 
-### 2026-03-08 (Weekly)
-**Generated:** 2026-03-15 01:03 UTC | **Period:** 7d (2026-03-08 to 2026-03-15) | **Traces:** 638
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.59 | 156.8s |
-| Median | $0.46 | 118.0s |
-| P75 | $0.67 | 175.1s |
-| P95 | $1.56 | 389.0s |
-| Min | $0.06 | 14.1s |
-| Max | $3.78 | 1293.5s |
-
-**Top Cost Users:** christiaan@insightrestoration.com ($3.05), jennifer.rousseau@us.belfor.com ($2.88), scott.shizuru@us.belfor.com ($2.64)
-
-**Top Latency Users:** scott.shizuru@us.belfor.com (697s), christiaan@insightrestoration.com (544s), mark.heinemann@ca.belfor.com (475s)
-
----
-
 ### 2026-03-01 (Weekly)
 **Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08) | **Traces:** 473
 
@@ -116,183 +98,21 @@
 
 ## Daily Reports (24h)
 
-### 2026-03-13 (Daily)
-**Generated:** 2026-03-14 02:50 UTC | **Period:** 2026-03-13 | **Traces:** 101
+### 2026-03-14 (Daily)
+**Generated:** 2026-03-15 15:02 UTC | **Period:** 1d (2026-03-14 to 2026-03-15) | **Traces:** 7
 
 | Metric | Cost | Latency |
 |---|---|---|
-| Average | $0.58 | 156.1s |
-| Median | $0.45 | 113.5s |
-| P75 | $0.61 | 161.5s |
-| P95 | $1.40 | 559.8s |
-| Min | $0.09 | 14.6s |
-| Max | $3.33 | 919.2s |
+| Average | $0.50 | 93.1s |
+| Median | $0.45 | 84.1s |
+| P75 | $0.63 | 113.1s |
+| P95 | $0.76 | 123.6s |
+| Min | $0.30 | 64.1s |
+| Max | $0.77 | 128.0s |
 
-**Top Cost Users:** christiaan@insightrestoration.com ($3.05), scott.shizuru@us.belfor.com ($2.57), nick@cleanresponse.com ($1.45)
+**Top Cost Users:** jledbetter@encircleapp.com ($0.76), brendan.macdonald@ca.belfor.com ($0.45), patty.mcculloch+collingwood@ca.belfor.com ($0.43)
 
-**Top Latency Users:** christiaan@insightrestoration.com (544s), ryan.smith@restoration1.com (463s), nick@cleanresponse.com (460s)
-
----
-
-### 2026-03-13 (Daily)
-**Generated:** 2026-03-14 00:59 UTC | **Period:** 2026-03-13 | **Traces:** 101
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.58 | 156.1s |
-| Median | $0.45 | 113.5s |
-| P75 | $0.61 | 161.5s |
-| P95 | $1.40 | 559.8s |
-| Min | $0.09 | 14.6s |
-| Max | $3.33 | 919.2s |
-
-**Top Cost Users:** christiaan@insightrestoration.com ($3.05), scott.shizuru@us.belfor.com ($2.57), nick@cleanresponse.com ($1.45)
-
-**Top Latency Users:** christiaan@insightrestoration.com (544s), ryan.smith@restoration1.com (463s), nick@cleanresponse.com (460s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 23:14 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 22:31 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 22:11 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 21:51 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 20:12 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 18:44 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 17:51 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
-
----
-
-### 2026-03-12 (Daily)
-**Generated:** 2026-03-13 17:23 UTC | **Period:** 2026-03-12 | **Traces:** 140
-
-| Metric | Cost | Latency |
-|---|---|---|
-| Average | $0.60 | 136.1s |
-| Median | $0.42 | 100.5s |
-| P75 | $0.66 | 146.7s |
-| P95 | $1.59 | 344.3s |
-| Min | $0.08 | 14.1s |
-| Max | $3.78 | 900.9s |
-
-**Top Cost Users:** ghackbarth@brookstonecompanies.com ($3.54), ccastillo@rrtfl.com ($3.30), mikelhutchko@gmail.com ($2.81)
-
-**Top Latency Users:** ghackbarth@brookstonecompanies.com (427s), mary.hernandez@ca.belfor.com (419s), blake.goulding@ca.belfor.com (363s)
+**Top Latency Users:** jledbetter@encircleapp.com (121s), patty.mcculloch+collingwood@ca.belfor.com (91s), brendan.macdonald@ca.belfor.com (84s)
 
 ---
 
