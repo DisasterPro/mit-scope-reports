@@ -56,11 +56,13 @@ tr:hover td{background:#fafbfc}
 .err-detail p{font-size:.78rem;color:var(--txt2);margin-bottom:.35rem}
 .ft{text-align:center;padding:1.5rem;font-size:.72rem;color:var(--txt3)}
 .flag-chip{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600;margin-right:4px}
-.flag-chip.floor-plan{background:#fef3c7;color:#92400e}
+.flag-chip.fp-mismatch{background:#fef3c7;color:#92400e}
 .flag-chip.low-score{background:#fee2e2;color:#991b1b}
 .flag-chip.org-rooms{background:#fce7f3;color:#9d174d}
 .flag-chip.pipeline{background:#fee2e2;color:#991b1b}
 .flag-chip.no-data{background:#f3f4f6;color:#374151}
+.flag-chip.no-plan{background:#e0f2fe;color:#0369a1}
+.flag-chip.initial-scope{background:#e0f2fe;color:#0369a1}
 .flagged-row{border-left:3px solid var(--enc)}
 .sub-card{margin:0 0 8px 24px}
 .sub-card .card-hdr{font-size:.9rem;background:#f8fafc}
@@ -334,6 +336,14 @@ tr:hover td{background:#fafbfc}
 <div class="kpi"><div class="val">{{ sales.total_orgs }}</div><div class="lbl">Organizations</div></div>
 <div class="kpi"><div class="val">{{ sales.total_users }}</div><div class="lbl">Unique Users</div></div>
 </div>
+<div class="kpi-row" style="margin-top:.5rem">
+<div class="kpi"><div class="val" style="color:#991b1b;font-size:1.5rem">{{ sales.count_low_score }}</div><div class="lbl"><span class="flag-chip low-score">LOW SCORE</span></div></div>
+<div class="kpi"><div class="val" style="color:#991b1b;font-size:1.5rem">{{ sales.count_pipeline }}</div><div class="lbl"><span class="flag-chip pipeline">PIPELINE</span></div></div>
+<div class="kpi"><div class="val" style="color:#374151;font-size:1.5rem">{{ sales.count_no_data }}</div><div class="lbl"><span class="flag-chip no-data">NO DATA</span></div></div>
+<div class="kpi"><div class="val" style="color:#0369a1;font-size:1.5rem">{{ sales.count_no_plan }}</div><div class="lbl"><span class="flag-chip no-plan">NO PLAN</span></div></div>
+<div class="kpi"><div class="val" style="color:#92400e;font-size:1.5rem">{{ sales.count_fp_mismatch }}</div><div class="lbl"><span class="flag-chip fp-mismatch">FP MISMATCH</span></div></div>
+<div class="kpi"><div class="val" style="color:#0369a1;font-size:1.5rem">{{ sales.count_initial_scope }}</div><div class="lbl"><span class="flag-chip initial-scope">INITIAL SCOPE</span></div></div>
+</div>
 
 {% if sales.orgs %}
 {% for org in sales.orgs %}
@@ -359,7 +369,7 @@ tr:hover td{background:#fafbfc}
 <tbody>
 {% for t in user.traces %}
 <tr class="{% if t.flags %}flagged-row{% else %}muted-row{% endif %}"{% if t.narrative_html %} onclick="toggleDetail('d-{{ t.trace_id[:8] }}')" style="cursor:pointer"{% endif %}>
-<td>{% if t.flags %}{% for f in t.flags %}<span class="flag-chip {% if f == 'FLOOR PLAN' %}floor-plan{% elif f == 'LOW SCORE' %}low-score{% elif f == 'ORG ROOMS' %}org-rooms{% elif f == 'PIPELINE' %}pipeline{% else %}no-data{% endif %}">{{ f }}</span>{% endfor %}{% else %}--{% endif %}</td>
+<td>{% if t.flags %}{% for f in t.flags %}<span class="flag-chip {% if f == 'FP MISMATCH' %}fp-mismatch{% elif f == 'LOW SCORE' %}low-score{% elif f == 'ORG ROOMS' %}org-rooms{% elif f == 'PIPELINE' %}pipeline{% elif f == 'NO PLAN' %}no-plan{% elif f == 'INITIAL SCOPE' %}initial-scope{% elif f == 'NO DATA' %}no-data{% else %}no-data{% endif %}">{{ f }}</span>{% endfor %}{% else %}--{% endif %}</td>
 <td>{{ t.date }}</td>
 <td{% if t.flags %} style="font-weight:700"{% endif %}>{{ t.overall_score }}</td>
 <td>{{ t.input_score }}</td>

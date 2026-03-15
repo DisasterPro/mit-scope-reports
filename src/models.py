@@ -271,3 +271,11 @@ class SalesReport:
     total_users: int
     orgs: list[SalesOrg] = field(default_factory=list)
 
+    # Flag summary counts
+    count_low_score: int = 0
+    count_pipeline: int = 0
+    count_no_data: int = 0
+    count_no_plan: int = 0
+    count_fp_mismatch: int = 0
+    count_initial_scope: int = 0
+

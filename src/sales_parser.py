@@ -60,6 +60,12 @@ class SalesDataBuilder:
         total_flagged = sum(1 for t in traces if t.flags)
         unique_users = set(t.user_email for t in traces)
 
+        # Count flag totals
+        flag_counter: dict[str, int] = {}
+        for t in traces:
+            for f in t.flags:
+                flag_counter[f] = flag_counter.get(f, 0) + 1
+
         return SalesReport(
             period_start=from_ts,
             period_end=to_ts,
@@ -68,6 +74,12 @@ class SalesDataBuilder:
             total_orgs=len(orgs),
             total_users=len(unique_users),
             orgs=orgs,
+            count_low_score=flag_counter.get("LOW SCORE", 0),
+            count_pipeline=flag_counter.get("PIPELINE", 0),
+            count_no_data=flag_counter.get("NO DATA", 0),
+            count_no_plan=flag_counter.get("NO PLAN", 0),
+            count_fp_mismatch=flag_counter.get("FP MISMATCH", 0),
+            count_initial_scope=flag_counter.get("INITIAL SCOPE", 0),
         )
 
     def _parse_index_table(self, content: str) -> list[SalesTrace]:
@@ -189,25 +201,33 @@ class SalesDataBuilder:
                 if trace.photos == 0 or trace.notes == 0:
                     flags.append("NO DATA")
 
+            # Initial scope detection: note(s) with no photos/plans
+            if trace.notes >= 1 and trace.photos == 0 and trace.plans == 0:
+                flags.append("INITIAL SCOPE")
+
             # Check trace detail section for flag signals
             trace_section = self._get_trace_section(content, trace.trace_id)
             if trace_section:
                 provided = self._extract_after(trace_section, "### What Was Provided")
                 if provided:
-                    # Floor plan trigger 1: room names don't match floor plan labels
+                    # Floor plan mismatch: room names don't match floor plan labels
                     if re.search(r"Room Name Matching\s*\|\s*Issues", provided):
-                        flags.append("FLOOR PLAN")
+                        flags.append("FP MISMATCH")
 
-                    # Floor plan trigger 2: plans uploaded but no measurements extracted
-                    if "FLOOR PLAN" not in flags:
+                    # Floor plan partial: plans uploaded but no measurements extracted
+                    if "FP MISMATCH" not in flags:
                         if re.search(r"Floor Plans\s*\|\s*Partial", provided) and "0 rooms with measurements" in provided:
-                            flags.append("FLOOR PLAN")
+                            flags.append("FP MISMATCH")
 
-                # Floor plan trigger 3: measurement validation warnings
-                if "FLOOR PLAN" not in flags:
+                # Floor plan mismatch: measurement validation warnings
+                if "FP MISMATCH" not in flags:
                     issue_text = self._extract_after(trace_section, "### Issue Assessment")
                     if issue_text and "measurement validation warning" in issue_text:
-                        flags.append("FLOOR PLAN")
+                        flags.append("FP MISMATCH")
+
+            # No plan flag (informational — no floor plan provided at all)
+            if trace.plans == 0 and "FP MISMATCH" not in flags:
+                flags.append("NO PLAN")
 
                 trace.is_enhanced = "### Bug Assessment" in trace_section
 
