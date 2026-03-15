@@ -78,6 +78,24 @@
 
 ## Weekly Reports (7d)
 
+### 2026-03-08 (Weekly)
+**Generated:** 2026-03-15 01:03 UTC | **Period:** 7d (2026-03-08 to 2026-03-15) | **Traces:** 638
+
+| Metric | Cost | Latency |
+|---|---|---|
+| Average | $0.59 | 156.8s |
+| Median | $0.46 | 118.0s |
+| P75 | $0.67 | 175.1s |
+| P95 | $1.56 | 389.0s |
+| Min | $0.06 | 14.1s |
+| Max | $3.78 | 1293.5s |
+
+**Top Cost Users:** christiaan@insightrestoration.com ($3.05), jennifer.rousseau@us.belfor.com ($2.88), scott.shizuru@us.belfor.com ($2.64)
+
+**Top Latency Users:** scott.shizuru@us.belfor.com (697s), christiaan@insightrestoration.com (544s), mark.heinemann@ca.belfor.com (475s)
+
+---
+
 ### 2026-03-01 (Weekly)
 **Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08) | **Traces:** 473
 

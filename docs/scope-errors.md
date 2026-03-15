@@ -70,6 +70,30 @@
 
 ## Weekly Reports (7d)
 
+### 2026-03-08 (Weekly)
+**Generated:** 2026-03-15 01:03 UTC | **Period:** 7d (2026-03-08 to 2026-03-15)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 638 |
+| Error Traces | 33 (5.2%) |
+
+| Error Type | Node | Count | Filter |
+|---|---|---|---|
+| ImageProcessingError | MeasurementImagesValidator | 22 | -- |
+| DataProcessingError | Standards | 3 | -- |
+| Other | Assembly | 2 | -- |
+| Unknown | Unknown | 2 | -- |
+| ContentFilterCompletion | Merge | 1 | Sexual |
+| Unknown | Drying | 1 | -- |
+| ImageProcessingError | Description | 1 | -- |
+| EarlyPipelineError | Merge | 1 | -- |
+
+**Affected Users:** mandrew@servicemasterbc.ca (15x ImageProcessingError (15)), sandyrehaume@winmarkelowna.com (2x ImageProcessingError (2)), simon@servicemasterbc.ca (1x Other), christiaan@insightrestoration.com (1x ImageProcessingError), kristy.persson+hub@ca.belfor.com (1x ImageProcessingError)
+  ...and 13 more
+
+---
+
 ### 2026-03-01 (Weekly)
 **Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08)
 

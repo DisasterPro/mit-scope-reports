@@ -82,6 +82,25 @@
 
 ## Weekly Reports (7d)
 
+### 2026-03-08 (Weekly)
+**Generated:** 2026-03-15 01:03 UTC | **Period:** 7d (2026-03-08 to 2026-03-15)
+
+| Metric | Value |
+|---|---|
+| Total Production Scopes | 638 |
+| Unique Organizations | 87 |
+| Unique Users | 193 |
+| Total Cost | $379.54 |
+| Average Cost / Scope | $0.59 |
+
+**Top Users:** kay.cayuga+owensound@ca.belfor.com (20), trey@atlassoo.com (18), tracey.paris@ca.belfor.com (17), kristy.persson+hub@ca.belfor.com (16), mandrew@servicemasterbc.ca (15)
+
+**Top Orgs:** BELFOR Canada (365), Servicemasterbc (23), BELFOR US (20), Atlassoo (20), Restoration 1 (18)
+
+**Cost Outliers:** 24 users with avg > $1.00/scope
+
+---
+
 ### 2026-03-01 (Weekly)
 **Generated:** 2026-03-08 05:24 UTC | **Period:** 7d (2026-03-01 to 2026-03-08)
 
