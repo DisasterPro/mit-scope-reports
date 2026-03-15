@@ -53,7 +53,7 @@ jobs:
           else
             # Cron: Sunday = weekly, all other days = daily
             DOW=$(date -u +%u)
-            if [ "$DOW" = "7" ]; then
+            if [ "$DOW" = "1" ]; then
               echo "period=weekly" >> "$GITHUB_OUTPUT"
             else
               echo "period=daily" >> "$GITHUB_OUTPUT"

@@ -198,6 +198,9 @@ class TraceEvalReport:
     issue_score: int = 0
     issue_label: str = ""
 
+    # Flags
+    is_initial_scope: bool = False
+
     # Raw issue data (for bug logging)
     issue_details: dict = field(default_factory=dict)
 

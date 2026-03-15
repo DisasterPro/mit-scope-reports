@@ -171,7 +171,7 @@ def _evaluate_single_trace(
     issue_data = _extract_issue_data(observations)
 
     # --- Score ---
-    input_score, input_label = _score_input(input_stats, room_stats)
+    input_score, input_label, is_initial_scope = _score_input(input_stats, room_stats)
     pipeline_score, pipeline_label = _score_pipeline(
         trace_data, pipeline_health, room_stats,
     )
@@ -206,6 +206,7 @@ def _evaluate_single_trace(
         unmatched_floor_plan_rooms=room_stats.get("unmatched_fp_rooms", 0),
         input_score=input_score,
         input_label=input_label,
+        is_initial_scope=is_initial_scope,
         pipeline_score=pipeline_score,
         pipeline_label=pipeline_label,
         issue_score=issue_score,
@@ -495,38 +496,66 @@ def _extract_issue_data(observations: dict) -> dict:
 # ── Scoring ───────────────────────────────────────────────────────
 
 
-def _score_input(input_stats: dict, room_stats: dict) -> tuple[int, str]:
-    """Score input quality 1-5."""
-    points = 0.0
+def _score_input(input_stats: dict, room_stats: dict) -> tuple[int, str, bool]:
+    """Score input quality 1-5. Returns (score, label, is_initial_scope)."""
     photo_count = input_stats.get("photo_count", 0)
     note_count = input_stats.get("note_count", 0)
     floor_plan_count = input_stats.get("floor_plan_count", 0)
     affected = room_stats.get("affected", 1) or 1
     total = room_stats.get("total", 1) or 1
 
-    if photo_count >= 10:
-        points += 2
-    elif photo_count >= 1:
-        points += 1
+    # Initial scope detection: note(s) with nothing else
+    is_initial_scope = (
+        note_count >= 1
+        and photo_count == 0
+        and floor_plan_count == 0
+    )
 
-    if note_count >= affected:
-        points += 1
-    elif note_count >= 1:
-        points += 0.5
+    points = 0.0
 
+    # Photos (0-2 pts)
+    if photo_count >= 15:       points += 2.0
+    elif photo_count >= 5:      points += 1.5
+    elif photo_count > 0:       points += 1.0
+
+    # Technician Notes (0-1.5 pts)
+    if note_count >= 3:         points += 1.5
+    elif note_count >= 1:       points += 1.0
+
+    # Floor Plans (0-1 pt)
     if floor_plan_count >= 1 and room_stats.get("with_measurements", 0) > 0:
-        points += 1
+        points += 1.0
     elif floor_plan_count >= 1:
         points += 0.5
 
-    if input_stats.get("has_moisture", False):
-        points += 0.5
-
+    # Room Setup (0-0.5 pt)
     if room_stats.get("from_app", 0) > total * 0.5:
         points += 0.5
 
-    score = max(1, min(5, round(points + 0.5)))
-    return score, _INPUT_LABELS[score]
+    # Moisture/Hydro Data (0-0.5 pt)
+    if input_stats.get("has_moisture", False):
+        points += 0.5
+
+    # Coverage gap penalties
+    rooms_without_photos = room_stats.get("rooms_without_photos", 0)
+    rooms_without_notes = room_stats.get("rooms_without_notes", 0)
+    if affected > 0:
+        if rooms_without_photos > 0 and photo_count > 0:
+            gap_pct = rooms_without_photos / max(affected, 1)
+            points -= gap_pct * 0.5
+        if rooms_without_notes > 0 and note_count > 0:
+            gap_pct = rooms_without_notes / max(affected, 1)
+            points -= gap_pct * 0.25
+
+    # Map points (max ~7.5) to 1-5 scale
+    scaled = 1 + (points / 7.5) * 4
+    score = max(1, min(5, round(scaled)))
+
+    # Initial scope boost
+    if is_initial_scope and note_count >= 1:
+        score = max(score, 3)
+
+    return score, _INPUT_LABELS[score], is_initial_scope
 
 
 def _score_pipeline(
